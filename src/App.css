@@ -1,0 +1,15 @@
+
+:root {
+  --cream: #F5F0DE;
+  --brown: #7E3418;
+  --brown-lighter: #B56040;
+  --green: #10120A;
+
+  --bg-default: var(--cream);
+  --bg-green: var(--green);
+  --bg-brown: var(--brown);
+
+  --text-primary: var(--green);
+  --text-secondary: var(--cream);
+  --text-tertiary: var(--brown);
+}

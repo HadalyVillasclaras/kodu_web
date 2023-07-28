@@ -1,0 +1,22 @@
+@use "../settings/spacing";
+@use "../settings/colors";
+@use "../settings/border";
+
+
+.section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  &__bg-cream {
+    background-color: colors.$bg-cream;
+  }
+
+  &__bg-green {
+    background-color: colors.$bg-green;
+  }
+
+  &__bg-brown {
+    background-color: colors.$bg-brown;
+  }
+}

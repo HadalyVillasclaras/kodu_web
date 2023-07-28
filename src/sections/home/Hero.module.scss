@@ -1,0 +1,23 @@
+@use "../../design-system/settings/border";
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+
+  &__image {
+    border-radius: border.$radius-large;
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+    object-position: center -80px;
+  }
+
+  &__text {
+    text-align: center;
+    max-width: 450px;
+  }
+
+}

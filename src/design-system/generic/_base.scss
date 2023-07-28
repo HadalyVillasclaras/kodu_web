@@ -1,0 +1,16 @@
+@use "../settings/fonts";
+@use "../settings/colors";
+
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: fonts.$m;
+  color: colors.$text-primary;
+  font-family: Trap;
+  font-weight: 200;
+  font-size: 0.9rem;
+}

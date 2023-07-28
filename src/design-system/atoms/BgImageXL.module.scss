@@ -1,0 +1,8 @@
+@use "../settings/border";
+
+.bgImageXl {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: border.$radius-xl; 
+  border-top-right-radius: border.$radius-xl;
+}

@@ -1,0 +1,51 @@
+@use "../settings/colors";
+@use "../settings/fonts";
+
+.button {
+  border: none;
+  padding: 1rem 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+
+  &__default {
+    color: colors.$button-secondary;
+    text-transform: uppercase;
+    background-color: colors.$button-primary;
+    line-height: 0.6rem;
+  }
+
+  &__default:hover {
+    color: colors.$button-primary;
+    text-transform: uppercase;
+    background-color: colors.$button-secondary;
+  }
+
+  &__underline {
+    background: none;
+    padding: 0;
+    border-bottom: 1px solid;
+  }
+
+  &__underline-green {
+    @extend .button__underline;
+    color: colors.$button-primary;
+    border-bottom-color: colors.$button-primary;
+  }
+
+  &__underline-cream {
+    @extend .button__underline;
+    color: colors.$button-secondary;
+    border-bottom-color: colors.$button-secondary;
+  }
+
+  &__underline-brown {
+    @extend .button__underline;
+    color: colors.$button-tertiary;
+    border-bottom-color: colors.$button-tertiary;
+  }
+
+  &__underline:hover {
+    border-bottom-width: 2px;
+    font-weight: 400;
+  }
+}

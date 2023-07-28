@@ -1,0 +1,38 @@
+// Fonts
+@font-face {
+  font-weight: 200;
+  font-family: Trap;
+  src:
+    url("/src/assets/fonts/Trap-Light.otf")
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: Trap;
+  src:
+    url("/src/assets/fonts/Trap-Regular.otf")
+}
+
+@font-face {
+  font-weight: 600;
+  font-family: Trap;
+  src:
+    url("/src/assets/fonts/Trap-Medium.otf")
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: Trap;
+  src:
+    url("/src/assets/fonts/Trap-Bold.otf")
+}
+
+// Font sizes:
+$s: 0.8rem;
+$m: 1rem;
+$l: 1.2rem;
+
+$h1: 3rem;
+$h2: 2rem;
+$h3: 1.8rem;
+

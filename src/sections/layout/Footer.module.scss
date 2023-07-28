@@ -1,0 +1,8 @@
+@use '../../design-system/settings/colors';
+@use '../../design-system/settings/spacing';
+
+.footer-container {
+  height: 40vh;
+  background-color: colors.$bg-green;
+  padding: spacing.$section_primary;
+}
