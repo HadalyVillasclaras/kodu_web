@@ -3,7 +3,9 @@
 .heading {
   font-family: "Trap";
 
+  &::after {
  
+  }
 
   &--h1 {
     font-size: fonts.$h1;
@@ -24,4 +26,16 @@
   }
 }
 
- 
+@keyframes blink {
+  0% {
+    visibility: visible;
+  }
+
+  50% {
+    visibility: hidden;
+  }
+
+  100% {
+    visibility: visible;
+  }
+}

@@ -14,3 +14,11 @@ body {
   font-weight: 200;
   font-size: 0.9rem;
 }
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
