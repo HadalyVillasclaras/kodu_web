@@ -10,31 +10,24 @@ type SectionProps = {
   customStyle?: any;
   bgColor?: BgColors;
   bgImage?: string;
+  size?: "small" | "big" | "full";
 }
 
 export const Section = ({
   bgColor = 'cream',
-  bgImage,
+  size = "full",
   ariaLabel,
   ariaLabelledby,
   customStyle,
   children
 }: SectionProps) => {
   const bgColorClass = styles[`section__bg-${bgColor}`];
-  const bgImageClass = bgImage ? { backgroundImage: `url(${bgImage})` } : {};
+  const sectionSize = size ? styles[`section__${size}`] : "";
+
 
   return (
-    <section
-      className={`${styles["section"]} ${bgColorClass} ${customStyle}`}
-    >
-      {
-        bgImage
-        ?
-        <div className={styles["section__bg-image"]} style={bgImageClass}>
-          {children}
-        </div>
-        : children
-      }
+    <section className={`${styles["section"]} ${bgColorClass} ${sectionSize} ${customStyle}`}>
+      {children}
     </section>
   );
 }

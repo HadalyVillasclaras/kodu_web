@@ -2,11 +2,22 @@
 @use "../settings/colors";
 @use "../settings/border";
 
-
 .section {
   position: relative;
   width: 100vw;
   height: 100vh;
+
+  &__small {
+    padding: spacing.$section_small;
+  }
+
+  &__big{
+    padding: spacing.$section_big;
+  }
+
+  &__full {
+    padding: spacing.$section_full;
+  }
 
   &__bg-cream {
     background-color: colors.$bg-cream;

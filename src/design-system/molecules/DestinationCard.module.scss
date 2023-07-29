@@ -1,0 +1,22 @@
+@use "../settings/spacing";
+@use "../settings/colors";
+@use "../settings/border";
+
+.destination-card {
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$xs;
+
+  &__image {
+    border-radius: border.$radius-mid;
+  }
+
+  &__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+
+}
