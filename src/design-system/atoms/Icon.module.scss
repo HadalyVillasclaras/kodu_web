@@ -5,13 +5,9 @@
   width: var(--icon-size);
   height: var(--icon-size);
 
-  > svg {
-    width: 100%;
-    height: 100%;
-  }
 
-  > svg:hover {
-    stroke-width: 3 !important;
+  &:hover {
+    stroke-width: 2 !important;
   }
 
   &--small {
@@ -23,7 +19,7 @@
   }
 
   &--large {
-    --icon-size: 1.75rem;
+    --icon-size: 2rem;
   }
 
   &--xl {

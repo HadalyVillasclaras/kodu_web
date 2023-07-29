@@ -1,7 +1,10 @@
 @use "../settings/fonts";
 @use "../settings/colors";
 
+* {
+  padding: 0;
 
+}
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -21,4 +24,12 @@ button {
   justify-content: center;
   background: transparent;
   border: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
 }

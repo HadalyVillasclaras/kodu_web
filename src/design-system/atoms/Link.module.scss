@@ -1,0 +1,37 @@
+@use "../settings/colors";
+
+.link {
+  color: colors.$text-secondary;
+  font-weight: 600;
+  font-size: 3rem; //use font sizes
+
+  &:active {
+    color: colors.$text-secondary;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    // color: colors.$state-active;
+  }
+
+  &:disabled {
+    // color: colors.$state-disabled;
+  }
+
+  &--primary {
+    color: colors.$text-primary;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--secondary {
+    color: colors.$text-secondary;
+  }
+
+  &--tertiary {
+    color: colors.$text-tertiary;
+  }
+
+}
