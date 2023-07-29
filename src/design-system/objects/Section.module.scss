@@ -21,13 +21,28 @@
 
   &__bg-cream {
     background-color: colors.$bg-cream;
+
+    ::selection {
+      color: colors.$bg-cream; 
+      background: colors.$bg-brown;
+    }
   }
 
   &__bg-green {
     background-color: colors.$bg-green;
+
+    ::selection {
+      color: colors.$bg-brown; 
+      background: colors.$bg-cream;
+    }
   }
 
   &__bg-brown {
     background-color: colors.$bg-brown;
+
+    ::selection {
+      color: colors.$bg-green; 
+      background: colors.$bg-cream;
+    }
   }
 }
