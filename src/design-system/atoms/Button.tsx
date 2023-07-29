@@ -8,6 +8,8 @@ type ButtonProps = {
 };
 
 export const Button = ({ variant="default", size, color="green", text="Button" }: ButtonProps) => {
+  console.log(variant);
+  console.log(color);
   return (
    <button className={`${styles['button']} ${styles[`button__${variant}-${color}`]}`}>
     <span>{text}</span> 

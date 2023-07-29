@@ -2,19 +2,35 @@
 @use "../settings/fonts";
 
 .button {
-  padding: 1rem 1rem;
-  font-family: Arial, Helvetica, sans-serif;
   display: flex;
 
   &__default {
-    color: colors.$button-secondary;
+    padding: 0.7rem 3rem;
     text-transform: uppercase;
-    background-color: colors.$button-primary;
     line-height: 0.6rem;
+  }
+  
+  &__default-green {
+    @extend .button__default;
+    background-color: colors.$button-primary;
+    color: colors.$button-secondary;
+  }
+
+  &__default-cream {
+    @extend .button__default;
+    background-color: colors.$button-secondary;
+    color: colors.$button-primary;
+  }
+
+  &__default-brown {
+    @extend .button__default;
+    background-color: colors.$button-tertiary;
+    color: colors.$button-secondary;
   }
 
   &__default:hover {
     color: colors.$button-primary;
+    border: 1px solid colors.$button-primary;
     text-transform: uppercase;
     background-color: colors.$button-secondary;
   }
