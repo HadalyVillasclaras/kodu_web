@@ -21,7 +21,7 @@
 
   &__bg-cream {
     background-color: colors.$bg-cream;
-
+    color: colors.$bg-brown;
     ::selection {
       color: colors.$bg-cream; 
       background: colors.$bg-brown;
@@ -30,6 +30,7 @@
 
   &__bg-green {
     background-color: colors.$bg-green;
+    color: colors.$bg-cream;
 
     ::selection {
       color: colors.$bg-brown; 
@@ -39,6 +40,7 @@
 
   &__bg-brown {
     background-color: colors.$bg-brown;
+    color: colors.$bg-cream; 
 
     ::selection {
       color: colors.$bg-green; 

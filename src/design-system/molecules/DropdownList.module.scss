@@ -1,0 +1,57 @@
+@use "../settings/spacing";
+@use "../settings/colors";
+@use "../settings/border";
+
+.dropdown {
+  position: relative;
+  // min-width: 100px;
+}
+
+.dropdown__button {
+  display: block;
+  min-width: 200px;
+  text-align: left;
+  line-height: 1;
+  padding: 0 0.8rem;
+
+  &-cream {
+    border-bottom: 1px solid colors.$cream;
+    border-right: 1px solid colors.$cream;
+    color: colors.$cream;
+  }
+
+  &-green {
+    border-bottom: 1px solid colors.$green;
+    border-right: 1px solid colors.$green;
+    color: colors.$green;
+  }
+
+  &-brown {
+    border-bottom: 1px solid colors.$brown;
+    border-right: 1px solid colors.$brown;
+    color: colors.$brown;
+  }
+}
+
+.dropdown__list {
+  position: absolute;
+  min-width: 100%;
+  border: 1px solid colors.$green;
+  margin-top: 0.3rem;
+  z-index: 10;
+  color: colors.$text-secondary;
+  background: colors.$green;
+
+  
+}
+
+.dropdown__option {
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: 600;
+    // color: colors.$cream;
+    // background: colors.$cream;
+  }
+}

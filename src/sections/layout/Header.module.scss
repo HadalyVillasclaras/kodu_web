@@ -1,7 +1,7 @@
 @use "../../design-system/settings/spacing";
 
 .header {
-  position: fixed;
+  position: absolute;
   padding: 0 1rem ;
   display: flex;
   justify-content: space-between;

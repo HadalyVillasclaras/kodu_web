@@ -1,9 +1,12 @@
-import React from 'react'
+import styles from "./Input.module.scss";
 
-type Props = {}
+type Props = {
+  placeholder: string,
+  type?: "text" | "number" | "date";
+}
 
-const Input = (props: Props) => {
+export const Input = ({placeholder, type="text"}: Props) => {
   return (
-    <input/>
+    <input className={styles["input"]} type={type} placeholder={placeholder} />
   )
 }

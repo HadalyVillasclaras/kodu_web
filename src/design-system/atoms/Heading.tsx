@@ -10,7 +10,7 @@ type HeadingProps = {
   children: ReactNode;
 }
 
-export const Heading = ({ children, as="h1", size="medium", color="green"}: HeadingProps) => {
+export const Heading = ({ children, as="h1", size="medium", color}: HeadingProps) => {
   const Tag = as;
 
   return (

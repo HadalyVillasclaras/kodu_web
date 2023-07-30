@@ -24,7 +24,6 @@ export const Section = ({
   const bgColorClass = styles[`section__bg-${bgColor}`];
   const sectionSize = size ? styles[`section__${size}`] : "";
 
-
   return (
     <section className={`${styles["section"]} ${bgColorClass} ${sectionSize} ${customStyle}`}>
       {children}

@@ -10,6 +10,7 @@ import { Navbar } from './sections/layout/Navbar';
 import { useState } from 'react';
 import { NavbarControl } from './sections/layout/NavbarControl';
 import { Destinations } from './sections/home/Destinations';
+import { Input } from './design-system/atoms/Input';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,9 @@ function App() {
       </div>
       <main>
         <Section size='big'>
+        
           <Hero/>
+
         </Section>
         <Section>
           <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap1.png'>
@@ -39,7 +42,7 @@ function App() {
         <Section bgColor='brown' size='big'>
           <AboutUs />
         </Section>
-        <Section bgColor='green'>
+        <Section bgColor='green' size='small'>
         </Section>
         <Section bgColor='green'>
           <Container bgImage='/src/assets/imgs/homes/bloom/bloom3.png'>
