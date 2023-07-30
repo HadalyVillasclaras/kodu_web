@@ -11,6 +11,11 @@ import { useState } from 'react';
 import { NavbarControl } from './sections/layout/NavbarControl';
 import { Destinations } from './sections/home/Destinations';
 import { Input } from './design-system/atoms/Input';
+import { Heading } from './design-system/atoms/Heading';
+import { DestinationCard } from './design-system/molecules/DestinationCard';
+import { ArrowsNav } from './design-system/molecules/ArrowsNav';
+import { Carousel } from './design-system/molecules/Carousel';
+import { Gallery } from './sections/home/Gallery';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,9 +36,7 @@ function App() {
       </div>
       <main>
         <Section size='big'>
-        
           <Hero/>
-
         </Section>
         <Section>
           <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap1.png'>
@@ -42,7 +45,8 @@ function App() {
         <Section bgColor='brown' size='big'>
           <AboutUs />
         </Section>
-        <Section bgColor='green' size='small'>
+        <Section bgColor='green' size='small' customStyle={{justifyContent:"space-around"}}>
+          <Gallery/>
         </Section>
         <Section bgColor='green'>
           <Container bgImage='/src/assets/imgs/homes/bloom/bloom3.png'>
