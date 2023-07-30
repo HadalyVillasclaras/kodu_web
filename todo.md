@@ -1,0 +1,5 @@
+- links sizes (used in sidebar and footer)
+- import eklektyk font
+- router
+- architecture
+- link -- blank target

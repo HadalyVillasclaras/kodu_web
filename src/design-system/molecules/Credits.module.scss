@@ -1,0 +1,35 @@
+@use '../../design-system/settings/colors';
+@use '../../design-system/settings/spacing';
+
+.credits {
+  background-color: colors.$bg-brown;
+  color: colors.$text-primary;
+  padding: spacing.$section_small;
+  flex-direction: column;
+  display: flex;
+  gap: 4rem;
+
+  p {
+    font-family: "Eklektyk";
+    font-size: 2rem;
+  }
+
+  &__sect {
+    display: flex;
+
+    &-up {
+      flex-direction: row;
+      justify-content: space-between;
+
+      p {
+        font-size: 3rem;
+
+      }
+    }
+
+    &-down {
+      flex-direction: column;
+      text-align: right;
+    }
+  }
+}

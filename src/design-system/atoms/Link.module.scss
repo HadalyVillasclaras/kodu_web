@@ -3,7 +3,7 @@
 .link {
   color: colors.$text-secondary;
   font-weight: 600;
-  font-size: 3rem; //use font sizes
+  font-size: 1rem;
 
   &:active {
     color: colors.$text-secondary;
@@ -18,20 +18,40 @@
     // color: colors.$state-disabled;
   }
 
-  &--primary {
-    color: colors.$text-primary;
+  &:hover {
+    text-decoration: underline;
+  }
 
-    &:hover {
-      text-decoration: underline;
+  &__color {
+    &-primary {
+      color: colors.$text-primary;
+    }
+
+    &-secondary {
+      color: colors.$text-secondary;
+    }
+
+    &-tertiary {
+      color: colors.$text-tertiary;
     }
   }
 
-  &--secondary {
-    color: colors.$text-secondary;
-  }
+  &__size {
+    &-xs {
+      font-size: 0.8rem;
+    }
 
-  &--tertiary {
-    color: colors.$text-tertiary;
+    &-small {
+      font-size: 1rem;
+    }
+
+    &-mid {
+      font-size: 2rem;
+    }
+
+    &-big {
+      font-size: 3rem;
+    }
   }
 
 }

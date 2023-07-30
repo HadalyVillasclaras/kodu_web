@@ -16,6 +16,7 @@ import { DestinationCard } from './design-system/molecules/DestinationCard';
 import { ArrowsNav } from './design-system/molecules/ArrowsNav';
 import { Carousel } from './design-system/molecules/Carousel';
 import { Gallery } from './sections/home/Gallery';
+import { Credits } from './design-system/molecules/Credits';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,6 +58,7 @@ function App() {
         </Section>
       </main>
       <Footer />
+      <Credits/>
     </>
   )
 }
