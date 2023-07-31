@@ -12,6 +12,7 @@ import { NavbarControl } from './sections/layout/NavbarControl';
 import { Destinations } from './sections/home/Destinations';
 import { Gallery } from './sections/home/Gallery';
 import { Credits } from './design-system/molecules/Credits';
+import { Cookies} from "./design-system/molecules/Cookies";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,7 @@ function App() {
         {isOpen && <Navbar isOpen={isOpen} />}
       </div>
       <main>
+        <Cookies/>
         <Section size='big'>
           <Hero/>
         </Section>

@@ -1,0 +1,15 @@
+@use "../settings/colors";
+
+.logo {
+  &__green {
+    fill: colors.$green;
+  }
+
+  &__cream {
+    fill: colors.$cream;
+  }
+
+  &__brown {
+    fill: colors.$brown;
+  }
+}
