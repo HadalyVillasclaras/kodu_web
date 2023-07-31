@@ -1,8 +1,8 @@
+import "./design-system/index.scss";
+import "./App.css"
 import { Section } from './design-system/objects/Section'
 import { Footer } from './sections/layout/Footer'
 import { Header } from './sections/layout/Header';
-import "./design-system/index.scss";
-import "./App.css"
 import { Container } from './design-system/objects/Container';
 import { Hero } from './sections/home/Hero';
 import { AboutUs } from './sections/home/AboutUs';
@@ -10,11 +10,6 @@ import { Navbar } from './sections/layout/Navbar';
 import { useState } from 'react';
 import { NavbarControl } from './sections/layout/NavbarControl';
 import { Destinations } from './sections/home/Destinations';
-import { Input } from './design-system/atoms/Input';
-import { Heading } from './design-system/atoms/Heading';
-import { DestinationCard } from './design-system/molecules/DestinationCard';
-import { ArrowsNav } from './design-system/molecules/ArrowsNav';
-import { Carousel } from './design-system/molecules/Carousel';
 import { Gallery } from './sections/home/Gallery';
 import { Credits } from './design-system/molecules/Credits';
 
@@ -40,7 +35,7 @@ function App() {
           <Hero/>
         </Section>
         <Section>
-          <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap1.png'>
+          <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap-2b.jpg'>
           </Container>
         </Section>
         <Section bgColor='brown' size='big'>
@@ -50,7 +45,7 @@ function App() {
           <Gallery/>
         </Section>
         <Section bgColor='green'>
-          <Container bgImage='/src/assets/imgs/homes/bloom/bloom3.png'>
+          <Container bgImage='/src/assets/imgs/homes/bloom/bloom-3.png'>
           </Container>
         </Section>
         <Section size='small'>

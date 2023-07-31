@@ -1,20 +1,22 @@
 import { ReactNode } from 'react'
 import styles from './DestinationsGrid.module.scss';
 import { DestinationCard } from '../molecules/DestinationCard';
+import lodgins from '../../data/Lodgins.json';
 
 type GridProps = {
   // children: ReactNode; 
 }
 
 export const DestinationsGrid = ({  }: GridProps) => {
+  console.log(lodgins);
   return (
     <section className={styles["destinations-grid"]}>
-        <DestinationCard homeName="Home 1" price={39} src='/src/assets/imgs/homes/paraty/paraty1.jpeg'/>
-        <DestinationCard homeName="Home 2" price={39} src='/src/assets/imgs/homes/paraty/paraty1.jpeg'/>
-        <DestinationCard homeName="Home 3" price={39} src='/src/assets/imgs/homes/paraty/paraty1.jpeg'/>
-        <DestinationCard homeName="Home 4" price={39} src='/src/assets/imgs/homes/paraty/paraty1.jpeg'/>
-        <DestinationCard homeName="Home 5" price={39} src='/src/assets/imgs/homes/paraty/paraty1.jpeg'/>
-        <DestinationCard homeName="Home 6" price={39} src='/src/assets/imgs/homes/paraty/paraty1.jpeg'/>
+      {
+        lodgins.map((lodgin) => {
+          return <DestinationCard key={lodgin.id} homeName={lodgin.name} price={lodgin.price} src={lodgin.images[0]}/>
+        })
+      }
+        
     </section>
   )
 }

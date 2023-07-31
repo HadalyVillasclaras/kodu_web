@@ -1,8 +1,7 @@
 @use "../settings/fonts";
 
 .heading {
-  font-family: "Trap";
-
+  font-family: "Eklektyk";
   &::after {
  
   }
@@ -10,7 +9,7 @@
   &--h1 {
     font-size: fonts.$h1;
     font-weight: 700;
-    line-height: 3rem;
+    line-height: 4rem;
   }
 
   &--h2 {
@@ -18,11 +17,12 @@
     font-weight: 600;
     line-height: 2.4rem;
   }
-
+  
   &--h3 {
+    font-family: "Trap";
     font-size: fonts.$h3;
     font-weight: 400;
-    line-height: 1.5rem;
+    line-height: 2rem;
   }
 }
 

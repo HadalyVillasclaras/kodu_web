@@ -17,7 +17,7 @@ export const AboutUs = () => {
         <Button variant='underline' color='cream' text='Know more about it +'/>
       </div>
       <div className={styles['about-us__image-container']}>
-        <img className={styles['about-us__image']} src="/src/assets/imgs/homes/paraty/paraty2.png" alt="description" />
+        <img className={styles['about-us__image']} src="/src/assets/imgs/homes/paraty/paraty-2.jpeg" alt="description" />
       </div>
     </section>
     <ArrowsNav color="cream"/>
