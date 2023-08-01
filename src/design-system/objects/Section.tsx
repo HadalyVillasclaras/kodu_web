@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import styles from "./Section.module.scss";
-
-type BgColors = "cream" | "green" | "brown";
+import { Colors, SectionSize } from "../types";
 
 type SectionProps = {
   id?: string,
@@ -9,9 +8,9 @@ type SectionProps = {
   ariaLabel?: string;
   ariaLabelledby?: string;
   customStyle?: any;
-  bgColor?: BgColors;
+  bgColor?: Colors;
   bgImage?: string;
-  size?: "small" | "big" | "full";
+  size?: SectionSize;
 }
 
 export const Section = ({

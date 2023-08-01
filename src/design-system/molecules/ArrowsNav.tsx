@@ -1,6 +1,5 @@
-import { IconButton } from '../atoms/IconButton';
-
-type Colors = "cream" | "green" | "brown";
+import { IconButton } from '../atoms';
+import { Colors } from '../types';
 
 type ArrowsNavProps = {
   color: Colors;

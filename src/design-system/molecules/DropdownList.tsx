@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './DropdownList.module.scss';
-
-type Colors = "cream" | "green" | "brown";
+import { Colors } from '../types';
 
 type DropdownListProps = {
   options: Array<string>;

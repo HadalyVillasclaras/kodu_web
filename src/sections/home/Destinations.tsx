@@ -1,4 +1,4 @@
-import { Heading } from '../../design-system/atoms/index'
+import { Heading } from '../../design-system/atoms'
 import { DestinationsGrid } from '../../design-system/objects/DestinationsGrid'
 
 export const Destinations = () => {

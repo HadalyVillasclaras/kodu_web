@@ -1,15 +1,15 @@
 import styles from './Footer.module.scss';
 import navItems from '../../data/NavItems.json';
-import { Link, Logo } from '../../design-system/atoms/index';
+import { Link, Logo } from '../../design-system/atoms';
 
 export const Footer = () => {
   return (
     <footer className={styles["footer"]}>
-      <Logo color='cream' size={12} />
+      <Logo color='cream' size={7} />
       <ul className={styles["footer__nav-list"]}>
         {navItems.map((navItem, index) => (
           <li key={index}>
-            <Link size='mid' href={navItem.link}>{navItem.name}</Link>
+            <Link size='m' href={navItem.link}>{navItem.name}</Link>
           </li>
         ))}
       </ul>

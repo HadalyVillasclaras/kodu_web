@@ -1,6 +1,6 @@
 import { Section } from '../design-system/objects/Section'
 import { Container } from '../design-system/objects/Container'
-import { Hero, AboutUs, Gallery, Destinations } from '../sections/home/index'
+import { Hero, AboutUs, Gallery, Destinations } from '../sections/home'
 
 export const HomePage = () => {
   return (

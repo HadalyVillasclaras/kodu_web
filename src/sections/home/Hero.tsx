@@ -1,5 +1,5 @@
 import styles from "./Hero.module.scss";
-import { Heading } from '../../design-system/atoms/index';
+import { Heading } from '../../design-system/atoms';
 
 
 export const Hero = () => {

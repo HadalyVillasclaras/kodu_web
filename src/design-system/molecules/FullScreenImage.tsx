@@ -1,4 +1,4 @@
-import { IconButton } from '../atoms/IconButton';
+import { IconButton } from '../atoms';
 import { ArrowsNav } from './ArrowsNav';
 import styles from "./FullScreenImage.module.scss";
 

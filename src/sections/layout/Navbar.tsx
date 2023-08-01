@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.scss";
-import { Link } from '../../design-system/atoms/index';
+import { Link } from '../../design-system/atoms';
 import navItems from '../../data/NavItems.json';
 import { NavbarControl } from "./NavbarControl";
 import { useState } from "react";
@@ -22,7 +22,7 @@ export const Navbar = () => {
           <ul className={styles["navbar__list"]}>
             {navItems.map((navItem, index) => (
               <li key={index} onClick={toggleSidebar}>
-                <Link size="big" href={navItem.link}>{navItem.name}</Link>
+                <Link size="l" href={navItem.link}>{navItem.name}</Link>
               </li>
             ))}
           </ul>

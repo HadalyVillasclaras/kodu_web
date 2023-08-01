@@ -1,6 +1,6 @@
 import { DropdownList } from './DropdownList';
 import lodgins from "../../data/Lodgins.json"
-type Colors = "cream" | "green" | "brown";
+import { Colors } from '../types';
 
 type Props = {
   color?: Colors;
@@ -17,7 +17,6 @@ export const CheckAvailabilityForm = ({color = "green"}: Props) => {
       <DropdownList color={color} label='Destinations' options={destinationsOptions} />
       <DropdownList color={color} label='Dates' options={trimestry} />
       <DropdownList color={color} label='Travelers' options={["1", "2", "3", "4"]} />
-      {/*<Input placeholder='Dates (dd/mm/YYYY - dd/mm/YYYY)'/>*/}
     </section>
   )
 }

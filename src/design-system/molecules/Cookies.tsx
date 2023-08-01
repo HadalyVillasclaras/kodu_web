@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Button } from "../atoms/index"
+import { Button, IconButton } from "../atoms"
 import styles from "./Cookies.module.scss";
-import { IconButton } from "../atoms/IconButton";
 
 export const Cookies = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -18,7 +17,7 @@ export const Cookies = () => {
             icon='x'
             color='brown'
             ariaLabel="Close"
-            size="small"
+            size="s"
             onClick={handleClose}
           />
         </span>

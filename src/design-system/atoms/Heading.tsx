@@ -1,11 +1,10 @@
 import { ReactNode } from "react";
 import styles from "./Heading.module.scss";
-
-type BgColors = "cream" | "green" | "brown";
+import { Colors } from "../types";
 
 type HeadingProps = {
   as?: "h1" | "h2" | "h3";
-  color?: BgColors;
+  color?: Colors;
   children: ReactNode;
 }
 

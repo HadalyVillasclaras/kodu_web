@@ -1,11 +1,10 @@
-import  { useEffect, useState } from 'react';
+import  { useState } from 'react';
 import styles from './Carousel.module.scss';
 import { ArrowsNav } from './ArrowsNav';
-import { DestinationCard } from './DestinationCard';
 import { FullscreenImage } from './FullScreenImage';
 
 type CarouselProps = {
-  items: string[]; // Here assuming the items are strings (image URLs), adjust as per your requirements
+  items: string[]; 
 };
 
 export const Carousel = ({ items }: CarouselProps) => {

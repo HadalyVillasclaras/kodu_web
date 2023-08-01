@@ -4,3 +4,5 @@
 - architecture
 - link -- blank target
 - cookies true
+
+-type logo size
