@@ -1,4 +1,4 @@
-import { Icon } from '../../design-system/atoms/index'
+import { IconButton } from '../../design-system/atoms/IconButton';
 
 type NavbarControlProps = {
   isOpen: boolean;
@@ -8,9 +8,12 @@ type NavbarControlProps = {
 export const NavbarControl = ({ isOpen, toggleSidebar }: NavbarControlProps) => {
   return (
     <div style={{ position: "fixed", height: "100vh", right: "1rem", display: "flex", alignItems: "center", zIndex: "3" }}>
-      <button onClick={toggleSidebar} aria-label={isOpen ? "Close" : "Open"}>
-        <Icon icon={isOpen ? 'less' : 'plus'} size='large' color={isOpen ? 'cream' : 'green'} />
-      </button>
+      <IconButton 
+        icon={isOpen ? 'less' : 'plus'} 
+        color={isOpen ? 'cream' : 'green'} 
+        ariaLabel={isOpen ? "Close" : "Open"}
+        onClick={toggleSidebar}
+      />
     </div>
   )
 }

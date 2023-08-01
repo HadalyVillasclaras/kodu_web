@@ -4,7 +4,6 @@ import { ReactComponent as PlusIcon } from "./plus.svg";
 import { ReactComponent as LessIcon } from "./less.svg";
 import { ReactComponent as XIcon } from "./x.svg";
 
-
 const icons = {
   arrowLeft: ArrowLeftIcon,
   arrowRight: ArrowRightIcon,

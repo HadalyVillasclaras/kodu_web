@@ -1,6 +1,4 @@
-import icons from "../icons/Icons";
-
-
+import icons from "../../assets/icons/Icons";
 import styles from "./Icon.module.scss";
 
 export type Icons = keyof typeof icons;

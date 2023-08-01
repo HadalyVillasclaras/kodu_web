@@ -14,7 +14,7 @@ export const Button = ({ variant="default", size, color="green", text="Button", 
     className={`${styles['button']} ${styles[`button__${variant}-${color}`]}`}
     onClick={onClick}
    >
-    <span>{text}</span> 
+    {text}
    </button>
   );
 };

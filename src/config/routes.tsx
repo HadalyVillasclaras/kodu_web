@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { HomePage, HouseDetailPage, NotFoundPage } from '../pages/index'
-import { KoduLayout } from '../KoduLayout'
+import { KoduLayout } from '../template/KoduLayout'
 
 export const routes = createBrowserRouter([
   {

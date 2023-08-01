@@ -1,5 +1,5 @@
 import "./design-system/index.scss";
-import "./design-system/generic/App.css";
+import "./design-system/settings/App.css";
 import { RouterProvider } from 'react-router-dom'
 import { routes } from "./config/routes";
 

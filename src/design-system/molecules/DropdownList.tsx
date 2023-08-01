@@ -36,9 +36,10 @@ export const DropdownList = ({ options, label, color, onSelectChange }: Dropdown
 
   return (
     <div ref={ref} className={styles["dropdown"]}>
-      <button onClick={() => setIsOpen(!isOpen)} 
-      className={`${styles["dropdown__button"]} ${styles[`dropdown__button-${color}`]}`} 
-      aria-haspopup="listbox"
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className={`${styles["dropdown__button"]} ${styles[`dropdown__button-${color}`]}`} 
+        aria-haspopup="listbox"
         aria-expanded={isOpen}>
         {selectedOption || label }
       </button>
@@ -52,5 +53,5 @@ export const DropdownList = ({ options, label, color, onSelectChange }: Dropdown
         </ul>
       )}
     </div>
-  );
-};
+  )
+}

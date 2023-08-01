@@ -9,7 +9,7 @@ export const Credits = () => {
       <section className={`${styles["credits__sect"]} ${styles["credits__sect-up"]}`}>
         <div>
           <p>KODU is a fictional project made with</p>
-          <p>React | Typescript | SASS | NodeJS</p>
+          <p>React | Typescript | SCSS | NodeJS</p>
         </div>
         <Link size='small' mode="primary" href='https://github.com/HadalyVillasclaras/kodu_web'>GitHub</Link>
       </section>
