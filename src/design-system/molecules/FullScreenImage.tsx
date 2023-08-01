@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { Icon } from '../atoms/Icon';
+import { Icon } from '../atoms/index';
 import { ArrowsNav } from './ArrowsNav';
 import styles from "./FullScreenImage.module.scss";
 

@@ -1,6 +1,5 @@
 import styles from "./AboutUs.module.scss";
-import { Button } from '../../design-system/atoms/Button';
-import { Heading } from '../../design-system/atoms/Heading';
+import { Button, Heading } from '../../design-system/atoms/index';
 import { ArrowsNav } from "../../design-system/molecules/ArrowsNav";
 
 

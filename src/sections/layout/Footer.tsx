@@ -1,7 +1,6 @@
-import { Logo } from '../../design-system/atoms/Logo';
 import styles from './Footer.module.scss';
 import navItems from '../../data/NavItems.json';
-import { Link } from '../../design-system/atoms/Link';
+import { Link, Logo } from '../../design-system/atoms/index';
 import { Credits } from '../../design-system/molecules/Credits';
 
 export const Footer = () => {

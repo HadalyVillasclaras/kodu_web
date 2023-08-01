@@ -1,4 +1,4 @@
-import { Icon } from '../../design-system/atoms/Icon'
+import { Icon } from '../../design-system/atoms/index'
 
 type NavbarControlProps = {
   isOpen: boolean;

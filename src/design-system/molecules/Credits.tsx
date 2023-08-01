@@ -1,5 +1,5 @@
 import { Section } from '../objects/Section'
-import { Link } from '../atoms/Link'
+import { Link } from '../atoms/index'
 import styles from './Credits.module.scss';
 
 

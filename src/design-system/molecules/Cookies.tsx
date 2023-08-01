@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Button } from "../atoms/Button"
-import { Icon } from "../atoms/Icon";
+import { Button, Icon } from "../atoms/index"
 import styles from "./Cookies.module.scss";
 
 export const Cookies = () => {
@@ -20,6 +19,7 @@ export const Cookies = () => {
             <Button color="green" variant="underline" text="I refuse" onClick={handleClose} />
             <Button color="green" variant="underline" text="It's ok for me" onClick={handleClose} />
           </div>
+          {/* Alert mesg ! this is a prototype. No data will be stored in your browser */}
         </section>
       )
   )

@@ -1,5 +1,5 @@
 import { Carousel } from '../../design-system/molecules/Carousel'
-import { Heading } from '../../design-system/atoms/Heading'
+import { Heading } from '../../design-system/atoms/index'
 
 type Props = {}
 

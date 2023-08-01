@@ -1,6 +1,5 @@
-import { Logo } from '../../design-system/atoms/Logo';
+import { Logo, Button } from '../../design-system/atoms/index';
 import styles from './Header.module.scss';
-import { Button } from '../../design-system/atoms/Button';
 import { CheckAvailabilityForm } from '../../design-system/molecules/CheckAvailabilityForm';
 
 export const Header = () => {

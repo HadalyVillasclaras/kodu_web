@@ -1,4 +1,4 @@
-import { Icon } from '../atoms/Icon'
+import { Icon } from '../atoms/index'
 import styles from "./ArrowsNav.module.scss";
 
 type Colors = "cream" | "green" | "brown";
