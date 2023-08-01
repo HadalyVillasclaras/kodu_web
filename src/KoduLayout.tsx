@@ -12,8 +12,8 @@ export const KoduLayout = () => {
         <Outlet/>
       </main>
       <Footer />
-      <Cookies/>
       <Credits/>
+      <Cookies/>
     </>
   )
 }

@@ -5,14 +5,14 @@ import { Hero, AboutUs, Gallery, Destinations } from '../sections/home/index'
 export const HomePage = () => {
   return (
     <>
-      <Section size='big'>
+      <Section id='hero' size='big'>
         <Hero />
       </Section>
       <Section>
         <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap-2b.png'>
         </Container>
       </Section>
-      <Section bgColor='brown' size='big'>
+      <Section id='about-us' bgColor='brown' size='big'>
         <AboutUs />
       </Section>
       <Section bgColor='green' size='small' customStyle={{ justifyContent: "space-around" }}>
@@ -22,7 +22,7 @@ export const HomePage = () => {
         <Container bgImage='/src/assets/imgs/homes/bloom/bloom-3.png'>
         </Container>
       </Section>
-      <Section size='small'>
+      <Section id='destinations' size='small'>
         <Destinations />
       </Section>
     </>

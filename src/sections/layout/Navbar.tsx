@@ -11,25 +11,23 @@ export const Navbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <>
-      <div style={{
-        width: '100%',
-        height: '100%',
-      }}>
-        <NavbarControl isOpen={isOpen} toggleSidebar={toggleSidebar} />
-        {
-          isOpen &&
-          <nav className={styles["navbar"]}>
-            <ul className={styles["navbar__list"]}>
-              {navItems.map((navItem, index) => (
-                <li key={index}>
-                  <Link size="big" href={navItem.link}>{navItem.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        }
-      </div>
-    </>
+    <div style={{
+      width: '100%',
+      height: '100%',
+    }}>
+      <NavbarControl isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      {
+        isOpen &&
+        <nav className={styles["navbar"]}>
+          <ul className={styles["navbar__list"]}>
+            {navItems.map((navItem, index) => (
+              <li key={index} onClick={toggleSidebar}>
+                <Link size="big" href={navItem.link}>{navItem.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      }
+    </div>
   )
 }
