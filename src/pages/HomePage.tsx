@@ -9,7 +9,7 @@ export const HomePage = () => {
         <Hero />
       </Section>
       <Section>
-        <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap-2b.jpg'>
+        <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap-2b.png'>
         </Container>
       </Section>
       <Section bgColor='brown' size='big'>

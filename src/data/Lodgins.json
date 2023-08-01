@@ -6,11 +6,11 @@
     "price": 89,
     "persons": 4,
     "images": [
-      "/src/assets/imgs/homes/bloom/bloom-7.jpeg",
+      "/src/assets/imgs/homes/bloom/bloom-7.png",
       "/src/assets/imgs/homes/bloom/bloom-1.png",
       "/src/assets/imgs/homes/bloom/bloom-2.png",
       "/src/assets/imgs/homes/bloom/bloom-3.png",
-      "/src/assets/imgs/homes/bloom/bloom-4.jpg",
+      "/src/assets/imgs/homes/bloom/bloom-4.png",
       "/src/assets/imgs/homes/bloom/bloom-5.png"
     ]
   },
@@ -21,11 +21,11 @@
     "price": 96,
     "persons": 8,
     "images": [
-      "/src/assets/imgs/homes/dunlap/dunlap-1.jpg",
-      "/src/assets/imgs/homes/dunlap/dunlap-2.jpg",
-      "/src/assets/imgs/homes/dunlap/dunlap-3.jpg",
-      "/src/assets/imgs/homes/dunlap/dunlap-4.jpg",
-      "/src/assets/imgs/homes/dunlap/dunlap-5.jpg"
+      "/src/assets/imgs/homes/dunlap/dunlap-1.png",
+      "/src/assets/imgs/homes/dunlap/dunlap-2.png",
+      "/src/assets/imgs/homes/dunlap/dunlap-3.png",
+      "/src/assets/imgs/homes/dunlap/dunlap-4.png",
+      "/src/assets/imgs/homes/dunlap/dunlap-5.png"
     ]
   },
   {
@@ -35,12 +35,12 @@
     "location": "Aldeia Rizoma",
     "persons": 6,
     "images": [
-      "/src/assets/imgs/homes/paraty/paraty-2.jpeg",
-      "/src/assets/imgs/homes/paraty/paraty-1.jpeg",
-      "/src/assets/imgs/homes/paraty/paraty-3.jpeg",
-      "/src/assets/imgs/homes/paraty/paraty-4.jpeg",
-      "/src/assets/imgs/homes/paraty/paraty-5.jpeg",
-      "/src/assets/imgs/homes/paraty/paraty-6.jpeg"
+      "/src/assets/imgs/homes/paraty/paraty-2.png",
+      "/src/assets/imgs/homes/paraty/paraty-1.png",
+      "/src/assets/imgs/homes/paraty/paraty-3.png",
+      "/src/assets/imgs/homes/paraty/paraty-4.png",
+      "/src/assets/imgs/homes/paraty/paraty-5.png",
+      "/src/assets/imgs/homes/paraty/paraty-6.png"
     ]
   }
 ]
