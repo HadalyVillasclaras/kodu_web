@@ -1,7 +1,6 @@
-import { ReactNode } from 'react'
 import styles from './DestinationsGrid.module.scss';
 import { DestinationCard } from '../molecules/DestinationCard';
-import lodgins from '../../data/Lodgins.json';
+import lodgins from '../../config/data/Lodgins.json';
 
 type GridProps = {
   // children: ReactNode; 
@@ -16,7 +15,6 @@ export const DestinationsGrid = ({  }: GridProps) => {
           return <DestinationCard key={lodgin.id} homeName={lodgin.name} price={lodgin.price} src={lodgin.images[0]}/>
         })
       }
-        
     </section>
   )
 }

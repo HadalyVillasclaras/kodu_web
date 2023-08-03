@@ -1,7 +1,6 @@
 import styles from "./Navbar.module.scss";
-import { Link } from '../../design-system/atoms';
-import navItems from '../../data/NavItems.json';
-import { NavbarControl } from "./NavbarControl";
+import { IconButton, Link } from '../../design-system/atoms';
+import navItems from '../../config/data/NavItems.json';
 import { useState } from "react";
 
 export const Navbar = () => {
@@ -11,15 +10,19 @@ export const Navbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div style={{
-      width: '100%',
-      height: '100%',
-    }}>
-      <NavbarControl isOpen={isOpen} toggleSidebar={toggleSidebar} />
+    <div className={styles["navbar"]}>
+      <div className={styles["navbar__icon-wrapper"]} style={{ }}>
+        <IconButton
+          icon={isOpen ? 'less' : 'plus'}
+          color={isOpen ? 'cream' : 'green'}
+          ariaLabel={isOpen ? "Close" : "Open"}
+          onClick={toggleSidebar}
+        />
+      </div>
       {
         isOpen &&
-        <nav className={styles["navbar"]}>
-          <ul className={styles["navbar__list"]}>
+        <nav className={styles["navbar__menu"]}>
+          <ul className={styles["navbar__menu-list"]}>
             {navItems.map((navItem, index) => (
               <li key={index} onClick={toggleSidebar}>
                 <Link size="l" href={navItem.link}>{navItem.name}</Link>

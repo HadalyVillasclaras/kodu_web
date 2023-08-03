@@ -18,7 +18,7 @@ export const FullscreenImage = ({ src, onLeft, onRight, onClose }: FullscreenIma
         ariaLabel="Close"
         onClick={onClose}
       />
-      <img className={styles.fullscreen__img} src={src} alt="" style={{}} />
+      <img className={styles.fullscreen__img} src={src} alt=""/>
       <ArrowsNav color='brown' width='2' onLeft={onLeft} onRight={onRight} />
     </section>
   );

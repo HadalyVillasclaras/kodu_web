@@ -1,13 +1,11 @@
 import { Carousel } from '../../design-system/molecules/Carousel'
 import { Heading } from '../../design-system/atoms'
 
-type Props = {}
-
-export const Gallery = (props: Props) => {
+export const Gallery = () => {
   return (
     <>
       <section style={{ width: "70vw" }}>
-        <Carousel items={['/src/assets/imgs/homes/paraty/paraty-1.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png']} />
+        <Carousel images={['/src/assets/imgs/homes/paraty/paraty-1.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png']} />
       </section>
       <section style={{ display: "flex", justifyContent: "flex-end" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "400px" }}>

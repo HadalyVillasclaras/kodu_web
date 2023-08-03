@@ -1,10 +1,16 @@
 @use '../../design-system/settings/colors';
 @use '../../design-system/settings/spacing';
+@use '../../design-system/settings/breakpoints';
+
 
 .footer {
   background-color: colors.$bg-green;
-  padding: spacing.$section_small;
+  padding: spacing.$pd__mb-small;
   color: colors.$text-secondary;
+
+  @media only screen and (min-width: breakpoints.$mobile) {
+    padding: spacing.$pd__dk-small;
+  }
 
   &__nav-list {
     text-align: right;
@@ -21,9 +27,17 @@
 
   &__policies {
     display: flex;
+    flex-wrap: wrap;
     font-size: 1.2rem;
+    flex-direction: column;
     color: colors.$text-tertiary;
     justify-content: flex-end;
     gap: 1rem;
+
+    @media only screen and (min-width: breakpoints.$mobile) {
+      padding: spacing.$pd__dk-small;
+    flex-direction: row;
+
+    }
   }
 }

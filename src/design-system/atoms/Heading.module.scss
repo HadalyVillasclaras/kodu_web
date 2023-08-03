@@ -1,26 +1,27 @@
 @use "../settings/fonts";
 
 .heading {
-  font-family: "Eklektyk";
   &::after {
   }
 
   &--h1 {
+    font-family: "Eklektyk";
     font-size: fonts.$h1;
     font-weight: 700;
-    line-height: 4rem;
+    line-height: fonts.$line-height-h1;
   }
 
   &--h2 {
+    font-family: "Eklektyk";
     font-size: fonts.$h2;
     font-weight: 600;
-    line-height: 2.4rem;
+    line-height: fonts.$line-height-h2;
   }
   
   &--h3 {
     font-family: "Trap";
     font-size: fonts.$h3;
     font-weight: 400;
-    line-height: 2rem;
+    line-height: fonts.$line-height-h3;
   }
 }

@@ -1,8 +1,9 @@
 import { Colors } from "../types";
+import { ButtonVariants } from "../types/Button";
 import styles from "./Button.module.scss";
 
 type ButtonProps = {
-  variant?: "default" | "underline";
+  variant?: ButtonVariants;
   text: string;
   color?: Colors;
   onClick?: () => void;

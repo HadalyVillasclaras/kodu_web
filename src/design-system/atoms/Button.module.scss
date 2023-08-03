@@ -6,9 +6,8 @@
 
   &__default {
     font-family: "Eklektyk";
-    padding: 0.7rem 3rem;
+    padding: 1rem 3rem;
     text-transform: uppercase;
-    line-height: 0.6rem;
   }
   
   &__default-green {
@@ -32,7 +31,6 @@
   &__default:hover {
     color: colors.$button-primary;
     border: 1px solid colors.$button-primary;
-    text-transform: uppercase;
     background-color: colors.$button-secondary;
   }
 

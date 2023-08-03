@@ -1,5 +1,5 @@
 import { DropdownList } from './DropdownList';
-import lodgins from "../../data/Lodgins.json"
+import lodgins from "../../config/data/Lodgins.json"
 import { Colors } from '../types';
 
 type Props = {

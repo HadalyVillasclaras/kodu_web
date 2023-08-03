@@ -1,6 +1,7 @@
 @use "../settings/spacing";
 @use "../settings/colors";
 @use "../settings/border";
+@use "../settings/breakpoints";
 
 .section {
   position: relative;
@@ -10,15 +11,23 @@
   min-height: 100vh;
 
   &__small {
-    padding: spacing.$section_small;
+    padding: spacing.$pd__mb-small;
+    
+    @media only screen and (min-width: breakpoints.$mobile) {
+      padding: spacing.$pd__dk-small;
+  }
   }
 
   &__big{
-    padding: spacing.$section_big;
+    padding: 1rem;
+    
+    @media only screen and (min-width: breakpoints.$mobile) {
+      padding: spacing.$pd__dk-big;
+    }
   }
 
   &__full {
-    padding: spacing.$section_full;
+    padding: spacing.$pd__dk-full;
   }
 
   &__bg-cream {

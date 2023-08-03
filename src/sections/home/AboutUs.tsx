@@ -1,6 +1,8 @@
 import styles from "./AboutUs.module.scss";
 import { Button, Heading } from '../../design-system/atoms';
 import { ArrowsNav } from "../../design-system/molecules/ArrowsNav";
+import sectionImages from '../../config/data/SectionImages.json';
+
 
 
 export const AboutUs = () => {
@@ -16,7 +18,7 @@ export const AboutUs = () => {
         <Button variant='underline' color='cream' text='Know more about it +'/>
       </div>
       <div className={styles['about-us__image-container']}>
-        <img className={styles['about-us__image']} src="/src/assets/imgs/homes/paraty/paraty-2.png" alt="description" />
+        <img className={styles['about-us__image']} src={sectionImages.aboutUs[0].src} alt="description" />
       </div>
     </section>
     <ArrowsNav color="cream"/>

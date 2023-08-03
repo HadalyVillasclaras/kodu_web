@@ -1,9 +1,8 @@
 @use "../settings/colors";
+@use "../settings/fonts";
 
 .link {
-  color: colors.$text-secondary;
   font-weight: 600;
-  font-size: 1rem;
 
   &:active {
     color: colors.$text-secondary;
@@ -23,35 +22,34 @@
   }
 
   &__color {
-    &-primary {
-      color: colors.$text-primary;
+    &-green {
+      color: colors.$green;
     }
 
-    &-secondary {
-      color: colors.$text-secondary;
+    &-cream {
+      color: colors.$cream;
     }
 
-    &-tertiary {
-      color: colors.$text-tertiary;
+    &-brown {
+      color: colors.$brown;
     }
   }
 
   &__size {
     &-xs {
-      font-size: 0.8rem;
+      font-size: fonts.$link-xs;
     }
 
     &-s {
-      font-size: 1rem;
+      font-size: fonts.$link-s;
     }
 
     &-m {
-      font-size: 2rem;
+      font-size: fonts.$link-m;
     }
 
     &-l {
-      font-size: 3rem;
+      font-size: fonts.$link-l;
     }
   }
-
 }

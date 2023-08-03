@@ -1,13 +1,23 @@
 @use '../../design-system/settings/colors';
 @use '../../design-system/settings/spacing';
+@use '../../design-system/settings/breakpoints';
+
 
 .credits {
   background-color: colors.$bg-brown;
   color: colors.$text-primary;
-  padding: spacing.$section_small;
+  padding: spacing.$pd__mb-small;
   flex-direction: column;
   display: flex;
   gap: 4rem;
+
+  @media only screen and (min-width: breakpoints.$mobile) {
+    padding: spacing.$pd__dk-small;
+  }
+
+  // @include mobile-breakpoint {
+  //   padding: spacing.$pd__dk-small;
+  // }
 
   p {
     font-family: "Eklektyk";
@@ -23,7 +33,6 @@
 
       p {
         font-size: 3rem;
-
       }
     }
 

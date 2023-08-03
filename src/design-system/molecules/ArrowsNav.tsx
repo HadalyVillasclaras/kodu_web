@@ -1,5 +1,6 @@
 import { IconButton } from '../atoms';
 import { Colors } from '../types';
+import styles from "./ArrowsNav.module.scss";
 
 type ArrowsNavProps = {
   color: Colors;
@@ -10,7 +11,7 @@ type ArrowsNavProps = {
 
 export const ArrowsNav = ({ onLeft, onRight, color, width }: ArrowsNavProps) => {
   return (
-    <nav style={{ display: "flex", gap: "3rem", margin: "2rem 0" }}>
+    <nav className={styles["arrows-nav"]}>
       <IconButton
         icon='arrowLeft'
         color={color}

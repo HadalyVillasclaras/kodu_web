@@ -1,6 +1,13 @@
 @use "../settings/fonts";
 @use "../settings/colors";
 
+:root {
+  --cream: #F5F0DE;
+  --brown: #7E3418;
+  --brown-lighter: #B56040;
+  --green: #10120A;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -21,6 +28,7 @@ body {
 button {
   background: transparent;
   border: none;
+  line-height: 1;
 }
 
 li {
@@ -29,4 +37,5 @@ li {
 
 a {
   text-decoration: none;
+  font-size: fonts.$m;
 }

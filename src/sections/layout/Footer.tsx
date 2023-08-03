@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss';
-import navItems from '../../data/NavItems.json';
+import navItems from '../../config/data/NavItems.json';
 import { Link, Logo } from '../../design-system/atoms';
 
 export const Footer = () => {
@@ -18,9 +18,9 @@ export const Footer = () => {
         <p>+45 564 545 342</p>
       </section>
       <section className={styles["footer__policies"]}>
-        <p><Link mode='tertiary' size="xs" href='#'>Terms & Conditions</Link></p>
-        <p><Link mode='tertiary' size="xs" href='#'>Cookies</Link></p>
-        <p><Link mode='tertiary' size="xs" href='#'>Privacy Policy</Link></p>
+        <p><Link color='brown' size="xs" href='#'>Terms & Conditions</Link></p>
+        <p><Link color='brown' size="xs" href='#'>Cookies</Link></p>
+        <p><Link color='brown' size="xs" href='#'>Privacy Policy</Link></p>
       </section>
     </footer>
   )

@@ -1,6 +1,3 @@
-import logoCream from '../../assets/logo/logo-cream.png';
-import logoGreen from '../../assets/logo/logo-green.png';
-import logoBrown from '../../assets/logo/logo-brown.png';
 // import logoSVG from "../../assets/logo/kodu.svg";
 import styles from "./Logo.module.scss";
 import { Colors } from '../types';
@@ -8,12 +5,6 @@ import { Colors } from '../types';
 type LogoProps = {
   color?: Colors;
   size: number;
-};
-
-const logoMap = {
-  cream: logoCream,
-  green: logoGreen,
-  brown: logoBrown
 };
 
 export const Logo = ({ color = "brown", size }: LogoProps) => {

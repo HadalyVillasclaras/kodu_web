@@ -4,22 +4,22 @@ import { ArrowsNav } from './ArrowsNav';
 import { FullscreenImage } from './FullScreenImage';
 
 type CarouselProps = {
-  items: string[]; 
+  images: string[]; 
 };
 
-export const Carousel = ({ items }: CarouselProps) => {
+export const Carousel = ({ images }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const handlePrevious = () => {
     setCurrentIndex((oldIndex) => {
-      return oldIndex > 0 ? oldIndex - 1 : items.length - 1;
+      return oldIndex > 0 ? oldIndex - 1 : images.length - 1;
     });
   };
 
   const handleNext = () => {
     setCurrentIndex((oldIndex) => {
-      return oldIndex < items.length - 1 ? oldIndex + 1 : 0;
+      return oldIndex < images.length - 1 ? oldIndex + 1 : 0;
     });
   };
 
@@ -28,9 +28,9 @@ export const Carousel = ({ items }: CarouselProps) => {
   };
 
   const itemsToShow = [
-    items[currentIndex % items.length],
-    items[(currentIndex + 1) % items.length],
-    items[(currentIndex + 2) % items.length],
+    images[currentIndex % images.length],
+    images[(currentIndex + 1) % images.length],
+    images[(currentIndex + 2) % images.length],
   ];
 
   return (
@@ -46,7 +46,7 @@ export const Carousel = ({ items }: CarouselProps) => {
       <ArrowsNav color='cream' onLeft={handlePrevious} onRight={handleNext}/>
       {
         isFullscreen && 
-        <FullscreenImage src={items[currentIndex]} onLeft={handlePrevious} onRight={handleNext} onClose={() => setIsFullscreen(false)}/>
+        <FullscreenImage src={images[currentIndex]} onLeft={handlePrevious} onRight={handleNext} onClose={() => setIsFullscreen(false)}/>
       }
     </div>
   );
