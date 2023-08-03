@@ -25,7 +25,7 @@ export const Navbar = () => {
           <ul className={styles["navbar__menu-list"]}>
             {navItems.map((navItem, index) => (
               <li key={index} onClick={toggleSidebar}>
-                <Link size="l" href={navItem.link}>{navItem.name}</Link>
+                <Link color="cream" size="l" href={navItem.link}>{navItem.name}</Link>
               </li>
             ))}
           </ul>

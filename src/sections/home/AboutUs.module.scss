@@ -1,17 +1,21 @@
 @use "../../design-system/settings/spacing";
 @use "../../design-system/settings/border";
 @use "../../design-system/settings/colors";
+@use "../../design-system/settings/breakpoints";
+
 
 .about-us{
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
 
   > div {
+    
     position: relative;
-    width: 50%;
+    max-width: 400px;
   }
 
   &__text-block {
@@ -27,7 +31,10 @@
   }
 
   &__image {
+    width: 100%;
     height: 60vh;
     border-radius: border.$radius-mid;
+
+    
   }
 }

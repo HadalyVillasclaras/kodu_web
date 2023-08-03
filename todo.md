@@ -4,3 +4,6 @@
 - link -- blank target
 
 -type logo size
+
+-more text component
+-guardar cookie en storage para que no vuelva a saliral cambiar de pag.

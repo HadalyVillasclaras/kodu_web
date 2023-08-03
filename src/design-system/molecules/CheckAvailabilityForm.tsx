@@ -1,6 +1,7 @@
 import { DropdownList } from './DropdownList';
 import lodgins from "../../config/data/Lodgins.json"
 import { Colors } from '../types';
+import styles from "./CheckAvailabilityForm.module.scss";
 
 type Props = {
   color?: Colors;
@@ -13,7 +14,7 @@ export const CheckAvailabilityForm = ({color = "green"}: Props) => {
   const destinationsOptions = lodgins.map((lodgin) => lodgin.name);
 
   return (
-    <section style={{ display: "flex" }}>
+    <section className={styles["availability-form"]} >
       <DropdownList color={color} label='Destinations' options={destinationsOptions} />
       <DropdownList color={color} label='Dates' options={trimestry} />
       <DropdownList color={color} label='Travelers' options={["1", "2", "3", "4"]} />

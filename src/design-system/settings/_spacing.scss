@@ -1,14 +1,16 @@
 @use "./breakpoints";
-
 $xs: 0.5rem;
 $s: 1rem;
 $m: 2rem;
 $l: 4rem;
 
+$pd-full: 0;
 $pd__mb-small: 0.8rem;
-$pd__mb-big: 1rem;
-$pd__mb-full: 0;
+$pd__mb-big: 1.5rem;
+
+$pd__tb: 4rem;
 
 $pd__dk-small: 2.5rem;
 $pd__dk-big: 8rem;
-$pd__dk-full: 0;
+
+$section-mb: $pd__mb-big $pd__mb-small;

@@ -9,7 +9,7 @@ export const Gallery = () => {
       </section>
       <section style={{ display: "flex", justifyContent: "flex-end" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "400px" }}>
-          <Heading as='h3' color='brown'>Sustainable lodgings</Heading>
+          <Heading as='h2' color='brown'>Sustainable lodgings</Heading>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
         </div>
       </section>

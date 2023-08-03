@@ -10,7 +10,9 @@ type DestinationCardProps = {
 export const DestinationCard = ({homeName, price, src, alt}: DestinationCardProps) => {
   return (
     <article className={styles['destination-card']}>
+    <section className={styles['destination-card__image-wrapper']}>
      <img className={styles['destination-card__image']} src={src} alt={alt} />
+    </section>
      {
       price !== null && homeName !== null &&
       <section className={styles['destination-card__info']}>

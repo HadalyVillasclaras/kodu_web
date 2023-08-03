@@ -7,27 +7,39 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
+  gap: 1rem;
+  padding: spacing.$section-mb;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media only screen and (min-width: breakpoints.$tablet) {
+    gap: 3rem;
+  }
 
   &__small {
-    padding: spacing.$pd__mb-small;
-    
-    @media only screen and (min-width: breakpoints.$mobile) {
+    @media only screen and (min-width: breakpoints.$tablet) {
+      padding: spacing.$pd__tb;
+    }
+
+    @media only screen and (min-width: breakpoints.$desktop) {
       padding: spacing.$pd__dk-small;
-  }
+    }
   }
 
-  &__big{
-    padding: 1rem;
-    
-    @media only screen and (min-width: breakpoints.$mobile) {
+  &__big {
+    @media only screen and (min-width: breakpoints.$tablet) {
+      padding: spacing.$pd__tb;
+    }
+
+    @media only screen and (min-width: breakpoints.$desktop) {
       padding: spacing.$pd__dk-big;
     }
   }
 
   &__full {
-    padding: spacing.$pd__dk-full;
+    padding: spacing.$pd-full;
   }
 
   &__bg-cream {

@@ -9,7 +9,7 @@ export const Footer = () => {
       <ul className={styles["footer__nav-list"]}>
         {navItems.map((navItem, index) => (
           <li key={index}>
-            <Link size='m' href={navItem.link}>{navItem.name}</Link>
+            <Link color='cream' size='l' href={navItem.link}>{navItem.name}</Link>
           </li>
         ))}
       </ul>

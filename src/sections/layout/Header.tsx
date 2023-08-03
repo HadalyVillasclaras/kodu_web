@@ -5,7 +5,7 @@ import { CheckAvailabilityForm } from '../../design-system/molecules/CheckAvaila
 export const Header = () => {
   return (
     <header className={styles["header"]}>
-      <Logo size={7} />
+      <Logo size={9} />
       <CheckAvailabilityForm />
       <Button variant='default' color='green' text='Book' />
     </header>

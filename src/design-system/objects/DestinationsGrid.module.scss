@@ -3,13 +3,16 @@
 
 .destinations-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   row-gap: 2.5rem;
   column-gap: 4rem;
-  padding: spacing.$pd__mb-small;
-  
-  
-  @media only screen and (min-width: breakpoints.$mobile) {
-    padding: spacing.$pd__dk-small (spacing.$pd__dk-big - spacing.$pd__dk-small);
+  padding: 0 spacing.$pd__mb-small;
+
+  @media only screen and (min-width: breakpoints.$tablet) {
+    padding: 0;
+  }
+
+  @media only screen and (min-width: breakpoints.$desktop) {
+    padding: 0 (spacing.$pd__dk-big - spacing.$pd__dk-small);
   }
 }
