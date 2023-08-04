@@ -11,24 +11,21 @@ export const Carousel = ({ images }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const handlePrevious = () => {
-    setCurrentIndex((oldIndex) => {
-      return oldIndex > 0 ? oldIndex - 1 : images.length - 1;
-    });
+  const handlePreviousImage = () => {
+    updateCurrentIndex(currentIndex - 1);
   };
 
-  const handleNext = () => {
-    setCurrentIndex((oldIndex) => {
-      return oldIndex < images.length - 1 ? oldIndex + 1 : 0;
-    });
+  const handleNextImage = () => {
+    updateCurrentIndex(currentIndex + 1);
   };
 
-  const handleFullscreenClose = () => {
-    setIsFullscreen(false);
+  const updateCurrentIndex = (newIndex: number) => {
+    const validIndex = ((newIndex % images.length) + images.length) % images.length;
+    setCurrentIndex(validIndex);
   };
 
-  const itemsToShow = [
-    images[currentIndex % images.length],
+  const imagesToShow = [
+    images[currentIndex],
     images[(currentIndex + 1) % images.length],
     images[(currentIndex + 2) % images.length],
   ];
@@ -36,17 +33,16 @@ export const Carousel = ({ images }: CarouselProps) => {
   return (
     <div className={styles.carousel}>
       <div className={styles.carousel__items}>
-        {itemsToShow.map((item, i) => (
+        {imagesToShow.map((img, i) => (
           <div key={i} className={styles.carousel__item} onClick={() => setIsFullscreen(true)}>
-            {/* <DestinationCard homeName={null} price={null} src={item} /> */}
-            <img src={item} alt={''} />
+            <img src={img} alt={''} />
           </div>
         ))}
       </div>
-      <ArrowsNav color='cream' onLeft={handlePrevious} onRight={handleNext}/>
+      <ArrowsNav color='cream' onLeft={handlePreviousImage} onRight={handleNextImage}/>
       {
         isFullscreen && 
-        <FullscreenImage src={images[currentIndex]} onLeft={handlePrevious} onRight={handleNext} onClose={() => setIsFullscreen(false)}/>
+        <FullscreenImage src={images[currentIndex]} onLeft={handlePreviousImage} onRight={handleNextImage} onClose={() => setIsFullscreen(false)}/>
       }
     </div>
   );
