@@ -3,11 +3,13 @@
 
 .button {
   display: flex;
+  white-space: nowrap;
 
   &__default {
     font-family: "Eklektyk";
     padding: 1rem 3rem;
     text-transform: uppercase;
+    border: 1px solid transparent;
   }
   
   &__default-green {
@@ -38,6 +40,8 @@
     background: none;
     padding: 0;
     border-bottom: 1px solid;
+    transition: all 0.5s ease;
+    height: 1rem;
   }
 
   &__underline-green {
@@ -61,5 +65,6 @@
   &__underline:hover {
     border-bottom-width: 2px;
     font-weight: 400;
+
   }
 }

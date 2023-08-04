@@ -12,12 +12,15 @@ type FullscreenImageProps = {
 export const FullscreenImage = ({ src, onLeft, onRight, onClose }: FullscreenImageProps) => {
   return (
     <section className={styles.fullscreen}>
-      <IconButton
-        icon='x'
-        color='brown'
-        ariaLabel="Close"
-        onClick={onClose}
-      />
+      <span className={styles.fullscreen__btn}>
+        <IconButton
+          size='xl'
+          icon='x'
+          color='cream'
+          ariaLabel="Close"
+          onClick={onClose}
+        />
+      </span>
       <img className={styles.fullscreen__img} src={src} alt=""/>
       <ArrowsNav color='brown' width='2' onLeft={onLeft} onRight={onRight} />
     </section>

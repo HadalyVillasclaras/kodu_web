@@ -39,4 +39,15 @@ li {
 a {
   text-decoration: none;
   font-size: fonts.$m;
+  color: inherit;
+
+}
+
+a:visited {
+  color: inherit;
+}
+
+::selection {
+  color: colors.$bg-cream; 
+  background: colors.$bg-green;
 }

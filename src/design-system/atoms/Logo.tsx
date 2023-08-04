@@ -12,7 +12,6 @@ export const Logo = ({ color = "brown", size }: LogoProps) => {
     <a href='/'>
       <svg
         viewBox="0 0 256 101"
-        fill="red"
         xmlns="http://www.w3.org/2000/svg"
         className={`${styles["logo"]} ${styles[`logo__${color}`]}`}
         width={`${size}rem`}

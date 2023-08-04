@@ -1,6 +1,6 @@
 @use "../settings/colors";
 @use "../settings/spacing";
-
+@use "../settings/breakpoints";
 
 .fullscreen {
   position: fixed; 
@@ -14,6 +14,16 @@
   height: 100vh;
   background-color: colors.$bg-green-opacity;
   z-index: 5;
+
+    &__btn {
+    position: absolute;
+    top: spacing.$pd__mb-small;
+    left: spacing.$pd__mb-small;
+
+    @media only screen and (min-width: breakpoints.$tablet) {
+      padding: spacing.$m;
+    }
+  }
 
   &__img {
     max-width: 80%; 
