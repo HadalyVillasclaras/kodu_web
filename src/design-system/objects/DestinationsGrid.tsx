@@ -7,7 +7,6 @@ type GridProps = {
 }
 
 export const DestinationsGrid = ({  }: GridProps) => {
-  console.log(lodgins);
   return (
     <section className={styles["destinations-grid"]}>
       {

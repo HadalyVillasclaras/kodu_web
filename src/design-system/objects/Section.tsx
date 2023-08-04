@@ -7,7 +7,7 @@ type SectionProps = {
   children: ReactNode;
   ariaLabel?: string;
   ariaLabelledby?: string;
-  customStyle?: any;
+  customStyle?: React.CSSProperties;
   bgColor?: Colors;
   bgImage?: string;
   size?: SectionSize;
@@ -25,7 +25,7 @@ export const Section = ({
 }: SectionProps) => {
   const bgColorClass = styles[`section__bg-${bgColor}`];
   const sectionSize = size ? styles[`section__${size}`] : "";
-
+console.log(customStyle);
   return (
     <section 
       id={id}

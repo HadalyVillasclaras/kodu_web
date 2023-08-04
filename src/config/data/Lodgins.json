@@ -4,7 +4,12 @@
     "name": "The Bloomhouse",
     "location": "Austin, TX",
     "price": 89,
-    "persons": 4,
+    "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
+    "details": {
+      "person": 4,
+      "bed": 3,
+      "bathroom": 1
+    },
     "images": [
       "/src/assets/imgs/homes/bloom/bloom-7.png",
       "/src/assets/imgs/homes/bloom/bloom-1.png",
@@ -19,7 +24,12 @@
     "name": "Dunlap Hollow",
     "location": "Hocking Hills",
     "price": 96,
-    "persons": 8,
+    "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
+    "details": {
+      "persons": 8,
+      "beds": 6,
+      "bathroom": 3
+    },
     "images": [
       "/src/assets/imgs/homes/dunlap/dunlap-1.png",
       "/src/assets/imgs/homes/dunlap/dunlap-2.png",
@@ -33,7 +43,12 @@
     "name": "Paraty",
     "price": 105,
     "location": "Aldeia Rizoma",
-    "persons": 6,
+    "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
+    "details": {
+      "persons": 6,
+      "beds": 3,
+      "bathroom": 2
+    },
     "images": [
       "/src/assets/imgs/homes/paraty/paraty-2.png",
       "/src/assets/imgs/homes/paraty/paraty-1.png",

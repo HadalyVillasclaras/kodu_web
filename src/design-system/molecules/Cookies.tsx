@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, IconButton } from "../atoms"
 import styles from "./Cookies.module.scss";
+import { setCookie } from "../../shared/setCookie";
+import { getCookie } from "../../shared/getCookie";
 
 export const Cookies = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClose = () => {
+  const handleAccept = () => {
+    setCookie("cookie", "accepted", 1);
     setIsOpen(false);
   }
+
+  const handleRefuse = () => {
+    setCookie("cookie", "rejected", 1);
+    setIsOpen(false);
+  }
+
+  useEffect(() => {
+    const cookie = getCookie("cookie");
+    console.log(cookie); 
+    if (cookie !== "accepted") {
+      setIsOpen(true);
+    }
+  }, []);
 
   return (
     isOpen && (
@@ -18,16 +34,15 @@ export const Cookies = () => {
             color='brown'
             ariaLabel="Close"
             size="s"
-            onClick={handleClose}
+            onClick={() => setIsOpen(false)}
           />
         </span>
         <p className={styles.cookies__text}>We use cookies to improve <br />
           the user experience</p>
         <div className={styles.cookies__btns}>
-          <Button color="green" variant="underline" text="I refuse" onClick={handleClose} />
-          <Button color="green" variant="underline" text="It's ok for me" onClick={handleClose} />
+          <Button color="green" variant="underline" text="I refuse" onClick={handleRefuse} />
+          <Button color="green" variant="underline" text="It's ok for me" onClick={handleAccept} />
         </div>
-        {/* Alert mesg ! this is a prototype. No data will be stored in your browser */}
       </section>
     )
   )
