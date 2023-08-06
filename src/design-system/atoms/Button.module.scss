@@ -7,64 +7,75 @@
 
   &__default {
     font-family: "Eklektyk";
-    padding: 1rem 3rem;
+    padding: 0.5rem 3rem;
     text-transform: uppercase;
     border: 1px solid transparent;
-  }
+    transition: .5s ease;
+
+    &-green {
+      @extend .button__default;
+      background-color: colors.$button-primary;
+      color: colors.$button-secondary;
+
+      &:hover {
+        color: colors.$button-primary;
+        border: 1px solid colors.$button-primary;
+        background-color: colors.$button-secondary;
+      }
+    }
   
-  &__default-green {
-    @extend .button__default;
-    background-color: colors.$button-primary;
-    color: colors.$button-secondary;
-  }
-
-  &__default-cream {
-    @extend .button__default;
-    background-color: colors.$button-secondary;
-    color: colors.$button-primary;
-  }
-
-  &__default-brown {
-    @extend .button__default;
-    background-color: colors.$button-tertiary;
-    color: colors.$button-secondary;
-  }
-
-  &__default:hover {
-    color: colors.$button-primary;
-    border: 1px solid colors.$button-primary;
-    background-color: colors.$button-secondary;
+    &-cream {
+      @extend .button__default;
+      background-color: colors.$button-secondary;
+      color: colors.$button-primary;
+    }
+  
+    &-brown {
+      @extend .button__default;
+      background-color: colors.$button-tertiary;
+      color: colors.$button-secondary;
+    }
   }
 
   &__underline {
-    background: none;
-    padding: 0;
-    border-bottom: 1px solid;
-    transition: all 0.5s ease;
-    height: 1rem;
-  }
+    position: relative;
+  
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      transition: .3s ease;
+      height: 1px;
+    }
 
-  &__underline-green {
-    @extend .button__underline;
-    color: colors.$button-primary;
-    border-bottom-color: colors.$button-primary;
-  }
+    &:hover:after {
+      width: 0;
+    }
 
-  &__underline-cream {
-    @extend .button__underline;
-    color: colors.$button-secondary;
-    border-bottom-color: colors.$button-secondary;
-  }
+    &-green {
+      @extend .button__underline;
+      color: colors.$button-primary;
+      &:after {
+        background: colors.$button-primary;
+      }
+    }
+  
+    &-cream {
+      @extend .button__underline;
+      color: colors.$button-secondary;
+      &:after {
+        background: colors.$button-secondary;
+      }
+    }
 
-  &__underline-brown {
-    @extend .button__underline;
-    color: colors.$button-tertiary;
-    border-bottom-color: colors.$button-tertiary;
-  }
-
-  &__underline:hover {
-    border-bottom-width: 2px;
-    font-weight: 400;
-
+    &-brown {
+      @extend .button__underline;
+      color: colors.$button-tertiary;
+      &:after {
+        background: colors.$button-tertiary;
+      }
+    }
   }
 }

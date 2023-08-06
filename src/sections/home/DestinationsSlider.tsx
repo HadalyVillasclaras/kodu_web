@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './DestinationsSlider.module.scss';
-import { Button, Icon, IconButton } from '../../design-system/atoms';
+import { ArrowCursor } from '../../design-system/molecules/ArrowCursor';
+import { DestinationCard } from '../../design-system/molecules/DestinationCard';
 
 interface SliderProps {
   images: string[];
@@ -9,7 +10,7 @@ interface SliderProps {
   ChildComponent?: React.FC<any>;
 }
 
-export const DestinationsSlider = ({ images, transitionTime = 500, visibleSlides = 3, ChildComponent }: SliderProps) => {
+export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLeftDisabled, setIsLeftDisabled] = useState(true);
   const [isRightDisabled, setIsRightDisabled] = useState(images.length <= visibleSlides);
@@ -27,18 +28,6 @@ export const DestinationsSlider = ({ images, transitionTime = 500, visibleSlides
     if (currentIndex > 0) setCurrentIndex(prevState => prevState - 1);
   };
 
-  useEffect(() => {
-    setIsLeftDisabled(currentIndex === 0);
-    setIsRightDisabled(currentIndex >= images.length - visibleSlides);
-  }, [currentIndex, images.length, visibleSlides]);
-
-  useEffect(() => {
-    const slider = sliderRef.current;
-    if (slider) {
-      slider.style.transform = `translateX(${-currentIndex * (100 / visibleSlides)}%)`;
-    }
-  }, [currentIndex, transitionTime, visibleSlides]);
-
   const handleMouseMove = (e: React.MouseEvent) => {
     setCursorPosition({ x: e.clientX, y: e.clientY });
   };
@@ -52,50 +41,54 @@ export const DestinationsSlider = ({ images, transitionTime = 500, visibleSlides
     setIsCursorInside(false);
   };
 
+  let isArrowButtonDisabled = false;
+  if (sliderSide === "left" && isLeftDisabled) {
+    isArrowButtonDisabled = true;
+  } else if(sliderSide === "right" && isRightDisabled) {
+    isArrowButtonDisabled = true;
+  }
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.style.transform = `translateX(${-currentIndex * (100 / visibleSlides)}%)`;
+    }
+    setIsLeftDisabled(currentIndex === 0);
+    setIsRightDisabled(currentIndex >= images.length - visibleSlides);
+  }, [currentIndex]);
+
   return (
     <>
       <div className={styles['destination-slider-container']} onMouseMove={handleMouseMove}  >
-        <div 
+        <button 
           className={`${styles['slider__controls']} ${styles["slider__controls-left"]}`} 
           onMouseEnter={() => handleMouseEnter("left")} 
           onMouseLeave={handleMouseLeave}
-        >
-          <IconButton icon='arrowLeft' onClick={prevSlide} ariaLabel='Previous image' customStyle={{ width: "100%" }} />
-        </div>
+          onClick={prevSlide} 
+        />
         <div className={styles['slider-container']}>
           <div className={styles['slider']} ref={sliderRef}>
             {images.map((imageUrl, index) => (
               <div key={index} className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <img src={imageUrl} alt={`Slide ${index}`} />
+                {/* <img src={imageUrl} alt={`Slide ${index}`} /> */}
+                <DestinationCard homeName={"xxx"} src='/src/assets/imgs/homes/paraty/paraty-1.png'/>
               </div>
             ))}
           </div>
         </div>
-        <div 
+        <button 
           className={`${styles['slider__controls']} ${styles["slider__controls-right"]}`} 
           onMouseEnter={() => handleMouseEnter("right")} 
           onMouseLeave={handleMouseLeave}
-        >
-          <IconButton icon='arrowRight' onClick={nextSlide} ariaLabel='Next image' customStyle={{ width: "100%" }} />
-        </div>
-        <div
-          style={{
-            position: 'fixed',
-            top: cursorPosition.y,
-            left: cursorPosition.x,
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
-            backgroundColor: 'var(--brown)',
-            transform: 'translate(-50%, -50%)',
-            display: isCursorInside ? 'flex' : 'none',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Icon color='green' icon={sliderSide === "left" ? 'arrowLeft' : 'arrowRight'} />
-        </div>
+          onClick={nextSlide}
+        />
+        <ArrowCursor
+          topPosition={cursorPosition.y}
+          leftPosition={cursorPosition.x}
+          isDisplayed={isCursorInside}
+          arrowOrientation={sliderSide}
+          isDisabled ={isArrowButtonDisabled}
 
+        />
       </div>
     </>
   );

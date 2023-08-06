@@ -5,6 +5,7 @@
   --cream: #F5F0DE;
   --brown: #7E3418;
   --brown-lighter: #B56040;
+  --brown-disabled: #BF9A8B;
   --green: #10120A;
 }
 
@@ -40,11 +41,11 @@ a {
   text-decoration: none;
   font-size: fonts.$m;
   color: inherit;
-
+  height: min-content;
 }
 
 a:visited {
-  color: inherit;
+  // color: inherit;
 }
 
 ::selection {
