@@ -25,7 +25,8 @@ export const Cookies = () => {
   }, []);
 
   return (
-    isOpen && (
+    isOpen 
+    ? 
       <section className={styles.cookies}>
         <span className={styles.cookies__close}>
           <IconButton
@@ -39,10 +40,10 @@ export const Cookies = () => {
         <p className={styles.cookies__text}>We use cookies to improve <br />
           the user experience</p>
         <div className={styles.cookies__btns}>
-          <Button color="green" variant="underline" text="I refuse" onClick={handleRefuse} />
-          <Button color="green" variant="underline" text="It's ok for me" onClick={handleAccept} />
+          <Button color="cream" variant="underline" text="I refuse" onClick={handleRefuse} />
+          <Button color="cream" variant="underline" text="It's ok for me" onClick={handleAccept} />
         </div>
       </section>
-    )
+    : <></>
   )
 }

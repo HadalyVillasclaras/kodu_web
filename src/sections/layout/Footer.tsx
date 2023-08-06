@@ -18,9 +18,9 @@ export const Footer = () => {
         <p>+45 564 545 342</p>
       </section>
       <section className={styles["footer__policies"]}>
-        <p><Link color='brown' size="xs" href='#'>Terms & Conditions</Link></p>
-        <p><Link color='brown' size="xs" href='#'>Cookies</Link></p>
-        <p><Link color='brown' size="xs" href='#'>Privacy Policy</Link></p>
+        <p><Link color='brown' size="xs" href='javascript:void(0);'>Terms & Conditions</Link></p>
+        <p><Link color='brown' size="xs" href='javascript:void(0);'>Cookies</Link></p>
+        <p><Link color='brown' size="xs" href='javascript:void(0);'>Privacy Policy</Link></p>
       </section>
     </footer>
   )

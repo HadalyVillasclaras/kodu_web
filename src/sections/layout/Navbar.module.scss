@@ -19,13 +19,14 @@
     position: fixed;
     display: flex;
     align-items: center;
-    right: 0;
+    right: -105vw;
     top: 0;
     height: 100vh;
     width: 100vw;
     background-color: colors.$bg-brown;
     z-index: 3;
     padding: 0 4rem;
+    transition: right 1s ease;
   
     @media only screen and (min-width: breakpoints.$tablet) {
       padding: 0 10rem;

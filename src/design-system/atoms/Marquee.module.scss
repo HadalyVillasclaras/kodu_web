@@ -1,0 +1,39 @@
+@use "../settings/colors";
+
+.marqueeContainer {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  white-space: nowrap;
+  overflow: hidden;
+  gap: 2rem;
+
+}
+
+.marquee {
+  font-family: 'Eklektyk';
+  color: colors.$green;
+  font-size: 10rem;
+  display: inline-block;
+  transition: color .5s ease;
+  user-select: none;
+  animation: marqueeAnimation 70s linear infinite;
+
+}
+
+.marqueeKodu {
+  color: colors.$cream;
+}
+
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

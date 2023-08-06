@@ -19,9 +19,8 @@ export const Navbar = () => {
           onClick={toggleSidebar}
         />
       </div>
-      {
-        isOpen &&
-        <nav className={styles["navbar__menu"]}>
+      
+        <nav className={styles["navbar__menu"]} style={isOpen ? { right: 0 } : {}}>
           <ul className={styles["navbar__menu-list"]}>
             {navItems.map((navItem, index) => (
               <li key={index} onClick={toggleSidebar}>
@@ -30,7 +29,6 @@ export const Navbar = () => {
             ))}
           </ul>
         </nav>
-      }
     </div>
   )
 }

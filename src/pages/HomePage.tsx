@@ -1,6 +1,7 @@
 import { Section } from '../design-system/objects/Section'
 import { Container } from '../design-system/objects/Container'
 import { Hero, AboutUs, Gallery, Destinations } from '../sections/home'
+import { Marquee } from '../design-system/atoms/Marquee'
 
 export const HomePage = () => {
   return (
@@ -10,6 +11,7 @@ export const HomePage = () => {
       </Section>
       <Section>
         <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap-2b.png'>
+          <Marquee/>
         </Container>
       </Section>
       <Section id='about-us' bgColor='brown' size='big'>
