@@ -1,40 +1,39 @@
-import { Box, Button, Text } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Button } from '../design-system/atoms';
 
 interface Props {
   text: any,
   textLength?: number
 }
 
-export const ShowMoreText = ({text, textLength}: Props) => {
+export const ShowMoreText = ({ text, textLength }: Props) => {
   const [showMoreText, setShowMoreText] = useState(false)
   const toggleShowMore = () => {
     setShowMoreText(!showMoreText);
   };
   let length = textLength ? textLength : 300;
   let fullText = text?.toString();
-  let slicedText = fullText?.length > 300 ? fullText?.slice(0, length) + ' ...' : fullText?.slice(0, length);
+  let slicedText = fullText?.length > 300 ? fullText?.slice(0, length) : fullText?.slice(0, length);
   return (
     <>
       {
         text !== null && text !== undefined
-        ? <Box as='article' >
-            <Text style={{display:'inline'}}>
-              { 
-                showMoreText 
-                ? fullText
-                : slicedText
-              } 
-            </Text>
+          ? <article>
+            <p style={{ display: 'block' }}>
+              {
+                showMoreText
+                  ? fullText
+                  : slicedText
+              }
+            </p>
             {
               fullText.length > 300
-              ? <Button variant='link' onClick={toggleShowMore}>
-                  <Text as='b'>&nbsp;{ showMoreText ? 'Ver menos' : 'Ver más'}</Text>
-                </Button>
-              : ''
+                ?
+                <Button onClick={toggleShowMore} variant='underline' color='cream' text={showMoreText ? 'Colapse ^' : 'Know more about it'} />
+                : ''
             }
-          </Box>
-        : <></>
+          </article>
+          : <></>
       }
     </>
   )

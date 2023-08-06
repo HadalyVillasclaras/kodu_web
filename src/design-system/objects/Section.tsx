@@ -25,7 +25,6 @@ export const Section = ({
 }: SectionProps) => {
   const bgColorClass = styles[`section__bg-${bgColor}`];
   const sectionSize = size ? styles[`section__${size}`] : "";
-console.log(customStyle);
   return (
     <section 
       id={id}

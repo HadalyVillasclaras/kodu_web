@@ -1,0 +1,29 @@
+@use "../../design-system/settings/spacing";
+@use "../../design-system/settings/border";
+@use "../../design-system/settings/colors";
+@use "../../design-system/settings/breakpoints";
+
+.destinations {
+  &__sect-heading {
+    padding: 0 spacing.$pd__mb-small;
+
+    @media only screen and (min-width: breakpoints.$desktop) {
+      padding: spacing.$pd__dk-small ;
+      padding-bottom:0;
+
+    }
+  }
+  &__slider-sect {
+    padding: 0 spacing.$pd__mb-small;
+
+    @media only screen and (min-width: breakpoints.$tablet) {
+      padding: 0;
+    }
+  
+    @media only screen and (min-width: breakpoints.$desktop) {
+      padding: 0 (spacing.$pd__dk-big - spacing.$pd__dk-small);
+    }
+
+  }
+
+}

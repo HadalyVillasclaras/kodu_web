@@ -22,7 +22,7 @@ export const HomePage = () => {
         <Container bgImage='/src/assets/imgs/homes/bloom/bloom-3.png'>
         </Container>
       </Section>
-      <Section id='destinations' size='small'>
+      <Section id='destinations' size='full'>
         <Destinations />
       </Section>
     </>

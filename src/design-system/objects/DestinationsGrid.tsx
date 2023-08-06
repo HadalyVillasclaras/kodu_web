@@ -11,8 +11,8 @@ export const DestinationsGrid = ({  }: GridProps) => {
     <section className={styles["destinations-grid"]}>
       {
         lodgins.map((lodgin) => {
-          return <a href={`/house/${lodgin.id}`}>
-          <DestinationCard key={lodgin.id} homeName={lodgin.name} price={lodgin.price} src={lodgin.images[0]}/>
+          return <a key={lodgin.id} href={`/house/${lodgin.id}`}>
+          <DestinationCard  homeName={lodgin.name} price={lodgin.price} src={lodgin.images[0]}/>
           </a> 
         })
       }

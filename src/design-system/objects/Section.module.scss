@@ -46,7 +46,7 @@
     background-color: colors.$bg-cream;
     color: colors.$bg-brown;
     ::selection {
-      color: colors.$bg-cream; 
+      color: colors.$bg-green; 
       background: colors.$bg-brown;
     }
   }
@@ -66,8 +66,8 @@
     color: colors.$bg-cream; 
 
     ::selection {
-      color: colors.$bg-green; 
-      background: colors.$bg-cream;
+      color: colors.$bg-cream; 
+      background: colors.$bg-green;
     }
   }
 }

@@ -7,23 +7,25 @@ type ArrowsNavProps = {
   width?: string;
   onLeft: () => void;
   onRight: () => void;
+  isLeftDisabled?: boolean;
+  isRightDisabled?: boolean;
 }
 
-export const ArrowsNav = ({ onLeft, onRight, color, width }: ArrowsNavProps) => {
+export const ArrowsNav = ({ onLeft, onRight, color, width, isLeftDisabled, isRightDisabled }: ArrowsNavProps) => {
   return (
     <nav className={styles["arrows-nav"]}>
       <IconButton
         icon='arrowLeft'
-        color={color}
+        color={isLeftDisabled ? 'green' : color}
         ariaLabel="Previous"
-        onClick={onLeft}
+        onClick={isLeftDisabled ? undefined : onLeft}
         width={width}
       />
       <IconButton
         icon='arrowRight'
-        color={color}
+        color={isRightDisabled ? 'green' : color}
         ariaLabel="Next"
-        onClick={onRight}
+        onClick={isRightDisabled ? undefined : onRight}
         width={width}
       />
     </nav>

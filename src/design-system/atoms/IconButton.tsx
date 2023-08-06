@@ -10,12 +10,13 @@ type IconButtonProps = {
   width?: string;
   size?: Size;
   ariaLabel: string;
+  customStyle?: React.CSSProperties;
   onClick?: () => void;
 }
 
-export const IconButton = ({ icon, size="m", width, color="green", ariaLabel, onClick}: IconButtonProps) => {
+export const IconButton = ({ icon, size="m", width, color="green", ariaLabel, customStyle, onClick}: IconButtonProps) => {
   return (
-    <button onClick={onClick} aria-label={ariaLabel}>
+    <button onClick={onClick} aria-label={ariaLabel} style={customStyle}>
       <Icon icon={icon} size={size} color={color} width={width} />
     </button>
   )

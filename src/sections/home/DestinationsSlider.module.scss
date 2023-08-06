@@ -1,0 +1,55 @@
+@use "../../design-system/settings/border";
+@use "../../design-system/settings/spacing";
+
+
+.destination-slider-container {
+  overflow: hidden;
+  display: flex;
+
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0 spacing.$pd__dk-big;
+
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  transition: transform 500ms ease-in-out;
+
+  &__slide {
+    height: 60vh;
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+
+
+    & img {
+      width: 100%;
+      height: 100%;
+      border-radius: border.$radius-mid;
+      object-fit: cover;
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 20%;
+    z-index: 2;
+    justify-content: center;
+    height: 100%;
+    &-right {
+      right: 0;
+
+    }
+
+    &-left {
+      left: 0;
+
+    }
+  }
+}

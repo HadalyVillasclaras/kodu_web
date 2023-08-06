@@ -8,19 +8,16 @@
     display: flex;
     overflow: hidden;
     gap: 2rem;
-    transition: transform 0.5s ease-in-out;
-
-
 
     .carousel__item {
-      flex: 0 0 auto;
+      flex: 0 0 calc(100% / 3); 
       height: 200px;
-      max-width: 280px;
 
       img {
         width: 100%;
-        height: 100%;
-        border-radius: border.$radius-mid;
+      height: 100%;
+      border-radius: border.$radius-mid;
+      object-fit: cover;
       }
     }
   }

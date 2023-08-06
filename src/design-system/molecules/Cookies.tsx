@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button, IconButton } from "../atoms"
 import styles from "./Cookies.module.scss";
-import { setCookie } from "../../shared/setCookie";
-import { getCookie } from "../../shared/getCookie";
+import { setCookie } from "../../shared/Cookies/setCookie";
+import { getCookie } from "../../shared/Cookies/getCookie";
 
 export const Cookies = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,6 @@ export const Cookies = () => {
 
   useEffect(() => {
     const cookie = getCookie("cookie");
-    console.log(cookie); 
     if (cookie !== "accepted") {
       setIsOpen(true);
     }

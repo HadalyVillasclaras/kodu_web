@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import  { useEffect, useRef, useState } from 'react';
 import styles from './Carousel.module.scss';
 import { ArrowsNav } from './ArrowsNav';
 import { FullscreenImage } from './FullScreenImage';
@@ -10,6 +10,7 @@ type CarouselProps = {
 export const Carousel = ({ images }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const handlePreviousImage = () => {
     updateCurrentIndex(currentIndex - 1);
@@ -32,7 +33,7 @@ export const Carousel = ({ images }: CarouselProps) => {
 
   return (
     <div className={styles.carousel}>
-      <div className={styles.carousel__items}>
+      <div className={styles.carousel__items}  ref={sliderRef}>
         {imagesToShow.map((img, i) => (
           <div key={i} className={styles.carousel__item} onClick={() => setIsFullscreen(true)}>
             <img src={img} alt={''} />

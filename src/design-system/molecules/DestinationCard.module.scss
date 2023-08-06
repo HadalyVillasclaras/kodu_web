@@ -5,13 +5,14 @@
 .destination-card {
   display: flex;
   flex-direction: column;
-  gap: spacing.$xs;
   position: relative;
   height: 100%;
+  // padding: 0 2rem;
 
   &__image-wrapper {
     position: relative;
     height: 95%;
+
   }
 
   &__image {

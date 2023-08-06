@@ -1,13 +1,12 @@
 import { Carousel } from '../../design-system/molecules/Carousel'
 import { Heading } from '../../design-system/atoms'
-import Slider from '../../design-system/molecules/Slider'
 
 export const Gallery = () => {
+  const imgArray = ['/src/assets/imgs/homes/paraty/paraty-1.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png'];
   return (
     <>
-      <section style={{ width: "70vw" }}>
-        {/* <Carousel images={['/src/assets/imgs/homes/paraty/paraty-1.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png']} /> */}
-        <Slider images={['/src/assets/imgs/homes/paraty/paraty-1.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png']} />
+      <section style={{ width: "70%" }}>
+        <Carousel images={imgArray} />
       </section>
       <section style={{ display: "flex", justifyContent: "flex-end" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "400px" }}>
