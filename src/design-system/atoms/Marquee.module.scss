@@ -13,15 +13,14 @@
 .marquee {
   font-family: 'Eklektyk';
   color: colors.$green;
-  font-size: 10rem;
+  font-size: 8rem;
   display: inline-block;
-  transition: color .5s ease;
   user-select: none;
-  animation: marqueeAnimation 70s linear infinite;
+  animation: marqueeAnimation 200s linear infinite;
 }
 
 .marqueeKodu {
-  color: colors.$cream;
+  color: colors.$green;
 }
 
 @keyframes marqueeAnimation {

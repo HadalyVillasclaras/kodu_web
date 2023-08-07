@@ -13,7 +13,6 @@ type Props = {
 
 export const ArrowCursor = ({topPosition, leftPosition, isDisplayed, isDisabled = false, color="green", arrowOrientation}: Props) => {
   const mode = isDisabled ? "disabled" : "active";
-  console.log(typeof topPosition);
   return (
     <span
       className={`${styles['arrow-cursor']} ${styles[`arrow-cursor-${color}-${mode}`]}`} 

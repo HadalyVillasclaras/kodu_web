@@ -10,7 +10,7 @@ export const Marquee = ({ text }: MarqueeProps) => {
   return (
     <div className={styles.marqueeContainer}>
       <p className={styles.marquee}>
-        {marqueeText} <span className={styles.marqueeKodu}> KODU </span>  {marqueeText} <span className={styles.marqueeKodu}> KODU </span> 
+        {marqueeText} <span className={styles.marqueeKodu}> - KODU - </span>  {marqueeText} <span className={styles.marqueeKodu}> - KODU - </span> 
       </p>
     </div>
   );

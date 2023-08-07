@@ -7,19 +7,53 @@
   flex-direction: column;
   position: relative;
   height: 100%;
-  // padding: 0 2rem;
 
   &__image-wrapper {
     position: relative;
     height: 95%;
 
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: transparent;  
+      border-radius: border.$radius-mid;
+      transition: background-color 0.3s ease;
+      z-index: 1; 
+    }
+
+    &:hover::after {
+      background-color: colors.$card-brown-hover; 
+    }
   }
 
   &__image {
     border-radius: border.$radius-mid;
     height: 100%;
     object-fit: cover;
-    
+    position: relative;  
+  }
+
+  &__home-name {
+    position: absolute;
+    font-family: 'Trap';
+    font-weight: 400;
+    font-size: 2.4rem;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: colors.$cream; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    z-index: 999;
+
+    .destination-card__image-wrapper:hover & {
+      opacity: 1; 
+    }
   }
 
   &__info {

@@ -67,12 +67,23 @@ export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) =
         />
         <div className={styles['slider-container']}>
           <div className={styles['slider']} ref={sliderRef}>
-            {images.map((imageUrl, index) => (
-              <div key={index} className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                {/* <img src={imageUrl} alt={`Slide ${index}`} /> */}
-                <DestinationCard homeName={"xxx"} src='/src/assets/imgs/homes/paraty/paraty-1.png'/>
+            {/* {images.map((imageUrl, index) => ( */}
+              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
+                <DestinationCard homeName={"Paraty"} src='/src/assets/imgs/homes/paraty/paraty-3.png'/>
               </div>
-            ))}
+              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
+                <DestinationCard homeName={"Dunlap Hollow"} src='/src/assets/imgs/homes/dunlap/dunlap-6.png'/>
+              </div>
+              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
+                <DestinationCard homeName={"The Bloom House"} src='/src/assets/imgs/homes/bloom/bloom-7.png'/>
+              </div>
+              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
+                <DestinationCard homeName={"Paraty"} src='/src/assets/imgs/homes/paraty/paraty-1.png'/>
+              </div>
+              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
+                <DestinationCard homeName={"Dunlap Hollow"} src='/src/assets/imgs/homes/dunlap/dunlap-7.png'/>
+              </div>
+            {/* ))} */}
           </div>
         </div>
         <button 

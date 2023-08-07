@@ -3,20 +3,15 @@ import { Button } from '../design-system/atoms';
 import styles from './ShowMoreText.module.scss';
 
 interface Props {
-  text: string;
+  visibleText: string;
+  hiddenText?: string;
   textLength?: number;
 }
 
-export const ShowMoreText = ({ text, textLength = 300 }: Props) => {
+export const ShowMoreText = ({ visibleText, hiddenText, textLength = 300 }: Props) => {
   const [showMoreText, setShowMoreText] = useState(false);
-  const [contentHeight, setContentHeight] = useState(null);
+  const [contentHeight, setContentHeight] = useState(0);  // initial value set to 0
   const contentRef = useRef(null);
-
-  const ending = text.length > textLength ? "..." : "";
-  const slicedText = text.slice(0, textLength) + ending;
-  const displayedText = showMoreText ? text : slicedText;
-
-  console.log(contentHeight);
 
   const toggleShowMore = () => {
     setShowMoreText(!showMoreText);
@@ -26,27 +21,30 @@ export const ShowMoreText = ({ text, textLength = 300 }: Props) => {
     if (contentRef?.current) {
       setContentHeight(contentRef?.current?.scrollHeight);
     }
-  }, [displayedText]);
-
+  }, [showMoreText]);
 
   return (
-    <div>
-      <div 
-        className={styles.textContainer} 
-        style={{ height: contentHeight}}
-      >
-        <p ref={contentRef} className={showMoreText ? styles.expandedText : styles.collapsedText}>
-          {displayedText}
+    <div className={styles.showMoreTextContainer}>
+      <div className={styles.textContainer}>
+        <p>
+          {visibleText}
         </p>
+        <br />
+        {
+          hiddenText 
+          ? <p ref={contentRef} className={styles.hiddenText} style={{ height: showMoreText ? `${contentHeight}px` : '0px' }}>
+              {hiddenText}
+            </p>
+          : null
+        }
       </div>
-      {text.length > textLength &&
-        <Button 
-          variant='underline' 
-          color='cream' 
-          text={showMoreText ? 'Collapse ^' : 'Know more about it'} 
-          onClick={toggleShowMore}
-        />
-      }
+      <Button 
+        variant='underline' 
+        color='cream' 
+        text={showMoreText ? 'Show less -' : 'Know more about it +'} 
+        onClick={toggleShowMore}
+      />
     </div>
   );
 }
+

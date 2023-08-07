@@ -1,12 +1,10 @@
 @use "../../design-system/settings/border";
 @use "../../design-system/settings/spacing";
 
-
 .destination-slider-container {
   overflow: hidden;
   display: flex;
   height: 100%;
-
 }
 
 .slider-container {
@@ -37,7 +35,7 @@
   &__controls {
     position: absolute;
     top: 0;
-    width: 40%;
+    width: 18%;
     z-index: 2;
     height: 100%;
     cursor: none;

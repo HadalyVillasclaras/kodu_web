@@ -4,11 +4,13 @@ import { Colors } from '../types';
 type LogoProps = {
   color?: Colors;
   size: number;
+  clickable?: boolean;
 };
 
-export const Logo = ({ color = "brown", size }: LogoProps) => {
+export const Logo = ({ color = "brown", size, clickable = true }: LogoProps) => {
+  
   return (
-    <a href='/'>
+    <a href='/' style={{ pointerEvents: clickable ? 'auto' : 'none' }} tabIndex={clickable ? 0 : -1}>
       <svg
         viewBox="0 0 256 101"
         xmlns="http://www.w3.org/2000/svg"

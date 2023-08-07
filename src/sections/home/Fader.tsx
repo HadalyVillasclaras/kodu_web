@@ -22,7 +22,7 @@ console.log('fader');
   return (
     <section className={styles["fader"]} style={{ top: topStyle }}>
       <span className={`${styles["fader__logo"]} ${isLoaded ? styles['fader__logo-visible'] : ''}`}>
-        <Logo color='brown' size={25}/>
+        <Logo clickable={false} color='brown' size={25}/>
       </span>
     </section>
   )
