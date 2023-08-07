@@ -1,3 +1,5 @@
+@use "../settings/colors";
+
 .arrow-cursor {
   position: fixed;
   width: 60px;
@@ -6,4 +8,31 @@
   transform: translate(-50%, -50%);
   align-items: center;
   justify-content: center;
+
+  &-green {
+    &-active {
+      background-color: colors.$green;
+    }
+    &-disabled {
+      background-color: colors.$green-disabled;
+    }
+  }
+
+  &-brown {
+    &-active {
+      background-color: colors.$brown;
+    }
+    &-disabled {
+      background-color: colors.$brown-disabled;
+    }
+  }
+
+  &-brown {
+    &-active {
+      background-color: colors.$brown;
+    }
+    &-disabled {
+      background-color: colors.$brown-disabled;
+    }
+  }
 }

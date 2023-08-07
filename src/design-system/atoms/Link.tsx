@@ -10,7 +10,6 @@ export interface LinkProps {
 }
 
 export const Link = ({ color = "green", size = "s", children, href, ...props }: LinkProps) => {
-  console.log(color);
   return (
       <a href={href} 
         className={`${styles["link"]} ${styles[`link__color-${color}`]} ${styles[`link__size-${size}`]}`} 

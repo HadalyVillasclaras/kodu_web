@@ -8,7 +8,6 @@
   white-space: nowrap;
   overflow: hidden;
   gap: 2rem;
-
 }
 
 .marquee {
@@ -19,7 +18,6 @@
   transition: color .5s ease;
   user-select: none;
   animation: marqueeAnimation 70s linear infinite;
-
 }
 
 .marqueeKodu {

@@ -87,7 +87,7 @@ export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) =
           isDisplayed={isCursorInside}
           arrowOrientation={sliderSide}
           isDisabled ={isArrowButtonDisabled}
-
+          color='brown'
         />
       </div>
     </>

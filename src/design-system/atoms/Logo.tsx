@@ -1,4 +1,3 @@
-// import logoSVG from "../../assets/logo/kodu.svg";
 import styles from "./Logo.module.scss";
 import { Colors } from '../types';
 

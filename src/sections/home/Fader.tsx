@@ -1,21 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Fader.module.scss';
 import { Logo } from '../../design-system/atoms';
 
-type Props = {}
-
-export const Fader = (props: Props) => {
+export const Fader = () => {
   const [topStyle, setTopStyle] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
-
   const handleLoad = () => {
+console.log('fader');
+
     setIsLoaded(true);
     setTimeout(() => {
-      setTopStyle('-105vh');
+      setTopStyle('-110vh');
     }, 2500);
   };
 
-  window.onload = handleLoad;
+  useEffect(() => {
+    handleLoad()
+
+  }, []);
 
   return (
     <section className={styles["fader"]} style={{ top: topStyle }}>
