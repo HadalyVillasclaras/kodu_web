@@ -1,4 +1,4 @@
--more text component
--slide
-
--arrow circle icon - crear nueva clase para todos las variantes y las desabilitadas
+-arrow circle icon - crear nueva clase para todos las variantes y las desabilitadas - DONE
+-quitar clickable cursor en el fader
+-load more text
+-implementar slider en about us carousel

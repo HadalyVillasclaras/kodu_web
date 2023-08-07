@@ -14,11 +14,12 @@ export const AboutUs = () => {
       <section className={styles['about-us']}>
         <div>
           <Heading as='h1'>This is what we care about</Heading>
-          <div className={styles['about-us__text-block']}>
+          <ShowMoreText text={text}/>
+          {/* <div className={styles['about-us__text-block']}>
             <p>Lorem ipsum dolor sit amet, consectetur.</p>
             <p>{text}</p>
           </div>
-          <Button variant='underline' color='cream' text='Know more about it +' />
+          <Button variant='underline' color='cream' text='Know more about it +' /> */}
         </div>
         <div className={styles['about-us__image-container']}>
           <img className={styles['about-us__image']} src={sectionImages.aboutUs[0].src} alt="description" />

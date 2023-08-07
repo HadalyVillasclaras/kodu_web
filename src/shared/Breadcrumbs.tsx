@@ -1,6 +1,4 @@
-import { Box } from "@chakra-ui/react";
 import { Link, useMatches } from "react-router-dom";
-import "./breadcrumbs.css";
 
 interface MatchInterface{
     // route id
@@ -40,7 +38,7 @@ export const Breadcrumbs = () => {
   });
   
   return (
-    <Box as="span" id="breadcrumbs">
+    <div as="span" id="breadcrumbs">
       {breadcumbs.map((crumb, index: number) => {
         if (index + 1 === breadcumbs.length) {
           return (
@@ -51,6 +49,6 @@ export const Breadcrumbs = () => {
           )
         }
       })}
-    </Box>
+    </div>
   );
 };
