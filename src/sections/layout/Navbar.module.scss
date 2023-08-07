@@ -40,3 +40,12 @@
     }
   }
 }
+
+.icon-wrapper {
+  display: inline-block;  
+  transition: transform 0.8s ease;
+
+  &.rotated {
+    transform: rotate(45deg);
+  }
+}

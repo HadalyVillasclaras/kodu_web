@@ -2,6 +2,7 @@ import { Section } from '../design-system/objects/Section'
 import { Container } from '../design-system/objects/Container'
 import { Hero, AboutUs, Gallery, Destinations } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
+import { AboutUsSlider } from '../sections/home/AboutUsSlider'
 
 export const HomePage = () => {
   return (
@@ -14,8 +15,8 @@ export const HomePage = () => {
           <Marquee/>
         </Container>
       </Section>
-      <Section id='about-us' bgColor='brown' size='big'>
-        <AboutUs />
+      <Section id='about-us' bgColor='brown' size='full'>
+        <AboutUsSlider/>
       </Section>
       <Section bgColor='green' size='small' customStyle={{ justifyContent: "space-around" }}>
         <Gallery />

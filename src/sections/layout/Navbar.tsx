@@ -12,14 +12,16 @@ export const Navbar = () => {
   return (
     <div className={styles["navbar"]}>
       <div className={styles["navbar__icon-wrapper"]} style={{ }}>
+      <span className={`${styles["icon-wrapper"]} ${isOpen ? styles["rotated"] : ""}`}>
         <IconButton
-          icon={isOpen ? 'less' : 'plus'}
+          icon='plus'
           color={isOpen ? 'cream' : 'green'}
           ariaLabel={isOpen ? "Close" : "Open"}
           onClick={toggleSidebar}
+          size="l"
         />
+      </span>
       </div>
-      
         <nav className={styles["navbar__menu"]} style={isOpen ? { right: 0 } : {}}>
           <ul className={styles["navbar__menu-list"]}>
             {navItems.map((navItem, index) => (

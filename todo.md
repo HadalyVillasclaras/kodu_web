@@ -3,3 +3,8 @@
 -load more text - DONE
 -implementar slider en about us carousel
 - Refactor destinations media queries
+- infinite marquee
+- infinite slider
+
+bolimowek.pl
+lear greensocks scroll trigger

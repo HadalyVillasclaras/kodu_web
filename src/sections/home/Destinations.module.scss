@@ -5,12 +5,11 @@
 
 .destinations {
   &__sect-heading {
-    padding: 0 spacing.$pd__mb-small;
+    padding: spacing.$pd__mb-big spacing.$pd__mb-small;
 
     @media only screen and (min-width: breakpoints.$desktop) {
       padding: spacing.$pd__dk-small ;
       padding-bottom:0;
-
     }
   }
   &__slider-sect {
@@ -23,7 +22,5 @@
     @media only screen and (min-width: breakpoints.$desktop) {
       padding: 0 (spacing.$pd__dk-big - spacing.$pd__dk-small);
     }
-
   }
-
 }
