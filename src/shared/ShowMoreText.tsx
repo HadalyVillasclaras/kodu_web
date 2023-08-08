@@ -1,21 +1,16 @@
-import { useState, useRef, useEffect } from 'react';
-import { Button } from '../design-system/atoms';
+import { useRef, useEffect, useState } from 'react';
 import styles from './ShowMoreText.module.scss';
 
 interface Props {
   visibleText: string;
   hiddenText?: string;
-  textLength?: number;
+  showMoreText: boolean;
+  onToggle: () => void;
 }
 
-export const ShowMoreText = ({ visibleText, hiddenText, textLength = 300 }: Props) => {
-  const [showMoreText, setShowMoreText] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);  // initial value set to 0
+export const ShowMoreText = ({ visibleText, hiddenText, showMoreText, onToggle }: Props) => {
+  const [contentHeight, setContentHeight] = useState(0);  
   const contentRef = useRef(null);
-
-  const toggleShowMore = () => {
-    setShowMoreText(!showMoreText);
-  };
 
   useEffect(() => {
     if (contentRef?.current) {
@@ -38,13 +33,6 @@ export const ShowMoreText = ({ visibleText, hiddenText, textLength = 300 }: Prop
           : null
         }
       </div>
-      <Button 
-        variant='underline' 
-        color='cream' 
-        text={showMoreText ? 'Show less -' : 'Know more about it +'} 
-        onClick={toggleShowMore}
-      />
     </div>
   );
 }
-

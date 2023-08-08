@@ -1,6 +1,6 @@
 import { Section } from '../design-system/objects/Section'
 import { Container } from '../design-system/objects/Container'
-import { Hero, Gallery, Destinations } from '../sections/home'
+import { Hero, Destinations } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
 import { AboutUsSlider } from '../sections/home/AboutUsSlider'
 import { Features } from '../sections/home/Features'
@@ -19,7 +19,7 @@ export const HomePage = () => {
         </Container>
       </Section>
       <Section bgColor='green' size='small'>
-        <GsapTest/>
+        {/* <GsapTest/> */}
       </Section>
       <Section id='about-us' bgColor='brown' size='full'>
         <AboutUsSlider />
