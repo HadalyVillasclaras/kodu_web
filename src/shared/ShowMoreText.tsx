@@ -24,7 +24,6 @@ export const ShowMoreText = ({ visibleText, hiddenText, showMoreText, onToggle }
         <p>
           {visibleText}
         </p>
-        <br />
         {
           hiddenText 
           ? <p ref={contentRef} className={styles.hiddenText} style={{ height: showMoreText ? `${contentHeight}px` : '0px' }}>

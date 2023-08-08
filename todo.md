@@ -8,3 +8,6 @@
 
 bolimowek.pl
 lear greensocks scroll trigger
+
+
+- when click on page dont trigger fader.

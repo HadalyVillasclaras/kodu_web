@@ -8,10 +8,10 @@ import { ShowMoreText } from '../../shared/ShowMoreText';
 gsap.registerPlugin(ScrollTrigger);
 
 export const Features = () => {
-  const [selectedFeature, setSelectedFeature] = useState(null);
+  const [selectedFeature, setSelectedFeature] = useState(featureData[0]);
   const [expandedFeature, setExpandedFeature] = useState(null);
   const featureListRefs = useRef([]);
-  let isMobile = true;
+  let isMobile = false;
 
   const handleFeatureClick = (feature) => {
     setSelectedFeature(feature);
@@ -23,33 +23,28 @@ export const Features = () => {
     }
   }
 
+  // useEffect(() => {
+  //   const featureListClass = `.${styles["features__list"]}`; 
+  //   const featuresContainer = `.${styles["features__container"]}`; 
 
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: `.${styles["features__container"]}`,
-          start: "top top",
-          toggleActions: "play none none reverse",
-        }
-      });
+  //   if (featureListRefs.current) {
+  //     gsap.from(featureListRefs.current, {
+  //       scrollTrigger: {
+  //         trigger: featuresContainer,
+  //         toggleActions: "restart none none pause",
+  //         // markers:true
+  //       },
+  //       y: 50,
+  //       stagger: 0.1,
+  //       opacity: 0,
+  //       duration: 2,
+  //       onComplete: function() {
+  //         gsap.set(featureListRefs.current, { clearProps: 'all' });
+  //       }
+  //     });
+  //   }
+  // }, []);
 
-      timeline.from(featureListRefs.current, {
-        y: 50,
-        stagger: 0.1,
-        opacity: 0,
-        duration: 1,
-      });
-
-      return () => {
-        timeline.scrollTrigger.kill();
-        timeline.kill();
-      }
-    }, 100);
-
-    return () => clearTimeout(delay);
-
-  }, []);
 
   return (
     <div className={styles["features__container"]}>
@@ -57,12 +52,8 @@ export const Features = () => {
         !isMobile &&
         (
           <section className={styles["features__displayed"]}>
-            {selectedFeature &&
-              <>
-                <h3>{selectedFeature?.name}</h3>
-                <p>{selectedFeature?.description}</p>
-              </>
-            }
+            <h3>{selectedFeature?.name}</h3>
+            <p>{selectedFeature?.description}</p>
           </section>
         )
       }
@@ -75,12 +66,15 @@ export const Features = () => {
               className={selectedFeature?.name === feature.name ? styles['features__list__item-selected'] : styles['features__list__item']}
             >
               <button onClick={() => handleFeatureClick(feature)}>{feature.name}</button>
-              <ShowMoreText 
-                visibleText='' 
-                hiddenText={feature.description}
-                showMoreText={expandedFeature === feature.name}
-                onToggle={() => handleFeatureClick(feature)}
-              />
+              {
+                isMobile &&
+                <ShowMoreText
+                  visibleText=''
+                  hiddenText={feature.description}
+                  showMoreText={expandedFeature === feature.name}
+                  onToggle={() => handleFeatureClick(feature)}
+                />
+              }
               <hr />
             </li>
           ))}

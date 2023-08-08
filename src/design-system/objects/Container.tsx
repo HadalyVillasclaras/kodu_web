@@ -22,10 +22,12 @@ export const Container = ({ bgImage, customStyle, children }: ContainerProps) =>
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "bottom bottom",
+          // end: "bottom bottom",
           scrub: 1,
         },
-        scale: 1.05
+        scale: 1.05,
+        duration: 3
+
       });
     }
   }, [bgImage]);

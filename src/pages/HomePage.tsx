@@ -21,7 +21,7 @@ export const HomePage = () => {
       <Section bgColor='green' size='small'>
         {/* <GsapTest/> */}
       </Section>
-      <Section id='about-us' bgColor='brown' size='full'>
+      <Section id='about-us' bgColor='green' size='full'>
         <AboutUsSlider />
       </Section>
       <Section id='features' bgColor='brown' size='big'>
