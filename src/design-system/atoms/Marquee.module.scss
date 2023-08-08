@@ -3,32 +3,51 @@
 .marqueeContainer {
   height: 100%;
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  white-space: nowrap;
   overflow: hidden;
-  gap: 2rem;
+  white-space: nowrap;
 }
 
 .marquee {
   font-family: 'Eklektyk';
   color: colors.$green;
   font-size: 8rem;
-  display: inline-block;
   user-select: none;
-  animation: marqueeAnimation 200s linear infinite;
-}
+  white-space: nowrap;
+  display: inline-block;
+  animation: marqueeAnimation 30s linear infinite; 
+  position: relative;
+  
+  &::before, &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  &::before {
+    right: 100%;
+  }
+  
+  &::after {
+    left: 100%;
+  }
 
-.marqueeKodu {
-  color: colors.$green;
+  &-green {
+    color: colors.$green;
+  }
+
+  &-cream {
+    color: colors.$cream; 
+  }
+
+  &-brown {
+    color: colors.$brown; 
+  }
 }
 
 @keyframes marqueeAnimation {
   0% {
     transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-50%);
   }
   100% {
     transform: translateX(-100%);

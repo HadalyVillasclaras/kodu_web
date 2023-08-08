@@ -5,19 +5,22 @@
 .header {
   background-color: colors.$bg-cream;
   position: relative;
-  padding: 0 1rem ;
+  padding: spacing.$pd__mb-small ;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  top: 1rem;
+  gap: 1.5rem;
   left: 0;
   width: 100%;
   z-index: 1;
 
   @media only screen and (min-width: breakpoints.$tablet) {
-    position: absolute;
-    height: 50px;
+  gap: 2rem;
+  padding: spacing.$pd__dk-xs ;
   }
+}
+
+.header-navtool {
+  height: 1.8rem;
+  background-color: colors.$brown;
 }

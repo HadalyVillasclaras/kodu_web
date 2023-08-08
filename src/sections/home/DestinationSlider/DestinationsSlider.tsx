@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './DestinationsSlider.module.scss';
-import { ArrowCursor } from '../../design-system/molecules/ArrowCursor';
-import { DestinationCard } from '../../design-system/molecules/DestinationCard';
+import { ArrowCursor } from '../../../design-system/molecules/ArrowCursor';
+import { DestinationCard } from '../../../design-system/molecules/DestinationCard';
 
 interface SliderProps {
   images: string[];
@@ -9,6 +9,14 @@ interface SliderProps {
   visibleSlides?: number;
   ChildComponent?: React.FC<any>;
 }
+const destinations = [
+  { homeName: "Paraty", src: "/src/assets/imgs/homes/paraty/paraty-3.png" },
+  { homeName: "Dunlap Hollow", src: "/src/assets/imgs/homes/dunlap/dunlap-6.png" },
+  { homeName: "The Bloom House", src: "/src/assets/imgs/homes/bloom/bloom-7.png" },
+  { homeName: "Paraty", src: "/src/assets/imgs/homes/paraty/paraty-1.png" },
+  { homeName: "Dunlap Hollow", src: "/src/assets/imgs/homes/dunlap/dunlap-7.png" }
+];
+
 
 export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,7 +52,7 @@ export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) =
   let isArrowButtonDisabled = false;
   if (sliderSide === "left" && isLeftDisabled) {
     isArrowButtonDisabled = true;
-  } else if(sliderSide === "right" && isRightDisabled) {
+  } else if (sliderSide === "right" && isRightDisabled) {
     isArrowButtonDisabled = true;
   }
 
@@ -59,36 +67,28 @@ export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) =
   return (
     <>
       <div className={styles['destination-slider-container']} onMouseMove={handleMouseMove}  >
-        <button 
-          className={`${styles['slider__controls']} ${styles["slider__controls-left"]}`} 
-          onMouseEnter={() => handleMouseEnter("left")} 
+        <button
+          className={`${styles['slider__controls']} ${styles["slider__controls-left"]}`}
+          onMouseEnter={() => handleMouseEnter("left")}
           onMouseLeave={handleMouseLeave}
-          onClick={prevSlide} 
+          onClick={prevSlide}
         />
         <div className={styles['slider-container']}>
           <div className={styles['slider']} ref={sliderRef}>
-            {/* {images.map((imageUrl, index) => ( */}
-              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <DestinationCard homeName={"Paraty"} src='/src/assets/imgs/homes/paraty/paraty-3.png'/>
+            {destinations.map((destination, index) => (
+              <div
+                key={index}
+                className={styles['slider__slide']}
+                style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}
+              >
+                <DestinationCard homeName={destination.homeName} src={destination.src} />
               </div>
-              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <DestinationCard homeName={"Dunlap Hollow"} src='/src/assets/imgs/homes/dunlap/dunlap-6.png'/>
-              </div>
-              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <DestinationCard homeName={"The Bloom House"} src='/src/assets/imgs/homes/bloom/bloom-7.png'/>
-              </div>
-              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <DestinationCard homeName={"Paraty"} src='/src/assets/imgs/homes/paraty/paraty-1.png'/>
-              </div>
-              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <DestinationCard homeName={"Dunlap Hollow"} src='/src/assets/imgs/homes/dunlap/dunlap-7.png'/>
-              </div>
-            {/* ))} */}
+            ))}
           </div>
         </div>
-        <button 
-          className={`${styles['slider__controls']} ${styles["slider__controls-right"]}`} 
-          onMouseEnter={() => handleMouseEnter("right")} 
+        <button
+          className={`${styles['slider__controls']} ${styles["slider__controls-right"]}`}
+          onMouseEnter={() => handleMouseEnter("right")}
           onMouseLeave={handleMouseLeave}
           onClick={nextSlide}
         />
@@ -97,7 +97,7 @@ export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) =
           leftPosition={cursorPosition.x}
           isDisplayed={isCursorInside}
           arrowOrientation={sliderSide}
-          isDisabled ={isArrowButtonDisabled}
+          isDisabled={isArrowButtonDisabled}
           color='brown'
         />
       </div>

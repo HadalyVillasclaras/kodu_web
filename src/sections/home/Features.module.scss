@@ -1,0 +1,80 @@
+@use "../../design-system/settings/colors";
+
+.features {
+
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    // align-items: center;
+  
+    > section {
+      position: relative;
+      flex-basis: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  &__displayed {
+    display: flex;
+    flex-direction: column;
+    color: colors.$green;
+    opacity: 0;
+
+    &-selected {
+      opacity: 1;
+    }
+
+    h3 {
+      font-family: 'Eklektyk';
+      font-size: 4rem;
+      color: colors.$green;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: 'Eklektyk';
+    font-size: 2.5rem;
+    cursor: pointer;
+
+    hr {
+      margin-top: 0.5rem;
+      display: block;
+      height: 1px;
+      border: 0;
+    }
+
+    &__item {
+      button {
+        color: colors.$cream;
+        transition: color 1s ease-out;
+      }
+
+      hr {
+        border-top:3px solid colors.$cream;
+        transition: border-top 1s ease-out;
+      }
+
+      &-selected {
+        button {
+          color: colors.$green;
+        }
+        hr {
+          border-top:3px solid colors.$green;
+        }
+      }
+    }
+  }
+}

@@ -18,6 +18,17 @@
     gap: 3rem;
   }
 
+  &__xs {
+    @media only screen and (min-width: breakpoints.$tablet) {
+      padding: spacing.$pd__tb;
+    }
+
+    @media only screen and (min-width: breakpoints.$desktop) {
+      padding: spacing.$pd__dk-xs;
+    }
+  }
+
+
   &__small {
     @media only screen and (min-width: breakpoints.$tablet) {
       padding: spacing.$pd__tb;

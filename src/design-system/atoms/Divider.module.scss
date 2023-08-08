@@ -1,0 +1,19 @@
+@use "../settings/colors";
+
+.hr {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  
+  &-green {
+    color: colors.$green;
+  }
+
+  &-cream {
+    color: colors.$cream;
+  }
+
+  &-brown {
+    color: colors.$brown;
+  }
+}

@@ -1,18 +1,22 @@
+import { Colors } from '../types';
 import styles from './Marquee.module.scss';
 
 interface MarqueeProps {
   text?: string;
-  speed?: number;  
+  speed?: number;
+  color?: Colors;
 }
 
-export const Marquee = ({ text }: MarqueeProps) => {
-  const marqueeText = "Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays";
+export const Marquee = ({text, speed, color='green'}: MarqueeProps) => {
+  const marqueeColor = color ? styles[`marquee-${color}`] : '';
+
   return (
     <div className={styles.marqueeContainer}>
-      <p className={styles.marquee}>
-        {marqueeText} <span className={styles.marqueeKodu}> - KODU - </span>  {marqueeText} <span className={styles.marqueeKodu}> - KODU - </span> 
+      <p className={`${styles.marquee} ${marqueeColor}`} data-text={text}>
+        {text}
       </p>
+      {/* <p className={styles.marquee} dangerouslySetInnerHTML={{ __html: marqueeText }}></p> */}
+
     </div>
   );
 };
-
