@@ -1,31 +1,35 @@
 import { Section } from '../design-system/objects/Section'
 import { Container } from '../design-system/objects/Container'
-import { Hero, Destinations } from '../sections/home'
+import { Hero, Destinations, AboutUs } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
 import { AboutUsSlider } from '../sections/home/AboutUsSlider'
 import { Features } from '../sections/home/Features'
 import { Fader } from '../sections/home/Fader'
+import { AboutIntro } from '../sections/home/AboutIntro'
 
 export const HomePage = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
   return (
     <>
       <Fader />
-      <Section id='hero' size='full' customStyle={{ minHeight: "70vh" }}>
+      <Section size='full'>
         <Hero />
+        <span style={{ width: "100%", margin: "5rem 0" }}>
+          <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
+        </span>
       </Section>
-      <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       <Section>
         <Container bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}>
         </Container>
       </Section>
       <Section bgColor='green' size='small'>
-        {/* <GsapTest/> */}
+        <AboutIntro/>
       </Section>
-      <Section id='about-us' bgColor='green' size='full'>
-        <AboutUsSlider />
+      <Section bgColor='green' size='big'>
+        {/* <AboutUsSlider /> */}
+        <AboutUs/>
       </Section>
-      <Section id='features' bgColor='brown' size='big'>
+      <Section bgColor='brown' size='big'>
         <Features />
       </Section>
       {/* <Section bgColor='green' size='small' customStyle={{ justifyContent: "space-around" }}>
@@ -36,7 +40,7 @@ export const HomePage = () => {
         <Container bgImage={`${BASE_ASSETS}imgs/homes/bloom/bloom-3.png`}>
         </Container>
       </Section>
-      <Section id='destinations' size='full'>
+      <Section size='full'>
         <Destinations />
       </Section>
     </>

@@ -9,15 +9,19 @@
   align-items:flex-start;
   justify-content:flex-start;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  
+  @media only screen and (min-width: breakpoints.$tablet) {
+    margin-top: 3rem;
+    gap: 3rem;
+    }
 
   &__image-container {
     width: 90%;
     height: 55vh;
     object-position: center;
-
     padding: 0 spacing.$pd__mb-small ;
-
 
     @media only screen and (min-width: breakpoints.$tablet) {
       padding: 0 spacing.$pd__dk-xs ;
@@ -35,9 +39,8 @@
 
   &__textblock {
     text-align: left;
-    max-width: 500px;
+    max-width: 600px;
     padding: 0 spacing.$pd__mb-small ;
-
 
     @media only screen and (min-width: breakpoints.$tablet) {
       gap: 2rem;

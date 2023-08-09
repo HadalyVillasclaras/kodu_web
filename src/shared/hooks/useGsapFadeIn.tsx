@@ -17,7 +17,6 @@ export const useGsapFadeIn = () => {
         trigger: trigger,
         start: 'top bottom', 
         toggleActions: 'play none none reverse',
-        markers:true
 
       },
       y: 50,

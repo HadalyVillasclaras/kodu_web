@@ -22,7 +22,7 @@ export const CheckAvailabilityForm = ({color = "green"}: Props) => {
       <DropdownList color={color} label='Dates' options={trimestry} />
       {/* <DropdownList color={color} label='Travelers' options={["1", "2", "3", "4"]} /> */}
       </span>
-    <Button variant='default' color='green' text='Book' />
+    <Button variant='default' color='green' text='Check' />
     </section>
     </>
 )

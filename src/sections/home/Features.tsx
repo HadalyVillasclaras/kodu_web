@@ -3,6 +3,8 @@ import styles from "./Features.module.scss";
 import featureData from "../../config/data/FeaturesSect.json";
 import { ShowMoreText } from '../../shared/ShowMoreText';
 import { useGsapFadeIn } from '../../shared/hooks/useGsapFadeIn';
+import { Heading } from '../../design-system/atoms';
+import { Divider } from '../../design-system/atoms/Divider';
  
 type Feature = {
   name: string;
@@ -36,7 +38,7 @@ export const Features = () => {
     <div className={styles["features__container"]}>
       {!isMobile && (
         <section className={styles["features__displayed"]}>
-          <h3>{selectedFeature?.name}</h3>
+          <Heading as='h1' font='fancy'>{selectedFeature?.name}</Heading>
           <p>{selectedFeature?.description}</p>
         </section>
       )}
@@ -62,7 +64,7 @@ export const Features = () => {
                   onToggle={() => handleFeatureClick(feature)}
                 />
               }
-              <hr />
+              <Divider/>
             </li>
           ))}
         </ul>

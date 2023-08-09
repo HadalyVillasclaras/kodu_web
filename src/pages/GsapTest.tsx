@@ -24,7 +24,6 @@ export const GsapTest = ({ text = 'GSAP + ScrollTrigger' }: Props) => {
         start: 'top 80%',
         end: 'bottom 20%',
         scrub: true,
-        markers: true,
         toggleActions: 'restart none none reset',
       },
     });

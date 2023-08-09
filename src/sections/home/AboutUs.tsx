@@ -19,13 +19,13 @@ export const AboutUs = () => {
   const { fadeInOnScroll } = useGsapFadeIn();
 
   useEffect(() => {
-    fadeInOnScroll(animatedDivRef.current, `.${styles['about-us']}`);
+    fadeInOnScroll(animatedDivRef.current, `.${styles['care-about-children']}`);
   }, []);
 
   return (
-    <section className={styles['about-us']}>
-      <div ref={animatedDivRef}>
-        <Heading as='h1'>This is what we care about</Heading>
+    <section className={`${styles['about']}`}>
+      <div ref={animatedDivRef} className={`${styles['care-about']}`}>
+        <Heading as='h2' font='fancy'>This is what we care about</Heading>
         <ShowMoreText visibleText={text} hiddenText={hiddenText} showMoreText={showMore} onToggle={toggleShowMore} />
         <Button
           variant='underline'
@@ -34,8 +34,8 @@ export const AboutUs = () => {
           onClick={toggleShowMore}
         />
       </div>
-      <div className={styles['about-us__image-container']} >
-        <img className={styles['about-us__image']} src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
+      <div className={`${styles['care-about']}`}>
+        <img  src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
       </div>
     </section>
   )

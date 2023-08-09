@@ -33,9 +33,9 @@ export const Footer = () => {
         <p>+45 564 545 342</p>
       </section>
       <section ref={policiesRef} className={styles["footer__policies"]}>
-        <p><Link color='brown' size="xs" href='#!'>Terms & Conditions</Link></p>
-        <p><Link color='brown' size="xs" href='#!'>Cookies</Link></p>
-        <p><Link color='brown' size="xs" href='#!'>Privacy Policy</Link></p>
+        <p><Link color='brown' size="s" href='#!'>Terms & Conditions</Link></p>
+        <p><Link color='brown' size="s" href='#!'>Cookies</Link></p>
+        <p><Link color='brown' size="s" href='#!'>Privacy Policy</Link></p>
       </section>
     </footer>
   )

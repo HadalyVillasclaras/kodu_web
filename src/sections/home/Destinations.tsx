@@ -24,7 +24,7 @@ export const Destinations = () => {
   return (
     <>
       <div className={styles["destinations__sect-heading"]}>
-        <Heading color='green' as='h1'>Destinations</Heading>
+        <Heading color='green' font='fancy' as='h2'>Destinations</Heading>
       </div>
       <div style={{ height: "70vh" }}>
         <DestinationsSlider images={imgArray} visibleSlides={visibleSlides}/>

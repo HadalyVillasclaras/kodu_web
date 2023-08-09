@@ -3,38 +3,93 @@
 @use "../../design-system/settings/colors";
 @use "../../design-system/settings/breakpoints";
 
-
-.about-us{
-  position: relative;
+.about {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
 
-  > div {
-    position: relative;
-    flex-basis: 400px;
+  &__header {
+    margin-top: spacing.$pd__mb-big;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-  align-items: flex-start;
+    z-index: 1;
 
+    @media only screen and (min-width: breakpoints.$tablet) {
+      margin-top: spacing.$pd__dk-big;
+    }
+
+    h1 {
+      font-family: 'Eklektyk';
+      font-size: 7rem;
+    }
   }
 
-  &__text-block {
-    margin: 2rem 0 1rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  &__image-container {
-    display: flex;
-  }
-
-  &__image {
-    width: 100%;
-    height: 60vh;
+  img {
     border-radius: border.$radius-mid;
   }
+}
+
+
+.intro-about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  
+  &-left {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    top: -4rem;
+
+    @media only screen and (min-width: breakpoints.$tablet) {
+      width: 55%;
+      top: 1rem;
+    }
+  }
+
+  &-right {
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @media only screen and (min-width: breakpoints.$tablet) {
+      width: 35%;
+      top: -4rem;
+    }
+  
+
+    section {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      gap: 1rem;
+      align-self: flex-end;
+
+      @media only screen and (min-width: breakpoints.$tablet) {
+        width: 90%;
+      }
+    }
+  }
+
+  img {
+    border-radius: 15%;
+    object-fit: cover;
+  }
+}
+
+.care-about{
+  flex-basis: 30vw;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
 }

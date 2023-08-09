@@ -1,22 +1,30 @@
 @use "../settings/colors";
+@use "../settings/breakpoints";
+
 
 .marqueeContainer {
   height: 100%;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  width: 100%;
+
 }
 
 .marquee {
   font-family: 'Eklektyk';
   color: colors.$green;
-  font-size: 8rem;
+  font-size: 5rem;
   user-select: none;
   white-space: nowrap;
   display: inline-block;
-  animation: marqueeAnimation 30s linear infinite; 
+  animation: marqueeAnimation 70s linear infinite; 
   position: relative;
-  
+
+  @media only screen and (min-width: breakpoints.$mobile) {
+    font-size: 7rem;
+  }
+
   &::before, &::after {
     content: attr(data-text);
     position: absolute;

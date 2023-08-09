@@ -1,27 +1,37 @@
 @use "../settings/fonts";
 
-.heading {
-  &::after {
-  }
+@mixin font-style($family, $size, $weight, $lineHeight) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}
 
+$font-family-simple: "Trap";
+$font-family-fancy: "Eklektyk";
+
+.heading {
   &--h1 {
-    font-family: "Eklektyk";
-    font-size: fonts.$h1;
-    font-weight: 700;
-    line-height: fonts.$line-height-h1;
+    @include font-style($font-family-fancy, fonts.$h1, 700, fonts.$line-height-h1);
+
+    &-simple {
+      font-family: $font-family-simple;
+    }
   }
 
   &--h2 {
-    font-family: "Eklektyk";
-    font-size: fonts.$h2;
-    font-weight: 600;
-    line-height: fonts.$line-height-h2;
+    @include font-style($font-family-fancy, fonts.$h2, 600, fonts.$line-height-h2);
+
+    &-simple {
+      font-family: $font-family-simple;
+    }
   }
-  
+
   &--h3 {
-    font-family: "Trap";
-    font-size: fonts.$h3;
-    font-weight: 600;
-    line-height: fonts.$line-height-h3;
+    @include font-style($font-family-fancy, fonts.$h3, 600, fonts.$line-height-h3);
+
+    &-simple {
+      font-family: $font-family-simple;
+    }
   }
 }
