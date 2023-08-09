@@ -1,14 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
 import styles from "./AboutUs.module.scss";
-import { Button, Heading } from '../../design-system/atoms';
-import sectionImages from '../../config/data/SectionImages.json';
-import { useGsapFadeIn } from '../../shared/hooks/useGsapFadeIn';
-import { ShowMoreText } from '../../shared/ShowMoreText';
+import { Heading } from '../../design-system/atoms';
+
 
 export const AboutIntro = () => {
   const text = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
-  const hiddenText = " Et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
-  const [showMore, setShowMore] = useState(false);
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
   return (
