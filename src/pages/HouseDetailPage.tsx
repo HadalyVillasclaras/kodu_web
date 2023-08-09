@@ -8,6 +8,7 @@ import { getById } from "../services/destination/getById";
 export const HouseDetailPage = () => {
   const { id: homeId } = useParams();
   const home = getById(homeId)
+  const BASE_PATH = import.meta.env.VITE_BASE_PATH;
     
   return (
     <>
@@ -15,7 +16,14 @@ export const HouseDetailPage = () => {
       home &&
       <Section size='big'>
         <section style={{ width: "70vw" }}>
-          <Carousel images={['/src/assets/imgs/homes/paraty/paraty-1.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png']} />
+        <Carousel images={[
+          `${BASE_PATH}assets/imgs/homes/paraty/paraty-1.png`,
+          `${BASE_PATH}assets/imgs/homes/dunlap/dunlap-1.png`,
+          `${BASE_PATH}assets/imgs/homes/bloom/bloom-3.png`,
+          `${BASE_PATH}assets/imgs/homes/dunlap/dunlap-1.png`,
+          `${BASE_PATH}assets/imgs/homes/bloom/bloom-3.png`,
+          `${BASE_PATH}assets/imgs/homes/dunlap/dunlap-1.png`
+      ]} />
         </section>
         <DetailHeader name={home?.name} location={home?.location}/>
         {/* <DetailInfo description={home?.description} details={home?.details}/> */}

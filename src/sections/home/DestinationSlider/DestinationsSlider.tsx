@@ -9,14 +9,16 @@ interface SliderProps {
   visibleSlides?: number;
   ChildComponent?: React.FC<any>;
 }
-const destinations = [
-  { homeName: "Paraty", src: "/src/assets/imgs/homes/paraty/paraty-3.png" },
-  { homeName: "Dunlap Hollow", src: "/src/assets/imgs/homes/dunlap/dunlap-6.png" },
-  { homeName: "The Bloom House", src: "/src/assets/imgs/homes/bloom/bloom-7.png" },
-  { homeName: "Paraty", src: "/src/assets/imgs/homes/paraty/paraty-1.png" },
-  { homeName: "Dunlap Hollow", src: "/src/assets/imgs/homes/dunlap/dunlap-7.png" }
-];
 
+const BASE_PATH = import.meta.env.VITE_BASE_PATH;
+
+const destinations = [
+  { homeName: "Paraty", src: `${BASE_PATH}assets/imgs/homes/paraty/paraty-3.png` },
+  { homeName: "Dunlap Hollow", src: `${BASE_PATH}assets/imgs/homes/dunlap/dunlap-6.png` },
+  { homeName: "The Bloom House", src: `${BASE_PATH}assets/imgs/homes/bloom/bloom-7.png` },
+  { homeName: "Paraty", src: `${BASE_PATH}assets/imgs/homes/paraty/paraty-1.png` },
+  { homeName: "Dunlap Hollow", src: `${BASE_PATH}assets/imgs/homes/dunlap/dunlap-7.png` }
+];
 
 export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);

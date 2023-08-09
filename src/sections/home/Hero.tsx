@@ -8,6 +8,7 @@ import { useGsapFadeIn } from "../../shared/hooks/useGsapFadeIn";
 export const Hero = () => {
   const animatedTextRef = useRef<HTMLElement>(null!);
   const { fadeInOnScroll } = useGsapFadeIn();
+  const BASE_PATH = import.meta.env.VITE_BASE_PATH;
 
   useEffect(() => {
     fadeInOnScroll(animatedTextRef.current, `.${styles['hero']}`);
@@ -20,7 +21,7 @@ export const Hero = () => {
         </section>
         <Divider />
         <section className={styles['hero__image-container']}>
-          <img className={styles['hero__image']} src={sectionImages.hero.src} alt={sectionImages.hero.alt} />
+          <img className={styles['hero__image']} src={`${BASE_PATH}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />
         </section>
       </section>
   )

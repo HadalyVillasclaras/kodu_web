@@ -11,6 +11,8 @@ interface SliderProps {
 }
 
 export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderProps) => {
+  const BASE_PATH = import.meta.env.VITE_BASE_PATH;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLeftDisabled, setIsLeftDisabled] = useState(true);
   const [isRightDisabled, setIsRightDisabled] = useState(images.length <= visibleSlides);
@@ -71,7 +73,7 @@ export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderPr
               <AboutUs />
               </div>
               <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <img  src="/src/assets/imgs/homes/paraty/paraty-1.png" />
+                <img  src={`${BASE_PATH}assets/imgs/homes/paraty/paraty-1.png`} />
               </div>
           </div>
         </div>

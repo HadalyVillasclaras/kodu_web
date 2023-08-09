@@ -7,15 +7,16 @@ import { Features } from '../sections/home/Features'
 import { Fader } from '../sections/home/Fader'
 
 export const HomePage = () => {
+  const BASE_PATH = import.meta.env.VITE_BASE_PATH;
   return (
     <>
-      <Fader/>
+      <Fader />
       <Section id='hero' size='full' customStyle={{ minHeight: "70vh" }}>
         <Hero />
       </Section>
-      <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;'/>
+      <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       <Section>
-        <Container bgImage='/src/assets/imgs/homes/dunlap/dunlap-2b.png'>
+        <Container bgImage={`${BASE_PATH}assets/imgs/homes/dunlap/dunlap-2b.png`}>
         </Container>
       </Section>
       <Section bgColor='green' size='small'>
@@ -31,8 +32,8 @@ export const HomePage = () => {
         <Gallery />
       </Section> */}
       <Section bgColor='green'>
-        <Marquee color='brown' text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;'/>
-        <Container bgImage='/src/assets/imgs/homes/bloom/bloom-3.png'>
+        <Marquee color='brown' text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
+        <Container bgImage={`${BASE_PATH}assets/imgs/homes/bloom/bloom-3.png`}>
         </Container>
       </Section>
       <Section id='destinations' size='full'>

@@ -24,4 +24,6 @@ export const routes = createBrowserRouter([
       }
     ]
   }
-]);
+],{
+basename: "/kodu_web"}
+);
