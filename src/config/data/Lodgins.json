@@ -11,12 +11,12 @@
       "bathroom": 1
     },
     "images": [
-      "assets/imgs/homes/bloom/bloom-7.png",
-      "assets/imgs/homes/bloom/bloom-1.png",
-      "assets/imgs/homes/bloom/bloom-2.png",
-      "assets/imgs/homes/bloom/bloom-3.png",
-      "assets/imgs/homes/bloom/bloom-4.png",
-      "assets/imgs/homes/bloom/bloom-5.png"
+      "imgs/homes/bloom/bloom-7.png",
+      "imgs/homes/bloom/bloom-1.png",
+      "imgs/homes/bloom/bloom-2.png",
+      "imgs/homes/bloom/bloom-3.png",
+      "imgs/homes/bloom/bloom-4.png",
+      "imgs/homes/bloom/bloom-5.png"
     ]
   },
   {
@@ -31,11 +31,11 @@
       "bathroom": 3
     },
     "images": [
-      "assets/imgs/homes/dunlap/dunlap-1.png",
-      "assets/imgs/homes/dunlap/dunlap-2.png",
-      "assets/imgs/homes/dunlap/dunlap-3.png",
-      "assets/imgs/homes/dunlap/dunlap-4.png",
-      "assets/imgs/homes/dunlap/dunlap-5.png"
+      "imgs/homes/dunlap/dunlap-1.png",
+      "imgs/homes/dunlap/dunlap-2.png",
+      "imgs/homes/dunlap/dunlap-3.png",
+      "imgs/homes/dunlap/dunlap-4.png",
+      "imgs/homes/dunlap/dunlap-5.png"
     ]
   },
   {
@@ -50,12 +50,12 @@
       "bathroom": 2
     },
     "images": [
-      "assets/imgs/homes/paraty/paraty-2.png",
-      "assets/imgs/homes/paraty/paraty-1.png",
-      "assets/imgs/homes/paraty/paraty-3.png",
-      "assets/imgs/homes/paraty/paraty-4.png",
-      "assets/imgs/homes/paraty/paraty-5.png",
-      "assets/imgs/homes/paraty/paraty-6.png"
+      "imgs/homes/paraty/paraty-2.png",
+      "imgs/homes/paraty/paraty-1.png",
+      "imgs/homes/paraty/paraty-3.png",
+      "imgs/homes/paraty/paraty-4.png",
+      "imgs/homes/paraty/paraty-5.png",
+      "imgs/homes/paraty/paraty-6.png"
     ]
   }
 ]

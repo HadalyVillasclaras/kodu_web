@@ -2,13 +2,13 @@ import { Carousel } from '../../design-system/molecules/Carousel'
 import { Heading } from '../../design-system/atoms'
 
 export const Gallery = () => {
-  const BASE_PATH = import.meta.env.VITE_BASE_PATH;
+  const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
   const imgArray = [
-    `${BASE_PATH}assets/imgs/homes/paraty/paraty-1.png`,
-    `${BASE_PATH}assets/imgs/homes/dunlap/dunlap-1.png`,
-    `${BASE_PATH}assets/imgs/homes/bloom/bloom-3.png`,
-    `${BASE_PATH}assets/imgs/homes/dunlap/dunlap-1.png`,
-    `${BASE_PATH}assets/imgs/homes/dunlap/dunlap-1.png`
+    `${BASE_ASSETS}imgs/homes/paraty/paraty-1.png`,
+    `${BASE_ASSETS}imgs/homes/dunlap/dunlap-1.png`,
+    `${BASE_ASSETS}imgs/homes/bloom/bloom-3.png`,
+    `${BASE_ASSETS}imgs/homes/dunlap/dunlap-1.png`,
+    `${BASE_ASSETS}imgs/homes/dunlap/dunlap-1.png`
 ];
 
   

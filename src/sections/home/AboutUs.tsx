@@ -9,7 +9,7 @@ export const AboutUs = () => {
   const text = "Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
   const hiddenText = " Et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
   const [showMore, setShowMore] = useState(false);
-  const BASE_PATH = import.meta.env.VITE_BASE_PATH;
+  const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
   const toggleShowMore = () => {
     setShowMore(prevState => !prevState);
@@ -35,7 +35,7 @@ export const AboutUs = () => {
         />
       </div>
       <div className={styles['about-us__image-container']} >
-        <img className={styles['about-us__image']} src={BASE_PATH + sectionImages.aboutUs[0].src} alt="description" />
+        <img className={styles['about-us__image']} src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
       </div>
     </section>
   )

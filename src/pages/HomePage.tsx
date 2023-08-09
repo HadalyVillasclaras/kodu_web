@@ -7,7 +7,7 @@ import { Features } from '../sections/home/Features'
 import { Fader } from '../sections/home/Fader'
 
 export const HomePage = () => {
-  const BASE_PATH = import.meta.env.VITE_BASE_PATH;
+  const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
   return (
     <>
       <Fader />
@@ -16,7 +16,7 @@ export const HomePage = () => {
       </Section>
       <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       <Section>
-        <Container bgImage={`${BASE_PATH}assets/imgs/homes/dunlap/dunlap-2b.png`}>
+        <Container bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}>
         </Container>
       </Section>
       <Section bgColor='green' size='small'>
@@ -33,7 +33,7 @@ export const HomePage = () => {
       </Section> */}
       <Section bgColor='green'>
         <Marquee color='brown' text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
-        <Container bgImage={`${BASE_PATH}assets/imgs/homes/bloom/bloom-3.png`}>
+        <Container bgImage={`${BASE_ASSETS}imgs/homes/bloom/bloom-3.png`}>
         </Container>
       </Section>
       <Section id='destinations' size='full'>
