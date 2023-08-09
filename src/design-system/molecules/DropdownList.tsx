@@ -9,7 +9,7 @@ type DropdownListProps = {
   onSelectChange?: (selectedOption: string) => void;
 };
 
-export const DropdownList = ({ options, label, color, onSelectChange }: DropdownListProps) => {
+export const DropdownList = ({ options, label, color }: DropdownListProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const ref = useRef<HTMLDivElement>(null);

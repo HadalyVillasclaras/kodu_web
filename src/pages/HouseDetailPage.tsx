@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { Carousel } from "../design-system/molecules/Carousel"
 import { Section } from "../design-system/objects/Section"
 import { DetailHeader } from "../sections/detail/DetailHeader"
-import { DetailInfo } from "../sections/detail/DetailInfo";
+// import { DetailInfo } from "../sections/detail/DetailInfo";
 import { getById } from "../services/destination/getById";
 
 export const HouseDetailPage = () => {
@@ -18,7 +18,7 @@ export const HouseDetailPage = () => {
           <Carousel images={['/src/assets/imgs/homes/paraty/paraty-1.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png', '/src/assets/imgs/homes/bloom/bloom-3.png', '/src/assets/imgs/homes/dunlap/dunlap-1.png']} />
         </section>
         <DetailHeader name={home?.name} location={home?.location}/>
-        <DetailInfo description={home?.description} details={home?.details}/>
+        {/* <DetailInfo description={home?.description} details={home?.details}/> */}
 
       </Section>
     }

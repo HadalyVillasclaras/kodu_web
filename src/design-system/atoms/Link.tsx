@@ -9,7 +9,7 @@ export interface LinkProps {
   openInNewTab?: boolean; 
 }
 
-export const Link = ({ color = "green", size = "s", children, href, openInNewTab = false, ...props }: LinkProps) => {
+export const Link = ({ color = "green", size = "s", children, href, openInNewTab = false,}: LinkProps) => {
   const target = openInNewTab ? "_blank" : "_self";
 
   return (

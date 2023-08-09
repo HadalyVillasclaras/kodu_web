@@ -1,4 +1,4 @@
-import  { useEffect, useRef, useState } from 'react';
+import  { useRef, useState } from 'react';
 import styles from './Carousel.module.scss';
 import { ArrowsNav } from './ArrowsNav';
 import { FullscreenImage } from './FullScreenImage';

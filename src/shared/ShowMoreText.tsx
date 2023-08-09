@@ -5,12 +5,12 @@ interface Props {
   visibleText: string;
   hiddenText?: string;
   showMoreText: boolean;
-  onToggle: () => void;
+  onToggle?: () => void;
 }
 
-export const ShowMoreText = ({ visibleText, hiddenText, showMoreText, onToggle }: Props) => {
+export const ShowMoreText = ({ visibleText, hiddenText, showMoreText }: Props) => {
   const [contentHeight, setContentHeight] = useState(0);  
-  const contentRef = useRef(null);
+  const contentRef = useRef<HTMLParagraphElement | null>(null);
 
   useEffect(() => {
     if (contentRef?.current) {

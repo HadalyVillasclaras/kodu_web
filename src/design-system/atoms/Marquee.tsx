@@ -7,7 +7,7 @@ interface MarqueeProps {
   color?: Colors;
 }
 
-export const Marquee = ({text, speed, color='green'}: MarqueeProps) => {
+export const Marquee = ({text, color='green'}: MarqueeProps) => {
   const marqueeColor = color ? styles[`marquee-${color}`] : '';
 
   return (

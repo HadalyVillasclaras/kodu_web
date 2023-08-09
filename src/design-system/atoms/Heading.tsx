@@ -9,11 +9,12 @@ type HeadingProps = {
   children: ReactNode;
 }
 
-function createTagComponent(tag: string) {
-  return forwardRef<HTMLElement, JSX.IntrinsicElements[typeof tag]>((props, ref) => {
+function createTagComponent<T extends keyof JSX.IntrinsicElements>(tag: T) {
+  return forwardRef<HTMLElement, JSX.IntrinsicElements[T]>((props, ref) => {
     return React.createElement(tag, { ...props, ref });
   });
 }
+
 
 export const Heading = ({ children, as = "h1", color }: HeadingProps) => {
   const Tag = createTagComponent(as);

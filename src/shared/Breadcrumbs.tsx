@@ -38,7 +38,7 @@ export const Breadcrumbs = () => {
   });
   
   return (
-    <div as="span" id="breadcrumbs">
+    <span id="breadcrumbs">
       {breadcumbs.map((crumb, index: number) => {
         if (index + 1 === breadcumbs.length) {
           return (
@@ -49,6 +49,6 @@ export const Breadcrumbs = () => {
           )
         }
       })}
-    </div>
+    </span>
   );
 };

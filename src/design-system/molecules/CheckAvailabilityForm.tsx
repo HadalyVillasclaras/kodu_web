@@ -8,7 +8,7 @@ type Props = {
   color?: Colors;
 }
 
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+// const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const trimestry = ["January - March", "April - June", "July - September", "October - December"]
 
 export const CheckAvailabilityForm = ({color = "green"}: Props) => {

@@ -1,4 +1,3 @@
-// mediaQueryUtility.tsx
 import { useEffect } from 'react';
 import { Breakpoints, breakpointValues } from '../design-system/types/Breakpoints';
 
@@ -6,13 +5,13 @@ export const useBreakpointSetter = (action: (value: number) => void, values: Rec
   useEffect(() => {
     const mediaQueries = Object.keys(breakpointValues).map((bp) => {
       const mq = window.matchMedia(breakpointValues[bp as keyof Breakpoints]);
-      const listener = (e: MediaQueryListEvent) => {
+      const listener = (e: MediaQueryListEvent | MediaQueryList) => {
         if (e.matches && values[bp]) {
           action(values[bp]);
         }
       };
       mq.addEventListener('change', listener);
-      listener(mq); // check immediately on component mount
+      listener(mq); 
       return { mq, listener };
     });
 
