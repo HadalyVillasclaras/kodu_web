@@ -4,12 +4,12 @@ import { Hero, Destinations } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
 import { AboutUsSlider } from '../sections/home/AboutUsSlider'
 import { Features } from '../sections/home/Features'
-import { Divider } from '../design-system/atoms/Divider'
-import { GsapTest } from './GsapTest'
+import { Fader } from '../sections/home/Fader'
 
 export const HomePage = () => {
   return (
     <>
+      <Fader/>
       <Section id='hero' size='full' customStyle={{ minHeight: "70vh" }}>
         <Hero />
       </Section>

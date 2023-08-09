@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import styles from './AboutUsSlider.module.scss';
 import { ArrowCursor } from '../../design-system/molecules/ArrowCursor';
-import { DestinationCard } from '../../design-system/molecules/DestinationCard';
 import { AboutUs } from '.';
 
 interface SliderProps {
   images?: string[];
   transitionTime?: number;
   visibleSlides?: number;
-  ChildComponent?: React.FC<any>;
+  ChildComponent?: ReactNode;
 }
 
 export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderProps) => {
