@@ -1,16 +1,9 @@
 import styles from "./AboutUs.module.scss";
 import { Heading } from '../../design-system/atoms';
-import { DeviceType, useDeviceType } from "../../shared/useDeviceType";
 
 export const AboutIntro = () => {
-  const deviceType = useDeviceType();
   const text = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-
-  const imageElement = (
-    <img src={BASE_ASSETS + 'imgs/homes/bloom/bloom-1.png'} alt="description" />
-  );
-console.log(deviceType);
 return (
   <>
     <header className={styles['intro-about__header']}>
@@ -25,7 +18,6 @@ return (
           <Heading as='h4' color='brown' font='fancy'>Sustainable lodgings</Heading>
           <p>{text}</p>
         </section>
-
       </div>
     </section>
   </>
