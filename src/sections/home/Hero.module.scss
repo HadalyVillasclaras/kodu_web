@@ -18,14 +18,14 @@
     }
 
   &__image-container {
-    width: 90%;
     height: 55vh;
     object-position: center;
     padding: 0 spacing.$pd__mb-small ;
 
     @media only screen and (min-width: breakpoints.$tablet) {
       padding: 0 spacing.$pd__dk-xs ;
-      }
+      width: 90%;
+    }
   }
 
   &__image {

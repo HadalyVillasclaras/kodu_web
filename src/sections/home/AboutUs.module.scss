@@ -16,14 +16,17 @@
     display: flex;
     flex-direction: column;
     z-index: 1;
-
+    width: 100%;
+    
     @media only screen and (min-width: breakpoints.$tablet) {
       margin-top: spacing.$pd__dk-big;
     }
 
     h1 {
-      font-family: 'Eklektyk';
-      font-size: 7rem;
+      line-height: 4rem;
+      @media only screen and (min-width: breakpoints.$tablet) {
+        line-height: unset;
+      }
     }
   }
 
@@ -32,23 +35,30 @@
   }
 }
 
-
 .intro-about {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   position: relative;
+  top: -6rem;
+  gap: 2rem;
+
+  @media only screen and (min-width: breakpoints.$tablet) {
+    top: -4rem;
+  }
   
   &-left {
     position: relative;
     width: 100%;
-    height: 85vh;
-    top: -4rem;
+    height: 40vh;
+    top: 0;
 
     @media only screen and (min-width: breakpoints.$tablet) {
       width: 55%;
       top: 1rem;
+      height: 85vh;
+      top: -4rem;
     }
   }
 
@@ -65,11 +75,12 @@
       top: -4rem;
     }
   
+    
 
     section {
       display: flex;
       flex-direction: column;
-      width: 70%;
+      width: 100%;
       gap: 1rem;
       align-self: flex-end;
 
@@ -83,13 +94,35 @@
     border-radius: 15%;
     object-fit: cover;
   }
+
+  &__header {
+    margin-top: spacing.$pd__mb-big;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    width: 100%;
+    @media only screen and (min-width: breakpoints.$tablet) {
+      margin-top: spacing.$pd__dk-big;
+    }
+
+    h1 {
+      line-height: 4rem;
+      @media only screen and (min-width: breakpoints.$tablet) {
+        line-height: unset;
+      }
+    }
+  }
 }
 
 .care-about{
-  flex-basis: 30vw;
-  min-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: flex-start;
+
+  @media only screen and (min-width: breakpoints.$tablet) {
+    flex-basis: 30vw;
+    min-width: 400px;
+  }
 }

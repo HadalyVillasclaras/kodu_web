@@ -1,37 +1,32 @@
 @use "../settings/fonts";
-
-@mixin font-style($family, $size, $weight, $lineHeight) {
-  font-family: $family;
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $lineHeight;
-}
+@use "../settings/breakpoints";
 
 $font-family-simple: "Trap";
 $font-family-fancy: "Eklektyk";
 
+$h-sizes: (
+  h1: (mb: fonts.$h1-mb, dk: fonts.$h1-dk),
+  h2: (mb: fonts.$h2-mb, dk: fonts.$h2-dk),
+  h3: (mb: fonts.$h3-mb, dk: fonts.$h3-dk)
+);
+
+@mixin heading-font-styles($size-mb, $size-dk, $family: $font-family-fancy) {
+  font-family: $family;
+  font-size: $size-mb;
+
+  @media only screen and (min-width: breakpoints.$mobile) {
+    font-size: $size-dk;
+  }
+}
+
 .heading {
-  &--h1 {
-    @include font-style($font-family-fancy, fonts.$h1, 700, fonts.$line-height-h1);
-
-    &-simple {
-      font-family: $font-family-simple;
-    }
-  }
-
-  &--h2 {
-    @include font-style($font-family-fancy, fonts.$h2, 600, fonts.$line-height-h2);
-
-    &-simple {
-      font-family: $font-family-simple;
-    }
-  }
-
-  &--h3 {
-    @include font-style($font-family-fancy, fonts.$h3, 600, fonts.$line-height-h3);
-
-    &-simple {
-      font-family: $font-family-simple;
+  @each $h, $sizes in $h-sizes {
+    &--#{$h} {
+      @include heading-font-styles(map-get($sizes, mb), map-get($sizes, dk));
+      
+      &-simple {
+        @include heading-font-styles(map-get($sizes, mb), map-get($sizes, dk), $font-family-simple);
+      }
     }
   }
 }

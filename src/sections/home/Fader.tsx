@@ -5,18 +5,17 @@ import { Logo } from '../../design-system/atoms';
 export const Fader = () => {
   const [topStyle, setTopStyle] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
-  const handleLoad = () => {
-console.log('fader');
 
+  const handleLoad = () => {
     setIsLoaded(true);
+    
     setTimeout(() => {
       setTopStyle('-110vh');
-    }, 2500);
+    }, 2300);
   };
 
   useEffect(() => {
-    handleLoad()
-
+    handleLoad();
   }, []);
 
   return (

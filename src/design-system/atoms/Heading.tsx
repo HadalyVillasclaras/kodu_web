@@ -31,7 +31,6 @@ export const Heading = ({ children, as = "h1", color, font = 'simple' }: Heading
   if (font === 'simple') {
     fontClass += ` ${styles[`heading--${as}-simple`]}`;
   }
-  console.log(fontClass);
 
   return (
     <Tag ref={animatedTextRef} className={`${fontClass}`} style={{ color: `var(--${color})` }}>

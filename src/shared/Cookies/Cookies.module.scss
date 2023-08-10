@@ -4,17 +4,17 @@
 
 .cookies {
   position: fixed;
-  bottom: 1rem;
   z-index: 1;
   padding: spacing.$s;
   background-color: colors.$bg-brown;
   color: colors.$text-primary;
+  border: 1px solid colors.$green;
   display: flex;
   max-width: 100%;
   flex-direction: column;
   gap: 0.9rem;
-  border: 1px solid colors.$green;
-  
+  bottom: -100%;
+
   @media only screen and (min-width: breakpoints.$mobile) {
     flex-direction: row;
     width: 750px;
@@ -30,25 +30,52 @@
     width: 100%;
     
     @media only screen and (min-width: breakpoints.$mobile) {
-      &__text {
-        width: 70%;
-      }
+      width: 70%;
     }
   }
 
   &__btns {
     display: flex;
     gap: 1rem;
-    justify-content: flex-end;
     align-items: flex-end;
     white-space: nowrap;
     bottom: 0.3rem;
     position: relative;
+    flex-wrap: wrap;
+    @media only screen and (min-width: breakpoints.$mobile) {
+      justify-content: flex-end;
+    }
   }
 
   &__close {
     position: absolute;
     right: 1rem;
     top: 1rem;
+  }
+}
+
+.slideUp {
+  animation: slideUp 2s ease-out forwards;
+}
+
+.slideDown {
+  animation: slideDown 2s ease-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: -100%;  
+  }
+  100% {
+    bottom: 1rem; 
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    bottom: 1rem;
+  }
+  100% {
+    bottom: -100%;
   }
 }

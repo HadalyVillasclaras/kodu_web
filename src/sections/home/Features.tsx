@@ -20,7 +20,6 @@ export const Features = () => {
   const isMobile = false;
 
   const handleFeatureClick = (feature: Feature) => {
-    console.log(feature);
     setSelectedFeature(feature);
 
     if (expandedFeature === feature.name) {

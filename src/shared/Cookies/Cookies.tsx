@@ -1,20 +1,28 @@
 import { useState, useEffect } from "react";
-import { Button, IconButton } from "../atoms"
+import { Button, IconButton } from "../../design-system/atoms"  
 import styles from "./Cookies.module.scss";
 import { setCookie } from "../../shared/Cookies/setCookie";
 import { getCookie } from "../../shared/Cookies/getCookie";
 
 export const Cookies = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(false);
+  const [hideAnimation, setHideAnimation] = useState(false);
 
   const handleAccept = () => {
     setCookie("cookie", "accepted", 1);
-    setIsOpen(false);
+    setHideAnimation(true);
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 3000400);
   }
 
   const handleRefuse = () => {
     setCookie("cookie", "rejected", 1);
-    setIsOpen(false);
+    setHideAnimation(true);
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 3000400);
   }
 
   useEffect(() => {
@@ -22,12 +30,16 @@ export const Cookies = () => {
     if (cookie !== "accepted") {
       setIsOpen(true);
     }
+    setTimeout(() => {
+      setShowAnimation(true);
+    }, 2400);
+   
   }, []);
 
   return (
     isOpen 
     ? 
-      <section className={styles.cookies}>
+    <section className={`${styles.cookies} ${showAnimation ? styles.slideUp : ''} ${hideAnimation ? styles.slideDown : ''}`}>
         <span className={styles.cookies__close}>
           <IconButton
             icon='x'
