@@ -29,11 +29,9 @@
 
 
   &__small {
-    @media only screen and (min-width: breakpoints.$tablet) {
-      padding: spacing.$pd__tb;
-    }
+    padding: spacing.$pd__mb-small;
 
-    @media only screen and (min-width: breakpoints.$desktop) {
+    @media only screen and (min-width: breakpoints.$tablet) {
       padding: spacing.$pd__dk-small;
     }
   }

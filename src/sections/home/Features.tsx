@@ -37,7 +37,7 @@ export const Features = () => {
     <div className={styles["features__container"]}>
       {!isMobile && (
         <section className={styles["features__displayed"]}>
-          <Heading as='h1' font='fancy'>{selectedFeature?.name}</Heading>
+          <Heading as='h2' font='fancy'>{selectedFeature?.name}</Heading>
           <p>{selectedFeature?.description}</p>
         </section>
       )}

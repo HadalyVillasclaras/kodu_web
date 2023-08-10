@@ -16,7 +16,7 @@ export const Hero = () => {
   return (
       <section className={styles['hero']}>
         <section ref={animatedTextRef} className={styles['hero__textblock']}>
-          <Heading as='h3' color="brown">Sustainable lodgings that take care of the planet</Heading>
+          <Heading as='h4' color="brown">Sustainable lodgings that take care of the planet</Heading>
         </section>
         <section className={styles['hero__image-container']}>
           <img className={styles['hero__image']} src={`${BASE_ASSETS}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />

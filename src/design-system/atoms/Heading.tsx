@@ -4,7 +4,7 @@ import { useGsapFadeIn } from '../../shared/hooks/useGsapFadeIn';
 import { Colors } from '../types';
 
 type HeadingProps = {
-  as?: "h1" | "h2" | "h3";
+  as?: "h1" | "h2" | "h3" | "h4";
   font?: "simple" | "fancy"
   color?: Colors;
   children: ReactNode;

@@ -8,26 +8,26 @@ export const AboutIntro = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
   const imageElement = (
-    <img className={`${styles['intro-about-left']}`} src={BASE_ASSETS + 'imgs/homes/paraty/paraty-3.png'} alt="description" />
+    <img src={BASE_ASSETS + 'imgs/homes/bloom/bloom-1.png'} alt="description" />
   );
+console.log(deviceType);
+return (
+  <>
+    <header className={styles['intro-about__header']}>
+      <Heading font='fancy' as='h1'>Nourish Nature</Heading>
+      <Heading font='fancy' as='h1'>Your Next Getaway</Heading>
+    </header>
+    <section className={`${styles['intro-about']}`}>
+      <img className={`${styles['intro-about-left']}`} src={BASE_ASSETS + 'imgs/homes/paraty/paraty-3.png'} alt="description" />
+      <div className={`${styles['intro-about-right']}`}>
+      <img src={BASE_ASSETS + 'imgs/homes/bloom/bloom-1.png'} alt="description" />
+        <section>
+          <Heading as='h4' color='brown' font='fancy'>Sustainable lodgings</Heading>
+          <p>{text}</p>
+        </section>
 
-  return (
-    <>
-      <header className={styles['intro-about__header']}>
-        <Heading font='fancy' as='h1'>Nourish Nature</Heading>
-        <Heading font='fancy' as='h1'>Your Next Getaway</Heading>
-      </header>
-      <section className={`${styles['intro-about']}`}>
-        {deviceType === DeviceType.MOBILE && imageElement}
-        <div className={`${styles['intro-about-right']}`}>
-          {deviceType === DeviceType.DESKTOP && imageElement}
-          <section>
-            <Heading as='h3' color='brown' font='fancy'>Sustainable lodgings</Heading>
-            <p>{text}</p>
-          </section>
-          {deviceType === DeviceType.MOBILE && imageElement}
-        </div>
-      </section>
-    </>
-  )
+      </div>
+    </section>
+  </>
+)
 }

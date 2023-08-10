@@ -25,7 +25,7 @@ export const AboutUs = () => {
   return (
     <section className={`${styles['about']}`}>
       <div ref={animatedDivRef} className={`${styles['care-about']}`}>
-        <Heading as='h2' font='fancy'>This is what we care about</Heading>
+        <Heading as='h3' font='fancy'>This is what we care about</Heading>
         <ShowMoreText visibleText={text} hiddenText={hiddenText} showMoreText={showMore} onToggle={toggleShowMore} />
         <Button
           variant='underline'

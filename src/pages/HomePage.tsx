@@ -21,7 +21,7 @@ export const HomePage = () => {
         <Container bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}>
         </Container>
       </Section>
-      <Section bgColor='green' size='small'>
+      <Section id='about' bgColor='green' size='small'>
         <AboutIntro/>
       </Section>
       <Section bgColor='green' size='big'>
@@ -34,12 +34,11 @@ export const HomePage = () => {
       {/* <Section bgColor='green' size='small' customStyle={{ justifyContent: "space-around" }}>
         <Gallery />
       </Section> */}
-      <Section bgColor='green'>
-        <Marquee color='brown' text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
+      <Section bgColor='brown'>
         <Container bgImage={`${BASE_ASSETS}imgs/homes/bloom/bloom-3.png`}>
         </Container>
       </Section>
-      <Section size='full'>
+      <Section id='destinations' size='full'>
         <Destinations />
       </Section>
     </>

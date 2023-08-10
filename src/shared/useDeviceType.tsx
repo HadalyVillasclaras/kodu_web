@@ -8,21 +8,37 @@ export enum DeviceType {
 }
 
 export const useDeviceType = (): DeviceType => {
-  const [deviceType, setDeviceType] = useState(DeviceType.MOBILE); // Default to MOBILE
-
-  useEffect(() => {
+  const getInitialDeviceType = (): DeviceType => {
     const matchDesktop = window.matchMedia(breakpointValues.desktop).matches;
     const matchTablet = window.matchMedia(breakpointValues.tablet).matches;
-    
+
     if (matchDesktop) {
-      setDeviceType(DeviceType.DESKTOP);
+      return DeviceType.DESKTOP;
     } else if (matchTablet) {
-      setDeviceType(DeviceType.TABLET);
+      return DeviceType.TABLET;
     } else {
-      setDeviceType(DeviceType.MOBILE);
+      return DeviceType.MOBILE;
     }
-  }, []);
+  };
+
+  const [deviceType, setDeviceType] = useState(getInitialDeviceType);
+
+  useEffect(() => {
+    const determineDevice = () => {
+      const matchDesktop = window.matchMedia(breakpointValues.desktop).matches;
+      const matchTablet = window.matchMedia(breakpointValues.tablet).matches;
+      
+      if (matchDesktop) {
+        setDeviceType(DeviceType.DESKTOP);
+      } else if (matchTablet) {
+        setDeviceType(DeviceType.TABLET);
+      } else {
+        setDeviceType(DeviceType.MOBILE);
+      }
+    }
+    window.addEventListener('resize', determineDevice);
+    return () => window.removeEventListener('resize', determineDevice);
+  }, []); 
 
   return deviceType;
 }
-
