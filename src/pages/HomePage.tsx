@@ -5,6 +5,7 @@ import { Marquee } from '../design-system/atoms/Marquee'
 import { Features } from '../sections/home/Features'
 import { Fader } from '../sections/home/Fader'
 import { AboutIntro } from '../sections/home/AboutIntro'
+import { Accordion } from '../design-system/molecules/Accordion/Accordion'
 
 export const HomePage = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
@@ -22,14 +23,14 @@ export const HomePage = () => {
         </Container>
       </Section>
       <Section id='about' bgColor='green' size='small'>
-        <AboutIntro/>
+        <AboutIntro />
       </Section>
       <Section bgColor='green' size='big'>
         {/* <AboutUsSlider /> */}
-        <AboutUs/>
+        <AboutUs />
       </Section>
       <Section bgColor='brown' size='big'>
-        <Features />
+        <Accordion />
       </Section>
       {/* <Section bgColor='green' size='small' customStyle={{ justifyContent: "space-around" }}>
         <Gallery />

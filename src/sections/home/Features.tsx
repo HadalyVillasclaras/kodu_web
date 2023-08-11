@@ -5,7 +5,7 @@ import { ShowMoreText } from '../../shared/ShowMoreText';
 import { useGsapFadeIn } from '../../shared/hooks/useGsapFadeIn';
 import { Heading } from '../../design-system/atoms';
 import { Divider } from '../../design-system/atoms/Divider';
- 
+
 type Feature = {
   name: string;
   description: string;
@@ -63,7 +63,7 @@ export const Features = () => {
                   onToggle={() => handleFeatureClick(feature)}
                 />
               }
-              <Divider/>
+              <Divider />
             </li>
           ))}
         </ul>

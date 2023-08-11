@@ -1,0 +1,24 @@
+.accordion {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+
+  &__item {
+    width: 100%;
+  }
+
+  &__title {
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  }
+  
+  &__content {
+    height: auto;
+    overflow: hidden;
+
+    p {
+    padding-top: 1.3rem;
+    }
+  }
+}
