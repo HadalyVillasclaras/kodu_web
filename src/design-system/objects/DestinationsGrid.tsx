@@ -10,11 +10,12 @@ export const DestinationsGrid = ({  }: GridProps) => {
   return (
     <section className={styles["destinations-grid"]}>
       {
-        lodgins.map((lodgin) => {
-          return <a key={lodgin.id} href={`/house/${lodgin.id}`}>
+        lodgins.map((lodgin, index) => {
+          return (
+          <a key={index} href={`/house/${lodgin.id}`}>
           <DestinationCard  homeName={lodgin.name} price={lodgin.price} src={lodgin.images[0]}/>
           </a> 
-        })
+       ) })
       }
     </section>
   )

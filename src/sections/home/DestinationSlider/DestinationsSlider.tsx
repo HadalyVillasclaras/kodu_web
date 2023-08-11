@@ -2,46 +2,12 @@ import  { useState, useEffect, useRef, ReactNode } from 'react';
 import styles from './DestinationsSlider.module.scss';
 import { ArrowCursor } from '../../../design-system/molecules/ArrowCursor';
 import { DestinationCard } from '../../../design-system/molecules/DestinationCard';
-
+import destinations from "../../../config/data/Destinations.json";
 interface SliderProps {
   transitionTime?: number;
   visibleSlides?: number;
   ChildComponent?: ReactNode;
 }
-
-const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-
-const destinations = [
-  { 
-    id: 903, 
-    homeName: "Paraty", 
-    img: `${BASE_ASSETS}imgs/homes/paraty/paraty-3.png`, 
-    alt: "The Paraty home" 
-  },
-  { 
-    id: 902, 
-    homeName: "Dunlap Hollow", 
-    img: `${BASE_ASSETS}imgs/homes/dunlap/dunlap-6.png`, 
-    alt: "The Dunlap Hollow home" },
-  { 
-    id: 901, 
-    homeName: "The Bloomhouse", 
-    img: `${BASE_ASSETS}imgs/homes/bloom/bloom-7.png`, 
-    alt: "The Bloomhouse in Austin with its unique organic and curved shape architecture" 
-  },
-  { 
-    id: 903, 
-    homeName: "Paraty", 
-    img: `${BASE_ASSETS}imgs/homes/paraty/paraty-1.png`, 
-    alt:"The Paraty home" 
-  },
-  { 
-    id: 902, 
-    homeName: "Dunlap Hollow", 
-    img: `${BASE_ASSETS}imgs/homes/dunlap/dunlap-7.png`, 
-    alt: "The Dunlap Hollow home" 
-  }
-];
 
 export const DestinationsSlider = ({ visibleSlides = 3 }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
