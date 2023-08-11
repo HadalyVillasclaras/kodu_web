@@ -2,10 +2,10 @@ import { Section } from '../design-system/objects/Section'
 import { Container } from '../design-system/objects/Container'
 import { Hero, Destinations, AboutUs } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
-import { Features } from '../sections/home/Features'
 import { Fader } from '../sections/home/Fader'
 import { AboutIntro } from '../sections/home/AboutIntro'
 import { Accordion } from '../design-system/molecules/Accordion/Accordion'
+import { Swipe } from '../design-system/molecules/Swipe/Swiper'
 
 export const HomePage = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
@@ -41,6 +41,11 @@ export const HomePage = () => {
       </Section>
       <Section id='destinations' size='full'>
         <Destinations />
+      </Section>
+      <Section id='gfds' size='big'>
+        <div style={{border: "1px solid black", width:"100%"}}>
+        <Swipe/>
+        </div>
       </Section>
     </>
   )

@@ -5,21 +5,12 @@
 
 .destinations {
   &__sect-heading {
+    text-align: center;
     padding: spacing.$pd__mb-big spacing.$pd__mb-small;
 
     @media only screen and (min-width: breakpoints.$desktop) {
       padding: spacing.$pd__dk-small ;
-    }
-  }
-  &__slider-sect {
-    padding: 0 spacing.$pd__mb-small;
-
-    @media only screen and (min-width: breakpoints.$tablet) {
-      padding: 0;
-    }
-  
-    @media only screen and (min-width: breakpoints.$desktop) {
-      padding: 0 (spacing.$pd__dk-big - spacing.$pd__dk-small);
+      text-align: left;
     }
   }
 }

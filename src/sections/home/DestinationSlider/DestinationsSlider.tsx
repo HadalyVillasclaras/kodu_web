@@ -1,29 +1,52 @@
-import React, { useState, useEffect, useRef } from 'react';
+import  { useState, useEffect, useRef, ReactNode } from 'react';
 import styles from './DestinationsSlider.module.scss';
 import { ArrowCursor } from '../../../design-system/molecules/ArrowCursor';
 import { DestinationCard } from '../../../design-system/molecules/DestinationCard';
 
 interface SliderProps {
-  images: string[];
   transitionTime?: number;
   visibleSlides?: number;
-  ChildComponent?: React.FC<any>;
+  ChildComponent?: ReactNode;
 }
 
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 const destinations = [
-  { homeName: "Paraty", src: `${BASE_ASSETS}imgs/homes/paraty/paraty-3.png` },
-  { homeName: "Dunlap Hollow", src: `${BASE_ASSETS}imgs/homes/dunlap/dunlap-6.png` },
-  { homeName: "The Bloom House", src: `${BASE_ASSETS}imgs/homes/bloom/bloom-7.png` },
-  { homeName: "Paraty", src: `${BASE_ASSETS}imgs/homes/paraty/paraty-1.png` },
-  { homeName: "Dunlap Hollow", src: `${BASE_ASSETS}imgs/homes/dunlap/dunlap-7.png` }
+  { 
+    id: 903, 
+    homeName: "Paraty", 
+    img: `${BASE_ASSETS}imgs/homes/paraty/paraty-3.png`, 
+    alt: "The Paraty home" 
+  },
+  { 
+    id: 902, 
+    homeName: "Dunlap Hollow", 
+    img: `${BASE_ASSETS}imgs/homes/dunlap/dunlap-6.png`, 
+    alt: "The Dunlap Hollow home" },
+  { 
+    id: 901, 
+    homeName: "The Bloomhouse", 
+    img: `${BASE_ASSETS}imgs/homes/bloom/bloom-7.png`, 
+    alt: "The Bloomhouse in Austin with its unique organic and curved shape architecture" 
+  },
+  { 
+    id: 903, 
+    homeName: "Paraty", 
+    img: `${BASE_ASSETS}imgs/homes/paraty/paraty-1.png`, 
+    alt:"The Paraty home" 
+  },
+  { 
+    id: 902, 
+    homeName: "Dunlap Hollow", 
+    img: `${BASE_ASSETS}imgs/homes/dunlap/dunlap-7.png`, 
+    alt: "The Dunlap Hollow home" 
+  }
 ];
 
-export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) => {
+export const DestinationsSlider = ({ visibleSlides = 3 }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLeftDisabled, setIsLeftDisabled] = useState(true);
-  const [isRightDisabled, setIsRightDisabled] = useState(images.length <= visibleSlides);
+  const [isRightDisabled, setIsRightDisabled] = useState(destinations.length <= visibleSlides);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -31,7 +54,7 @@ export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) =
   const [sliderSide, setSliderSide] = useState<"left" | "right" | null>(null);
 
   const nextSlide = () => {
-    if (currentIndex < images.length - visibleSlides) setCurrentIndex(prevState => prevState + 1);
+    if (currentIndex < destinations.length - visibleSlides) setCurrentIndex(prevState => prevState + 1);
   };
 
   const prevSlide = () => {
@@ -63,7 +86,7 @@ export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) =
       sliderRef.current.style.transform = `translateX(${-currentIndex * (100 / visibleSlides)}%)`;
     }
     setIsLeftDisabled(currentIndex === 0);
-    setIsRightDisabled(currentIndex >= images.length - visibleSlides);
+    setIsRightDisabled(currentIndex >= destinations.length - visibleSlides);
   }, [currentIndex]);
 
   return (
@@ -83,7 +106,7 @@ export const DestinationsSlider = ({ images, visibleSlides = 3 }: SliderProps) =
                 className={styles['slider__slide']}
                 style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}
               >
-                <DestinationCard homeName={destination.homeName} src={destination.src} />
+                <DestinationCard id={Number(destination.id)} homeName={destination.homeName} src={destination.img} />
               </div>
             ))}
           </div>

@@ -1,0 +1,18 @@
+.swiper-container {
+  cursor: ew-resize;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.swiper-container img {
+  pointer-events: none; 
+}
+
+.swiper-container, 
+.swiper-container * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
