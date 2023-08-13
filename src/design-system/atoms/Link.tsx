@@ -10,12 +10,10 @@ export interface LinkProps {
 }
 
 export const Link = ({ color = "green", size = "s", children, href, openInNewTab = false,}: LinkProps) => {
-  const target = openInNewTab ? "_blank" : "_self";
-
   return (
       <a 
         href={href} 
-        target={target} 
+        target={openInNewTab ? "_blank" : "_self"} 
         className={`${styles["link"]} ${styles[`link__color-${color}`]} ${styles[`link__size-${size}`]}`} 
       >
         {children}

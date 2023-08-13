@@ -3,10 +3,10 @@ import destinations from "../../../config/data/Destinations.json";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
-
+import 'swiper/css/pagination';
 import './styles.css';
 
-import { Navigation } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 import { DestinationCard } from '../DestinationCard';
 
 export const Swipe = () => {
@@ -17,7 +17,11 @@ export const Swipe = () => {
         spaceBetween={30}
         loop={true}
         // navigation={true}
-        modules={[Navigation]}
+        pagination={{
+          type: 'fraction',
+        }}
+        
+        modules={[Pagination, Navigation]}
         className="mySwiper"
       >
         {destinations.map((destination, index) => (

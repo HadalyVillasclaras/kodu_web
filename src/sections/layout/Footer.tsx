@@ -12,7 +12,6 @@ export const Footer = () => {
 
   useEffect(() => {
       fadeInOnScroll(listRefs.current, `.${styles['footer']}`);
-      // fadeInOnScroll(policiesRef.current, `.${styles['footer']}`);
   }, []);
 
   return (

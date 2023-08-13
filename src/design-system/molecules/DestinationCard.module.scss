@@ -37,6 +37,10 @@
 
     &:hover::after {
       background-color: colors.$card-brown-hover; 
+      @media only screen and (min-width: breakpoints.$mobile) {
+        background-color: colors.$card-brown-hover-dk; 
+
+      }
     }
   }
 

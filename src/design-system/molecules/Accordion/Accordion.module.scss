@@ -1,3 +1,5 @@
+@use "../../settings/breakpoints";
+
 .accordion {
   min-width: 300px;
   display: flex;
@@ -6,19 +8,31 @@
 
   &__item {
     width: 100%;
-  }
 
+    h3 {
+      @media only screen and (min-width: breakpoints.$desktop) {
+        font-size: 5rem;
+        line-height: 6rem;
+  
+      }
+    }
+  }
   &__title {
     cursor: pointer;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   }
   
   &__content {
     height: auto;
     overflow: hidden;
+    box-sizing: content-box;
+
 
     p {
-    padding-top: 1.3rem;
+    padding: 1.3rem 0 1rem 0;
+    
+    @media only screen and (min-width: breakpoints.$desktop) {
+      width: 55vw;
+    }
     }
   }
 }

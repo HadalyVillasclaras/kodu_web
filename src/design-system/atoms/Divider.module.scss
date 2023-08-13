@@ -1,12 +1,12 @@
 @use "../settings/colors";
 
 .hr {
-  width: 100%;
+  width:  0%;
   position: relative;
   z-index: 1;
   height: 1px; 
   border: none; 
-
+  overflow: hidden; 
   &-green {
     background-color: colors.$green;
   }

@@ -17,7 +17,7 @@ function createTagComponent<T extends keyof JSX.IntrinsicElements>(tag: T) {
 }
 
 
-export const Heading = ({ children, as = "h1", color, font = 'simple' }: HeadingProps) => {
+export const Heading = ({ children, as = "h1", color='cream', font = 'simple' }: HeadingProps) => {
   const Tag = createTagComponent(as);
 
   const animatedTextRef = useRef<HTMLElement>(null);
