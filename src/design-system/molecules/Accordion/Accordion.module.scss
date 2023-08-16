@@ -1,26 +1,37 @@
 @use "../../settings/breakpoints";
+@use "../../settings/colors";
+
 
 .accordion {
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  gap:1rem;
+  gap: 1rem;
+
 
   &__item {
     width: 100%;
 
     h3 {
+      transition: color 0.3s ease;
+      cursor: default;
+
+      &:hover {
+        color: colors.$green !important;
+
+        ~hr {
+          background-color: colors.$green !important;
+        }
+      }
+
       @media only screen and (min-width: breakpoints.$desktop) {
         font-size: 5rem;
         line-height: 6rem;
-  
       }
     }
   }
-  &__title {
-    cursor: pointer;
-  }
-  
+
+
   &__content {
     height: auto;
     overflow: hidden;
@@ -28,11 +39,13 @@
 
 
     p {
-    padding: 1.3rem 0 1rem 0;
-    
-    @media only screen and (min-width: breakpoints.$desktop) {
-      width: 55vw;
-    }
+      padding: 1.3rem 0 1rem 0;
+      color: colors.$green;
+      font-weight: 700;
+
+      @media only screen and (min-width: breakpoints.$desktop) {
+        width: 55vw;
+      }
     }
   }
 }

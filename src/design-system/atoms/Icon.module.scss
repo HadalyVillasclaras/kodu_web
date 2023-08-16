@@ -4,6 +4,7 @@
   justify-content: center;
   width: var(--icon-size);
   height: var(--icon-size);
+  transition: all 0.2s ease;
 
   &:hover {
     stroke-width: 2 !important;

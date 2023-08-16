@@ -11,8 +11,10 @@
     right: 1rem ;
     display: flex ;
     align-items: flex-start;
-    padding-top: 30vh;
     z-index: 4 ;
+    top: 0;
+    flex-flow: wrap;
+    align-content: center;
   }
   
   &__menu {
@@ -42,7 +44,6 @@
 }
 
 .icon-wrapper {
-  display: inline-block;  
   transition: transform 0.8s ease;
 
   &.rotated {

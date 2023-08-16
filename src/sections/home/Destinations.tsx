@@ -9,7 +9,6 @@ import { useDeviceType, DeviceType } from '../../shared/useDeviceType';
 export const Destinations = () => {
   const [visibleSlides, setVisibleSlides] = useState(3);
   const deviceType = useDeviceType();
-  console.log(deviceType);
   useBreakpointSetter(setVisibleSlides, {
     desktop: 3,
     tablet: 2,

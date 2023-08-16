@@ -2,10 +2,13 @@ import "./design-system/index.scss";
 import "./design-system/settings/App.css";
 import { RouterProvider } from 'react-router-dom'
 import { routes } from "./config/routes";
+import NavIconColorProvider from "./shared/context/NavIconColorProvider";
 
 function App() {
   return (
-    <RouterProvider router={routes} />
+    <NavIconColorProvider>
+      <RouterProvider router={routes} />
+    </NavIconColorProvider>
   )
 }
 export default App

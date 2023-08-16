@@ -1,11 +1,11 @@
 [
   {
       "name": "About",
-      "link": "#about"
+      "link": "#sect-about"
   },
   {
       "name": "Destinations",
-      "link": "#destinations"
+      "link": "#sect-destinations"
   },
   {
       "name": "Contact",

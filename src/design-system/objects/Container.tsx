@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 type ContainerProps = {
   children: ReactNode;
-  customStyle?: string;
+  customStyle?: React.CSSProperties;
   bgImage?: string;
 }
 
@@ -21,13 +21,12 @@ export const Container = ({ bgImage, customStyle, children }: ContainerProps) =>
       gsap.to(containerRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top top",
-          // end: "bottom bottom",
-          scrub: 1,
+          start: "35% center",
+          end: "bottom top",
+          scrub: true,
         },
-        scale: 1.05,
-        duration: 3
-
+        scale: 1.1,
+        duration: 7
       });
     }
   }, [bgImage]);

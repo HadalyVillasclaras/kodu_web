@@ -9,7 +9,7 @@
   background-color: colors.$bg-green;
   color: colors.$text-secondary;
   padding: spacing.$section-mb;
-
+  margin-top: 3rem;
   @media only screen and (min-width: breakpoints.$tablet) {
     padding: spacing.$pd__tb;
     gap: 1rem;

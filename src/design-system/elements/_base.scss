@@ -6,12 +6,13 @@
   --brown: #7E3418;
   --brown-lighter: #B56040;
   --brown-disabled: #BF9A8B;
-  --green: #10120A;
+  --green: #171b0e;
 }
 
 * {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 input,

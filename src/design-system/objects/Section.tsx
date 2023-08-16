@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, forwardRef, CSSProperties } from "react";
 import styles from "./Section.module.scss";
 import { Colors, SectionSize } from "../types";
 
@@ -7,32 +7,39 @@ type SectionProps = {
   children: ReactNode;
   ariaLabel?: string;
   ariaLabelledby?: string;
-  customStyle?: React.CSSProperties;
+  customStyle?: CSSProperties;
   bgColor?: Colors;
   bgImage?: string;
   size?: SectionSize;
 }
 
-export const Section = ({
-  id,
-  bgColor = 'cream',
-  size = "full",
-  ariaLabel,
-  ariaLabelledby,
-  customStyle,
-  children,
-  ...props
-}: SectionProps) => {
-  const bgColorClass = styles[`section__bg-${bgColor}`];
-  const sectionSize = size ? styles[`section__${size}`] : "";
-  return (
-    <section 
-      id={id}
-      className={`${styles["section"]} ${bgColorClass} ${sectionSize}`} 
-      style={customStyle}
-      {...props}
-    >
-      {children}
-    </section>
-  );
-}
+export const Section = forwardRef<HTMLDivElement, SectionProps>(
+  (
+    {
+      id,
+      bgColor = 'cream',
+      size = "full",
+      ariaLabel,
+      ariaLabelledby,
+      customStyle,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const bgColorClass = styles[`section__bg-${bgColor}`];
+    const sectionSize = size ? styles[`section__${size}`] : "";
+
+    return (
+      <section 
+        id={id}
+        className={`${styles["section"]} ${bgColorClass} ${sectionSize} ${size === "full" ? styles["section__full"] : ""}`} 
+        style={customStyle}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </section>
+    );
+  }
+);

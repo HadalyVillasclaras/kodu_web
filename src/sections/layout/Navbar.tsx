@@ -2,9 +2,11 @@ import styles from "./Navbar.module.scss";
 import { IconButton, Link } from '../../design-system/atoms';
 import navItems from '../../config/data/NavItems.json';
 import { useState } from "react";
+import { useNavIconColor } from "../../shared/context/NavIconColorContext";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { color } = useNavIconColor(); 
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -15,10 +17,11 @@ export const Navbar = () => {
       <span className={`${styles["icon-wrapper"]} ${isOpen ? styles["rotated"] : ""}`}>
         <IconButton
           icon='plus'
-          color={isOpen ? 'cream' : 'green'}
+          color={isOpen ? 'cream' : color}
           ariaLabel={isOpen ? "Close" : "Open"}
           onClick={toggleSidebar}
           size="l"
+          width="2"
         />
       </span>
       </div>

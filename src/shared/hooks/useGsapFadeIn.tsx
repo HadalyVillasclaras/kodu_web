@@ -5,27 +5,33 @@ import { useRef } from 'react';
 gsap.registerPlugin(ScrollTrigger);
 
 export const useGsapFadeIn = () => {
-  const didAnimate = useRef(false);
+  const animatedElements = useRef(new Map()).current;
 
-  const fadeInOnScroll = (element: string | HTMLElement[] | HTMLElement | NodeListOf<HTMLElement>, trigger: string | HTMLElement | NodeListOf<HTMLElement>) => {
-    if (didAnimate.current) {
+  const fadeInOnScroll = (element: HTMLElement | null, trigger: HTMLElement | null) => {
+    if (!element) return;
+
+    if (animatedElements.get(element)) {
       return;
     }
 
-    gsap.from(element, {
+    const animation = gsap.from(element, {
       scrollTrigger: {
-        trigger: trigger,
-        start: 'top bottom', 
+        trigger: trigger || element,
+        start: 'top bottom',
         toggleActions: 'play none none reverse',
-
       },
-      y: 50,
-      stagger: 0.1,
-      opacity: 0,
-      duration: 2,
+      y: 55,
+      stagger: 0.3,
+      duration: 1.2,
     });
 
-    didAnimate.current = true;
+    animatedElements.set(element, true);
+
+    return () => {
+      if (animation) {
+        animation.kill();
+      }
+    };
   };
 
   return { fadeInOnScroll };

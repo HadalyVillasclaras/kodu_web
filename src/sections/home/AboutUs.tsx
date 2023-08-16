@@ -19,7 +19,7 @@ export const AboutUs = () => {
   const { fadeInOnScroll } = useGsapFadeIn();
 
   useEffect(() => {
-    fadeInOnScroll(animatedDivRef.current, `.${styles['care-about-children']}`);
+    fadeInOnScroll(animatedDivRef.current, `.${styles['care-about']}`);
   }, []);
 
   return (

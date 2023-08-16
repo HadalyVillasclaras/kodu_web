@@ -12,7 +12,6 @@ export const Accordion = () => {
   const fadeRefs = useRef<HTMLElement[]>([]);
   const { fadeInOnScroll } = useGsapFadeIn();
 
-  const topDividerRef = useRef<HTMLHRElement | null>(null);
   const dividerRefs = useRef<(HTMLHRElement | null)[]>([]);
   const { expandWidthOnScroll } = useGsapWidthExpand();
 
@@ -22,14 +21,11 @@ export const Accordion = () => {
 
   useLayoutEffect(() => {
     fadeInOnScroll(fadeRefs.current, `.${styles['accordion']}`);
-    expandWidthOnScroll(topDividerRef.current, `.${styles['accordion']}`);
     expandWidthOnScroll(dividerRefs.current, `.${styles['accordion']}`); 
 }, []);
 
   return (
     <section className={styles['accordion']}>
-      <Divider ref={topDividerRef} color='cream' customStyle={{ marginTop: '1rem' }} />
-
       {features.map((feature, index) => (
         <div
           className={styles['accordion__item']}
@@ -42,7 +38,7 @@ export const Accordion = () => {
             isOpen={openedItem === index}
             onTitleClick={() => handleTitleClick(index)}
           />
-          <Divider ref={el => { if (el) dividerRefs.current[index] = el }} color='cream' customStyle={{ marginTop: '1rem' }} />
+          <Divider ref={el => { if (el) dividerRefs.current[index] = el }} color={openedItem === index ? "green" : "cream"} customStyle={{ marginTop: '1rem' }} />
         </div>
 
       ))}

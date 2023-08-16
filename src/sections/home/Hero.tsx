@@ -6,8 +6,8 @@ import { useGsapFadeIn } from "../../shared/hooks/useGsapFadeIn";
 
 export const Hero = () => {
   const animatedTextRef = useRef<HTMLElement>(null!);
-  const { fadeInOnScroll } = useGsapFadeIn();
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
+  const { fadeInOnScroll } = useGsapFadeIn();
 
   useEffect(() => {
     fadeInOnScroll(animatedTextRef.current, `.${styles['hero']}`);
