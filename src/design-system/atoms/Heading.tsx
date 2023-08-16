@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, ReactNode, useRef } from 'react'; // Import CSSProperties
+import React, { forwardRef, ReactNode } from 'react'; // Import CSSProperties
 import styles from "./Heading.module.scss"; 
 import { Colors } from '../types';
 

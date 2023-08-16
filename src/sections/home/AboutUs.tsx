@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from "./AboutUs.module.scss";
 import { Heading, Button } from '../../design-system/atoms';
 import sectionImages from '../../config/data/SectionImages.json';
-import { ShowMoreText } from "../../shared/ShowMoreText";
+import { ShowMoreText } from "../../design-system/molecules/ShowMoreText";
 import { useGsapFadeIn } from '../../shared/hooks/useGsapFadeIn';
 
 export const AboutUs = () => {

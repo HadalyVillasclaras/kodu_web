@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const useGsapFadeIn = () => {
   const animatedElements = useRef(new Map()).current;
 
-  const fadeInOnScroll = (element: HTMLElement | null, trigger: HTMLElement | null) => {
+  const fadeInOnScroll = (element: string | HTMLElement | HTMLElement[] | null, trigger: string |  HTMLElement | null) => {
     if (!element) return;
 
     if (animatedElements.get(element)) {

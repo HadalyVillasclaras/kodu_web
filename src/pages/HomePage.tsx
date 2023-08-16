@@ -40,7 +40,6 @@ export const HomePage = () => {
   ];
 
   const inViewSectionId = useOnviewObserver(refs); 
-
   
   useEffect(() => {
     //Check if current section is in view
@@ -52,9 +51,10 @@ export const HomePage = () => {
     }
   }, [inViewSectionId]);
 
+
   return (
     <>
-      {/* <Fader /> */}
+      <Fader />
       <Section id="sect-hero" ref={refs.hero} size='full'>
         <Hero />
       </Section>

@@ -1,5 +1,7 @@
 @use "../../settings/breakpoints";
 @use "../../settings/colors";
+@use "../../settings/fonts";
+
 
 
 .accordion {
@@ -7,7 +9,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  
 
 
   &__item {
@@ -22,6 +23,8 @@
       cursor: default;
       font-family: 'Eklektyk';
       color: colors.$cream;
+      // font-size: fonts.$h1-mb;
+      font-size: 15vw;
 
       &:hover,
       &:active {

@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react';
 import styles from './Accordion.module.scss';
 import { gsap } from 'gsap';
-import { Heading } from '../../atoms';
 
 interface AccordionProps {
   title: string;

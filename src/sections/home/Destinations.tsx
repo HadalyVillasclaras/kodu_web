@@ -2,9 +2,9 @@ import { Heading } from '../../design-system/atoms'
 import { DestinationsSlider } from './DestinationSlider/DestinationsSlider';
 import styles from './Destinations.module.scss';
 import { useState } from 'react';
-import { useBreakpointSetter } from '../../shared/useBreakPointSetter';
+import { useBreakpointSetter } from '../../shared/hooks/useBreakPointSetter';
 import { Swipe } from '../../design-system/molecules/Swipe/Swiper';
-import { useDeviceType, DeviceType } from '../../shared/useDeviceType';
+import { useDeviceType, DeviceType } from '../../shared/hooks/useDeviceType';
 
 export const Destinations = () => {
   const [visibleSlides, setVisibleSlides] = useState(3);
