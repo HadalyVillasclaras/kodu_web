@@ -46,7 +46,6 @@ export const HomePage = () => {
     //Check if current section is in view
     const sectionInView = sections.find((s:any) => s?.ref?.current?.id === inViewSectionId);
     if (sectionInView) {
-      console.log(sectionInView);
       setColor(sectionInView.color);
     } else {
       setColor('green' as Colors);

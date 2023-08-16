@@ -16,6 +16,7 @@ export const Accordion = () => {
   const { expandWidthOnScroll } = useGsapWidthExpand();
 
   const handleTitleClick = (index: number) => {
+    console.log(index);
     setOpenedItem(prevIndex => (prevIndex === index ? null : index));
   };
 
