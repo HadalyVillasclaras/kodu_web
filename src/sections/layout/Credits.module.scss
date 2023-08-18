@@ -1,6 +1,8 @@
 @use '../../design-system/settings/colors';
 @use '../../design-system/settings/spacing';
 @use '../../design-system/settings/breakpoints';
+@use '../../design-system/settings/border';
+
 
 
 .credits {
@@ -10,20 +12,21 @@
   flex-direction: column;
   display: flex;
   gap: 4rem;
+  border-radius:border.$pd-radius-mid;
+
 
   @media only screen and (min-width: breakpoints.$mobile) {
     padding: spacing.$pd__dk-small;
   }
-
-  // @include mobile-breakpoint {
-  //   padding: spacing.$pd__dk-small;
-  // }
 
   p {
     font-family: "Eklektyk";
     font-size: 2rem;
   }
 
+  &__bg {
+  background-color: colors.$bg-green;
+  }
   &__sect {
     display: flex;
 

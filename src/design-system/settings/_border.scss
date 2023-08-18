@@ -1,7 +1,10 @@
 $radius-small: 0.5rem;
-$radius-mid: 1.5rem;
-$radius-large: 2rem;
-$radius-xl: 3rem;
+$radius-mid: 3rem;
+$radius-large: 4rem;
+$radius-xl: 5rem;
 $radius-xxl: 5rem;
 
 $pd-radius-xl: $radius-xxl $radius-xxl 0rem 0rem;
+$pd-radius-mid: $radius-mid $radius-mid 0rem 0rem;
+$pd-radius-large: $radius-large $radius-large 0rem 0rem;
+

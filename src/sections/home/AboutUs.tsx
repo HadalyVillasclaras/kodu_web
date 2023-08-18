@@ -4,6 +4,7 @@ import { Heading, Button } from '../../design-system/atoms';
 import sectionImages from '../../config/data/SectionImages.json';
 import { ShowMoreText } from "../../design-system/molecules/ShowMoreText";
 import { useGsapFadeIn } from '../../shared/hooks/useGsapFadeIn';
+import { useGsapImgCurtain } from '../../shared/hooks/useGsapImgCurtain';
 
 export const AboutUs = () => {
   const text = "Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
@@ -16,10 +17,20 @@ export const AboutUs = () => {
   };
 
   const animatedDivRef = useRef<HTMLDivElement>(null!);
+  const img3Ref = useRef<HTMLImageElement>(null!);
+
   const { fadeInOnScroll } = useGsapFadeIn();
+  const { verticalCurtainOnScroll } = useGsapImgCurtain();
 
   useEffect(() => {
-    fadeInOnScroll(animatedDivRef.current, `.${styles['care-about']}`);
+    if (animatedDivRef.current) {
+      fadeInOnScroll(animatedDivRef.current, `.${styles['care-about']}`);
+
+    }
+
+    if (img3Ref.current) {
+      verticalCurtainOnScroll(img3Ref.current, img3Ref.current);
+    }
   }, []);
 
   return (
@@ -35,7 +46,8 @@ export const AboutUs = () => {
         />
       </div>
       <div className={`${styles['care-about']}`}>
-        <img  src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
+        <img src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
+        <div ref={img3Ref} className={`${styles['curtain']}`}></div>
       </div>
     </section>
   )

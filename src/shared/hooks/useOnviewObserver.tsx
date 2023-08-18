@@ -29,7 +29,7 @@ export function useOnviewObserver(refs: Record<string, RefObject<HTMLElement>>) 
       observerOptions
     );
 
-    // Observe all refs
+    // Observe all refs  
     Object.values(refs).forEach(ref => {
       if (ref.current) {
         observer.observe(ref.current);

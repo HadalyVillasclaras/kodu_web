@@ -4,10 +4,11 @@ import { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const useGsapFadeIn = () => {
+
+export const useGsapImgCurtain = () => {
   const animatedElements = useRef(new Map()).current;
 
-  const fadeInOnScroll = (element: string | HTMLElement | HTMLElement[] | null, trigger: string |  HTMLElement | null) => {
+  const verticalCurtainOnScroll = (element: string | HTMLElement | HTMLElement[] | null, trigger: string |  HTMLElement | null) => {
     if (!element) return;
 
     if (animatedElements.get(element)) {
@@ -17,12 +18,12 @@ export const useGsapFadeIn = () => {
     const animation = gsap.from(element, {
       scrollTrigger: {
         trigger: trigger || element,
-        start: 'top bottom',
-        toggleActions: 'play none none reverse',
+        start: 'top center',
+        toggleActions: 'play none none none',
       },
-      y: 70,
+      top: '0',
       stagger: 0.3,
-      duration: 1,
+      duration: 1.5,
     });
 
     animatedElements.set(element, true);
@@ -34,5 +35,5 @@ export const useGsapFadeIn = () => {
     };
   };
 
-  return { fadeInOnScroll };
-};
+  return { verticalCurtainOnScroll };
+}

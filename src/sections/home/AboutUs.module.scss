@@ -10,9 +10,7 @@
   flex-wrap: wrap;
   gap: 2rem;
 
-  img {
-    border-radius: border.$radius-mid;
-  }
+
 }
 
 .intro-about {
@@ -70,11 +68,6 @@
     }
   }
 
-  img {
-    border-radius: 15%;
-    object-fit: cover;
-  }
-
   &__header {
     margin-top: spacing.$pd__mb-big;
     text-align: center;
@@ -87,6 +80,12 @@
     }
 
     
+  }
+
+  img {
+    border-radius: border.$radius-xl;
+    object-fit: cover;
+    height: 100%;
   }
 }
 
@@ -103,4 +102,27 @@
     flex-basis: 30vw;
     min-width: 400px;
   }
+
+  img {
+    border-radius: border.$radius-mid;
+    object-fit: cover;
+    height: 100%;
+
+  }
+}
+
+.curtain {
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(0);
+    height: 100%;
+    background: colors.$green;
+    width: 100%;
+    transition: transform 1s ease;
 }

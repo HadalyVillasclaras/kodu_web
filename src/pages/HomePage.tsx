@@ -12,7 +12,8 @@ import { Colors } from '../design-system/types'
 
 type SectionType = {
   ref: React.RefObject<HTMLElement>;
-  color: Colors;
+  iconColor: Colors;
+  bgColor: Colors;
 };
 
 export const HomePage = () => {
@@ -30,13 +31,13 @@ export const HomePage = () => {
   };
 
   const  sections: SectionType[] = [
-    { ref: refs.hero, color: 'green' as Colors },
-    { ref: refs.dunlap, color: 'cream' as Colors },
-    { ref: refs.aboutIntro, color: 'cream' as Colors },
-    { ref: refs.aboutUs, color: 'cream' as Colors },
-    { ref: refs.accordion, color: 'green' as Colors },
-    { ref: refs.bloom, color: 'brown' as Colors },
-    { ref: refs.destinations, color: 'green' as Colors },
+    { ref: refs.hero, iconColor: 'green' as Colors, bgColor: 'cream' as Colors },
+    { ref: refs.dunlap, iconColor: 'cream' as Colors, bgColor: 'cream' as Colors },
+    { ref: refs.aboutIntro, iconColor: 'cream' as Colors, bgColor: 'green' as Colors },
+    { ref: refs.aboutUs, iconColor: 'cream' as Colors, bgColor: 'green' as Colors },
+    { ref: refs.accordion, iconColor: 'green' as Colors, bgColor: 'brown' as Colors },
+    { ref: refs.bloom, iconColor: 'brown' as Colors, bgColor: 'brown' as Colors },
+    { ref: refs.destinations, iconColor: 'green' as Colors, bgColor: 'cream' as Colors },
   ];
 
   const inViewSectionId = useOnviewObserver(refs); 
@@ -45,10 +46,12 @@ export const HomePage = () => {
     //Check if current section is in view
     const sectionInView = sections.find((s:any) => s?.ref?.current?.id === inViewSectionId);
     if (sectionInView) {
-      setColor(sectionInView.color);
-    } else {
-      setColor('green' as Colors);
-    }
+      setColor(sectionInView.iconColor);
+      // document.body.style.backgroundColor = `var(--${sectionInView.bgColor})`;
+  } else {
+    setColor('green' as Colors);
+    // document.body.style.backgroundColor = 'var(--cream)'; 
+  }
   }, [inViewSectionId]);
 
 

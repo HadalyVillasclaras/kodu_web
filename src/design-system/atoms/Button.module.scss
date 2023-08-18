@@ -8,32 +8,37 @@
   &__default {
     font-family: "Eklektyk";
     font-size: 1.5rem;
-    padding: 0.2rem 0;
+    padding: 0.4rem 0  0.1rem 0;
     text-transform: uppercase;
     border: 1px solid transparent;
-    transition: .5s ease;
-    text-align: center!important;
+    transition: all .7s;
+    text-align: center !important;
     width: 100%;
     display: inline-block;
-    
+    background-image: linear-gradient(colors.$green, colors.$green 100%);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
     &-green {
       @extend .button__default;
-      background-color: colors.$button-primary;
+      // background-color: colors.$button-primary;
       color: colors.$button-secondary;
 
       &:hover {
-        color: colors.$button-primary;
-        border: 1px solid colors.$button-primary;
-        background-color: colors.$button-secondary;
+        background-color: colors.$cream;
+        background-size: 100% 0;
+        color: colors.$green;
+        border: 1px solid colors.$green;
       }
     }
-  
+
     &-cream {
       @extend .button__default;
       background-color: colors.$button-secondary;
       color: colors.$button-primary;
     }
-  
+
     &-brown {
       @extend .button__default;
       background-color: colors.$button-tertiary;
@@ -43,7 +48,7 @@
 
   &__underline {
     position: relative;
-  
+
     &:after {
       content: "";
       position: absolute;
@@ -61,14 +66,16 @@
     &-green {
       @extend .button__underline;
       color: colors.$button-primary;
+
       &:after {
         background: colors.$button-primary;
       }
     }
-  
+
     &-cream {
       @extend .button__underline;
       color: colors.$button-secondary;
+
       &:after {
         background: colors.$button-secondary;
       }
@@ -77,6 +84,7 @@
     &-brown {
       @extend .button__underline;
       color: colors.$button-tertiary;
+
       &:after {
         background: colors.$button-tertiary;
       }
