@@ -2,11 +2,11 @@ import styles from "./Navbar.module.scss";
 import { IconButton, Link } from '../../design-system/atoms';
 import navItems from '../../config/data/NavItems.json';
 import { useState } from "react";
-import { useNavIconColor } from "../../contexts/NavIconColorContext";
+import { useNavIconColor } from "../../contexts/NavIconContext";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { color } = useNavIconColor(); 
+  const { color, rotate} = useNavIconColor(); 
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -15,7 +15,13 @@ export const Navbar = () => {
   return (
     <div className={styles["navbar"]}>
       <div className={styles["navbar__icon-wrapper"]} style={{ }}>
-      <span className={`${styles["icon-wrapper"]} ${isOpen ? styles["rotated"] : ""}`}>
+      <span 
+        className={`
+          ${styles["icon-wrapper"]} 
+          ${isOpen ? styles["rotate45"] : ""} 
+          ${rotate ? styles["rotate360"] : ""}
+        `}
+      >
         <IconButton
           icon='plus'
           color={isOpen ? 'cream' : color}

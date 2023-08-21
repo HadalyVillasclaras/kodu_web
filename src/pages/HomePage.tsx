@@ -4,7 +4,7 @@ import { Hero, Destinations, AboutUs } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
 import { AboutIntro } from '../sections/home/AboutIntro'
 import { Accordion } from '../design-system/molecules/Accordion/Accordion'
-import { useNavIconColor } from '../contexts/NavIconColorContext'
+import { useNavIconColor } from '../contexts/NavIconContext'
 import { useEffect, useRef } from 'react'
 import { useOnviewObserver } from '../hooks/useOnviewObserver'
 import { Colors } from '../design-system/types'
@@ -18,7 +18,7 @@ type SectionType = {
 
 export const HomePage = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-  const { setColor } = useNavIconColor();
+  const { setIconColor, setRotate  } = useNavIconColor();
   
   const refs = {
     hero: useRef(null),
@@ -41,17 +41,17 @@ export const HomePage = () => {
   ];
 
   const inViewSectionId = useOnviewObserver(refs); 
-  
   useEffect(() => {
-    //Check if current section is in view
-    const sectionInView = sections.find((s:SectionType) => s?.ref?.current?.id === inViewSectionId);
+    const sectionInView = sections.find((section:SectionType) => section?.ref?.current?.id === inViewSectionId);
     if (sectionInView) {
-      setColor(sectionInView.iconColor);
+      setIconColor(sectionInView.iconColor);
+      setRotate(true);
+      setTimeout(() => { setRotate(false) }, 1500);
       // document.body.style.backgroundColor = `var(--${sectionInView.bgColor})`;
-  } else {
-    setColor('green' as Colors);
-    // document.body.style.backgroundColor = 'var(--cream)'; 
-  }
+    } else {
+      setIconColor('green' as Colors);
+      // document.body.style.backgroundColor = 'var(--cream)'; 
+    }
   }, [inViewSectionId]);
 
   return (

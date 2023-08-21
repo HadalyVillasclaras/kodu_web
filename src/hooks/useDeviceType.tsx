@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { breakpointValues } from '../../design-system/types/Breakpoints';
+import { breakpointValues } from '../design-system/types/Breakpoints';
 
 export enum DeviceType {
   MOBILE = 'mobile',

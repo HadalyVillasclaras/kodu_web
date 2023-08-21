@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Breakpoints, breakpointValues } from '../../design-system/types/Breakpoints';
+import { Breakpoints, breakpointValues } from '../design-system/types/Breakpoints';
 
 export const useBreakpointSetter = (action: (value: number) => void, values: Record<string, number>) => {
   useEffect(() => {

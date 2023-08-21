@@ -46,7 +46,20 @@
 .icon-wrapper {
   transition: transform 0.8s ease;
 
-  &.rotated {
+  &.rotate45 {
     transform: rotate(45deg);
   }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate360 {
+  animation: rotate360 1s forwards;
 }
