@@ -1,15 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
-import styles from './DropdownList.module.scss';
+import styles from './DropdownMenu.module.scss';
 import { Colors } from '../types';
 
-type DropdownListProps = {
+type DropdownMenuProps = {
   options: Array<string>;
   label: string;
   color: Colors;
   onSelectChange?: (selectedOption: string) => void;
 };
 
-export const DropdownList = ({ options, label, color }: DropdownListProps) => {
+export const DropdownMenu = ({ options, label, color }: DropdownMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const ref = useRef<HTMLDivElement>(null);

@@ -1,6 +1,7 @@
+/*Implements Swiper library*/
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import destinations from "../../../config/data/Destinations.json";
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';

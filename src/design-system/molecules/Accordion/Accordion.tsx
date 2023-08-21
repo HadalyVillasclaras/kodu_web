@@ -3,8 +3,8 @@ import features from "../../../config/data/FeaturesSect.json";
 import { Divider } from '../../atoms/Divider';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { AccordionItem } from './AccordionItem';
-import { useGsapFadeIn } from '../../../shared/hooks/useGsapFadeIn';
-import { useGsapWidthExpand } from '../../../shared/hooks/useGsapWidthExpand';
+import { useGsapFadeIn } from '../../../hooks/gsap/useGsapFadeIn';
+import { useGsapWidthExpand } from '../../../hooks/gsap/useGsapWidthExpand';
 
 export const Accordion = () => {
   const [openedItem, setOpenedItem] = useState<number | null>(null);
@@ -22,7 +22,7 @@ export const Accordion = () => {
 
   useLayoutEffect(() => {
     fadeInOnScroll(fadeRefs.current, `.${styles['accordion']}`);
-    expandWidthOnScroll(dividerRefs.current, `.${styles['accordion']}`); 
+    expandWidthOnScroll(dividerRefs.current as HTMLElement, `.${styles['accordion']}`); 
 }, []);
 
   return (

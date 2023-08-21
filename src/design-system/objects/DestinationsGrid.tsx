@@ -2,11 +2,7 @@ import styles from './DestinationsGrid.module.scss';
 import { DestinationCard } from '../molecules/DestinationCard';
 import lodgins from '../../config/data/Lodgins.json';
 
-type GridProps = {
-  // children: ReactNode; 
-}
-
-export const DestinationsGrid = ({  }: GridProps) => {
+export const DestinationsGrid = () => {
   return (
     <section className={styles["destinations-grid"]}>
       {

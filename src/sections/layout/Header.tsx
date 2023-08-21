@@ -1,10 +1,8 @@
-import { Heading, Logo } from '../../design-system/atoms';
+import { Heading } from '../../design-system/atoms';
 import styles from './Header.module.scss';
-import { CheckAvailabilityForm } from '../../design-system/molecules/CheckAvailabilityForm';
-import { Divider } from '../../design-system/atoms/Divider';
 import { useEffect, useLayoutEffect, useRef } from 'react';
-import { useGsapWidthExpand } from '../../shared/hooks/useGsapWidthExpand';
 import { gsap } from 'gsap';
+import { useGsapWidthExpand } from '../../hooks/gsap/useGsapWidthExpand';
 
 export const Header = () => {
   const dividerRef = useRef<HTMLHRElement | null>(null);
@@ -18,11 +16,10 @@ export const Header = () => {
 
   useLayoutEffect(() => {
     setTimeout(() => {
-      expandWidthOnScroll(dividerRef.current, `.${styles['header']}`);
+      expandWidthOnScroll(dividerRef.current as HTMLElement, `.${styles['header']}`);
     }, 3000);
 
-    
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(logoMain.current, 
       {
         scrollTrigger: {
@@ -78,9 +75,7 @@ export const Header = () => {
             </div>
           </div>
         </section>
-
       </main>
-
     </>
   )
 }

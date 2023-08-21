@@ -5,13 +5,12 @@ export function useOnviewObserver(refs: Record<string, RefObject<HTMLElement>>) 
 
   const observerOptions = {
     root: null,
-    // root: document.querySelector('.scroll-content'),
     rootMargin: '-50%',
     threshold: 0
   };
 
   const callback = (entries: IntersectionObserverEntry[]) => {
-    for (let entry of entries) {
+    for (const entry of entries) {
       if (entry.isIntersecting && entry.target.id !== inViewSectionId) {
         setInViewSectionId(entry.target.id);
       }

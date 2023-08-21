@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from 'react';
-import { Colors } from '../../design-system/types';
+import { Colors } from '../design-system/types';
 import { NavIconColorContext } from './NavIconColorContext';
 
 type NavIconColorProviderProps = {

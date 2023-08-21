@@ -10,8 +10,10 @@ type DestinationCardProps = {
 }
 
 export const DestinationCard = ({ id, homeName, src, alt }: DestinationCardProps) => {
+  
 const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH;
 const destinationUrl = id ? `${VITE_BASE_PATH}house/${id}` : "house/901/";
+
   return (
     <article className={styles['destination-card']}>
       <a href={destinationUrl} className={styles['destination-card__image-wrapper']}>

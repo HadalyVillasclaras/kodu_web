@@ -2,10 +2,7 @@
 @use "../../design-system/settings/breakpoints";
 @use "../../design-system/settings/spacing";
 
-
-
 .hero {
-  
   @media only screen and (min-width: breakpoints.$tablet) {
     }
 

@@ -8,7 +8,7 @@ export const useGsapWidthExpand = () => {
   const didAnimate = useRef(false);
 
   const expandWidthOnScroll = (
-    element: any,
+    element: string | HTMLElement | NodeListOf<HTMLElement>,
     trigger: string | HTMLElement | NodeListOf<HTMLElement>,
   ) => {
 

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import { Cookies } from "../shared/cookies/Cookies"
 import { Header, Navbar, Footer, Credits } from "../sections/layout" 
+import { Cookies } from '../sections/layout/Cookies'
 
 export const KoduLayout = () => {
   return (

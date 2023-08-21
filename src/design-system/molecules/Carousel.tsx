@@ -1,7 +1,7 @@
 import  { useRef, useState } from 'react';
 import styles from './Carousel.module.scss';
-import { ArrowsNav } from './ArrowsNav';
 import { FullscreenImage } from './FullScreenImage';
+import { ArrowsNav } from '../atoms/ArrowsNav';
 
 type CarouselProps = {
   images: string[]; 

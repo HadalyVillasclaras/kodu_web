@@ -1,14 +1,14 @@
 import { Section } from '../design-system/objects/Section'
-import { Container } from '../design-system/objects/Container'
+import { BgImgContainer } from '../design-system/objects/BgImgContainer'
 import { Hero, Destinations, AboutUs } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
-import { Fader } from '../sections/home/Fader'
 import { AboutIntro } from '../sections/home/AboutIntro'
 import { Accordion } from '../design-system/molecules/Accordion/Accordion'
-import { useNavIconColor } from '../shared/context/NavIconColorContext'
+import { useNavIconColor } from '../contexts/NavIconColorContext'
 import { useEffect, useRef } from 'react'
-import { useOnviewObserver } from '../shared/hooks/useOnviewObserver'
+import { useOnviewObserver } from '../hooks/useOnviewObserver'
 import { Colors } from '../design-system/types'
+import { Fader } from '../design-system/molecules/Fader'
 
 type SectionType = {
   ref: React.RefObject<HTMLElement>;
@@ -44,7 +44,7 @@ export const HomePage = () => {
   
   useEffect(() => {
     //Check if current section is in view
-    const sectionInView = sections.find((s:any) => s?.ref?.current?.id === inViewSectionId);
+    const sectionInView = sections.find((s:SectionType) => s?.ref?.current?.id === inViewSectionId);
     if (sectionInView) {
       setColor(sectionInView.iconColor);
       // document.body.style.backgroundColor = `var(--${sectionInView.bgColor})`;
@@ -56,16 +56,15 @@ export const HomePage = () => {
 
   return (
     <>
-      {/* <Fader /> */}
+      <Fader />
       <Section id="sect-hero" ref={refs.hero} size='full'>
         <Hero />
       </Section>
       <span style={{ width: "100%", margin: "5rem 0" }}>
         <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       </span>
-      <Section id="sect-dunlap"  ref={refs.dunlap}>
-        <Container bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}>
-        </Container>
+      <Section id="sect-dunlap" ref={refs.dunlap}>
+        <BgImgContainer bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}></BgImgContainer>
       </Section>
       <Section id="sect-aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
@@ -77,8 +76,7 @@ export const HomePage = () => {
         <Accordion />
       </Section>
       <Section id="sect-bloom" ref={refs.bloom} bgColor='brown'>
-        <Container customStyle={{ backgroundColor: "brown" }} bgImage={`${BASE_ASSETS}imgs/homes/bloom/bloom-3.png`}>
-        </Container>
+        <BgImgContainer customStyle={{ backgroundColor: "brown" }} bgImage={`${BASE_ASSETS}imgs/homes/bloom/bloom-3.png`}></BgImgContainer>
       </Section>
       <Section id="sect-destinations" ref={refs.destinations} size='full'>
         <Destinations />

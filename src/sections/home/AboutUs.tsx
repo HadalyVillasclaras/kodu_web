@@ -3,8 +3,8 @@ import styles from "./AboutUs.module.scss";
 import { Heading, Button } from '../../design-system/atoms';
 import sectionImages from '../../config/data/SectionImages.json';
 import { ShowMoreText } from "../../design-system/molecules/ShowMoreText";
-import { useGsapFadeIn } from '../../shared/hooks/useGsapFadeIn';
-import { useGsapImgCurtain } from '../../shared/hooks/useGsapImgCurtain';
+import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
+import { useGsapImgCurtain } from '../../hooks/gsap/useGsapImgCurtain';
 
 export const AboutUs = () => {
   const text = "Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { Colors } from '../../design-system/types';
+import { Colors } from '../design-system/types';
 
 type NavIconColorContextType = {
   color: Colors;

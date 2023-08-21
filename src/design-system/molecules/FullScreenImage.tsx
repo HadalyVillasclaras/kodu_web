@@ -1,5 +1,5 @@
 import { IconButton } from '../atoms';
-import { ArrowsNav } from './ArrowsNav';
+import { ArrowsNav } from '../atoms/ArrowsNav';
 import styles from "./FullScreenImage.module.scss";
 
 type FullscreenImageProps = {

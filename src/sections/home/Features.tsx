@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import styles from "./Features.module.scss";
 import featureData from "../../config/data/FeaturesSect.json";
 import { ShowMoreText } from '../../design-system/molecules/ShowMoreText';
-import { useGsapFadeIn } from '../../shared/hooks/useGsapFadeIn';
 import { Heading } from '../../design-system/atoms';
 import { Divider } from '../../design-system/atoms/Divider';
+import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
 
 type Feature = {
   name: string;

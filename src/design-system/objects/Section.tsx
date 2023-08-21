@@ -19,8 +19,6 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
       id,
       bgColor = 'cream',
       size = "full",
-      ariaLabel,
-      ariaLabelledby,
       customStyle,
       children,
       ...props

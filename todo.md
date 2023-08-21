@@ -1,1 +1,7 @@
 cambiar los types en forwardrefs
+
+AboutSlider: abstraer. hacer que reciba las secciones para el slider. Renombrar: SectionSlider
+
+make navbar icon rotate when entering in new section
+
+

@@ -1,8 +1,8 @@
 import styles from "./AboutUs.module.scss";
 import { Heading } from '../../design-system/atoms';
 import { useEffect, useRef } from "react";
-import { useGsapFadeIn } from "../../shared/hooks/useGsapFadeIn";
-import { useGsapImgCurtain } from "../../shared/hooks/useGsapImgCurtain";
+import { useGsapFadeIn } from "../../hooks/gsap/useGsapFadeIn";
+import { useGsapImgCurtain } from "../../hooks/gsap/useGsapImgCurtain";
 
 export const AboutIntro = () => {
   const text = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
