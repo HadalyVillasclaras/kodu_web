@@ -3,24 +3,78 @@
 @use '../../design-system/settings/colors';
 
 .header {
-  background-color: colors.$bg-cream;
-  position: relative;
-  padding: spacing.$pd__mb-small ;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
   left: 0;
   width: 100%;
   z-index: 1;
+// position: fixed;
+top: 0;
+  &__flex {
+    padding: spacing.$pd__mb-small ;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    gap: 1.5rem;
+    flex-direction: row;
 
   @media only screen and (min-width: breakpoints.$tablet) {
-  gap: 2rem;
-  padding: spacing.$pd__dk-xs ;
+    gap: 2rem;
+    padding: spacing.$pd__dk-xs ;
+  }
+
+  &-logo-place {
+    position: relative;
+    width: 200px;
+  }
+
+  &-logo {
+    position: absolute;
+    width: 200px;
+    z-index: 3;
+    a {
+      width: 100%;
+    }
+    svg {
+      width: 100%;
+      fill: colors.$brown;
+    }
+  }
   }
 }
 
 .header-navtool {
   height: 1.8rem;
-  background-color: colors.$green;
+  background-color: colors.$brown;
+}
+
+.block1 {
+  margin-bottom: 2rem;
+  // margin-top: 6rem;
+  height: 30vh;
+
+  &__container {
+    position: relative;
+    padding-left: 4.7rem;
+    padding-right: 4.7rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5vw;
+    height: 100%;
+    &-content {
+      h4 {
+      font-weight: 600;
+      }
+      position: relative;
+      margin-left: 58vw;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 3rem;
+      border-left: 1px solid colors.$brown;
+      height: 100%;
+      align-content: flex-end;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+}
 }

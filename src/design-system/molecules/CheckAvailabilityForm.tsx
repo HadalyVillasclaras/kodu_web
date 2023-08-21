@@ -17,11 +17,10 @@ export const CheckAvailabilityForm = ({color = "green"}: Props) => {
   return (
     <>
     <section className={styles["availability-form"]} >
-      <span>
+      {/* <span>
       <DropdownList color={color} label='Destinations' options={destinationsOptions} />
       <DropdownList color={color} label='Dates' options={trimestry} />
-      {/* <DropdownList color={color} label='Travelers' options={["1", "2", "3", "4"]} /> */}
-      </span>
+      </span> */}
     <Button variant='default' color='green' text='Check' />
     </section>
     </>

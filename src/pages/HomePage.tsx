@@ -54,10 +54,9 @@ export const HomePage = () => {
   }
   }, [inViewSectionId]);
 
-
   return (
     <>
-      <Fader />
+      {/* <Fader /> */}
       <Section id="sect-hero" ref={refs.hero} size='full'>
         <Hero />
       </Section>

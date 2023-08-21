@@ -29,7 +29,7 @@ export const useGsapFadeIn = () => {
 
     return () => {
       if (animation) {
-        animation.kill();
+        animation.revert();
       }
     };
   };

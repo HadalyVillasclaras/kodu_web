@@ -5,26 +5,17 @@
 
 
 .hero {
-  display: flex;
-  align-items:flex-start;
-  justify-content:flex-start;
-  flex-direction: column;
-  gap: 2.5rem;
-  margin-top: 2.5rem;
   
   @media only screen and (min-width: breakpoints.$tablet) {
-    margin-top: 3rem;
-    gap: 3rem;
     }
 
   &__image-container {
-    height: 55vh;
     object-position: center;
     padding: 0 spacing.$pd__mb-small ;
 
     @media only screen and (min-width: breakpoints.$tablet) {
-      padding: 0 spacing.$pd__dk-xs ;
-      width: 90%;
+      padding: 0 spacing.$pd__dk-small ;
+      width: 100%;
     }
   }
 
@@ -34,17 +25,5 @@
     border-radius: border.$radius-mid;
     height: 100%;
     width: 100%;
-
-  }
-
-  &__textblock {
-    text-align: left;
-    max-width: 600px;
-    padding: 0 spacing.$pd__mb-small ;
-
-    @media only screen and (min-width: breakpoints.$tablet) {
-      gap: 2rem;
-      padding: 0 spacing.$pd__dk-xs ;
-      }
   }
 }
