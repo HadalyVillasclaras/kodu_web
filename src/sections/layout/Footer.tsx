@@ -1,18 +1,21 @@
 import styles from './Footer.module.scss';
 import navItems from '../../config/data/NavItems.json';
 import { Link, Logo } from '../../design-system/atoms';
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
 
 export const Footer = () => {
-  const { fadeInOnScroll } = useGsapFadeIn();
+  const { fadeInOnScroll, slidesUpOnScroll } = useGsapFadeIn();
   const listRefs = useRef<HTMLElement[]>([]); 
   const policiesRef = useRef<HTMLElement>(null!); 
-
 
   useEffect(() => {
       fadeInOnScroll(listRefs.current, `.${styles['footer']}`);
   }, []);
+
+  useLayoutEffect(() => {
+      slidesUpOnScroll(listRefs.current, `.${styles['footer']}`);
+  }, [])
 
   return (
     <footer className={styles["footer"]}>

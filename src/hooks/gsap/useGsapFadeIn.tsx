@@ -34,5 +34,25 @@ export const useGsapFadeIn = () => {
     };
   };
 
-  return { fadeInOnScroll };
+
+  const slidesUpOnScroll = (element: any, triggerElement: any) => {
+    const ctx = gsap.context(() => {
+      gsap.from(element, {
+        scrollTrigger: {
+          trigger: triggerElement,
+          start: 'top bottom',
+          toggleActions: 'play none none reverse',
+        },
+        y: 70,
+        stagger: 0.3,
+        duration: 1,
+      });
+
+      return () => ctx.revert();
+    })
+  }
+
+
+
+  return { fadeInOnScroll, slidesUpOnScroll };
 };
