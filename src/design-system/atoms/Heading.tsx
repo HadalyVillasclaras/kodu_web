@@ -20,6 +20,7 @@ export const Heading = ({ children, as = "h1", color='cream', font = 'simple', o
   const Tag = createTagComponent(as);
 
   let fontClass = `${styles[`heading--${as}`]}`;
+  
   if (font === 'simple') {
     fontClass += ` ${styles[`heading--${as}-simple`]}`;
   }

@@ -22,7 +22,7 @@ export const ArrowCursor = ({topPosition, leftPosition, isDisplayed, isDisabled 
       display: isDisplayed ? 'flex' : 'none',
     }}
   >
-    <Icon color='cream' width='2'  icon={arrowOrientation === "left" ? 'arrowLeft' : 'arrowRight'} />
+    <Icon color='cream' icon={arrowOrientation === "left" ? 'arrowLeft' : 'arrowRight'} />
   </span>
   )
 }

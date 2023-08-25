@@ -18,7 +18,7 @@ type SectionType = {
 
 export const HomePage = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-  const { setIconColor, setRotate, rotate  } = useNavIconColor();
+  const { setIconColor, setRotate } = useNavIconColor();
   
   const refs = {
     hero: useRef(null),

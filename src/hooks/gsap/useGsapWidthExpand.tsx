@@ -8,8 +8,8 @@ export const useGsapWidthExpand = () => {
   const didAnimate = useRef(false);
 
   const expandWidthOnScroll = (
-    element: string | HTMLElement | NodeListOf<HTMLElement>,
-    trigger: string | HTMLElement | NodeListOf<HTMLElement>,
+    element: string | HTMLElement | NodeListOf<HTMLElement> | HTMLElement[],
+    trigger: string | HTMLElement | NodeListOf<HTMLElement> | HTMLElement[],
   ) => {
 
     const animation = gsap.to(element, {

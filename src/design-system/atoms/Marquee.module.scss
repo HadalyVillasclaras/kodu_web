@@ -1,14 +1,12 @@
 @use "../settings/colors";
 @use "../settings/breakpoints";
 
-
 .marqueeContainer {
   height: 100%;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-
 }
 
 .marquee {

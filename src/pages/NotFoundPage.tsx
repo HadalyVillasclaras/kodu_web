@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { Heading, Link } from "../design-system/atoms"
+import { Heading, IconButton } from "../design-system/atoms"
 import { Section } from "../design-system/objects/Section"
 
 export const NotFoundPage = () => {
@@ -12,15 +12,15 @@ export const NotFoundPage = () => {
         <Heading as="h2" color="brown">Error | 404</Heading>
         <Heading as="h4" color="brown">The requested URL <code>{location.pathname}</code> was not found</Heading>
       </div>
-      <span>
-        <Link
+      <a href="/">
+        <IconButton 
+          text="Go to home page" 
+          ariaLabel="Link to home page" 
+          icon="arrowLeft" 
+          color="cream" 
           size="s"
-          href="/"
-          color="cream"
-        >
-          {"<  Go back home"}
-        </Link>
-      </span>
+        />
+      </a>
     </Section>
   )
 }

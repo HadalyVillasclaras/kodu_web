@@ -1,3 +1,8 @@
+@use "../../design-system/settings/border";
+@use "../../design-system/settings/breakpoints";
+@use "../../design-system/settings/spacing";
+@use '../../design-system/settings/colors';
+
 .icon {
   display: inline-flex;
   align-items: center;
@@ -5,24 +10,75 @@
   width: var(--icon-size);
   height: var(--icon-size);
   transition: all 0.2s ease;
+  stroke-width: 2;
+
+  &__size {
+    &-xs {
+      --icon-size: 1rem;
+    }
+  
+    &-s {
+      --icon-size: 1.2rem;
+    }
+  
+    &-m {
+      --icon-size: 1.5rem;
+    }
+  
+    &-l {
+      --icon-size: 1.8rem;
+    }
+  }
+
+  &__color {
+    &-green {
+      stroke: colors.$green;
+    }
+  
+    &-cream {
+      stroke: colors.$cream;
+    }
+  
+    &-brown {
+      stroke: colors.$brown;
+    }
+  }
+}
+
+.iconbutton {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  position: relative;
+
+  transition: transform 0.3s ease; 
 
   &:hover {
-    stroke-width: 2 !important;
+    transform: translateY(-3px);  
   }
 
-  &--s {
-    --icon-size: 1.25rem;
-  }
+  &__text {
+    color: colors.$cream;
+    font-weight: 400;
+    margin-top: .2rem;
 
-  &--m {
-    --icon-size: 1.5rem;
-  }
-
-  &--l {
-    --icon-size: 2rem;
-  }
-
-  &--xl {
-    --icon-size: 2.5rem;
+    &-size {
+      &-xs {
+        font-size: 1rem;
+      }
+    
+      &-s {
+        font-size: 1.2rem;
+      }
+    
+      &-m {
+        font-size: 1.6rem;
+      }
+    
+      &-l {
+        font-size: 2rem;
+        margin-top: .3rem;
+      }
+    }
   }
 }

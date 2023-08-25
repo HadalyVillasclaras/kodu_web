@@ -2,6 +2,7 @@ import lodgins from "../../config/data/Lodgins.json"
 import { Colors } from '../types';
 import styles from "./CheckAvailabilityForm.module.scss";
 import { Button } from '../atoms';
+import { DropdownMenu } from "./DropdownMenu";
 
 type Props = {
   color?: Colors;
@@ -16,10 +17,10 @@ export const CheckAvailabilityForm = ({color = "green"}: Props) => {
   return (
     <>
     <section className={styles["availability-form"]} >
-      {/* <span>
+      <span>
       <DropdownMenu color={color} label='Destinations' options={destinationsOptions} />
       <DropdownMenu color={color} label='Dates' options={trimestry} />
-      </span> */}
+      </span>
     <Button variant='default' color='green' text='Check' />
     </section>
     </>

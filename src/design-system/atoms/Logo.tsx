@@ -3,19 +3,19 @@ import { Colors } from '../types';
 
 type LogoProps = {
   color?: Colors;
-  size?: number | string;
+  size?: string;
   clickable?: boolean;
   height?: string;
 };
 
-export const Logo = ({ color = "brown", size = 10, clickable = true }: LogoProps) => {
+export const Logo = ({ color = "brown", size = '10rem', clickable = true }: LogoProps) => {
   return (
     <a href='/kodu_web/'  style={{ pointerEvents: clickable ? 'auto' : 'none', width: "100%" }} tabIndex={clickable ? 0 : -1}>
       <svg
         viewBox="0 0 803 299"
         xmlns="http://www.w3.org/2000/svg"
-        className={`${styles[`logo__${color}`]}`}
-        width={`${size}rem`}
+        className={`${styles[`logo-${color}`]}`}
+        width={size}
       >
         <path d="M52.4864 242H0.314453V3.14055H52.4864V242ZM92.4011 3.14055H147.716L95.5439 81.0842C102.458 55.9411 101.201 25.7693 92.4011 3.14055ZM163.116 242H108.115L55.6293 122.256C72.9152 109.37 84.8581 97.4272 93.6582 84.5413L163.116 242Z"/>
         <path d="M211.084 122.885C211.084 185.742 217.999 235.4 233.713 245.143C185.313 241.686 156.712 187.942 156.712 122.885C156.712 51.541 187.198 4.08342 233.713 0.940536C217.37 10.6835 211.084 60.0268 211.084 122.885ZM261.999 122.885C261.999 60.0268 255.713 10.6835 239.37 0.940536C285.885 4.08342 316.371 51.541 316.371 122.885C316.371 187.942 287.771 241.686 239.37 245.143C255.085 235.4 261.999 185.742 261.999 122.885Z"/>

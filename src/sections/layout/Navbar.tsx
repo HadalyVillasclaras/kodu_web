@@ -28,7 +28,6 @@ export const Navbar = () => {
           ariaLabel={isOpen ? "Close" : "Open"}
           onClick={toggleSidebar}
           size="l"
-          width="2"
         />
       </span>
       </div>

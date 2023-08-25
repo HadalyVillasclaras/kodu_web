@@ -5,15 +5,15 @@
   width: 100%;
   z-index: 1;
 
-  &__green {
+  &-green {
     background-color: colors.$green;
   }
 
-  &__cream {
+  &-cream {
     background-color: colors.$cream;
   }
 
-  &__brown {
+  &-brown {
     background-color: colors.$brown;
   }
 }

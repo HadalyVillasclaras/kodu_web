@@ -22,7 +22,7 @@ export const FullscreenImage = ({ src, onLeft, onRight, onClose }: FullscreenIma
         />
       </span>
       <img className={styles.fullscreen__img} src={src} alt=""/>
-      <ArrowsNav color='brown' width='2' onLeft={onLeft} onRight={onRight} />
+      <ArrowsNav color='brown' onLeft={onLeft} onRight={onRight} />
     </section>
   );
 };

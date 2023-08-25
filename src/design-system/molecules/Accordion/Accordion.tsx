@@ -22,7 +22,8 @@ export const Accordion = () => {
 
   useLayoutEffect(() => {
     fadeInOnScroll(fadeRefs.current, `.${styles['accordion']}`);
-    expandWidthOnScroll(dividerRefs.current as HTMLElement, `.${styles['accordion']}`); 
+    const nonNullDividers = dividerRefs.current.filter(el => el !== null) as HTMLElement[];
+    expandWidthOnScroll(nonNullDividers, `.${styles['accordion']}`); 
 }, []);
 
   return (

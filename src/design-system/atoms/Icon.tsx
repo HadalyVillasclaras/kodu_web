@@ -8,15 +8,15 @@ export interface IconProps {
   icon: Icons;
   size?: Size;
   color?: Colors;
-  width?: string;
   className?: string
 }
 
-export const Icon = ({ size = "m", icon, color, width = "1", ...props }: IconProps) => {
+export const Icon = ({ size = "m", icon, color, ...props }: IconProps) => {
   const SvgIcon = icons[icon];
+
   return (
     <SvgIcon
-      className={`${styles["icon"]} ${styles[`icon--${size}`]} ${props.className}`} style={{ stroke: `var(--${color})`, strokeWidth: width }}
+      className={`${styles["icon"]} ${styles[`icon__size-${size}`]} ${styles[`icon__color-${color}`]}`} 
       {...props}
     />
   );
