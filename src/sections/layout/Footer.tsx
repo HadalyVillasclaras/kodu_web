@@ -19,7 +19,7 @@ export const Footer = () => {
 
   return (
     <footer className={styles["footer"]}>
-      <Logo color='cream' size={10} />
+      <Logo color='cream'/>
       <ul className={styles["footer__nav-list"]}>
         {navItems.map((navItem, index) => (
           <li 

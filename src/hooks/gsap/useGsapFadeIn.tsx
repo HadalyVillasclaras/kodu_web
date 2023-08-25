@@ -34,7 +34,6 @@ export const useGsapFadeIn = () => {
     };
   };
 
-
   const slidesUpOnScroll = (element: any, triggerElement: any) => {
     const ctx = gsap.context(() => {
       gsap.from(element, {

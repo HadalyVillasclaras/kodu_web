@@ -5,3 +5,5 @@ export { IconButton } from "./IconButton";
 export { Input } from "./Input";
 export { Link } from "./Link";
 export { Logo } from "./Logo";
+export { Frieze } from "./Frieze";
+

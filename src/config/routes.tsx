@@ -1,16 +1,18 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { HomePage, HouseDetailPage, NotFoundPage } from '../pages'
-import { KoduLayout } from '../template/KoduLayout'
+import { KoduTemplate } from '../template/KoduTemplate'
+import { ErrorTemplate } from '../template/ErrorTemplate';
 
 export const routes = createBrowserRouter([
   {
     path: "/",
-    element: <KoduLayout />,
-    errorElement: <NotFoundPage />,
+    element: <KoduTemplate />,
+    errorElement: <ErrorTemplate><NotFoundPage/></ErrorTemplate> ,
     children: [
       {
         path: "/",
         element: <HomePage />,
+
         handle: {
           crumb: () => 'Home'
         }

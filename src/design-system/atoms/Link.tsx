@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Colors, Size } from "../types";
 import styles from "./Link.module.scss";
 
@@ -5,7 +6,7 @@ export interface LinkProps {
   color?: Colors;
   size?: Size;
   href: string;
-  children: string;
+  children: string | ReactNode;
   openInNewTab?: boolean; 
 }
 

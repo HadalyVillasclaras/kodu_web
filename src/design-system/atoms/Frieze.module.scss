@@ -1,0 +1,19 @@
+@use "../settings/colors";
+
+.frieze {
+  height: 1.8rem;
+  width: 100%;
+  z-index: 1;
+
+  &__green {
+    background-color: colors.$green;
+  }
+
+  &__cream {
+    background-color: colors.$cream;
+  }
+
+  &__brown {
+    background-color: colors.$brown;
+  }
+}
