@@ -5,34 +5,38 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { AccordionItem } from './AccordionItem';
 import { useGsapFadeIn } from '../../../hooks/gsap/useGsapFadeIn';
 import { useGsapWidthExpand } from '../../../hooks/gsap/useGsapWidthExpand';
+import gsap from 'gsap';
 
 export const Accordion = () => {
   const [openedItem, setOpenedItem] = useState<number | null>(null);
-
-  const fadeRefs = useRef<HTMLElement[]>([]);
-  const { fadeInOnScroll } = useGsapFadeIn();
-
+  const accordionRef = useRef<HTMLElement>(null!);
   const dividerRefs = useRef<(HTMLHRElement | null)[]>([]);
+
+  const { slidesUpOnScroll } = useGsapFadeIn();
   const { expandWidthOnScroll } = useGsapWidthExpand();
 
   const handleTitleClick = (index: number) => {
-    console.log(index);
     setOpenedItem(prevIndex => (prevIndex === index ? null : index));
   };
 
   useLayoutEffect(() => {
-    fadeInOnScroll(fadeRefs.current, `.${styles['accordion']}`);
-    const nonNullDividers = dividerRefs.current.filter(el => el !== null) as HTMLElement[];
-    expandWidthOnScroll(nonNullDividers, `.${styles['accordion']}`); 
+    const ctx = gsap.context(() => {
+      const accordionItems = Array.from(accordionRef.current.children);
+      slidesUpOnScroll(accordionItems as HTMLElement[], accordionRef.current);
+
+      const nonNullDividers = dividerRefs.current.filter(divider => divider !== null) as HTMLElement[];
+      expandWidthOnScroll(nonNullDividers, accordionRef.current); 
+    }, accordionRef);
+    return () => ctx.revert();
+
 }, []);
 
   return (
-    <section className={styles['accordion']}>
+    <section ref={accordionRef} className={styles['accordion']}>
       {features.map((feature, index) => (
         <div
           className={styles['accordion__item']}
           key={index}
-          ref={el => { if (el) fadeRefs.current[index] = el }}
         >
           <AccordionItem
             title={feature.name}

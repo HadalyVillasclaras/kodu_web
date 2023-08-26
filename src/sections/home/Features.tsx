@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import styles from "./Features.module.scss";
 import featureData from "../../config/data/FeaturesSect.json";
 import { ShowMoreText } from '../../design-system/molecules/ShowMoreText';
 import { Heading } from '../../design-system/atoms';
 import { Divider } from '../../design-system/atoms/Divider';
-import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
 
 type Feature = {
   name: string;
@@ -15,7 +14,6 @@ export const Features = () => {
   const [selectedFeature, setSelectedFeature] = useState(featureData[0]);
   const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
   const featureListRefs = useRef<HTMLElement[]>([]);
-  const { fadeInOnScroll } = useGsapFadeIn();
 
   const isMobile = false;
 
@@ -28,10 +26,6 @@ export const Features = () => {
       setExpandedFeature(feature.name);
     }
   }
-
-  useEffect(() => {
-    fadeInOnScroll(featureListRefs.current, `.${styles["features__container"]}`);
-  }, []);
 
   return (
     <div className={styles["features__container"]}>

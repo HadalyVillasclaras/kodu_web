@@ -10,14 +10,14 @@ type HeadingProps = {
   onClick?: () => void;
 }
 
-function createTagComponent<T extends keyof JSX.IntrinsicElements>(tag: T) {
-  return forwardRef<HTMLElement, JSX.IntrinsicElements[T]>((props, ref) => {
-    return React.createElement(tag, { ...props, ref });
-  });
-}
+// function createTagComponent<T extends keyof JSX.IntrinsicElements>(tag: T) {
+//   return forwardRef<HTMLElement, JSX.IntrinsicElements[T]>((props, ref) => {
+//     return React.createElement(tag, { ...props, ref });
+//   });
+// }
 
 export const Heading = ({ children, as = "h1", color='cream', font = 'simple', onClick }: HeadingProps) => { 
-  const Tag = createTagComponent(as);
+  const Tag = as;
 
   let fontClass = `${styles[`heading--${as}`]}`;
   
@@ -27,6 +27,7 @@ export const Heading = ({ children, as = "h1", color='cream', font = 'simple', o
 
   return (
     <Tag 
+      data-gsap-target="true"
       className={`${fontClass}`} 
       style={{ 
         color: `var(--${color})`, 

@@ -3,23 +3,45 @@ import navItems from '../../config/data/NavItems.json';
 import { Link, Logo } from '../../design-system/atoms';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
+import { useNavIconColor } from '../../contexts/NavIconContext';
+import { useOnviewObserver } from '../../hooks/useOnviewObserver';
+import { Colors } from '../../design-system/types';
+import gsap from 'gsap';
 
 export const Footer = () => {
-  const { fadeInOnScroll, slidesUpOnScroll } = useGsapFadeIn();
+  const { slidesUpOnScroll } = useGsapFadeIn();
   const listRefs = useRef<HTMLElement[]>([]); 
   const policiesRef = useRef<HTMLElement>(null!); 
+  const footerRef = useRef<HTMLElement>(null!);
+  
+  // const { setIconColor, setRotate } = useNavIconColor();
+  // const inViewSectionId = useOnviewObserver({ footer: footerRef });
+  // useEffect(() => {
+  //   if (inViewSectionId === "footer") {
+  //     console.log('hey');
+  //     setIconColor('cream' as Colors);
+  //     setRotate(true);
+  //     setTimeout(() => { setRotate(false) }, 1500);
+  //   } else {
+  //     setIconColor('green' as Colors);
+  //   }
+  // }, [inViewSectionId]);
 
-  useEffect(() => {
-      fadeInOnScroll(listRefs.current, `.${styles['footer']}`);
-  }, []);
 
   useLayoutEffect(() => {
-      slidesUpOnScroll(listRefs.current, `.${styles['footer']}`);
-  }, [])
+    const ctx = gsap.context(() => {
+      slidesUpOnScroll(listRefs.current, footerRef.current);
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
+
 
   return (
-    <footer className={styles["footer"]}>
-      <Logo color='cream'/>
+    <footer id="footer" ref={footerRef}  className={styles["footer"]}>
+      <section className={styles["footer__logo"]}>
+      <Logo color='cream' size='15rem'/>
+      </section>
       <ul className={styles["footer__nav-list"]}>
         {navItems.map((navItem, index) => (
           <li 

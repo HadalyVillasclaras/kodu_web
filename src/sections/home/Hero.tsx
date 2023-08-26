@@ -1,13 +1,26 @@
 import styles from "./Hero.module.scss";
 import sectionImages from '../../config/data/SectionImages.json';
 import { Heading } from "../../design-system/atoms";
+import gsap from 'gsap';
+import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
+import { useLayoutEffect, useRef } from 'react';
 
 export const Hero = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
+  const introTextRef = useRef<HTMLElement>(null!); 
+  const { slidesUpOnScroll } = useGsapFadeIn();
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      slidesUpOnScroll(introTextRef.current, introTextRef.current, 2.5);
+    }, introTextRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
-      <section className={styles["block1"]}>
+      <section ref={introTextRef} className={styles["block1"]}>
         <div className={styles["block1__container"]}>
           <div></div>
           <div className={styles["block1__container-content"]}>

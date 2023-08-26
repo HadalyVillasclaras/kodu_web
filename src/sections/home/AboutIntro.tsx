@@ -1,32 +1,25 @@
 import styles from "./AboutUs.module.scss";
 import { Heading } from '../../design-system/atoms';
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { useGsapFadeIn } from "../../hooks/gsap/useGsapFadeIn";
 import { useGsapImgCurtain } from "../../hooks/gsap/useGsapImgCurtain";
+import gsap from 'gsap';
 
 export const AboutIntro = () => {
   const text = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
-  const paragraphRef = useRef<HTMLParagraphElement | null>(null);
-  const headingRef = useRef<HTMLElement>(null!);
+  const paragraphRef = useRef<HTMLParagraphElement>(null!);
+  const bigHeadingRef = useRef<HTMLElement>(null!);
   const img1Ref = useRef<HTMLImageElement>(null!);
   const img2Ref = useRef<HTMLImageElement>(null!);
 
 
-  const { fadeInOnScroll } = useGsapFadeIn();
+  const { slidesUpOnScroll } = useGsapFadeIn();
   const { verticalCurtainOnScroll } = useGsapImgCurtain();
 
 
   useEffect(() => {
-    if (paragraphRef.current) {
-      fadeInOnScroll(paragraphRef.current, paragraphRef.current);
-    }
-
-    if (headingRef.current) {
-      fadeInOnScroll(headingRef.current, headingRef.current);
-    }
-
     if (img1Ref.current) {
       verticalCurtainOnScroll(img1Ref.current, img1Ref.current);
     }
@@ -36,10 +29,21 @@ export const AboutIntro = () => {
     }
   }, []);
 
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const bigHeadingchildren = Array.from(bigHeadingRef.current.children);
+      slidesUpOnScroll(bigHeadingchildren as HTMLElement[], bigHeadingRef.current);
+
+      const paragraphChildren = Array.from(paragraphRef.current.children);
+      slidesUpOnScroll(paragraphChildren as HTMLElement[], paragraphRef.current);
+    }, bigHeadingRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
-      <header ref={headingRef} className={styles['intro-about__header']}>
+      <header ref={bigHeadingRef} className={styles['intro-about__header']}>
         <Heading font='fancy' as='h1'>Nourish Nature</Heading>
         <Heading font='fancy' as='h1'>Your Next Getaway</Heading>
       </header>
