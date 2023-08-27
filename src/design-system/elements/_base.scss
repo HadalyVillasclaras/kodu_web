@@ -69,6 +69,9 @@ a:visited {
   // color: inherit;
 }
 
+img {
+  width: 100%;
+}
 ::selection {
   color: colors.$bg-cream; 
   background: colors.$bg-green;

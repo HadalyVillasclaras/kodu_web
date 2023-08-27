@@ -14,7 +14,6 @@ export const useGsapFadeIn = () => {
         scrollTrigger: {
           trigger: triggerElement,
           start: 'top bottom',
-          markers: true,
           toggleActions: 'play none none reverse',
         },
         y: 70,

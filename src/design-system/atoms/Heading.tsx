@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react'; // Import CSSProperties
+import { ReactNode } from 'react'; // Import CSSProperties
 import styles from "./Heading.module.scss"; 
 import { Colors } from '../types';
 
@@ -9,13 +9,6 @@ type HeadingProps = {
   children: ReactNode;
   onClick?: () => void;
 }
-
-// function createTagComponent<T extends keyof JSX.IntrinsicElements>(tag: T) {
-//   return forwardRef<HTMLElement, JSX.IntrinsicElements[T]>((props, ref) => {
-//     return React.createElement(tag, { ...props, ref });
-//   });
-// }
-
 export const Heading = ({ children, as = "h1", color='cream', font = 'simple', onClick }: HeadingProps) => { 
   const Tag = as;
 

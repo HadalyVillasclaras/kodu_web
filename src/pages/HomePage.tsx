@@ -56,29 +56,29 @@ export const HomePage = () => {
 
   return (
     <>
-      <Fader />
-      <Section id="sect-hero" ref={refs.hero} size='full'>
+      {/* <Fader /> */}
+      <Section id="hero" ref={refs.hero} size='full'>
         <Hero />
       </Section>
       <span style={{ width: "100%", margin: "5rem 0" }}>
         <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       </span>
-      <Section id="sect-dunlap" ref={refs.dunlap}>
+      <Section id="dunlap" ref={refs.dunlap}>
         <BgImgContainer bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}></BgImgContainer>
       </Section>
-      <Section id="sect-aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
+      <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
       </Section>
-      <Section id="sect-aboutUs" ref={refs.aboutUs} bgColor='green' size='big'>
+      <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='big'>
         <AboutUs />
       </Section>
-      <Section id="sect-accordion" ref={refs.accordion} bgColor='brown' size='big'>
+      <Section id="accordion" ref={refs.accordion} bgColor='brown' size='big'>
         <Accordion />
       </Section>
-      <Section id="sect-bloom" ref={refs.bloom} bgColor='brown'>
+      <Section id="bloom" ref={refs.bloom} bgColor='brown'>
         <BgImgContainer customStyle={{ backgroundColor: "brown" }} bgImage={`${BASE_ASSETS}imgs/homes/bloom/bloom-3.png`}></BgImgContainer>
       </Section>
-      <Section id="sect-destinations" ref={refs.destinations} size='full'>
+      <Section id="destinations" ref={refs.destinations} size='full'>
         <Destinations />
       </Section>
     </>
