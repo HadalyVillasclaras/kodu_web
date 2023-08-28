@@ -53,16 +53,16 @@ export const HomePage = () => {
 
   return (
     <>
-      {/* <Fader /> */}
+      <Fader />
       <Section id="hero" ref={refs.hero} size='full'>
         <Hero />
       </Section>
       <span style={{ width: "100%", margin: "5rem 0" }}>
         <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       </span>
-      <Section id="dunlap" ref={refs.dunlap}>
+      {/* <Section id="dunlap" ref={refs.dunlap}>
         <BgImgContainer bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}></BgImgContainer>
-      </Section>
+      </Section> */}
       <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
       </Section>
