@@ -19,7 +19,7 @@ type SectionType = {
 export const HomePage = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
   const { setIconColor, setRotate } = useNavIconColor();
-  
+
   const refs = {
     hero: useRef(null),
     dunlap: useRef(null),
@@ -30,7 +30,7 @@ export const HomePage = () => {
     destinations: useRef(null),
   };
 
-  const  sections: SectionType[] = [
+  const sections: SectionType[] = [
     { ref: refs.hero, iconColor: 'green' as Colors, bgColor: 'cream' as Colors },
     { ref: refs.dunlap, iconColor: 'cream' as Colors, bgColor: 'cream' as Colors },
     { ref: refs.aboutIntro, iconColor: 'cream' as Colors, bgColor: 'green' as Colors },
@@ -40,17 +40,17 @@ export const HomePage = () => {
     { ref: refs.destinations, iconColor: 'green' as Colors, bgColor: 'cream' as Colors },
   ];
 
-  const inViewSectionId = useOnviewObserver(refs); 
+  const inViewSectionId = useOnviewObserver(refs);
   useEffect(() => {
-    const sectionInView = sections.find((section:SectionType) => section?.ref?.current?.id === inViewSectionId);
+    const sectionInView = sections.find((section: SectionType) => section?.ref?.current?.id === inViewSectionId);
     if (sectionInView) {
       setIconColor(sectionInView.iconColor);
       setRotate(true);
       setTimeout(() => { setRotate(false) }, 1500);
-      // document.body.style.backgroundColor = `var(--${sectionInView.bgColor})`;
     } else {
-      setIconColor('green' as Colors);
-      // document.body.style.backgroundColor = 'var(--cream)'; 
+      setIconColor('cream' as Colors);
+      setRotate(true);
+      setTimeout(() => { setRotate(false) }, 1500);
     }
   }, [inViewSectionId]);
 
