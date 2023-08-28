@@ -19,9 +19,12 @@ export const useGsapFadeIn = () => {
         y: 70,
         stagger: 0.3,
         duration: 1,
+        ease: "power3.out",
         delay: delay
       });
   }
+
+ 
 
   return { slidesUpOnScroll };
 };
