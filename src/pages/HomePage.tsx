@@ -8,7 +8,7 @@ import { useNavIconColor } from '../contexts/NavIconContext'
 import { useEffect, useRef } from 'react'
 import { useOnviewObserver } from '../hooks/useOnviewObserver'
 import { Colors } from '../design-system/types'
-import { Fader } from '../design-system/molecules/Fader'
+import { Fader } from '../design-system/molecules/Fader';
 
 type SectionType = {
   ref: React.RefObject<HTMLElement>;
@@ -18,7 +18,7 @@ type SectionType = {
 
 export const HomePage = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-  const { setIconColor, setRotate } = useNavIconColor();
+  const { setIconColor } = useNavIconColor();
 
   const refs = {
     hero: useRef(null),
@@ -41,16 +41,13 @@ export const HomePage = () => {
   ];
 
   const inViewSectionId = useOnviewObserver(refs);
+  
   useEffect(() => {
     const sectionInView = sections.find((section: SectionType) => section?.ref?.current?.id === inViewSectionId);
     if (sectionInView) {
       setIconColor(sectionInView.iconColor);
-      setRotate(true);
-      setTimeout(() => { setRotate(false) }, 1500);
     } else {
       setIconColor('cream' as Colors);
-      setRotate(true);
-      setTimeout(() => { setRotate(false) }, 1500);
     }
   }, [inViewSectionId]);
 
