@@ -27,21 +27,34 @@
 
 .hero__sect-text {
   margin-bottom: 2rem;
-  height: 30vh;
-  padding:0 4.7rem;
+  padding: 0 spacing.$pd__mb-small;
+  padding-top: 4rem;
   display: flex;
   flex-direction: row;
+  font-size: 4.5vw;
+
+  @media only screen and (min-width: breakpoints.$tablet) {
+    padding:0 4.7rem;
   font-size: 1.5vw;
+  height: 30vh;
+
+
+  }
 
     &-content {
       margin-left: auto;
       display: flex;
-      width: 30vw;
+      width: 100%;
       flex-direction: column;
       gap: 1rem;
-      padding-left: 3rem;
       border-left: 1px solid colors.$brown;
-      justify-content: center;
+
+      @media only screen and (min-width: breakpoints.$tablet) {
+        padding-left: 3rem;
+        width: 30vw;
+        justify-content: center;
+
+      }
 
       h4 {
         font-weight: 600;

@@ -27,7 +27,11 @@
 
   &__logo-dinamic-wp {
     position: relative;
-    width: 200px;
+    width: 100%;
+
+    @media only screen and (min-width: breakpoints.$tablet) {
+      width: 200px;
+    }
   }
 
   &__logo-dinamic {

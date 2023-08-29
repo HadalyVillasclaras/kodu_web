@@ -4,37 +4,42 @@ import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGsapWidthExpand } from '../../hooks/gsap/useGsapWidthExpand';
 import { Colors } from '../../design-system/types';
+import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 
 type HeaderProps = {
   isDinamic?: boolean;
   bgColor?: Colors | null;
 };
 
-const animateLogo = (element: HTMLElement | null, triggerElement: HTMLElement | null) => {
-  return gsap.from(element, {
-    scrollTrigger: {
-      trigger: triggerElement,
-      start: "top top",
-      end: "+=500px",
-      pinSpacing: false,
-      scrub: true,
-      pin: true
-    },
-    transformOrigin: "top left",
-    width: "55vw",
-    ease: "power3.out",
-    y: "50px",
-    x: "20px",
-    duration: 20,
-  });
-}
+
 
 export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
   const dividerRef = useRef<HTMLHRElement | null>(null);
   const logoMain = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
+
   const { expandWidthOnScroll } = useGsapWidthExpand();
-  
+  const deviceType = useDeviceType();
+
+  const animateLogo = (element: HTMLElement | null, triggerElement: HTMLElement | null) => {
+    return gsap.from(element, {
+      scrollTrigger: {
+        trigger: triggerElement,
+        start: "top top",
+        end: "+=500px",
+        pinSpacing: false,
+        scrub: true,
+        pin: true
+      },
+      transformOrigin: "top left",
+      width: deviceType === DeviceType.MOBILE ? "100%" : "55vw",
+      ease: "power3.out",
+      y: deviceType === DeviceType.MOBILE ? "20px" : "50px", 
+      x: deviceType === DeviceType.MOBILE ? "0px" : "20px",
+      duration: 20,
+    });
+  }
+
   useLayoutEffect(() => {
     if (isDinamic) {
       setTimeout(() => {

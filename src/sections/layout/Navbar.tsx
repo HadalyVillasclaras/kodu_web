@@ -36,7 +36,6 @@ export const Navbar = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    console.log("Component re-rendered. Hidden:", hidden);
 }, [hidden]);
 
   return (

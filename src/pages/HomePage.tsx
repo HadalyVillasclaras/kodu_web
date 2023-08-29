@@ -53,7 +53,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <Fader />
+      {/* <Fader /> */}
       <Section id="hero" ref={refs.hero} size='full'>
         <Hero />
       </Section>
