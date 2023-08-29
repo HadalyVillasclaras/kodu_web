@@ -4,8 +4,8 @@ import { Hero, Destinations, AboutUs } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
 import { AboutIntro } from '../sections/home/AboutIntro'
 import { Accordion } from '../design-system/molecules/Accordion/Accordion'
-import { useNavIconColor } from '../contexts/NavIconContext'
-import { useEffect, useRef } from 'react'
+import { NavIconContext  } from '../contexts/NavIconContext'
+import { useContext, useEffect, useRef } from 'react'
 import { useOnviewObserver } from '../hooks/useOnviewObserver'
 import { Colors } from '../design-system/types'
 import { Fader } from '../design-system/molecules/Fader';
@@ -18,7 +18,7 @@ type SectionType = {
 
 export const HomePage = () => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-  const { setIconColor } = useNavIconColor();
+  const { setIconColor } =  useContext(NavIconContext);
 
   const refs = {
     hero: useRef(null),

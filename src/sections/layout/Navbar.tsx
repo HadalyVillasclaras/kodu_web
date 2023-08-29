@@ -1,13 +1,13 @@
 import styles from "./Navbar.module.scss";
 import { IconButton, Link } from '../../design-system/atoms';
 import navItems from '../../config/data/NavItems.json';
-import { useNavIconColor } from "../../contexts/NavIconContext";
-import { useEffect, useRef, useState } from "react";
+import { NavIconContext } from "../../contexts/NavIconContext";
+import { useContext, useEffect, useRef, useState } from "react";
 import { gsap } from 'gsap';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { color } = useNavIconColor();
+  const { color, hidden } =  useContext(NavIconContext);
   const listItemsRef = useRef([]);
   const animationRef = useRef(null!);
   const toggleSidebar = () => {
@@ -15,7 +15,6 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    // Set up the animation once and store it in a ref
     animationRef.current = gsap.to(listItemsRef.current, {
       y: '-70px',
       stagger: 0.1,
@@ -36,23 +35,25 @@ export const Navbar = () => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    console.log("Component re-rendered. Hidden:", hidden);
+}, [hidden]);
+
   return (
     <div className={styles["navbar"]}>
       <div className={styles["navbar__icon-content"]} style={{}}>
-        <div
-          className={`
-          ${styles["icon-wrapper"]}
-          ${isOpen ? styles["rotate45"] : ""} 
-          `}
-        >
-          <IconButton
-            icon='plus'
-            color={isOpen ? 'cream' : color}
-            ariaLabel={isOpen ? "Close" : "Open"}
-            onClick={toggleSidebar}
-            size="l"
-          />
+          {
+            !hidden &&
+        <div className={`${styles["icon-wrapper"]}${isOpen ? styles["rotate45"] : ""}`}>
+            <IconButton
+              icon='plus'
+              color={isOpen ? 'cream' : color}
+              ariaLabel={isOpen ? "Close" : "Open"}
+              onClick={toggleSidebar}
+              size="l"
+            />
         </div>
+          }
       </div>
       <nav className={styles["navbar__menu"]} style={isOpen ? { transform: 'translateX(0)' } : {}}>
         <ul className={styles["navbar__menu-list"]}>

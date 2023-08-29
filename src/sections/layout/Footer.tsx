@@ -1,52 +1,67 @@
 import styles from './Footer.module.scss';
 import navItems from '../../config/data/NavItems.json';
 import { Link, Logo } from '../../design-system/atoms';
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useContext, useLayoutEffect, useRef } from 'react';
 import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
-import { useNavIconColor } from '../../contexts/NavIconContext';
-import { useOnviewObserver } from '../../hooks/useOnviewObserver';
-import { Colors } from '../../design-system/types';
 import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { NavIconContext } from '../../contexts/NavIconContext';
+gsap.registerPlugin(ScrollTrigger);
 
 export const Footer = () => {
   const { slidesUpOnScroll } = useGsapFadeIn();
-  const listRefs = useRef<HTMLElement[]>([]); 
-  const policiesRef = useRef<HTMLElement>(null!); 
+  const listRefs = useRef<HTMLElement[]>([]);
+  const policiesRef = useRef<HTMLElement>(null!);
   const footerRef = useRef<HTMLElement>(null!);
-  
-  // const { setIconColor, setRotate } = useNavIconColor();
-  // const inViewSectionId = useOnviewObserver({ footer: footerRef });
-  // useEffect(() => {
-  //   if (inViewSectionId === "footer") {
-  //     console.log('hey');
-  //     setIconColor('cream' as Colors);
-  //     setRotate(true);
-  //     setTimeout(() => { setRotate(false) }, 1500);
-  //   } else {
-  //     setIconColor('green' as Colors);
-  //   }
-  // }, [inViewSectionId]);
 
+  const { setHidden } = useContext(NavIconContext);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       slidesUpOnScroll(listRefs.current, footerRef.current);
     }, footerRef);
 
-    return () => ctx.revert();
+    const trigger = ScrollTrigger.create({
+      trigger: footerRef.current,
+      start: "top 50%",
+      end: "bottom 50%",
+      markers: true,
+      onEnter: () => {
+        console.log("Footer entered the viewport");
+        setHidden(true);
+      },
+      onLeave: () => {
+        console.log("Footer left the viewport");
+        setHidden(false);
+      },
+      onEnterBack: () => {
+        console.log("Footer re-entered the viewport from the bottom");
+        setHidden(true);
+
+      },
+      onLeaveBack: () => {
+        console.log("Footer re-left the viewport from the top");
+        setHidden(false);
+
+      }
+    });
+
+    return () => {
+      ctx.revert();
+      trigger.kill();
+    };
   }, []);
 
-
   return (
-    <footer id="footer" ref={footerRef}  className={styles["footer"]}>
+    <footer id="footer" ref={footerRef} className={styles["footer"]}>
       <section className={styles["footer__logo"]}>
-      <Logo color='cream' size='15rem'/>
+        <Logo color='cream' size='15rem' />
       </section>
       <ul className={styles["footer__nav-list"]}>
         {navItems.map((navItem, index) => (
-          <li 
+          <li
             key={index}
-            ref={el => { if(el) listRefs.current[index] = el}}
+            ref={el => { if (el) listRefs.current[index] = el }}
           >
             <Link color='cream' size='l' href={navItem.link}>{navItem.name}</Link>
           </li>

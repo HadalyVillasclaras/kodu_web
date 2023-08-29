@@ -1,38 +1,10 @@
 @use "../settings/colors";
 
 .arrow-cursor {
-  position: fixed;
+  position: relative;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
   transform: translate(-50%, -50%);
-  align-items: center;
-  justify-content: center;
-
-  &-green {
-    &-active {
-      background-color: colors.$green;
-    }
-    &-disabled {
-      background-color: colors.$green-disabled;
-    }
-  }
-
-  &-brown {
-    &-active {
-      background-color: colors.$brown;
-    }
-    &-disabled {
-      background-color: colors.$brown-disabled;
-    }
-  }
-
-  &-brown {
-    &-active {
-      background-color: colors.$brown;
-    }
-    &-disabled {
-      background-color: colors.$brown-disabled;
-    }
-  }
+  display: flex;
+  transition: opacity .3s ease;
 }

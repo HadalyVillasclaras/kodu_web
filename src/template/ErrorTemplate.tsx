@@ -1,14 +1,15 @@
 import { Outlet } from 'react-router-dom'
 import { Navbar, Credits, Header } from "../sections/layout"
-import { ReactNode, useEffect } from 'react'
-import { useNavIconColor } from '../contexts/NavIconContext';
+import { ReactNode, useContext, useEffect } from 'react'
+import { NavIconContext } from '../contexts/NavIconContext';
 
 type Props = {
   children: ReactNode;
 }
 
 export const ErrorTemplate = ({ children }: Props) => {
-  const { setIconColor } = useNavIconColor();
+  const { setIconColor } =  useContext(NavIconContext);
+
   useEffect(() => {
     setIconColor("cream");
   }, [])

@@ -3,26 +3,30 @@ import { Colors } from '../types';
 import styles from './ArrowCursor.module.scss';
 
 type Props = {
-  topPosition: number;
-  leftPosition: number;
-  isDisplayed: boolean;
-  arrowOrientation: "left" | "right" | null;
+  topPosition: number | string;
+  leftPosition: number | string;
+  isCursorInside: boolean;
+  arrowDirection: "left" | "right" | null;
   isDisabled: boolean;
+  isInit: boolean;
   color?: Colors;
-}
+};
 
-export const ArrowCursor = ({topPosition, leftPosition, isDisplayed, isDisabled = false, color="green", arrowOrientation}: Props) => {
-  const mode = isDisabled ? "disabled" : "active";
+export const ArrowCursor = ({topPosition, leftPosition, isCursorInside, isInit, isDisabled = false, color="green", arrowDirection}: Props) => {
+  const hidden = isInit && !isCursorInside;
+
   return (
     <span
-      className={`${styles['arrow-cursor']} ${styles[`arrow-cursor-${color}-${mode}`]}`} 
+      aria-label={arrowDirection === 'left' ? 'Previous Slide' : 'Next Slide'}
+      className={`${styles['arrow-cursor']}`} 
       style={{
-      top: topPosition,
-      left: leftPosition,
-      display: isDisplayed ? 'flex' : 'none',
-    }}
-  >
-    <Icon color='cream' icon={arrowOrientation === "left" ? 'arrowLeft' : 'arrowRight'} />
+        top: topPosition,
+        left: leftPosition,
+        opacity: hidden ? "0" : "1",
+        position: isCursorInside || isInit ? 'fixed' : 'absolute'
+      }}
+    >
+    <Icon disabled={isDisabled} color={color} variant='circle' icon={arrowDirection === "left" ? 'arrowLeft' : 'arrowRight'} />
   </span>
   )
 }

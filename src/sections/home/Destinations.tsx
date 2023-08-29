@@ -1,12 +1,14 @@
 import { Heading } from '../../design-system/atoms'
-import { DestinationsSlider } from '../../design-system/molecules/DestinationSlider/DestinationsSlider';
+import { DinamicSlider } from '../../design-system/molecules/DinamicSlider/DinamicSlider';
 import styles from './Destinations.module.scss';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { useBreakpointSetter } from '../../hooks/useBreakPointSetter';
-import { Swipe } from '../../design-system/molecules/Swipe/Swiper';
+import { Swipe } from '../../design-system/molecules/Swipe/Swipe';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import { gsap } from 'gsap';
 import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
+import destinations from "../../config/data/Destinations.json";
+import { DestinationCard } from '../../design-system/molecules/DestinationCard';
 
 export const Destinations = () => {
   const [visibleSlides, setVisibleSlides] = useState(3);
@@ -36,10 +38,17 @@ export const Destinations = () => {
       {
         deviceType === DeviceType.MOBILE
           ? <section className={styles["destinations__sect-swipe"]}>
-            <Swipe />
+            <Swipe
+              elementsData={destinations}
+              renderElement={(data) => <DestinationCard data={data} />}
+            />
           </section>
           : <section style={{ height: "70vh" }}>
-            <DestinationsSlider visibleSlides={visibleSlides} />
+            <DinamicSlider
+              elementsData={destinations}
+              renderElement={(data) => <DestinationCard data={data} />}
+              visibleSlides={visibleSlides}
+            />
           </section>
       }
     </>

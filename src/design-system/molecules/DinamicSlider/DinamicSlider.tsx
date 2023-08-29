@@ -1,26 +1,34 @@
-import  { useState, useEffect, useRef, ReactNode } from 'react';
-import styles from './DestinationsSlider.module.scss';
-import { DestinationCard } from '../DestinationCard';
-import destinations from "../../../config/data/Destinations.json";
+import { useState, useEffect, useRef, ReactNode } from 'react';
+import styles from './DinamicSlider.module.scss';
 import { ArrowCursor } from '../../atoms/ArrowCursor';
+
 interface SliderProps {
   transitionTime?: number;
   visibleSlides?: number;
+  elementsData: any;
+  renderElement: (data:any) => JSX.Element;
   ChildComponent?: ReactNode;
 }
 
-export const DestinationsSlider = ({ visibleSlides = 3 }: SliderProps) => {
+type CursorPositionType = {
+  x: string | number;
+  y: string | number;
+};
+
+export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLeftDisabled, setIsLeftDisabled] = useState(true);
-  const [isRightDisabled, setIsRightDisabled] = useState(destinations.length <= visibleSlides);
+  const [isRightDisabled, setIsRightDisabled] = useState(elementsData.length <= visibleSlides);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [cursorPosition, setCursorPosition] = useState<CursorPositionType>({ x: '90%', y: '80%' });
   const [isCursorInside, setIsCursorInside] = useState(false);
   const [sliderSide, setSliderSide] = useState<"left" | "right" | null>(null);
 
+  const [isInit, setIsInit] = useState(false);
+
   const nextSlide = () => {
-    if (currentIndex < destinations.length - visibleSlides) setCurrentIndex(prevState => prevState + 1);
+    if (currentIndex < elementsData.length - visibleSlides) setCurrentIndex(prevState => prevState + 1);
   };
 
   const prevSlide = () => {
@@ -28,17 +36,30 @@ export const DestinationsSlider = ({ visibleSlides = 3 }: SliderProps) => {
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    setCursorPosition({ x: e.clientX, y: e.clientY });
+    if (isCursorInside && isInit) {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    }
   };
 
   const handleMouseEnter = (side: "left" | "right") => {
     setSliderSide(side);
     setIsCursorInside(true);
+    setIsInit(true);
   };
 
   const handleMouseLeave = () => {
-    setIsCursorInside(false);
+      setIsCursorInside(false);
   };
+
+  const initAnimatedCursor = () => {
+    console.log('initanimated cursor');
+    if (!isInit) {
+      setIsInit(true);
+    }
+  }
+
+  // console.log('isCursorInside: ' + isCursorInside);
+  // console.log('isInit: ' + isInit);
 
   let isArrowButtonDisabled = false;
   if (sliderSide === "left" && isLeftDisabled) {
@@ -52,43 +73,48 @@ export const DestinationsSlider = ({ visibleSlides = 3 }: SliderProps) => {
       sliderRef.current.style.transform = `translateX(${-currentIndex * (100 / visibleSlides)}%)`;
     }
     setIsLeftDisabled(currentIndex === 0);
-    setIsRightDisabled(currentIndex >= destinations.length - visibleSlides);
+    setIsRightDisabled(currentIndex >= elementsData.length - visibleSlides);
   }, [currentIndex]);
 
   return (
     <>
-      <div className={styles['destination-slider-container']} onMouseMove={handleMouseMove}  >
+      <div className={styles['destination-slider-container']}  >
         <button
           className={`${styles['slider__controls']} ${styles["slider__controls-left"]}`}
           onMouseEnter={() => handleMouseEnter("left")}
           onMouseLeave={handleMouseLeave}
+          onMouseMove={handleMouseMove}
           onClick={prevSlide}
         />
         <div className={styles['slider-container']}>
           <div className={styles['slider']} ref={sliderRef}>
-            {destinations.map((destination, index) => (
+            {elementsData.map((elementData, index) => (
               <div
                 key={index}
                 className={styles['slider__slide']}
                 style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}
               >
-                <DestinationCard id={Number(destination.id)} homeName={destination.homeName} src={destination.img} />
+                {renderElement(elementData)}
               </div>
             ))}
           </div>
         </div>
+
         <button
           className={`${styles['slider__controls']} ${styles["slider__controls-right"]}`}
           onMouseEnter={() => handleMouseEnter("right")}
           onMouseLeave={handleMouseLeave}
+          onMouseMove={handleMouseMove}
           onClick={nextSlide}
         />
+        {/* <span onMouseOver={initAnimatedCursor} className={styles['init-button']} ></span> */}
         <ArrowCursor
           topPosition={cursorPosition.y}
           leftPosition={cursorPosition.x}
-          isDisplayed={isCursorInside}
-          arrowOrientation={sliderSide}
+          isCursorInside={isCursorInside}
+          arrowDirection={sliderSide}
           isDisabled={isArrowButtonDisabled}
+          isInit={isInit}
           color='brown'
         />
       </div>

@@ -6,6 +6,7 @@
   overflow: hidden;
   display: flex;
   height: 100%;
+  position: relative;
 }
 
 .slider-container {
@@ -15,7 +16,6 @@
 
   @media only screen and (min-width: breakpoints.$tablet) {
     margin: 0 spacing.$pd__dk-small;
-
   }
 
   @media only screen and (min-width: breakpoints.$desktop) {
@@ -46,7 +46,7 @@
     position: absolute;
     top: 0;
     width: 18%;
-    z-index: 2;
+    z-index: 10;
     height: 100%;
     cursor: none;
     
@@ -58,4 +58,15 @@
       left: 0;
     }
   }
+}
+
+.init-button {
+  position: absolute;
+  top: 80%;
+  left: 90%;
+  border: 1px solid green;
+  z-index: 9;
+  width: 30px;
+  height:30px;
+  background-color:black;
 }

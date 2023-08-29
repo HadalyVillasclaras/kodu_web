@@ -3,6 +3,13 @@
 @use "../../design-system/settings/spacing";
 @use '../../design-system/settings/colors';
 
+@mixin circleBase() {
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
 .icon {
   display: inline-flex;
   align-items: center;
@@ -30,7 +37,7 @@
     }
   }
 
-  &__color {
+  &__simple {
     &-green {
       stroke: colors.$green;
     }
@@ -41,6 +48,41 @@
   
     &-brown {
       stroke: colors.$brown;
+    }
+  }
+
+  &__circle {
+    @include circleBase();
+  
+    &-green {
+      stroke: colors.$cream;
+
+      &-active {
+        background-color: colors.$green;
+      }
+      &-disabled {
+        background-color: colors.$green-disabled;
+      }
+    }
+  
+    &-cream {
+      stroke: colors.$brown;
+      &-active {
+        background-color: colors.$cream;
+      }
+      &-disabled {
+        background-color: colors.$cream-disabled;
+      }
+    }
+  
+    &-brown {
+      stroke: colors.$cream;
+      &-active {
+        background-color: colors.$brown;
+      }
+      &-disabled {
+        background-color: colors.$brown-disabled;
+      }
     }
   }
 }
