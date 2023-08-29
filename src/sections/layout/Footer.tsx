@@ -9,52 +9,53 @@ import { NavIconContext } from '../../contexts/NavIconContext';
 gsap.registerPlugin(ScrollTrigger);
 
 export const Footer = () => {
-  const { slidesUpOnScroll } = useGsapFadeIn();
   const listRefs = useRef<HTMLElement[]>([]);
   const policiesRef = useRef<HTMLElement>(null!);
   const footerRef = useRef<HTMLElement>(null!);
 
   const { setHidden } = useContext(NavIconContext);
+  const { slidesUpOnScroll } = useGsapFadeIn();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       slidesUpOnScroll(listRefs.current, footerRef.current);
     }, footerRef);
 
+    showHideIconOnFooter()
+
+    return () => {
+      ctx.revert(); 
+    };
+  }, []);
+
+  function showHideIconOnFooter() {
     const trigger = ScrollTrigger.create({
       trigger: footerRef.current,
       start: "top 50%",
       end: "bottom 50%",
-      markers: true,
+
       onEnter: () => {
-        console.log("Footer entered the viewport");
         setHidden(true);
       },
       onLeave: () => {
-        console.log("Footer left the viewport");
         setHidden(false);
       },
       onEnterBack: () => {
-        console.log("Footer re-entered the viewport from the bottom");
         setHidden(true);
 
       },
       onLeaveBack: () => {
-        console.log("Footer re-left the viewport from the top");
         setHidden(false);
-
       }
     });
 
     return () => {
-      ctx.revert();
       trigger.kill();
     };
-  }, []);
-
+  }
   return (
     <footer id="footer" ref={footerRef} className={styles["footer"]}>
-      <section className={styles["footer__logo"]}>
+      <section>
         <Logo color='cream' size='15rem' />
       </section>
       <ul className={styles["footer__nav-list"]}>

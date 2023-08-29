@@ -10,22 +10,19 @@
   color: colors.$text-secondary;
   padding: spacing.$section-mb;
   margin-top: 3rem;
+
   @media only screen and (min-width: breakpoints.$tablet) {
     padding: spacing.$pd__tb;
     gap: 1rem;
   }
 
   @media only screen and (min-width: breakpoints.$desktop) {
-    padding: spacing.$pd__dk-small;
+    padding: spacing.$pd__dk-xs;
   }
   
   ::selection {
     background-color: colors.$bg-brown;
     color: colors.$text-primary;
-  }
-
-  &__logo {
-    
   }
 
   &__nav-list {

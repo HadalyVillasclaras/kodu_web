@@ -47,7 +47,7 @@ export const HomePage = () => {
     if (sectionInView) {
       setIconColor(sectionInView.iconColor);
     } else {
-      setIconColor('cream' as Colors);
+      setIconColor('green' as Colors);
     }
   }, [inViewSectionId]);
 
