@@ -1,10 +1,10 @@
 import { IconButton, Link } from '../../design-system/atoms';
 import { NavIconContext } from "../../contexts/NavIconContext";
-import { useContext, useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { useGsapSlidesUp } from "../../hooks/gsap";
 import styles from "./Navbar.module.scss";
 import navItems from '../../config/data/NavItems.json';
-import { gsap } from 'gsap';
+// import { gsap } from 'gsap';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

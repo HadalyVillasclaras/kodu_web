@@ -6,7 +6,6 @@ import { NavIconContext } from '../contexts/NavIconContext'
 import { useContext, useEffect, useRef } from 'react'
 import { useOnviewObserver } from '../hooks'
 import { Colors } from '../design-system/types'
-import { Curtain } from '../design-system/atoms/Curtain'
 
 type SectionType = {
   ref: React.RefObject<HTMLElement>;
@@ -53,11 +52,10 @@ export const HomePage = () => {
   useEffect(() => {
     setIconColorOnSection();
   }, [inViewSectionId]);
-  const imgfRef = useRef<HTMLImageElement>(null!);
 
   return (
     <>
-      {/* <Fader /> */}
+      <Fader />
       <Section id="hero" ref={refs.hero} size='full'>
         <Hero />
       </Section>

@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 export const Hero = () => {
-  const introTextRef = useRef<HTMLElement>(null!);
+  const introTextRef = useRef<HTMLDivElement>(null!);
   const introImgRef = useRef<HTMLImageElement>(null!);
   const curtainHero = useRef<HTMLDivElement>(null!);
  
@@ -30,7 +30,7 @@ export const Hero = () => {
           scrub: true,
           toggleActions: 'play none none reverse',
         },
-          margin: '0px',
+          width: '100%',
           borderRadius: '0px'
       });
     }, introTextRef);
@@ -41,13 +41,13 @@ export const Hero = () => {
   return (
     <>
       <section className={styles["hero__sect-text"]}>
-        <section ref={introTextRef} className={styles["hero__sect-text-content"]}>
+        <div ref={introTextRef} className={styles["hero__sect-text-content"]}>
           <Heading color='brown' as='h4'>Sustainable lodgins</Heading>
           <p>Lorem ipsum dolor sit amet. Nunc auctor, et risus lacus quis sem. Sed sodales lorem, at lobortis odio porta vel. Nunc auctor. Class aptent et risus lacus quis sem taciti sociosqu ad litora torquent per nostra.</p>
-        </section>
+        </div>
       </section>
       <section  className={styles['hero__sect-img']}>
-        <img ref={introImgRef} src={`${BASE_ASSETS}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />
+        <img  ref={introImgRef} src={`${BASE_ASSETS}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />
         <Curtain elementRef={curtainHero}  bgColor="cream" triggerElement={curtainHero}/>
       </section>
     </>

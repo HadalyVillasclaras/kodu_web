@@ -20,7 +20,6 @@ export const BgImgContainer = ({ bgImage, customStyle, children }: BgImgContaine
     const ctx = gsap.context(() => {
       gsap.to(containerRef.current, {
         scrollTrigger: {
-        markers: true,
           trigger: containerRef.current,
           start: "top center",
           end: "bottom top",

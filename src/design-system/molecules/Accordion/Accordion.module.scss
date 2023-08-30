@@ -20,12 +20,15 @@
 
     h3 {
       transition: color 0.1s ease;
-      cursor: default;
+      cursor: pointer;
       display: inline-block;
       font-family: 'Eklektyk';
       color: colors.$cream;
-      // font-size: fonts.$h1-mb;
       font-size: 15vw;
+
+      @media only screen and (min-width: breakpoints.$tablet) {
+        font-size: fonts.$h1-mb;
+      }
 
       &:hover,
       &:active {
@@ -35,7 +38,7 @@
           background-color: colors.$green !important;
         }
       }
-      
+
       .opened {
         color: colors.$green !important;
       }

@@ -3,17 +3,12 @@
 @use '../../design-system/settings/colors';
 
 .header {
-  left: 0;
+  position: relative;
   width: 100%;
   z-index: 1;
-  top: 0;
-
-  &__frieze {
-    height: 1.8rem;
-    background-color: colors.$brown;
-  }
 
   &__flexnav {
+    position: relative;
     padding: spacing.$pd__mb-small ;
     display: flex;
     justify-content: space-between;
@@ -36,6 +31,7 @@
 
   &__logo-dinamic {
     position: absolute;
+    top: 0;
     width: 200px;
     z-index: 3;
   }

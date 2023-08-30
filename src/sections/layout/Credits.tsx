@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react';
-import { Icon, Link } from '../../design-system/atoms'
+import { Link } from '../../design-system/atoms'
 import styles from './Credits.module.scss';
 import { gsap } from 'gsap';
 
@@ -8,13 +8,13 @@ export const Credits = () => {
   let toggleCredits: any;
 
 
-  function handleToggle() {
-    if (toggleCredits.progress() === 0) {
-      toggleCredits.play();
-    } else {
-      toggleCredits.reverse();
-    }
-}
+//   function handleToggle() {
+//     if (toggleCredits.progress() === 0) {
+//       toggleCredits.play();
+//     } else {
+//       toggleCredits.reverse();
+//     }
+// }
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
     toggleCredits = gsap.fromTo(creditsBgRef.current, {
@@ -49,9 +49,9 @@ export const Credits = () => {
         </section>
       </section>
     </div>
-      <span onClick={handleToggle} className={`${styles["credits__toggle"]}`} >
+      {/* <span onClick={handleToggle} className={`${styles["credits__toggle"]}`} >
         <Icon color='cream' variant='circle' icon='plus' />
-      </span>
+      </span> */}
     </div>
   )
 }
