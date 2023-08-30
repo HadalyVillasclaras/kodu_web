@@ -1,9 +1,17 @@
 import { RefObject, useEffect, useState } from "react";
 
-export function useOnviewObserver(refs: Record<string, RefObject<HTMLElement>>) {
+/* Returns current section id on view*/
+
+type ObserverOptions = {
+  root?: Element | null;
+  rootMargin?: string;
+  threshold?: number | number[];
+};
+
+export function useOnviewObserver(refs: Record<string, RefObject<HTMLElement>>, observerOptions?: ObserverOptions) {
   const [inViewSectionId, setInViewSectionId] = useState<string | null>('hero');
 
-  const observerOptions = {
+  const defaultObserverOptions: ObserverOptions = {
     root: null,
     rootMargin: '-50%',
     threshold: 0
@@ -36,7 +44,7 @@ export function useOnviewObserver(refs: Record<string, RefObject<HTMLElement>>) 
 
     const observer = new IntersectionObserver(
       callback,
-      observerOptions
+      observerOptions || defaultObserverOptions
     );
 
     // Observe all refs  

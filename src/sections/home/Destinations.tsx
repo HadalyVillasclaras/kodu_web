@@ -1,23 +1,20 @@
 import { Heading } from '../../design-system/atoms'
-import { DinamicSlider } from '../../design-system/molecules/DinamicSlider/DinamicSlider';
-import styles from './Destinations.module.scss';
+import { DinamicSlider, DestinationCard, Swipe } from '../../design-system/molecules';
 import { useLayoutEffect, useRef, useState } from 'react';
-import { useBreakpointSetter } from '../../hooks/useBreakPointSetter';
-import { Swipe } from '../../design-system/molecules/Swipe/Swipe';
+import { useBreakPointSetter } from '../../hooks';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
-import { gsap } from 'gsap';
-import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
+import { useGsapSlidesUp } from "../../hooks/gsap";
+import styles from './Destinations.module.scss';
 import destinations from "../../config/data/Destinations.json";
-import { DestinationCard } from '../../design-system/molecules/DestinationCard';
+import { gsap } from 'gsap';
 
 export const Destinations = () => {
   const [visibleSlides, setVisibleSlides] = useState(3);
   const destinationHRef = useRef<HTMLImageElement>(null!);
-
   const deviceType = useDeviceType();
-  const { slidesUpOnScroll } = useGsapFadeIn();
+  const { slidesUpOnScroll } = useGsapSlidesUp();
 
-  useBreakpointSetter(setVisibleSlides, {
+  useBreakPointSetter(setVisibleSlides, {
     desktop: 3,
     tablet: 2,
     mobile: 1
@@ -25,7 +22,7 @@ export const Destinations = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      slidesUpOnScroll(destinationHRef.current as HTMLElement, destinationHRef.current);
+      slidesUpOnScroll(destinationHRef.current as HTMLElement );
     }, destinationHRef);
     return () => ctx.revert();
   }, []);

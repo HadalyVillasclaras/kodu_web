@@ -2,14 +2,14 @@ import { IconButton } from '../atoms';
 import { ArrowsNav } from '../atoms/ArrowsNav';
 import styles from "./FullScreenImage.module.scss";
 
-type FullscreenImageProps = {
+type FullScreenImageProps = {
   src: string;
   onLeft: () => void;
   onRight: () => void;
   onClose: () => void;
 };
 
-export const FullscreenImage = ({ src, onLeft, onRight, onClose }: FullscreenImageProps) => {
+export const FullScreenImage = ({ src, onLeft, onRight, onClose }: FullScreenImageProps) => {
   return (
     <section className={styles.fullscreen}>
       <span className={styles.fullscreen__btn}>

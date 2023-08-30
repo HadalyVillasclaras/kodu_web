@@ -6,4 +6,6 @@ export { Input } from "./Input";
 export { Link } from "./Link";
 export { Logo } from "./Logo";
 export { Frieze } from "./Frieze";
+export { Divider } from "./Divider";
+
 

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { Carousel } from "../design-system/molecules/Carousel"
-import { Section } from "../design-system/objects/Section"
+import { Carousel } from "../design-system/molecules"
+import { Section } from "../design-system/objects"
 import { DetailHeader } from "../sections/detail/DetailHeader"
 // import { DetailInfo } from "../sections/detail/DetailInfo";
 import { getById } from "../services/destination/getById";

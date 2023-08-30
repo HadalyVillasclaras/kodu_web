@@ -1,58 +1,74 @@
+import { Link, Logo } from '../../design-system/atoms';
+import { useContext, useLayoutEffect, useEffect, useRef, useState } from 'react';
+import { useGsapSlidesUp } from '../../hooks/gsap';
+import { NavIconContext } from '../../contexts/NavIconContext';
+import { useOnviewObserver } from '../../hooks/useOnviewObserver';
 import styles from './Footer.module.scss';
 import navItems from '../../config/data/NavItems.json';
-import { Link, Logo } from '../../design-system/atoms';
-import { useContext, useLayoutEffect, useRef } from 'react';
-import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { NavIconContext } from '../../contexts/NavIconContext';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export const Footer = () => {
   const listRefs = useRef<HTMLElement[]>([]);
   const policiesRef = useRef<HTMLElement>(null!);
   const footerRef = useRef<HTMLElement>(null!);
-
+  const [hasIntersected, setHasIntersected] = useState(false);
   const { setHidden } = useContext(NavIconContext);
-  const { slidesUpOnScroll } = useGsapFadeIn();
+  
+  const { slidesUpOnScroll } = useGsapSlidesUp();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       slidesUpOnScroll(listRefs.current, footerRef.current);
+
+      //  ScrollTrigger.create({
+      //   trigger: footerRef.current,
+      //   start: "top 50%",
+      //   end: "bottom 50%",
+      //   markers: true,
+      //   onEnter: () => {
+      //     setHidden(true);
+      //   },
+      //   onLeave: () => {
+      //     setHidden(false);
+      //   },
+      //   onEnterBack: () => {
+      //     setHidden(true);
+
+      //   },
+      //   onLeaveBack: () => {
+      //     setHidden(false);
+      //   }
+      // });
     }, footerRef);
 
-    showHideIconOnFooter()
-
     return () => {
-      ctx.revert(); 
+      ctx.revert();
     };
   }, []);
 
-  function showHideIconOnFooter() {
-    const trigger = ScrollTrigger.create({
-      trigger: footerRef.current,
-      start: "top 50%",
-      end: "bottom 50%",
+  const refsToObserve = {
+    footer: footerRef
+  };
 
-      onEnter: () => {
-        setHidden(true);
-      },
-      onLeave: () => {
-        setHidden(false);
-      },
-      onEnterBack: () => {
-        setHidden(true);
+  const inViewSectionId = useOnviewObserver(refsToObserve);
 
-      },
-      onLeaveBack: () => {
-        setHidden(false);
-      }
-    });
-
-    return () => {
-      trigger.kill();
-    };
+  function hideNavIconOnFooter() {
+    if (inViewSectionId === "footer") {
+      setHidden(true);
+      setHasIntersected(true);
+    }
+    if (hasIntersected && inViewSectionId !== "footer") {
+      setHidden(false);
+    }
   }
+
+  useEffect(() => {
+    hideNavIconOnFooter();
+  }, [inViewSectionId]);
+
   return (
     <footer id="footer" ref={footerRef} className={styles["footer"]}>
       <section>

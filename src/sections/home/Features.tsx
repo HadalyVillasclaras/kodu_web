@@ -1,9 +1,8 @@
 import { useState, useRef } from 'react';
 import styles from "./Features.module.scss";
 import featureData from "../../config/data/FeaturesSect.json";
-import { ShowMoreText } from '../../design-system/molecules/ShowMoreText';
-import { Heading } from '../../design-system/atoms';
-import { Divider } from '../../design-system/atoms/Divider';
+import { ShowMoreText } from '../../design-system/molecules';
+import { Heading, Divider } from '../../design-system/atoms';
 
 type Feature = {
   name: string;

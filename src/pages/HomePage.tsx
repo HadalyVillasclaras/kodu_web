@@ -1,14 +1,12 @@
-import { Section } from '../design-system/objects/Section'
-import { BgImgContainer } from '../design-system/objects/BgImgContainer'
-import { Hero, Destinations, AboutUs } from '../sections/home'
+import { Section, BgImgContainer } from '../design-system/objects'
+import { Hero, Destinations, AboutUs, AboutIntro } from '../sections/home'
 import { Marquee } from '../design-system/atoms/Marquee'
-import { AboutIntro } from '../sections/home/AboutIntro'
-import { Accordion } from '../design-system/molecules/Accordion/Accordion'
-import { NavIconContext  } from '../contexts/NavIconContext'
+import { Accordion, Fader } from '../design-system/molecules'
+import { NavIconContext } from '../contexts/NavIconContext'
 import { useContext, useEffect, useRef } from 'react'
-import { useOnviewObserver } from '../hooks/useOnviewObserver'
+import { useOnviewObserver } from '../hooks'
 import { Colors } from '../design-system/types'
-import { Fader } from '../design-system/molecules/Fader';
+import { Curtain } from '../design-system/atoms/Curtain'
 
 type SectionType = {
   ref: React.RefObject<HTMLElement>;
@@ -16,9 +14,10 @@ type SectionType = {
   bgColor: Colors;
 };
 
+const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
+
 export const HomePage = () => {
-  const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-  const { setIconColor } =  useContext(NavIconContext);
+  const { setIconColor } = useContext(NavIconContext);
 
   const refs = {
     hero: useRef(null),
@@ -31,25 +30,30 @@ export const HomePage = () => {
   };
 
   const sections: SectionType[] = [
-    { ref: refs.hero, iconColor: 'green' as Colors, bgColor: 'cream' as Colors },
-    { ref: refs.dunlap, iconColor: 'cream' as Colors, bgColor: 'cream' as Colors },
-    { ref: refs.aboutIntro, iconColor: 'cream' as Colors, bgColor: 'green' as Colors },
-    { ref: refs.aboutUs, iconColor: 'cream' as Colors, bgColor: 'green' as Colors },
-    { ref: refs.accordion, iconColor: 'green' as Colors, bgColor: 'brown' as Colors },
-    { ref: refs.bloom, iconColor: 'brown' as Colors, bgColor: 'brown' as Colors },
-    { ref: refs.destinations, iconColor: 'green' as Colors, bgColor: 'cream' as Colors },
+    { ref: refs.hero, iconColor: 'green', bgColor: 'cream' },
+    { ref: refs.dunlap, iconColor: 'cream', bgColor: 'cream' },
+    { ref: refs.aboutIntro, iconColor: 'cream', bgColor: 'green' },
+    { ref: refs.aboutUs, iconColor: 'cream', bgColor: 'green' },
+    { ref: refs.accordion, iconColor: 'green', bgColor: 'brown' },
+    { ref: refs.bloom, iconColor: 'brown', bgColor: 'brown' },
+    { ref: refs.destinations, iconColor: 'green', bgColor: 'cream' },
   ];
 
   const inViewSectionId = useOnviewObserver(refs);
-  
-  useEffect(() => {
+
+  function setIconColorOnSection() {
     const sectionInView = sections.find((section: SectionType) => section?.ref?.current?.id === inViewSectionId);
     if (sectionInView) {
       setIconColor(sectionInView.iconColor);
     } else {
-      setIconColor('green' as Colors);
+      setIconColor('green');
     }
+  }
+
+  useEffect(() => {
+    setIconColorOnSection();
   }, [inViewSectionId]);
+  const imgfRef = useRef<HTMLImageElement>(null!);
 
   return (
     <>

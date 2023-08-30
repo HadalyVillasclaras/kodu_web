@@ -1,6 +1,6 @@
 import  { useRef, useState } from 'react';
 import styles from './Carousel.module.scss';
-import { FullscreenImage } from './FullScreenImage';
+import { FullScreenImage } from './FullScreenImage';
 import { ArrowsNav } from '../atoms/ArrowsNav';
 
 type CarouselProps = {
@@ -43,7 +43,7 @@ export const Carousel = ({ images }: CarouselProps) => {
       <ArrowsNav color='cream' onLeft={handlePreviousImage} onRight={handleNextImage}/>
       {
         isFullscreen && 
-        <FullscreenImage src={images[currentIndex]} onLeft={handlePreviousImage} onRight={handleNextImage} onClose={() => setIsFullscreen(false)}/>
+        <FullScreenImage src={images[currentIndex]} onLeft={handlePreviousImage} onRight={handleNextImage} onClose={() => setIsFullscreen(false)}/>
       }
     </div>
   );

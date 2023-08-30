@@ -1,49 +1,60 @@
-import styles from "./Navbar.module.scss";
 import { IconButton, Link } from '../../design-system/atoms';
-import navItems from '../../config/data/NavItems.json';
 import { NavIconContext } from "../../contexts/NavIconContext";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useGsapSlidesUp } from "../../hooks/gsap";
+import styles from "./Navbar.module.scss";
+import navItems from '../../config/data/NavItems.json';
 import { gsap } from 'gsap';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { color, hidden } =  useContext(NavIconContext);
-  const listItemsRef = useRef([]);
-  const animationRef = useRef(null!);
+  const { color, hidden } = useContext(NavIconContext);
+  const navListRef = useRef<HTMLUListElement>(null!);
+  const navbarRef = useRef<HTMLDivElement>(null!);
+
+  const { slideUp } = useGsapSlidesUp();
+  let animation: any;
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
-    animationRef.current = gsap.to(listItemsRef.current, {
-      y: '-70px',
-      stagger: 0.1,
-      duration: 1,
-      ease: "power2.out",
-      paused: true,
-    });
-  }, []); 
-
-  useEffect(() => {
     if (isOpen) {
-      gsap.delayedCall(1, () => animationRef.current.play());
+      if (!animation) {
+        const ulItems = Array.from(navListRef.current.children);
+        animation = slideUp(ulItems as HTMLElement[], 0.1);
+      } else {
+        animation.restart();
+      }
     } else {
-      gsap.delayedCall(1, () => animationRef.current.reverse());
+      animation && animation.seek(0).pause();
     }
-    return () => {
-      animationRef.current.kill();
-    };
   }, [isOpen]);
 
   useEffect(() => {
-}, [hidden]);
+  }, [hidden]);
+
+  // useLayoutEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     const ulItems = Array.from(navListRef.current.children);
+  //     animation = slideUp(ulItems as HTMLElement[], 2);
+
+  //   }, navbarRef);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
-    <div className={styles["navbar"]}>
-      <div className={styles["navbar__icon-content"]} style={{}}>
+    <div ref={navbarRef} className={styles["navbar"]}>
+      <div className={styles["navbar__icon-wrapper"]} style={{}}>
+        <span
+          className={`
+          ${styles["icon-wrapper"]} 
+          ${isOpen ? styles["rotate45"] : ""} 
+        `}
+        >
           {
             !hidden &&
-        <div className={`${styles["icon-wrapper"]}${isOpen ? styles["rotate45"] : ""}`}>
             <IconButton
               icon='plus'
               color={isOpen ? 'cream' : color}
@@ -51,13 +62,13 @@ export const Navbar = () => {
               onClick={toggleSidebar}
               size="l"
             />
-        </div>
           }
+        </span>
       </div>
-      <nav className={styles["navbar__menu"]} style={isOpen ? { transform: 'translateX(0)' } : {}}>
-        <ul className={styles["navbar__menu-list"]}>
+      <nav className={styles["navbar__menu"]} style={isOpen ? { right: 0 } : {}}>
+        <ul ref={navListRef} className={styles["navbar__menu-list"]}>
           {navItems.map((navItem, index) => (
-            <li key={index} onClick={toggleSidebar} ref={el => listItemsRef.current[index] = el}>
+            <li key={index} onClick={toggleSidebar}>
               <Link color='cream' size='l' href={navItem.link}>{navItem.name}</Link>
             </li>
           ))}

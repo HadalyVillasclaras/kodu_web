@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useLayoutEffect, useRef } from "react";
 import styles from "./BgImgContainer.module.scss";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -16,20 +16,23 @@ export const BgImgContainer = ({ bgImage, customStyle, children }: BgImgContaine
   const bgImageClass = bgImage ? styles['container__bg-image'] : "";
   const bgImageUrl = bgImage ? { backgroundImage: `url(${bgImage})` } : {};
 
-  useEffect(() => {
-    if (bgImage) {
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
       gsap.to(containerRef.current, {
         scrollTrigger: {
+        markers: true,
           trigger: containerRef.current,
-          start: "35% center",
+          start: "top center",
           end: "bottom top",
           scrub: true,
         },
         scale: 1.1,
         duration: 7
       });
-    }
-  }, [bgImage]);
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <div ref={containerRef} className={`${styles["container"]} ${bgImageClass} ${customStyle}`} style={bgImageUrl}>

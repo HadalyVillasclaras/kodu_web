@@ -1,10 +1,9 @@
-import styles from './Accordion.module.scss';
-import features from "../../../config/data/FeaturesSect.json";
 import { Divider } from '../../atoms/Divider';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { AccordionItem } from './AccordionItem';
-import { useGsapFadeIn } from '../../../hooks/gsap/useGsapFadeIn';
-import { useGsapWidthExpand } from '../../../hooks/gsap/useGsapWidthExpand';
+import { useGsapWidthExpand, useGsapSlidesUp } from "../../../hooks/gsap";
+import styles from './Accordion.module.scss';
+import features from "../../../config/data/FeaturesSect.json";
 import gsap from 'gsap';
 
 export const Accordion = () => {
@@ -12,7 +11,7 @@ export const Accordion = () => {
   const accordionRef = useRef<HTMLElement>(null!);
   const dividerRefs = useRef<(HTMLHRElement | null)[]>([]);
 
-  const { slidesUpOnScroll } = useGsapFadeIn();
+  const { slidesUpOnScroll } = useGsapSlidesUp();
   const { expandWidthOnScroll } = useGsapWidthExpand();
 
   const handleTitleClick = (index: number) => {
@@ -25,11 +24,10 @@ export const Accordion = () => {
       slidesUpOnScroll(accordionItems as HTMLElement[], accordionRef.current);
 
       const nonNullDividers = dividerRefs.current.filter(divider => divider !== null) as HTMLElement[];
-      expandWidthOnScroll(nonNullDividers, accordionRef.current); 
+      expandWidthOnScroll(nonNullDividers, accordionRef.current);
     }, accordionRef);
     return () => ctx.revert();
-
-}, []);
+  }, []);
 
   return (
     <section ref={accordionRef} className={styles['accordion']}>
@@ -46,7 +44,6 @@ export const Accordion = () => {
           />
           <Divider ref={el => { if (el) dividerRefs.current[index] = el }} color={openedItem === index ? "green" : "cream"} customStyle={{ marginTop: '1rem' }} />
         </div>
-
       ))}
     </section>
   );

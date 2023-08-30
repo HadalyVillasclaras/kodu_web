@@ -1,25 +1,27 @@
-import styles from "./Hero.module.scss";
-import sectionImages from '../../config/data/SectionImages.json';
 import { Heading } from "../../design-system/atoms";
-import gsap from 'gsap';
-import { useGsapFadeIn } from '../../hooks/gsap/useGsapFadeIn';
+import { useGsapSlidesUp } from '../../hooks/gsap';
 import { useLayoutEffect, useRef } from 'react';
+import sectionImages from '../../config/data/SectionImages.json';
+import styles from "./Hero.module.scss";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { Curtain } from "../../design-system/atoms/Curtain";
+import gsap from 'gsap';
 gsap.registerPlugin(ScrollTrigger);
 
-export const Hero = () => {
-  const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-  const introTextRef = useRef<HTMLElement>(null!);
-  const introImgRef = useRef<HTMLElement>(null!);
+const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
-  const { slidesUpOnScroll } = useGsapFadeIn();
+export const Hero = () => {
+  const introTextRef = useRef<HTMLElement>(null!);
+  const introImgRef = useRef<HTMLImageElement>(null!);
+  const curtainHero = useRef<HTMLDivElement>(null!);
+ 
+  const { slidesUpOnScroll } = useGsapSlidesUp();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const introTextChildren = Array.from(introTextRef.current.children);
       slidesUpOnScroll(introTextChildren as HTMLElement[], introTextRef.current, 2.5);
-
+      
       gsap.to(introImgRef.current, {
         scrollTrigger: {
           trigger: introTextRef.current,
@@ -31,8 +33,6 @@ export const Hero = () => {
           margin: '0px',
           borderRadius: '0px'
       });
-
-
     }, introTextRef);
 
     return () => ctx.revert();
@@ -48,6 +48,7 @@ export const Hero = () => {
       </section>
       <section  className={styles['hero__sect-img']}>
         <img ref={introImgRef} src={`${BASE_ASSETS}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />
+        <Curtain elementRef={curtainHero}  bgColor="cream" triggerElement={curtainHero}/>
       </section>
     </>
   )

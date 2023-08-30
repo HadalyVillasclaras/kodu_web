@@ -1,6 +1,6 @@
-import styles from './DestinationsGrid.module.scss';
-import { DestinationCard } from '../molecules/DestinationCard';
+import { DestinationCard } from '../molecules';
 import lodgins from '../../config/data/Lodgins.json';
+import styles from './DestinationsGrid.module.scss';
 
 export const DestinationsGrid = () => {
   return (
@@ -9,7 +9,7 @@ export const DestinationsGrid = () => {
         lodgins.map((lodgin, index) => {
           return (
           <a key={index} href={`/house/${lodgin.id}`}>
-          <DestinationCard  homeName={lodgin.name} price={lodgin.price} src={lodgin.images[0]}/>
+          <DestinationCard data={lodgin}/>
           </a> 
        ) })
       }

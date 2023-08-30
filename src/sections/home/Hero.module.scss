@@ -18,7 +18,7 @@
     border-radius: border.$radius-mid;
     height: 80vh;
     margin: 0 spacing.$pd__mb-small;
-
+    position: relative;
     @media only screen and (min-width: breakpoints.$tablet) {
       margin: 0 spacing.$pd__dk-small ;
     }

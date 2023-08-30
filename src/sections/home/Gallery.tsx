@@ -1,4 +1,4 @@
-import { Carousel } from '../../design-system/molecules/Carousel'
+import { Carousel } from '../../design-system/molecules'
 import { Heading } from '../../design-system/atoms'
 
 export const Gallery = () => {
@@ -10,8 +10,6 @@ export const Gallery = () => {
     `${BASE_ASSETS}imgs/homes/dunlap/dunlap-1.png`,
     `${BASE_ASSETS}imgs/homes/dunlap/dunlap-1.png`
 ];
-
-  
   return (
     <>
       <section style={{ width: "70%" }}>

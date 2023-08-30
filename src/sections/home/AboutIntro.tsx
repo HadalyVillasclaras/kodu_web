@@ -1,33 +1,21 @@
-import styles from "./AboutUs.module.scss";
 import { Heading } from '../../design-system/atoms';
-import { useEffect, useLayoutEffect, useRef } from "react";
-import { useGsapFadeIn } from "../../hooks/gsap/useGsapFadeIn";
-import { useGsapImgCurtain } from "../../hooks/gsap/useGsapImgCurtain";
+import { useLayoutEffect, useRef } from "react";
+import { useGsapSlidesUp } from "../../hooks/gsap";
+import styles from "./AboutUs.module.scss";
+
 import gsap from 'gsap';
+import { Curtain } from '../../design-system/atoms/Curtain';
+
+const text = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
+const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 export const AboutIntro = () => {
-  const text = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
-  const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-
   const paragraphRef = useRef<HTMLParagraphElement>(null!);
   const bigHeadingRef = useRef<HTMLElement>(null!);
-  const img1Ref = useRef<HTMLImageElement>(null!);
-  const img2Ref = useRef<HTMLImageElement>(null!);
+  const curtain1 = useRef<HTMLDivElement>(null!);
+  const curtain2 = useRef<HTMLDivElement>(null!);
 
-
-  const { slidesUpOnScroll } = useGsapFadeIn();
-  const { verticalCurtainOnScroll } = useGsapImgCurtain();
-
-
-  useEffect(() => {
-    if (img1Ref.current) {
-      verticalCurtainOnScroll(img1Ref.current, img1Ref.current);
-    }
-
-    if (img2Ref.current) {
-      verticalCurtainOnScroll(img2Ref.current, img2Ref.current);
-    }
-  }, []);
+  const { slidesUpOnScroll } = useGsapSlidesUp();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -50,12 +38,12 @@ export const AboutIntro = () => {
       <section className={`${styles['intro-about']}`}>
         <div className={`${styles['intro-about-left']}`}>
           <img src={BASE_ASSETS + 'imgs/homes/paraty/paraty-3.png'} alt="description" />
-          <div ref={img1Ref} className={`${styles['curtain']}`}></div>
+          <Curtain elementRef={curtain1} triggerElement={curtain1}/>
         </div>
         <div className={`${styles['intro-about-right']}`}>
           <div>
             <img src={BASE_ASSETS + 'imgs/homes/bloom/bloom-1.png'} alt="description" />
-            <div ref={img2Ref} className={`${styles['curtain']}`}></div>
+            <Curtain elementRef={curtain2} triggerElement={curtain2}/>
           </div>
           <section ref={paragraphRef}>
             <Heading as='h4' color='brown' font='fancy'>Sustainable lodgings</Heading>

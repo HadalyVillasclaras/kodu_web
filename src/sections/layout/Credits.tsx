@@ -15,7 +15,6 @@ export const Credits = () => {
       toggleCredits.reverse();
     }
 }
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
     toggleCredits = gsap.fromTo(creditsBgRef.current, {
@@ -33,6 +32,7 @@ export const Credits = () => {
     })}, creditsBgRef);
     return () => ctx.revert();
   }, []);
+
   return (
     <div className={`${styles["credits__container"]}`} >
     <div className={`${styles["credits__bg"]}`} ref={creditsBgRef}>

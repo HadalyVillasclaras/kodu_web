@@ -9,8 +9,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
-
-
 }
 
 .intro-about {
@@ -49,11 +47,8 @@
     @media only screen and (min-width: breakpoints.$tablet) {
       width: 35%;
       top: -4rem;
-    flex-direction: column;
-
+      flex-direction: column;
     }
-  
-    
 
     section {
       display: flex;
@@ -78,8 +73,6 @@
     @media only screen and (min-width: breakpoints.$tablet) {
       margin-top: spacing.$pd__dk-small;
     }
-
-    
   }
 
   img {
@@ -90,6 +83,7 @@
 }
 
 .care-about{
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -109,20 +103,4 @@
     height: 100%;
 
   }
-}
-
-.curtain {
-    top: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    overflow: hidden;
-    position: absolute;
-    pointer-events: none;
-    transform: translate(0);
-    height: 100%;
-    background: colors.$green;
-    width: 100%;
-    transition: transform 1s ease;
 }

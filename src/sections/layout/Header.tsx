@@ -1,17 +1,15 @@
-import { Logo, Frieze } from '../../design-system/atoms';
-import styles from './Header.module.scss';
+import { Logo, Frieze} from '../../design-system/atoms';
 import { useLayoutEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { useGsapWidthExpand } from '../../hooks/gsap/useGsapWidthExpand';
+import { useGsapWidthExpand } from '../../hooks/gsap';
 import { Colors } from '../../design-system/types';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
+import styles from './Header.module.scss';
+import { gsap } from 'gsap';
 
 type HeaderProps = {
   isDinamic?: boolean;
   bgColor?: Colors | null;
 };
-
-
 
 export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
   const dividerRef = useRef<HTMLHRElement | null>(null);
@@ -42,12 +40,9 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
 
   useLayoutEffect(() => {
     if (isDinamic) {
-      setTimeout(() => {
-        expandWidthOnScroll(dividerRef.current as HTMLElement, `.${styles['header']}`);
-      }, 3000);
-  
       const ctx = gsap.context(() => {
         animateLogo(logoMain.current, headerRef.current);
+        expandWidthOnScroll(dividerRef.current as HTMLElement, headerRef.current as HTMLElement, 3)
       }, headerRef);
   
       return () => ctx.revert();

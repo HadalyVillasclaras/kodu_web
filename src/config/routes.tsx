@@ -19,13 +19,13 @@ export const routes = createBrowserRouter([
       },
       {
         path: "house/:id",
+        element: <HouseDetailPage />,
         handle: {
           crumb: () => 'House'
-        },
-        element: <HouseDetailPage />
+        }
       }
     ]
   }
 ],{
-basename: "/kodu_web"}
+basename: "/koduq_web"}
 );
