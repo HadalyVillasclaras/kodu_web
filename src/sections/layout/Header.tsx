@@ -1,5 +1,5 @@
 import { Logo, Frieze} from '../../design-system/atoms';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { Colors } from '../../design-system/types';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import styles from './Header.module.scss';
@@ -13,7 +13,7 @@ type HeaderProps = {
 export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
   const logoMain = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
-  const [marginBottom, setMarginBottom] = useState<number | null>(null);
+  const [marginBottom, setMarginBottom] = useState<number>(null!);
 
   const deviceType = useDeviceType();
 
@@ -39,7 +39,12 @@ console.log(deviceType);
     if (isDinamic) {
       const ctx = gsap.context(() => {
         animateLogo(logoMain.current, headerRef.current);
-        setMarginBottom(logoMain.current?.offsetHeight)
+
+        if (deviceType !== DeviceType.DESKTOP) {
+          logoMain.current && setMarginBottom(logoMain.current.offsetHeight)
+        }
+        // setMarginBottom(0)
+
         console.log(logoMain.current?.offsetHeight);
       }, headerRef);
 

@@ -35,7 +35,7 @@ export const HomePage = () => {
     { ref: refs.aboutUs, iconColor: 'cream', bgColor: 'green' },
     { ref: refs.accordion, iconColor: 'green', bgColor: 'brown' },
     { ref: refs.bloom, iconColor: 'brown', bgColor: 'brown' },
-    { ref: refs.destinations, iconColor: 'green', bgColor: 'cream' },
+    { ref: refs.destinations, iconColor: 'brown', bgColor: 'cream' },
   ];
 
   const inViewSectionId = useOnviewObserver(refs);
@@ -59,9 +59,7 @@ export const HomePage = () => {
       <Section id="hero" ref={refs.hero} size='full'>
         <Hero />
       </Section>
-      <span style={{ width: "100%", margin: "5rem 0" }}>
-        <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
-      </span>
+      <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       {/* <Section id="dunlap" ref={refs.dunlap}>
         <BgImgContainer bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}></BgImgContainer>
       </Section> */}

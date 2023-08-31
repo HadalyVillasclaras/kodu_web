@@ -22,26 +22,6 @@ export const Footer = () => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       slidesUpOnScroll(listRefs.current, footerRef.current);
-
-      //  ScrollTrigger.create({
-      //   trigger: footerRef.current,
-      //   start: "top 50%",
-      //   end: "bottom 50%",
-      //   markers: true,
-      //   onEnter: () => {
-      //     setHidden(true);
-      //   },
-      //   onLeave: () => {
-      //     setHidden(false);
-      //   },
-      //   onEnterBack: () => {
-      //     setHidden(true);
-
-      //   },
-      //   onLeaveBack: () => {
-      //     setHidden(false);
-      //   }
-      // });
     }, footerRef);
 
     return () => {

@@ -27,5 +27,5 @@ export const routes = createBrowserRouter([
     ]
   }
 ],{
-basename: "/koduq_web"}
+basename: "/kodu_web"}
 );

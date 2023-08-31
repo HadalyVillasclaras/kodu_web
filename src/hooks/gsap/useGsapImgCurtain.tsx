@@ -12,13 +12,13 @@ export const useGsapImgCurtain = () => {
     gsap.from(element, {
       scrollTrigger: {
         trigger: triggerElement || element,
-        start: 'top center',
-        toggleActions: 'play none none none',
+        start: "top 60%",
+        toggleActions: "play none none none ",
       },
       top: '0',
       stagger: 0.3,
-      duration: 1.5,
-      ease: "power3.out",
+      duration: 1.8,
+      ease: "power1.out",
       delay: delay
     });
   }

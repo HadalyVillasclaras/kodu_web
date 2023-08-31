@@ -45,10 +45,11 @@
   display: flex;
   transition: transform 500ms ease-in-out;
   height: 100%;
-  gap: 2rem;
+  // gap: 2rem;
 
   &__slide {
     height: 100%;
+    padding: 0 1rem;
   }
 }
 

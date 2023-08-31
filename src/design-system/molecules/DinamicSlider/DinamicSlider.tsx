@@ -69,16 +69,22 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
   } else if (sliderSide === "right" && isRightDisabled) {
     isArrowButtonDisabled = true;
   }
+  //const slideGap = 2; // [2rem] - the space between each slide (set in scss)
+  // const slideWidthPercentage = 100 / visibleSlides;
+  // const gapWidthPercentage = (slideGap / 100) * slideWidthPercentage; 
+  // const effectiveSlideWidthPercentage = slideWidthPercentage + gapWidthPercentage;
+  // const totalTranslation = -currentIndex * effectiveSlideWidthPercentage;
 
   useEffect(() => {
     if (sliderRef.current) {
       sliderRef.current.style.transform = `translateX(${-currentIndex * (100 / visibleSlides)}%)`;
+      // sliderRef.current.style.transform = `translateX(${totalTranslation}%)`;
+
     }
     setIsLeftDisabled(currentIndex === 0);
     setIsRightDisabled(currentIndex >= elementsData.length - visibleSlides);
   }, [currentIndex]);
 
-  const slideGap = 2; // [2rem] the space between each slide (setted in scss) 
   return (
     <>
       <div className={styles['slider__wrapper']}  >
@@ -95,7 +101,7 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
               <div
                 key={index}
                 className={styles['slider__slide']}
-                style={{ flex: `0 0 calc((100% - ${(visibleSlides - 1) * slideGap}rem) / ${visibleSlides})` }}
+                style={{ flex: `0 0 calc((100%  / ${visibleSlides})` }}
               >
                 {renderElement(elementData)}
               </div>

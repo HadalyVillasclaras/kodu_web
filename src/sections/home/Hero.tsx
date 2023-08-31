@@ -3,8 +3,8 @@ import { useGsapSlidesUp } from '../../hooks/gsap';
 import { useLayoutEffect, useRef } from 'react';
 import sectionImages from '../../config/data/SectionImages.json';
 import styles from "./Hero.module.scss";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Curtain } from "../../design-system/atoms/Curtain";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,14 +14,14 @@ export const Hero = () => {
   const introTextRef = useRef<HTMLDivElement>(null!);
   const introImgRef = useRef<HTMLImageElement>(null!);
   const curtainHero = useRef<HTMLDivElement>(null!);
- 
+
   const { slidesUpOnScroll } = useGsapSlidesUp();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const introTextChildren = Array.from(introTextRef.current.children);
       slidesUpOnScroll(introTextChildren as HTMLElement[], introTextRef.current, 2.5);
-      
+
       gsap.to(introImgRef.current, {
         scrollTrigger: {
           trigger: introTextRef.current,
@@ -29,9 +29,12 @@ export const Hero = () => {
           end: "bottom top",
           scrub: true,
           toggleActions: 'play none none reverse',
+          onSnapComplete: () => {
+              console.log('object');
+          }
         },
-          width: '100%',
-          borderRadius: '0px'
+        width: '100%',
+        borderRadius: '0px'
       });
     }, introTextRef);
 
@@ -46,9 +49,9 @@ export const Hero = () => {
           <p>Lorem ipsum dolor sit amet. Nunc auctor, et risus lacus quis sem. Sed sodales lorem, at lobortis odio porta vel. Nunc auctor. Class aptent et risus lacus quis sem taciti sociosqu ad litora torquent per nostra.</p>
         </div>
       </section>
-      <section  className={styles['hero__sect-img']}>
-        <img  ref={introImgRef} src={`${BASE_ASSETS}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />
-        <Curtain elementRef={curtainHero}  bgColor="cream" triggerElement={curtainHero}/>
+      <section className={styles['hero__sect-img']}>
+        <img ref={introImgRef} src={`${BASE_ASSETS}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />
+        <Curtain elementRef={curtainHero} bgColor="cream" triggerElement={introTextRef} delay={3} />
       </section>
     </>
   )

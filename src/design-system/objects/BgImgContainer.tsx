@@ -25,8 +25,9 @@ export const BgImgContainer = ({ bgImage, customStyle, children }: BgImgContaine
           end: "bottom top",
           scrub: true,
         },
-        scale: 1.1,
-        duration: 7
+        borderRadius: 0,
+        scale: 1.3,
+        transformOrigin: 'top'
       });
     }, containerRef);
 

@@ -30,11 +30,10 @@
   padding: 0 spacing.$pd__mb-small;
   margin-bottom: 2rem;
   // padding-top: 4rem;
-  margin-top: 5vh;
+  // margin-top: 5vh;
 
   @include tablet() {
     padding: 0 spacing.$pd__dk-small;
-    margin-top: 35vh;
   }
 
    @include desktop() {
@@ -48,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     gap: .5rem;
 
      @include desktop() {

@@ -1,10 +1,36 @@
-import { useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from '../../design-system/atoms'
 import styles from './Credits.module.scss';
+import { NavIconContext } from '../../contexts/NavIconContext';
+import { useOnviewObserver } from '../../hooks';
 
 export const Credits = () => {
   const creditsBgRef = useRef(null);
+  const creditsRef = useRef(null);
+
+  const { setHidden } = useContext(NavIconContext);
+  const [hasIntersected, setHasIntersected] = useState(false);
   
+  const refsToObserve = {
+    credits: creditsRef
+  };
+
+  const inViewSectionId = useOnviewObserver(refsToObserve);
+
+  function hideNavIconOnFooter() {
+    if (inViewSectionId === "credits") {
+      setHidden(true);
+      setHasIntersected(true);
+    }
+    if (hasIntersected && inViewSectionId !== "credits") {
+      setHidden(false);
+    }
+  }
+
+  useEffect(() => {
+    hideNavIconOnFooter();
+  }, [inViewSectionId]);
+
   // let toggleCredits: any;
 
 //   function handleToggle() {
@@ -33,7 +59,7 @@ export const Credits = () => {
   // }, []);
 
   return (
-    <div className={`${styles["credits__container"]}`} >
+    <div ref={creditsRef} id='credits' className={`${styles["credits__container"]}`} >
     <div className={`${styles["credits__bg"]}`} ref={creditsBgRef}>
       <section className={`${styles["credits"]}`}>
         <section className={`${styles["credits__sect"]} ${styles["credits__sect-up"]}`}>

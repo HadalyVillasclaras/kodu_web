@@ -10,10 +10,10 @@ interface MarqueeProps {
 export const Marquee = ({text, color='green'}: MarqueeProps) => {
   const marqueeColor = color ? styles[`marquee__color-${color}`] : '';
   return (
-    <div  className={styles.marqueeContainer}>
+    <section className={styles.marqueeContainer}>
       <p className={`${styles.marquee} ${marqueeColor}`} data-text={text}>
         {text}
       </p>
-    </div>
+    </section>
   );
 };

@@ -8,13 +8,16 @@ export const useGsapSlidesUp = () => {
   const slidesUpOnScroll = (
     element: string | string[] | HTMLElement | HTMLElement[],
     triggerElement?: string | HTMLElement,
-    delay?: number
+    delay?: number,
+    scrub:boolean = false
   ) => {
     gsap.from(element, {
       scrollTrigger: {
+        scrub: scrub,
         trigger: triggerElement || element,
-        start: 'top bottom',
-        toggleActions: 'play none none reverse',
+        start: 'top 80%',
+        end: '90%',
+        toggleActions: 'play none none none',
       },
       y: 70,
       stagger: 0.3,

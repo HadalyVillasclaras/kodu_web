@@ -9,17 +9,18 @@ type Props = {
   elementRef: React.MutableRefObject<HTMLDivElement>;
   triggerElement: React.MutableRefObject<HTMLDivElement>;
   children?: ReactNode;
+  delay?: number; 
 }
 
-export const Curtain = ({ bgColor = 'green', elementRef, triggerElement }: Props) => {
+export const Curtain = ({ bgColor = 'green', elementRef, triggerElement, delay = 0 }: Props) => { 
   const { verticalCurtainOnScroll } = useGsapImgCurtain();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      verticalCurtainOnScroll(elementRef.current, triggerElement.current as HTMLElement);
+      verticalCurtainOnScroll(elementRef.current, triggerElement.current as HTMLElement, delay); 
     }, elementRef);
     return () => ctx.revert();
-  }, [elementRef]);
+  }, [elementRef, delay]);
 
   return (
     <div
