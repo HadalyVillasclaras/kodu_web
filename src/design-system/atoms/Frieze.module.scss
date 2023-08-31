@@ -1,19 +1,11 @@
-@use "../settings/colors";
+@import "../settings/colors";
 
 .frieze {
   height: 1.8rem;
   width: 100%;
   z-index: 1;
 
-  &-green {
-    background-color: colors.$green;
-  }
-
-  &-cream {
-    background-color: colors.$cream;
-  }
-
-  &-brown {
-    background-color: colors.$brown;
+  &__bg {
+    @include bg-color;
   }
 }

@@ -2,8 +2,20 @@ $desktop: 992px;
 $tablet: 768px;
 $mobile: 576px;
 
-@mixin mobile-breakpoint {
-  @media only screen and (min-width: $mobile) { 
-    @content 
+@mixin mobile() {
+  @media screen and (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media screen and (min-width: $desktop) {
+    @content;
   }
 }

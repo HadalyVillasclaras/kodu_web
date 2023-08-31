@@ -1,7 +1,7 @@
 @use '../../design-system/settings/colors';
 @use '../../design-system/settings/spacing';
-@use '../../design-system/settings/breakpoints';
 @use '../../design-system/settings/border';
+@import '../../design-system/settings/breakpoints';
 
 .credits__container {
   position: relative;
@@ -37,7 +37,7 @@
   border-radius:border.$pd-radius-mid;
 
 
-  @media only screen and (min-width: breakpoints.$mobile) {
+  @include mobile() {
     padding: spacing.$pd__dk-xs;
   }
 

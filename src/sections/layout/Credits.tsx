@@ -1,12 +1,11 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Link } from '../../design-system/atoms'
 import styles from './Credits.module.scss';
-import { gsap } from 'gsap';
 
 export const Credits = () => {
   const creditsBgRef = useRef(null);
-  let toggleCredits: any;
-
+  
+  // let toggleCredits: any;
 
 //   function handleToggle() {
 //     if (toggleCredits.progress() === 0) {
@@ -15,23 +14,23 @@ export const Credits = () => {
 //       toggleCredits.reverse();
 //     }
 // }
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-    toggleCredits = gsap.fromTo(creditsBgRef.current, {
-      height: "35vh",
-      duration: 0.5,
-      paused: true,
-      ease: "power1.in",
-    }, 
-    {
-      height: "38px",
-      duration: 0.5,
-      paused: true,
-      ease: "power1.out",
+  // useLayoutEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //   toggleCredits = gsap.fromTo(creditsBgRef.current, {
+  //     height: "35vh",
+  //     duration: 0.5,
+  //     paused: true,
+  //     ease: "power1.in",
+  //   }, 
+  //   {
+  //     height: "38px",
+  //     duration: 0.5,
+  //     paused: true,
+  //     ease: "power1.out",
 
-    })}, creditsBgRef);
-    return () => ctx.revert();
-  }, []);
+  //   })}, creditsBgRef);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <div className={`${styles["credits__container"]}`} >

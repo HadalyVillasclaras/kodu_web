@@ -8,6 +8,13 @@ import styles from './Destinations.module.scss';
 import destinations from "../../config/data/Destinations.json";
 import { gsap } from 'gsap';
 
+type DestinationData = {
+  id: number;
+  homeName: string;
+  img: string;
+  alt: string;
+};
+
 export const Destinations = () => {
   const [visibleSlides, setVisibleSlides] = useState(3);
   const destinationHRef = useRef<HTMLImageElement>(null!);
@@ -22,7 +29,7 @@ export const Destinations = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      slidesUpOnScroll(destinationHRef.current as HTMLElement );
+      slidesUpOnScroll(destinationHRef.current as HTMLElement);
     }, destinationHRef);
     return () => ctx.revert();
   }, []);
@@ -37,13 +44,13 @@ export const Destinations = () => {
           ? <section className={styles["destinations__sect-swipe"]}>
             <Swipe
               elementsData={destinations}
-              renderElement={(data) => <DestinationCard data={data} />}
+              renderElement={(data) => <DestinationCard data={data as DestinationData} />}
             />
           </section>
           : <section style={{ height: "70vh" }}>
             <DinamicSlider
               elementsData={destinations}
-              renderElement={(data) => <DestinationCard data={data} />}
+              renderElement={(data) => <DestinationCard data={data as DestinationData} />}
               visibleSlides={visibleSlides}
             />
           </section>

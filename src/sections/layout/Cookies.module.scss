@@ -1,6 +1,6 @@
 @use '../../design-system/settings/colors';
-@use "../../design-system/settings/breakpoints";
 @use '../../design-system/settings/spacing';
+@import "../../design-system/settings/breakpoints";
 
 .cookies {
   position: fixed;
@@ -17,7 +17,7 @@
   transform: translateX(-50%); 
   max-width: calc(100% - 1rem); 
 
-  @media only screen and (min-width: breakpoints.$mobile) {
+  @include mobile() {
     flex-direction: row;
     width: 650px;
     padding: spacing.$s spacing.$m;
@@ -30,7 +30,7 @@
     font-size: 2rem;
     line-height: 2.2rem;
 
-    @media only screen and (min-width: breakpoints.$mobile) {
+    @include mobile() {
       font-size: 2.4rem;
       line-height: 2.4rem;
     }
@@ -49,7 +49,7 @@
     bottom: calc(spacing.$s + 4px);
     font-size: 1rem;
 
-    @media only screen and (min-width: breakpoints.$mobile) {
+    @include mobile() {
       flex-wrap: nowrap;
       position: absolute;
     }

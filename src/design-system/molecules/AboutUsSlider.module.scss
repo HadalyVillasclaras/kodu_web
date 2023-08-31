@@ -1,6 +1,6 @@
 @use "../../design-system/settings/border";
 @use "../../design-system/settings/spacing";
-@use "../../design-system/settings/breakpoints";
+@import "../../design-system/settings/breakpoints";
 
 .destination-slider-container {
   overflow: hidden;
@@ -13,11 +13,11 @@
   overflow: hidden;
   margin: 0 ;
 
-  @media only screen and (min-width: breakpoints.$tablet) {
+  @include tablet()  {
     margin: 0 spacing.$pd__dk-small;
   }
 
-  @media only screen and (min-width: breakpoints.$desktop) {
+  @include desktop()  {
     margin: spacing.$pd__dk-big;
   }
 }

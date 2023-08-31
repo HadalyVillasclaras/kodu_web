@@ -5,7 +5,6 @@ import { useGsapSlidesUp } from "../../hooks/gsap";
 import styles from "./AboutUs.module.scss";
 import sectionImages from '../../config/data/SectionImages.json';
 import gsap from 'gsap';
-import { Curtain } from '../../design-system/atoms/Curtain';
 
 const text = "Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
 const hiddenText = " Et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
@@ -14,7 +13,7 @@ const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 export const AboutUs = () => {
   const [showMore, setShowMore] = useState(false);
   const animatedDivRef = useRef<HTMLDivElement>(null!);
-  const careAboutImg = useRef<HTMLImageElement>(null!);
+  // const careAboutImg = useRef<HTMLImageElement>(null!);
 
   const { slidesUpOnScroll } = useGsapSlidesUp();
 

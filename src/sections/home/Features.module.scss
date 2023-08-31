@@ -1,8 +1,7 @@
 @use "../../design-system/settings/colors";
-@use "../../design-system/settings/breakpoints";
+@import "../../design-system/settings/breakpoints";
 
 .features {
-
   &__container {
     width: 100%;
     position: relative;
@@ -18,7 +17,7 @@
       display: flex;
       gap: 2rem;
 
-      @media only screen and (min-width: breakpoints.$tablet) {
+      @include desktop() {
         flex-direction: column;
       }
     }

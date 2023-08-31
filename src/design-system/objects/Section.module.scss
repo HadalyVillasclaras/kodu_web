@@ -1,7 +1,7 @@
 @use "../settings/spacing";
 @use "../settings/colors";
 @use "../settings/border";
-@use "../settings/breakpoints";
+@import "../settings/breakpoints";
 
 .section {
   position: relative;
@@ -13,26 +13,24 @@
   flex-wrap: wrap;
   overflow: hidden;
   
-  @media only screen and (min-width: breakpoints.$tablet) {
+  @include tablet() {
     justify-content: unset;
-
   }
 
   &__xs {
-    @media only screen and (min-width: breakpoints.$tablet) {
+    @include tablet() {
       padding: spacing.$pd__tb;
     }
 
-    @media only screen and (min-width: breakpoints.$desktop) {
+    @include desktop() {
       padding: spacing.$pd__dk-xs;
     }
   }
 
-
   &__small {
     padding: spacing.$pd__mb-small;
 
-    @media only screen and (min-width: breakpoints.$tablet) {
+    @include tablet() {
       padding: spacing.$pd__dk-small;
     }
   }
@@ -40,11 +38,11 @@
   &__big {
     padding: spacing.$section-mb;
 
-    @media only screen and (min-width: breakpoints.$tablet) {
+    @include tablet() {
       padding: spacing.$pd__tb;
     }
 
-    @media only screen and (min-width: breakpoints.$desktop) {
+    @include desktop() {
       padding: spacing.$pd__dk-big;
     }
   }

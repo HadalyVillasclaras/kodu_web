@@ -24,7 +24,7 @@ export const Curtain = ({ bgColor = 'green', elementRef, triggerElement }: Props
   return (
     <div
       ref={elementRef}
-      className={`${styles['curtain']} ${styles[`curtain-${bgColor}`]}`}
+      className={`${styles['curtain']} ${styles[`curtain__bg-${bgColor}`]}`}
     >
     </div>
   )

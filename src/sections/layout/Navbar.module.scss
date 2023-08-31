@@ -1,5 +1,5 @@
 @use '../../design-system/settings/colors';
-@use '../../design-system/settings/breakpoints';
+@import '../../design-system/settings/breakpoints';
 
 .navbar {
   width: 100%;
@@ -30,7 +30,7 @@
     padding: 0 4rem;
     transition: right 1s ease;
   
-    @media only screen and (min-width: breakpoints.$tablet) {
+    @include tablet() {
       padding: 0 10rem;
     }
 

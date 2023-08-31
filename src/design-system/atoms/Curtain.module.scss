@@ -1,5 +1,6 @@
 @use "../settings/colors";
 @use "../settings/fonts";
+@import "../../design-system/settings/colors";
 
 .curtain {
   top: 100%;
@@ -15,15 +16,7 @@
   width: 100%;
   transition: transform 1s ease;
 
-  &-green {
-    background: colors.$green;
-  }
-
-  &-cream {
-    background: colors.$cream;
-  }
-
-  &-brown {
-    background: colors.$brown;
+  &__bg {
+    @include bg-color;
   }
 }

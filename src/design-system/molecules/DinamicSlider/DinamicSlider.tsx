@@ -1,19 +1,21 @@
-import { useState, useEffect, useRef, ReactNode } from 'react';
+import { useState, useEffect, useRef, ReactNode  } from 'react';
 import styles from './DinamicSlider.module.scss';
 import { ArrowCursor } from '../../atoms/ArrowCursor';
-
-interface SliderProps {
-  transitionTime?: number;
-  visibleSlides?: number;
-  elementsData: any;
-  renderElement: (data:any) => JSX.Element;
-  ChildComponent?: ReactNode;
-}
 
 type CursorPositionType = {
   x: string | number;
   y: string | number;
 };
+
+type ElementData = Record<string, string | number>;
+
+interface SliderProps {
+  transitionTime?: number;
+  visibleSlides?: number;
+  elementsData: ElementData[];
+  renderElement: (data:ElementData) => JSX.Element;
+  ChildComponent?: ReactNode;
+}
 
 export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,12 +53,12 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
       setIsCursorInside(false);
   };
 
-  const initAnimatedCursor = () => {
-    console.log('initanimated cursor');
-    if (!isInit) {
-      setIsInit(true);
-    }
-  }
+  // const initAnimatedCursor = () => {
+  //   console.log('initanimated cursor');
+  //   if (!isInit) {
+  //     setIsInit(true);
+  //   }
+  // }
 
   // console.log('isCursorInside: ' + isCursorInside);
   // console.log('isInit: ' + isInit);
@@ -76,9 +78,10 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
     setIsRightDisabled(currentIndex >= elementsData.length - visibleSlides);
   }, [currentIndex]);
 
+  const slideGap = 2; // [2rem] the space between each slide (setted in scss) 
   return (
     <>
-      <div className={styles['destination-slider-container']}  >
+      <div className={styles['slider__wrapper']}  >
         <button
           className={`${styles['slider__controls']} ${styles["slider__controls-left"]}`}
           onMouseEnter={() => handleMouseEnter("left")}
@@ -86,20 +89,19 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
           onMouseMove={handleMouseMove}
           onClick={prevSlide}
         />
-        <div className={styles['slider-container']}>
+        <div className={styles['slider__mask']}>
           <div className={styles['slider']} ref={sliderRef}>
-            {elementsData.map((elementData, index) => (
+            {elementsData.map((elementData: ElementData , index) => (
               <div
                 key={index}
                 className={styles['slider__slide']}
-                style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}
+                style={{ flex: `0 0 calc((100% - ${(visibleSlides - 1) * slideGap}rem) / ${visibleSlides})` }}
               >
                 {renderElement(elementData)}
               </div>
             ))}
           </div>
         </div>
-
         <button
           className={`${styles['slider__controls']} ${styles["slider__controls-right"]}`}
           onMouseEnter={() => handleMouseEnter("right")}

@@ -1,4 +1,4 @@
-@use "../settings/colors";
+@import "../settings/colors";
 
 .hr {
   width:  0%;
@@ -8,15 +8,7 @@
   border: none; 
   overflow: hidden; 
   
-  &-green {
-    background-color: colors.$green;
-  }
-
-  &-cream {
-    background-color: colors.$cream;
-  }
-
-  &-brown {
-    background-color: colors.$brown;
+  &__bg {
+    @include bg-color;
   }
 }

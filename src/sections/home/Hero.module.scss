@@ -1,7 +1,8 @@
 @use "../../design-system/settings/border";
-@use "../../design-system/settings/breakpoints";
 @use "../../design-system/settings/spacing";
 @use '../../design-system/settings/colors';
+@import "../../design-system/settings/mixins/mixins";
+@import "../../design-system/settings/breakpoints";
 
 .hero__sect-img {
   object-position: center;
@@ -19,26 +20,24 @@
     position: relative;
     width: calc(100% - (spacing.$pd__mb-small * 2));
 
-    @media only screen and (min-width: breakpoints.$tablet) {
+    @include tablet() {
       width: calc(100% - (spacing.$pd__dk-small * 2));
-
     }
   }
 }
 
 .hero__sect-text {
   padding: 0 spacing.$pd__mb-small;
-  padding-top: 4rem;
   margin-bottom: 2rem;
+  // padding-top: 4rem;
   margin-top: 5vh;
 
-  @media only screen and (min-width: breakpoints.$tablet) {
+  @include tablet() {
     padding: 0 spacing.$pd__dk-small;
     margin-top: 35vh;
-
   }
 
-  @media only screen and (min-width: breakpoints.$desktop) {
+   @include desktop() {
     padding: 0 spacing.$pd__dk-small;
     font-size: 1.5vw;
     margin-top: 0;
@@ -52,7 +51,7 @@
     flex-direction: row;
     gap: .5rem;
 
-    @media only screen and (min-width: breakpoints.$desktop) {
+     @include desktop() {
       border-left: 1px solid colors.$brown;
       flex-direction: column;
       padding: 1rem 0rem 1rem 2.5vw;

@@ -1,0 +1,11 @@
+@mixin title($arg1, $arg2, $arg3: 600) {
+  color: $arg1;
+  font-size: $arg2;
+  font-weight: $arg3;
+}
+
+@mixin mobile() {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}

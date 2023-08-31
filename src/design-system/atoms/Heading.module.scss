@@ -1,5 +1,5 @@
 @use "../settings/fonts";
-@use "../settings/breakpoints";
+@import "../settings/breakpoints";
 
 $font-family-simple: "Trap";
 $font-family-fancy: "Eklektyk";
@@ -23,7 +23,7 @@ $line-height-sizes: (
   font-size: $size-mb;
   line-height: $line-height-mb;
 
-  @media only screen and (min-width: breakpoints.$mobile) {
+  @include tablet() {
     font-size: $size-dk;
     line-height: $line-height-dk;
   }

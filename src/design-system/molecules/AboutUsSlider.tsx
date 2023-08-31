@@ -86,8 +86,8 @@ export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderPr
         <ArrowCursor
           topPosition={cursorPosition.y}
           leftPosition={cursorPosition.x}
-          isDisplayed={isCursorInside}
-          arrowOrientation={sliderSide}
+          isCursorInside={isCursorInside}
+          arrowDirection={sliderSide}
           isDisabled ={isArrowButtonDisabled}
           color='green'
         />

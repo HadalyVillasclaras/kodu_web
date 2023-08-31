@@ -1,5 +1,6 @@
 @use "../settings/colors";
-@use "../settings/breakpoints";
+@import "../settings/breakpoints";
+@import "../settings/colors";
 
 .marqueeContainer {
   height: 100%;
@@ -19,7 +20,7 @@
   animation: marqueeAnimation 70s linear infinite; 
   position: relative;
 
-  @media only screen and (min-width: breakpoints.$mobile) {
+  @include mobile()  {
     font-size: 7rem;
   }
 
@@ -38,16 +39,8 @@
     left: 100%;
   }
 
-  &-green {
-    color: colors.$green;
-  }
-
-  &-cream {
-    color: colors.$cream; 
-  }
-
-  &-brown {
-    color: colors.$brown; 
+  &__color {
+    @include color;
   }
 }
 

@@ -1,8 +1,7 @@
 @use "../settings/spacing";
 @use "../settings/colors";
 @use "../settings/border";
-@use "../settings/breakpoints";
-
+@import "../settings/breakpoints";
 
 .dropdown {
   position: relative;
@@ -14,10 +13,9 @@
     text-align: left;
     padding: 0 0.8rem;
   
-    @media only screen and (min-width: breakpoints.$tablet) {
-    line-height: 2rem;
-    min-width: 200px;
-
+    @include tablet() {
+      line-height: 2rem;
+      min-width: 200px;
     }
 
     &-cream {

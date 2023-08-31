@@ -1,15 +1,12 @@
-@use "../../settings/breakpoints";
 @use "../../settings/colors";
 @use "../../settings/fonts";
-
-
+@import "../../settings/breakpoints";
 
 .accordion {
   min-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
 
   &__item {
     width: 100%;
@@ -26,7 +23,7 @@
       color: colors.$cream;
       font-size: 15vw;
 
-      @media only screen and (min-width: breakpoints.$tablet) {
+      @include tablet() {
         font-size: fonts.$h1-mb;
       }
 
@@ -43,26 +40,24 @@
         color: colors.$green !important;
       }
 
-      @media only screen and (min-width: breakpoints.$desktop) {
+      @include desktop() {
         font-size: 5rem;
         line-height: 6rem;
       }
     }
   }
 
-
   &__content {
     height: auto;
     overflow: hidden;
     box-sizing: content-box;
-
 
     p {
       padding: 1.3rem 0 1rem 0;
       color: colors.$green;
       font-weight: 700;
 
-      @media only screen and (min-width: breakpoints.$desktop) {
+      @include desktop() {
         width: 55vw;
       }
     }

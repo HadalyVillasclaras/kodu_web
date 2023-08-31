@@ -6,9 +6,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './styles.css';
 
+type ElementData = Record<string, string | number> ;
+
 interface SwipeProps{
-  elementsData: [];
-  renderElement: (data:any) => JSX.Element;
+  elementsData: ElementData[];
+  renderElement: (data:ElementData) => JSX.Element;
 }
 
 export const Swipe = ({elementsData, renderElement}: SwipeProps) => {

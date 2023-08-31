@@ -1,5 +1,5 @@
 import { Logo, Frieze} from '../../design-system/atoms';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Colors } from '../../design-system/types';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import styles from './Header.module.scss';
@@ -13,6 +13,7 @@ type HeaderProps = {
 export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
   const logoMain = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
+  const [marginBottom, setMarginBottom] = useState<number | null>(null);
 
   const deviceType = useDeviceType();
 
@@ -38,14 +39,18 @@ console.log(deviceType);
     if (isDinamic) {
       const ctx = gsap.context(() => {
         animateLogo(logoMain.current, headerRef.current);
+        setMarginBottom(logoMain.current?.offsetHeight)
+        console.log(logoMain.current?.offsetHeight);
       }, headerRef);
-  
+
       return () => ctx.revert();
     }
-  }, [deviceType])
+  }, [deviceType]);
+
 
   return (
     <header 
+      id="uniqueHeaderId"
       ref={headerRef} 
       className={`${styles[`header`]} ${bgColor ? styles[`header__bg-${bgColor}`] : ""}`}
     >
@@ -53,8 +58,8 @@ console.log(deviceType);
       <div className={styles["header__flexnav"]}>
         {
           isDinamic
-          ? <div className={styles["header__logo-dinamic-wp"]}>
-              <span ref={logoMain} className={styles["header__logo-dinamic"]} >
+          ? <div className={styles["header__logo-dinamic-wp"]} style={{ marginBottom:`${marginBottom}px` }}>
+              <span ref={logoMain} id='logoSpan' className={styles["header__logo-dinamic"]} >
                 <Logo size='100%' />
               </span>
             </div>

@@ -1,7 +1,7 @@
 @use "../settings/spacing";
 @use "../settings/colors";
 @use "../settings/border";
-@use "../settings/breakpoints";
+@import "../settings/breakpoints";
 
 
 .destination-card {
@@ -10,7 +10,7 @@
   position: relative;
   height: 80vh;
 
-  @media only screen and (min-width: breakpoints.$mobile) {
+  @include mobile() {
     height: 100%;
   }
 
@@ -20,7 +20,7 @@
     overflow: hidden; 
     border-radius: border.$radius-mid;
 
-    @media only screen and (min-width: breakpoints.$mobile) {
+    @include mobile() {
       min-height: 100%;
     }
 
@@ -37,7 +37,7 @@
     }
 
     &:hover::after {
-      @media only screen and (min-width: breakpoints.$mobile) {
+      @include mobile() {
         transform: scaleY(1); 
         transition: transform .4s ease-out;
       }
@@ -69,7 +69,7 @@
     .destination-card__image-wrapper:hover & {
       opacity: 1; 
     }
-    @media only screen and (min-width: breakpoints.$mobile) {
+    @include mobile() {
       display: block;
     }
 
@@ -92,7 +92,7 @@
 
 // &:hover::after {
 //   background-color: colors.$card-brown-hover; 
-//   @media only screen and (min-width: breakpoints.$mobile) {
+//   @include mobile()  {
 //     background-color: colors.$card-brown-hover-dk; 
 
 //   }

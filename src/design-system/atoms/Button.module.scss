@@ -22,7 +22,6 @@
 
     &-green {
       @extend .button__default;
-      // background-color: colors.$button-primary;
       color: colors.$button-secondary;
 
       &:hover {

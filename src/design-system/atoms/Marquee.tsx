@@ -8,7 +8,7 @@ interface MarqueeProps {
 }
 
 export const Marquee = ({text, color='green'}: MarqueeProps) => {
-  const marqueeColor = color ? styles[`marquee-${color}`] : '';
+  const marqueeColor = color ? styles[`marquee__color-${color}`] : '';
   return (
     <div  className={styles.marqueeContainer}>
       <p className={`${styles.marquee} ${marqueeColor}`} data-text={text}>

@@ -1,17 +1,9 @@
-@use "../settings/colors";
+@import "../settings/colors";
 
 .logo {
   width: 100%;
 
-  &-green {
-    fill: colors.$green;
-  }
-
-  &-cream {
-    fill: colors.$cream;
-  }
-
-  &-brown {
-    fill: colors.$brown;
+  &__fill {
+    @include fill;
   }
 }

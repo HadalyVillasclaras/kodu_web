@@ -1,14 +1,14 @@
 @use "../../design-system/settings/spacing";
 @use "../../design-system/settings/border";
 @use "../../design-system/settings/colors";
-@use "../../design-system/settings/breakpoints";
+@import "../../design-system/settings/breakpoints";
 
 .destinations {
   &__sect-heading {
     text-align: center;
     padding: spacing.$pd__mb-big spacing.$pd__mb-small;
 
-    @media only screen and (min-width: breakpoints.$desktop) {
+    @include desktop() {
       padding: spacing.$pd__dk-small ;
       text-align: left;
     }

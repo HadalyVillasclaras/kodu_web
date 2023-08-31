@@ -14,7 +14,7 @@ export const Logo = ({ color = "brown", size = '10rem', clickable = true }: Logo
       <svg
         viewBox="0 0 803 299"
         xmlns="http://www.w3.org/2000/svg"
-        className={`${styles[`logo-${color}`]}`}
+        className={`${styles[`logo__fill-${color}`]}`}
         width={size}
       >
         <path d="M52.4864 242H0.314453V3.14055H52.4864V242ZM92.4011 3.14055H147.716L95.5439 81.0842C102.458 55.9411 101.201 25.7693 92.4011 3.14055ZM163.116 242H108.115L55.6293 122.256C72.9152 109.37 84.8581 97.4272 93.6582 84.5413L163.116 242Z"/>

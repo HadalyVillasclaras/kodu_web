@@ -8,7 +8,7 @@ type Props = {
   isCursorInside: boolean;
   arrowDirection: "left" | "right" | null;
   isDisabled: boolean;
-  isInit: boolean;
+  isInit?: boolean;
   color?: Colors;
 };
 

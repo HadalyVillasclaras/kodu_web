@@ -25,3 +25,46 @@ $button-tertiary: $brown;
 
 $card-brown-hover: rgba(126, 52, 24, 0.4);
 $card-brown-hover-dk: rgba(126, 52, 24, 0.8);
+
+
+@mixin bg-color(){
+  &-green {
+    background-color: $green;
+  }
+
+  &-cream {
+    background-color: $cream;
+  }
+
+  &-brown {
+    background-color: $brown;
+  }
+}
+
+@mixin color(){
+  &-green {
+    color: $green;
+  }
+
+  &-cream {
+    color: $cream;
+  }
+
+  &-brown {
+    color: $brown;
+  }
+}
+
+@mixin fill(){
+  &-green {
+    fill: $green;
+  }
+
+  &-cream {
+    fill: $cream;
+  }
+
+  &-brown {
+    fill: $brown;
+  }
+}
