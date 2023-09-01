@@ -34,7 +34,7 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
       duration: 20,
     });
   }
-console.log(deviceType);
+
   useLayoutEffect(() => {
     if (isDinamic) {
       const ctx = gsap.context(() => {

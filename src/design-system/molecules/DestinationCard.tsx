@@ -25,7 +25,7 @@ export const DestinationCard = ({ data }: DestinationCardProps) => {
   }
 
   const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH;
-  const destinationUrl = destinationData?.id ? `${VITE_BASE_PATH}destination/${destinationData.id}` : "destination/901/";
+  const destinationUrl = destinationData?.id ? `${VITE_BASE_PATH}/#/destination/${destinationData.id}` : "destination/901/";
   const deviceType = useDeviceType();
 
   return (

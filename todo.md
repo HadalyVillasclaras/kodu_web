@@ -14,11 +14,11 @@ Destinations (pagination at swipe)
 same function to hide: credits & footer
 
 
-
 DONE
 service - prefix with env var the images. (now in gallery)
 detail gallery
 Normalize - destinations naming.
+Hash router implementation
 
 
 Design

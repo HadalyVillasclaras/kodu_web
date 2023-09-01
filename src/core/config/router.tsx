@@ -1,14 +1,14 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
 import { KoduTemplate } from '../../template/KoduTemplate';
 import { ErrorTemplate } from '../../template/ErrorTemplate';
 import { DestinationDetailPage, HomePage, NotFoundPage } from '../../pages';
 
-
-export const routes = createBrowserRouter([
+/* replaced createBrowserRouter for createHashRouter in order to make it work in GitHub pages.*/
+export const router = createHashRouter([
   {
     path: "/",
     element: <KoduTemplate />,
-    errorElement: <ErrorTemplate><NotFoundPage/></ErrorTemplate> ,
+    errorElement: <ErrorTemplate><NotFoundPage /></ErrorTemplate>,
     children: [
       {
         path: "/",
@@ -27,6 +27,7 @@ export const routes = createBrowserRouter([
       }
     ]
   }
-],{
-basename: "/kodu_web"}
+], {
+  // basename: "/kodu_web"
+}
 );

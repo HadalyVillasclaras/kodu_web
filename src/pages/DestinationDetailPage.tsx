@@ -15,15 +15,13 @@ export const DestinationDetailPage = () => {
   function getCurrentDestination() {
     if (destinationId) {
       const destination = getById(destinationId)
-      console.log(destination);
       destination && setCurrentDestination(destination);
     }
   }
-  console.log(currentDestination);
+
   useEffect(() => {
     getCurrentDestination();
   }, [])
-
   return (
     <>
       {currentDestination 

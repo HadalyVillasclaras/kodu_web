@@ -17,7 +17,6 @@ const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 export const HomePage = () => {
   const { setIconColor } = useContext(NavIconContext);
-
   const refs = {
     hero: useRef(null),
     dunlap: useRef(null),

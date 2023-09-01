@@ -5,7 +5,6 @@ import { useGsapSlidesUp } from "../../hooks/gsap";
 import styles from "./Navbar.module.scss";
 import navItems from '../../core/data/NavItems.json';
 // import { gsap } from 'gsap';
-
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { color, hidden } = useContext(NavIconContext);
