@@ -1,3 +1,3 @@
 export { HomePage } from './HomePage';
-export { HouseDetailPage } from './HouseDetailPage';
+export { DestinationDetailPage } from './DestinationDetailPage';
 export { NotFoundPage } from './NotFoundPage';

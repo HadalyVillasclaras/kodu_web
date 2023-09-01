@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { AccordionItem } from './AccordionItem';
 import { useGsapWidthExpand, useGsapSlidesUp } from "../../../hooks/gsap";
 import styles from './Accordion.module.scss';
-import features from "../../../config/data/FeaturesSect.json";
+import features from "../../../core/data/FeaturesSect.json";
 import gsap from 'gsap';
 
 export const Accordion = () => {

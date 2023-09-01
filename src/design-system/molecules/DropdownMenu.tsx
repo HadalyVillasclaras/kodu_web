@@ -37,7 +37,7 @@ export const DropdownMenu = ({ options, label, color }: DropdownMenuProps) => {
     <div ref={ref} className={styles["dropdown"]}>
       <button 
         onClick={() => setIsOpen(!isOpen)} 
-        className={`${styles["dropdown__button"]} ${styles[`dropdown__button-${color}`]}`} 
+        className={`${styles["dropdown__button"]} ${styles[`dropdown__button--${color}`]}`} 
         aria-haspopup="listbox"
         aria-expanded={isOpen}>
         {selectedOption || label }

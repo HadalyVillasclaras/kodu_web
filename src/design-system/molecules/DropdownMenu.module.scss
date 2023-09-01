@@ -18,19 +18,19 @@
       min-width: 200px;
     }
 
-    &-cream {
+    &--cream {
       border-bottom: 1px solid colors.$cream;
       border-right: 1px solid colors.$cream;
       color: colors.$cream;
     }
   
-    &-green {
+    &--green {
       border-bottom: 1px solid colors.$green;
       border-right: 1px solid colors.$green;
       color: colors.$green;
     }
   
-    &-brown {
+    &--brown {
       border-bottom: 1px solid colors.$brown;
       border-right: 1px solid colors.$brown;
       color: colors.$brown;

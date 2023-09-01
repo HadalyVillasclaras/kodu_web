@@ -14,11 +14,11 @@
   margin: 0 ;
 
   @include tablet()  {
-    margin: 0 spacing.$pd__dk-small;
+    margin: 0 spacing.$pd__dk--small;
   }
 
   @include desktop()  {
-    margin: spacing.$pd__dk-big;
+    margin: spacing.$pd__dk--big;
   }
 }
 
@@ -38,7 +38,7 @@
     width: 100%;
     object-fit: cover;
     box-sizing: border-box;
-    border-radius: border.$radius-large;
+    border-radius: border.$radius--large;
   }
 
   &__controls {

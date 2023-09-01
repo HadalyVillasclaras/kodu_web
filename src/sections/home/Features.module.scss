@@ -28,7 +28,7 @@
     flex-direction: column;
     color: colors.$cream;
 
-    &-selected {
+    &--selected {
       opacity: 1;
     }
   }
@@ -70,7 +70,7 @@
         transition: all 0.5s linear;
       }
 
-      &-selected {
+      &--selected {
         button {
           color: colors.$cream;
           font-size: 2.5rem;

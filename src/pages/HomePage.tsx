@@ -61,7 +61,7 @@ export const HomePage = () => {
       </Section>
       <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       {/* <Section id="dunlap" ref={refs.dunlap}>
-        <BgImgContainer bgImage={`${BASE_ASSETS}imgs/homes/dunlap/dunlap-2b.png`}></BgImgContainer>
+        <BgImgContainer bgImage={`${BASE_ASSETS}imgs/destinations/dunlap/dunlap-2b.png`}></BgImgContainer>
       </Section> */}
       <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
@@ -73,7 +73,7 @@ export const HomePage = () => {
         <Accordion />
       </Section>
       <Section id="bloom" ref={refs.bloom} bgColor='brown'>
-        <BgImgContainer customStyle={{ backgroundColor: "brown" }} bgImage={`${BASE_ASSETS}imgs/homes/bloom/bloom-3.png`}></BgImgContainer>
+        <BgImgContainer customStyle={{ backgroundColor: "brown" }} bgImage={`${BASE_ASSETS}imgs/destinations/bloom/bloom-3.png`}></BgImgContainer>
       </Section>
       <Section id="destinations" ref={refs.destinations} size='full'>
         <Destinations />

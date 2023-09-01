@@ -1,0 +1,31 @@
+[
+  { 
+    "id": 903, 
+    "destinationName": "Paraty", 
+    "img": "imgs/destinations/paraty/paraty-3.png", 
+    "alt": "The Paraty destination" 
+  },
+  { 
+    "id": 902, 
+    "destinationName": "Dunlap Hollow", 
+    "img": "imgs/destinations/dunlap/dunlap-6.png", 
+    "alt": "The Dunlap Hollow destination" },
+  { 
+    "id": 901, 
+    "destinationName": "The Bloomhouse", 
+    "img": "imgs/destinations/bloom/bloom-7.png", 
+    "alt": "The Bloomhouse in Austin with its unique organic and curved shape architecture" 
+  },
+  { 
+    "id": 903, 
+    "destinationName": "Paraty", 
+    "img": "imgs/destinations/paraty/paraty-1.png", 
+    "alt":"The Paraty destination" 
+  },
+  { 
+    "id": 902, 
+    "destinationName": "Dunlap Hollow", 
+    "img": "imgs/destinations/dunlap/dunlap-7.png", 
+    "alt": "The Dunlap Hollow destination" 
+  }
+] 

@@ -20,7 +20,7 @@ export const Fader = () => {
 
   return (
     <section className={styles["fader"]} style={{ top: topStyle }}>
-      <span className={`${styles["fader__logo"]} ${isLoaded ? styles['fader__logo-visible'] : ''}`}>
+      <span className={`${styles["fader__logo"]} ${isLoaded ? styles['fader__logo--visible'] : ''}`}>
         <Logo clickable={false} color='brown' size='25rem'/>
       </span>
     </section>

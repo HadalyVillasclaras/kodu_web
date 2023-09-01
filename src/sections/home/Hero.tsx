@@ -1,7 +1,7 @@
 import { Heading } from "../../design-system/atoms";
 import { useGsapSlidesUp } from '../../hooks/gsap';
 import { useLayoutEffect, useRef } from 'react';
-import sectionImages from '../../config/data/SectionImages.json';
+import sectionImages from '../../core/data/SectionImages.json';
 import styles from "./Hero.module.scss";
 import { Curtain } from "../../design-system/atoms/Curtain";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -45,7 +45,7 @@ export const Hero = () => {
     <>
       <section className={styles["hero__sect-text"]}>
         <div ref={introTextRef} className={styles["hero__sect-text-content"]}>
-          <Heading color='brown' as='h4'>Sustainable lodgins</Heading>
+          <Heading color='brown' as='h4'>Sustainable destinations</Heading>
           <p>Lorem ipsum dolor sit amet. Nunc auctor, et risus lacus quis sem. Sed sodales lorem, at lobortis odio porta vel. Nunc auctor. Class aptent et risus lacus quis sem taciti sociosqu ad litora torquent per nostra.</p>
         </div>
       </section>

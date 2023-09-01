@@ -6,9 +6,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: colors.$bg-green;
+  background-color: colors.$bg--green;
   color: colors.$text-secondary;
-  padding: spacing.$section-mb;
+  padding: spacing.$section__mb;
   margin-top: 3rem;
 
   @include tablet() {
@@ -17,11 +17,11 @@
   }
 
   @include desktop() {
-    padding: spacing.$pd__dk-xs;
+    padding: spacing.$pd__dk--xs;
   }
   
   ::selection {
-    background-color: colors.$bg-brown;
+    background-color: colors.$bg--brown;
     color: colors.$text-primary;
   }
 

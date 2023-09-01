@@ -18,7 +18,7 @@
     position: relative;
     height: 90%;
     overflow: hidden; 
-    border-radius: border.$radius-mid;
+    border-radius: border.$radius--mid;
 
     @include mobile() {
       min-height: 100%;
@@ -31,7 +31,7 @@
       transform-origin: 50% 100%; 
       transform: scaleY(0);
       background-color: colors.$card-brown-hover-dk;  
-      border-radius: border.$radius-mid;
+      border-radius: border.$radius--mid;
       transition: transform .3s ease-out;
       z-index: 1; 
     }
@@ -45,17 +45,17 @@
   }
 
   &__image {
-    border-radius: border.$radius-mid;
+    border-radius: border.$radius--mid;
     height: 100%;
     object-fit: cover;
   }
 
-  &__homename {
+  &__destinationname {
     text-align: left;
     margin-top: 1rem;
   }
 
-  &__homename-dk {
+  &__destinationname-dk {
     position: absolute;
     text-align: center;
     display: none;

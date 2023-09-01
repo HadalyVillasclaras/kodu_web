@@ -6,16 +6,16 @@
 .destinations {
   &__sect-heading {
     text-align: center;
-    padding: spacing.$pd__mb-big spacing.$pd__mb-small;
+    padding: spacing.$pd__mb--big spacing.$pd__mb--small;
 
     @include desktop() {
-      padding: spacing.$pd__dk-small ;
+      padding: spacing.$pd__dk--small ;
       text-align: left;
     }
   }
 
   &__sect-swipe {
-    padding: spacing.$pd__mb-small;
+    padding: spacing.$pd__mb--small;
     width: 100%;
   }
 }

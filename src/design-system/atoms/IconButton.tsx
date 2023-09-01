@@ -26,7 +26,7 @@ export const IconButton = ({ icon, size = "m", text, color = "green", ariaLabel,
       <Icon icon={icon} size={size} color={color} />
       {
       text &&
-        <span className={`${styles["iconbutton__text"]} ${styles[`iconbutton__text-size-${size}`]}`}>
+        <span className={`${styles["iconbutton__text"]} ${styles[`iconbutton__text__size--${size}`]}`}>
           {text}
         </span>
       }

@@ -15,29 +15,29 @@
   img {
     object-fit: cover;
     object-position: center;
-    border-radius: border.$radius-mid;
+    border-radius: border.$radius--mid;
     height: 90vh;
     position: relative;
-    width: calc(100% - (spacing.$pd__mb-small * 2));
+    width: calc(100% - (spacing.$pd__mb--small * 2));
 
     @include tablet() {
-      width: calc(100% - (spacing.$pd__dk-small * 2));
+      width: calc(100% - (spacing.$pd__dk--small * 2));
     }
   }
 }
 
 .hero__sect-text {
-  padding: 0 spacing.$pd__mb-small;
+  padding: 0 spacing.$pd__mb--small;
   margin-bottom: 2rem;
   // padding-top: 4rem;
   // margin-top: 5vh;
 
   @include tablet() {
-    padding: 0 spacing.$pd__dk-small;
+    padding: 0 spacing.$pd__dk--small;
   }
 
    @include desktop() {
-    padding: 0 spacing.$pd__dk-small;
+    padding: 0 spacing.$pd__dk--small;
     font-size: 1.5vw;
     margin-top: 0;
   }

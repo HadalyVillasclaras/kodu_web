@@ -55,16 +55,16 @@ console.log(deviceType);
 
   return (
     <header 
-      id="uniqueHeaderId"
+      id="header"
       ref={headerRef} 
-      className={`${styles[`header`]} ${bgColor ? styles[`header__bg-${bgColor}`] : ""}`}
+      className={`${styles[`header`]} ${bgColor ? styles[`header__bg--${bgColor}`] : ""}`}
     >
       <Frieze />
       <div className={styles["header__flexnav"]}>
         {
           isDinamic
           ? <div className={styles["header__logo-dinamic-wp"]} style={{ marginBottom:`${marginBottom}px` }}>
-              <span ref={logoMain} id='logoSpan' className={styles["header__logo-dinamic"]} >
+              <span ref={logoMain} id='logoSpan' className={styles["header__logo--dinamic"]} >
                 <Logo size='100%' />
               </span>
             </div>

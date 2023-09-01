@@ -3,7 +3,7 @@ import { NavIconContext } from "../../contexts/NavIconContext";
 import { useContext, useEffect, useState, useRef } from "react";
 import { useGsapSlidesUp } from "../../hooks/gsap";
 import styles from "./Navbar.module.scss";
-import navItems from '../../config/data/NavItems.json';
+import navItems from '../../core/data/NavItems.json';
 // import { gsap } from 'gsap';
 
 export const Navbar = () => {
@@ -69,7 +69,14 @@ export const Navbar = () => {
         <ul ref={navListRef} className={styles["navbar__menu-list"]}>
           {navItems.map((navItem, index) => (
             <li key={index} onClick={toggleSidebar}>
-              <Link color='cream' size='l' href={navItem.link}>{navItem.name}</Link>
+              <Link 
+                color='cream' 
+                size='l' 
+                href={navItem.link}
+                aria-label={`Navigate to ${navItem.name} section`}
+              >
+                  {navItem.name}
+              </Link>
             </li>
           ))}
         </ul>

@@ -27,18 +27,18 @@
   height: 100%;
   position: relative;
   bottom: 0px;
-  background-color: colors.$bg-brown;
+  background-color: colors.$bg--brown;
   color: colors.$text-primary;
-  padding: spacing.$section-mb;
+  padding: spacing.$section__mb;
   flex-direction: column;
   justify-content: space-between;
   display: flex;
   gap: 4rem;
-  border-radius:border.$pd-radius-mid;
+  border-radius:border.$pd-radius--mid;
 
 
   @include mobile() {
-    padding: spacing.$pd__dk-xs;
+    padding: spacing.$pd__dk--xs;
   }
 
   p {
@@ -50,7 +50,7 @@
   &__sect {
     display: flex;
 
-    &-up {
+    &--up {
       flex-direction: row;
       justify-content: space-between;
 
@@ -59,7 +59,7 @@
       }
     }
 
-    &-down {
+    &--down {
       flex-direction: column;
       text-align: right;
     }

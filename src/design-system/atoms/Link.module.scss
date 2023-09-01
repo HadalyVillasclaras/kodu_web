@@ -24,7 +24,7 @@
   }
 
   &__color {
-    &-green {
+    &--green {
       @extend .link;
       color: colors.$green;
       &:after {
@@ -32,7 +32,7 @@
       }
     }
 
-    &-cream {
+    &--cream {
       @extend .link;
       color: colors.$cream;
       &:after {
@@ -40,7 +40,7 @@
       }
     }
 
-    &-brown {
+    &--brown {
       @extend .link;
       color: colors.$brown;
       &:after {
@@ -57,21 +57,21 @@
       }
     }
 
-    &-s {
+    &--s {
       font-size: fonts.$link-s;
       &:after {
         height: 2px;
       }
     }
 
-    &-m {
+    &--m {
       font-size: fonts.$link-m;
       &:after {
         height: 3px;
       }
     }
 
-    &-l {
+    &--l {
       font-size: fonts.$link-l;
       &:after {
         height: 4px;

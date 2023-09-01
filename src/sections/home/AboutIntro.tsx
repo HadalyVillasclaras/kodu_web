@@ -37,16 +37,16 @@ export const AboutIntro = () => {
       </header>
       <section className={`${styles['intro-about']}`}>
         <div className={`${styles['intro-about-left']}`}>
-          <img src={BASE_ASSETS + 'imgs/homes/paraty/paraty-3.png'} alt="description" />
+          <img src={BASE_ASSETS + 'imgs/destinations/paraty/paraty-3.png'} alt="description" />
           <Curtain elementRef={curtain1} triggerElement={curtain1}/>
         </div>
         <div className={`${styles['intro-about-right']}`}>
           <div>
-            <img src={BASE_ASSETS + 'imgs/homes/bloom/bloom-1.png'} alt="description" />
+            <img src={BASE_ASSETS + 'imgs/destinations/bloom/bloom-1.png'} alt="description" />
             <Curtain elementRef={curtain2} triggerElement={curtain2}/>
           </div>
           <section ref={paragraphRef}>
-            <Heading as='h4' color='brown' font='fancy'>Sustainable lodgings</Heading>
+            <Heading as='h4' color='brown' font='fancy'>Sustainable destinations</Heading>
             <p >{text}</p>
           </section>
         </div>

@@ -4,7 +4,6 @@ export { Fader } from "./Fader";
 export { DropdownMenu } from "./DropdownMenu";
 export { DestinationCard } from "./DestinationCard";
 export { CheckAvailabilityForm } from "./CheckAvailabilityForm";
-export { Carousel } from "./Carousel";
 export { Breadcrumbs } from "./Breadcrumbs";
 export { AboutUsSlider } from "./AboutUsSlider";
 export { Swipe } from "./Swipe/Swipe";

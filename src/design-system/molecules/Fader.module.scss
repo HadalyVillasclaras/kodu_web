@@ -8,7 +8,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: colors.$bg-green;
+  background-color: colors.$bg--green;
   z-index: 5;
   transition: top 2.2s cubic-bezier(.075,.82,.165,1);
   transform-origin: center top;
@@ -21,7 +21,7 @@
    opacity: 0;
    scale: 0.8;
 
-    &-visible {
+    &--visible {
       opacity: 1;
       scale: 1;
       transition: 2s cubic-bezier(.075,.82,.165,1);

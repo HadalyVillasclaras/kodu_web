@@ -5,12 +5,12 @@ import { useBreakPointSetter } from '../../hooks';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import { useGsapSlidesUp } from "../../hooks/gsap";
 import styles from './Destinations.module.scss';
-import destinations from "../../config/data/Destinations.json";
+import destinations from "../../core/data/DestinationsSlideData.json";
 import { gsap } from 'gsap';
 
 type DestinationData = {
   id: number;
-  homeName: string;
+  destinationName: string;
   img: string;
   alt: string;
 };

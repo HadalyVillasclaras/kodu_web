@@ -1,11 +1,11 @@
 {
   "hero": {
-    "src": "imgs/homes/paraty/paraty-1.png",
+    "src": "imgs/destinations/paraty/paraty-1.png",
     "alt": ""
   },
   "aboutUs":[
     {
-      "src": "imgs/homes/paraty/paraty-2.png",
+      "src": "imgs/destinations/paraty/paraty-2.png",
       "alt": "Paraty lodge principal bedroom"
     }
   ]

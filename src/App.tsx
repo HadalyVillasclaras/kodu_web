@@ -1,6 +1,6 @@
 import "./design-system/index.scss";
 import { RouterProvider } from 'react-router-dom'
-import { routes } from "./config/routes";
+import { routes } from "./core/config/routes";
 import { NavIconProvider } from "./contexts/NavIconProvider";
 
 function App() {

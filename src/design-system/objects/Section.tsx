@@ -25,13 +25,13 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
     },
     ref
   ) => {
-    const bgColorClass = styles[`section__bg-${bgColor}`];
+    const bgColorClass = styles[`section__bg--${bgColor}`];
     const sectionSize = size ? styles[`section__${size}`] : "";
 
     return (
       <section 
         id={id}
-        className={`${styles["section"]} ${bgColorClass} ${sectionSize} ${size === "full" ? styles["section__full"] : ""}`} 
+        className={`${styles["section"]} ${bgColorClass} ${sectionSize} ${size === "full" ? styles["section--full"] : ""}`} 
         style={customStyle}
         ref={ref}
         {...props}

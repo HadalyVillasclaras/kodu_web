@@ -73,7 +73,7 @@ export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderPr
               <AboutUs />
               </div>
               <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <img  src={`${BASE_ASSETS}imgs/homes/paraty/paraty-1.png`} />
+                <img  src={`${BASE_ASSETS}imgs/destinations/paraty/paraty-1.png`} />
               </div>
           </div>
         </div>

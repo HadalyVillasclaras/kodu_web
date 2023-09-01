@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { HomePage, HouseDetailPage, NotFoundPage } from '../pages'
-import { KoduTemplate } from '../template/KoduTemplate'
-import { ErrorTemplate } from '../template/ErrorTemplate';
+import { KoduTemplate } from '../../template/KoduTemplate';
+import { ErrorTemplate } from '../../template/ErrorTemplate';
+import { DestinationDetailPage, HomePage, NotFoundPage } from '../../pages';
+
 
 export const routes = createBrowserRouter([
   {
@@ -12,16 +13,16 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-
+        id: "home",
         handle: {
           crumb: () => 'Home'
         }
       },
       {
-        path: "house/:id",
-        element: <HouseDetailPage />,
+        path: "destination/:id",
+        element: <DestinationDetailPage />,
         handle: {
-          crumb: () => 'House'
+          crumb: () => 'Destination'
         }
       }
     ]

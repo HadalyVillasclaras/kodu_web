@@ -3,7 +3,7 @@ import { Heading, Button } from '../../design-system/atoms';
 import { ShowMoreText } from "../../design-system/molecules";
 import { useGsapSlidesUp } from "../../hooks/gsap";
 import styles from "./AboutUs.module.scss";
-import sectionImages from '../../config/data/SectionImages.json';
+import sectionImages from '../../core/data/SectionImages.json';
 import gsap from 'gsap';
 import { Curtain } from '../../design-system/atoms/Curtain';
 

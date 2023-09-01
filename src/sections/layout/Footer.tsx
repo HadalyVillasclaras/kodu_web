@@ -4,7 +4,7 @@ import { useGsapSlidesUp } from '../../hooks/gsap';
 import { NavIconContext } from '../../contexts/NavIconContext';
 import { useOnviewObserver } from '../../hooks/useOnviewObserver';
 import styles from './Footer.module.scss';
-import navItems from '../../config/data/NavItems.json';
+import navItems from '../../core/data/NavItems.json';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

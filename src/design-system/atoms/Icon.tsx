@@ -20,10 +20,10 @@ export const Icon = ({ size = "m", icon, color, disabled = false, variant = "sim
     <SvgIcon
       className={`
         ${styles["icon"]} 
-        ${styles[`icon__size-${size}`]} 
-        ${ variant === "simple" ? styles[`icon__simple-${color}`] : styles[`icon__circle-${color}`]}
+        ${styles[`icon__size--${size}`]} 
+        ${ variant === "simple" ? styles[`icon__simple--${color}`] : styles[`icon__circle--${color}`]}
         ${ variant === "circle" && styles[`icon__circle`]}
-        ${variant === "circle" &&  styles[`icon__circle-${color}-${disabled ? 'disabled' : 'active'}`]}
+        ${variant === "circle" &&  styles[`icon__circle--${color}--${disabled ? 'disabled' : 'active'}`]}
 
       `} 
       {...props}

@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import styles from "./Features.module.scss";
-import featureData from "../../config/data/FeaturesSect.json";
+import featureData from "../../core/data/FeaturesSect.json";
 import { ShowMoreText } from '../../design-system/molecules';
 import { Heading, Divider } from '../../design-system/atoms';
 
@@ -44,7 +44,7 @@ export const Features = () => {
                   featureListRefs.current[index] = el;
                 }
               }}
-              className={selectedFeature?.name === feature.name ? styles['features__list__item-selected'] : styles['features__list__item']}
+              className={selectedFeature?.name === feature.name ? styles['features__list__item--selected'] : styles['features__list__item']}
             >
               <button onClick={() => handleFeatureClick(feature)}>{feature.name}</button>
               {

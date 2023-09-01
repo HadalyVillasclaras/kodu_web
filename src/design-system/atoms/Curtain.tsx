@@ -25,7 +25,7 @@ export const Curtain = ({ bgColor = 'green', elementRef, triggerElement, delay =
   return (
     <div
       ref={elementRef}
-      className={`${styles['curtain']} ${styles[`curtain__bg-${bgColor}`]}`}
+      className={`${styles['curtain']} ${styles[`curtain__bg--${bgColor}`]}`}
     >
     </div>
   )

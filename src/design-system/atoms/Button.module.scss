@@ -20,7 +20,7 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
-    &-green {
+    &--green {
       @extend .button__default;
       color: colors.$button-secondary;
 
@@ -32,13 +32,13 @@
       }
     }
 
-    &-cream {
+    &--cream {
       @extend .button__default;
       background-color: colors.$button-secondary;
       color: colors.$button-primary;
     }
 
-    &-brown {
+    &--brown {
       @extend .button__default;
       background-color: colors.$button-tertiary;
       color: colors.$button-secondary;
@@ -62,7 +62,7 @@
       width: 0;
     }
 
-    &-green {
+    &--green {
       @extend .button__underline;
       color: colors.$button-primary;
 
@@ -71,7 +71,7 @@
       }
     }
 
-    &-cream {
+    &--cream {
       @extend .button__underline;
       color: colors.$button-secondary;
 
@@ -80,7 +80,7 @@
       }
     }
 
-    &-brown {
+    &--brown {
       @extend .button__underline;
       color: colors.$button-tertiary;
 

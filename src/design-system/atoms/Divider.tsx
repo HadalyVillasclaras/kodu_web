@@ -9,6 +9,6 @@ type Props = {
 
 export const Divider = forwardRef<HTMLHRElement, Props>(({color="brown", customStyle}, ref) => {
   return (
-    <hr ref={ref} className={`${styles['hr']} ${styles[`hr__bg-${color}`]}`}  style={customStyle}/>
+    <hr ref={ref} className={`${styles['hr']} ${styles[`hr__bg--${color}`]}`}  style={customStyle}/>
   )
 });

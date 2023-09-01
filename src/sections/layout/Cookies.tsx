@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button, IconButton } from "../../design-system/atoms"  
 import styles from "./Cookies.module.scss";
-import { setCookie } from "../../services/setCookie";
-import { getCookie } from "../../services/getCookie";
+import { setCookie } from "../../core/common/cookies/services/setCookie";
+import { getCookie } from "../../core/common/cookies/services/getCookie";
 
 export const Cookies = () => {
   const [isOpen, setIsOpen] = useState(false);

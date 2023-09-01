@@ -13,7 +13,7 @@ type ButtonProps = {
 export const Button = ({ variant="default", color="green", text="Button", customStyle, onClick}: ButtonProps) => {
   return (
    <button 
-    className={`${styles['button']} ${styles[`button__${variant}-${color}`]}`}
+    className={`${styles['button']} ${styles[`button__${variant}--${color}`]}`}
     onClick={onClick}
     style={customStyle}
    >

@@ -16,14 +16,14 @@
 
   &__flexnav {
     position: relative;
-    padding: spacing.$pd__mb-small ;
+    padding: spacing.$pd__mb--small ;
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
 
     @include tablet() {
       gap: 2rem;
-      padding: spacing.$pd__dk-xs ;
+      padding: spacing.$pd__dk--xs ;
     }
   }
 
@@ -36,7 +36,7 @@
     }
   }
 
-  &__logo-dinamic {
+  &__logo--dinamic {
     position: absolute;
     top: 0;
     width: 200px;

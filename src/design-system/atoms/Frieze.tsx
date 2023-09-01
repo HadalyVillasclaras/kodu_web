@@ -7,7 +7,7 @@ type Props = {
 
 export const Frieze = ({color = "brown"}: Props) => {
   return (
-    <div className={`${styles[`frieze`]} ${styles[`frieze__bg-${color}`]}`}>
+    <div className={`${styles[`frieze`]} ${styles[`frieze__bg--${color}`]}`}>
     </div>
   )
 }

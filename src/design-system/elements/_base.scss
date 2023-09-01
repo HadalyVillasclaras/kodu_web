@@ -26,16 +26,21 @@ a {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background-color: #2D3748;
 }
 
 body {
+  background-color: #2D3748;
+
   font-size: fonts.$m;
   color: colors.$text-primary;
   font-family: Trap;
   font-weight: 200;
-  background-color: var(--cream);
+
+  // background-color: var(--cream);
   height: 100vh;
   transition: background-color 1s ease;
+
 }
 
 main {
@@ -45,7 +50,9 @@ main {
 
 section {
   width: 100%;
-  background-color: unset;
+  // background-color: unset;
+  background-color: #2D3748!important;
+
 }
 
 button {
@@ -73,6 +80,6 @@ img {
   width: 100%;
 }
 ::selection {
-  color: colors.$bg-cream; 
-  background: colors.$bg-green;
+  color: colors.$bg--cream; 
+  background: colors.$bg--green;
 }

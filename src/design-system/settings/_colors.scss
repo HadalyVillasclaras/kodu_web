@@ -1,18 +1,20 @@
 $cream: #F5F0DE;
-$brown: #7E3418;
+// $brown: #7E3418;
+$brown: #171923;
+
 $brownLighter: #B56040;
 $green: #171b0e;
 
-$brown-disabled: #BF9A8B;
-$green-disabled: #4e5a48;
-$cream-disabled: #61483e;
+$brown--disabled: #BF9A8B;
+$green--disabled: #4e5a48;
+$cream--disabled: #61483e;
 
 
-$bg-cream: $cream;
-$bg-green: $green;
-$bg-brown: $brown;
+$bg--cream: $cream;
+$bg--green: $green;
+$bg--brown: $brown;
 
-$bg-green-opacity: rgba(23, 27, 14, 0.9);
+$bg--green-opacity: rgba(23, 27, 14, 0.9);
 
 
 $text-primary: $green;
@@ -28,43 +30,43 @@ $card-brown-hover-dk: rgba(126, 52, 24, 0.8);
 
 
 @mixin bg-color(){
-  &-green {
+  &--green {
     background-color: $green;
   }
 
-  &-cream {
+  &--cream {
     background-color: $cream;
   }
 
-  &-brown {
+  &--brown {
     background-color: $brown;
   }
 }
 
 @mixin color(){
-  &-green {
+  &--green {
     color: $green;
   }
 
-  &-cream {
+  &--cream {
     color: $cream;
   }
 
-  &-brown {
+  &--brown {
     color: $brown;
   }
 }
 
 @mixin fill(){
-  &-green {
+  &--green {
     fill: $green;
   }
 
-  &-cream {
+  &--cream {
     fill: $cream;
   }
 
-  &-brown {
+  &--brown {
     fill: $brown;
   }
 }
