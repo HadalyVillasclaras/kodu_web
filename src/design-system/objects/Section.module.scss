@@ -9,7 +9,7 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  padding: spacing.$section__mb;
+  // padding: spacing.$section__mb;
   flex-wrap: wrap;
   overflow: hidden;
   
@@ -17,66 +17,70 @@
     justify-content: unset;
   }
 
-  &--xs {
-    @include tablet() {
-      padding: spacing.$pd__tb;
+  &__size {
+    &--xs {
+      @include tablet() {
+        padding: spacing.$pd__tb;
+      }
+
+      @include desktop() {
+        padding: spacing.$pd__dk--xs;
+      }
     }
 
-    @include desktop() {
-      padding: spacing.$pd__dk--xs;
-    }
-  }
+    &--small {
+      padding: spacing.$pd__mb--small;
 
-  &--small {
-    padding: spacing.$pd__mb--small;
-
-    @include tablet() {
-      padding: spacing.$pd__dk--small;
-    }
-  }
-
-  &--big {
-    padding: spacing.$section--mb;
-
-    @include tablet() {
-      padding: spacing.$pd__tb;
+      @include tablet() {
+        padding: spacing.$pd__dk--small;
+      }
     }
 
-    @include desktop() {
-      padding: spacing.$pd__dk--big;
+    &--big {
+      padding: spacing.$section--mb;
+
+      @include tablet() {
+        padding: spacing.$pd__tb;
+      }
+
+      @include desktop() {
+        padding: spacing.$pd__dk--big;
+      }
     }
-  }
 
-  &--full {
-    padding: spacing.$pd--full;
-  }
-
-  &__bg--cream {
-    background-color: colors.$bg--cream;
-    color: colors.$bg--brown;
-    ::selection {
-      color: colors.$bg--green; 
-      background: colors.$bg--brown;
+    &--full {
+      padding: spacing.$pd--full;
     }
   }
 
-  &__bg--green {
-    background-color: colors.$bg--green;
-    color: colors.$bg--cream;
-
-    ::selection {
-      color: colors.$bg--brown; 
-      background: colors.$bg--cream;
+  &__bg {
+    &--cream {
+      background-color: colors.$bg--cream;
+      color: colors.$bg--brown;
+      ::selection {
+        color: colors.$bg--green; 
+        background: colors.$bg--brown;
+      }
     }
-  }
 
-  &__bg--brown {
-    background-color: colors.$bg--brown;
-    color: colors.$bg--cream; 
+    &--green {
+      background-color: colors.$bg--green;
+      color: colors.$bg--cream;
 
-    ::selection {
+      ::selection {
+        color: colors.$bg--brown; 
+        background: colors.$bg--cream;
+      }
+    }
+
+    &--brown {
+      background-color: colors.$bg--brown;
       color: colors.$bg--cream; 
-      background: colors.$bg--green;
+
+      ::selection {
+        color: colors.$bg--cream; 
+        background: colors.$bg--green;
+      }
     }
   }
 }

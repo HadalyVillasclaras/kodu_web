@@ -9,6 +9,7 @@ type GalleryProps = {
 export const Gallery = ({imgs}: GalleryProps) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentImg, setCurrentImg] = useState(0);
+  
   const handleNextImage = () => {
     setCurrentImg((prevIndex) => (prevIndex + 1) % imgs.length);
   };

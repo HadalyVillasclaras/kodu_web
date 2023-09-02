@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { Section } from "../design-system/objects"
 import { DetailHeader } from "../sections/detail/DetailHeader"
-import { Gallery } from "../sections/home";
 import { DetailInfo } from "../sections/detail/DetailInfo";
 import { Heading } from "../design-system/atoms";
 import { Destination } from "../core/destination/domain/Destination";
 import { getById } from "../core/destination/application/getById";
+import { Gallery } from "../design-system/molecules";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
@@ -27,8 +27,8 @@ export const DestinationDetailPage = () => {
       {currentDestination 
       ?
         <>
-          <Section size='big'>
-            <section style={{ height: "70vw" }}>
+          <Section size='small' customStyle={{ paddingTop:"0rem" }}>
+            <section style={{ height: "70vh" }}>
               <Gallery imgs={currentDestination.images} />
             </section>
           </Section>

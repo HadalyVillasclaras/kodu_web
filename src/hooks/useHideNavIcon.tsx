@@ -10,7 +10,6 @@ export function useHideNavIcon(sectionId, ref) {
   };
 
   const inViewSectionId = useOnviewObserver(refsToObserve);
-console.log(inViewSectionId);
   useEffect(() => {
     if (inViewSectionId === sectionId) {
       setHidden(true);

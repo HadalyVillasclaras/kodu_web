@@ -13,7 +13,7 @@ export const useGsapSlidesUp = () => {
   ) => {
     gsap.from(element, {
       scrollTrigger: {
-        scrub: scrub,
+        // scrub: scrub,
         trigger: triggerElement || element,
         start: 'top 80%',
         end: '90%',

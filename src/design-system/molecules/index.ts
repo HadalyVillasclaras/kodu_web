@@ -9,3 +9,4 @@ export { AboutUsSlider } from "./AboutUsSlider";
 export { Swipe } from "./Swipe/Swipe";
 export { DinamicSlider } from "./DinamicSlider/DinamicSlider";
 export { Accordion } from "./Accordion/Accordion";
+export { Gallery } from "./Gallery";

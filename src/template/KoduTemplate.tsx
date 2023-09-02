@@ -5,7 +5,7 @@ import { Cookies } from '../sections/layout/Cookies'
 export const KoduTemplate = () => {
   const routesData = useMatches();
   const isDestinationPage = routesData
-  .some((route) => (route?.id === 'destination'));
+  .some((route) => (route?.id === 'home'));
 
   return (
     <>

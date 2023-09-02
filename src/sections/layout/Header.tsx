@@ -45,7 +45,6 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
         }
         // setMarginBottom(0)
 
-        console.log(logoMain.current?.offsetHeight);
       }, headerRef);
 
       return () => ctx.revert();

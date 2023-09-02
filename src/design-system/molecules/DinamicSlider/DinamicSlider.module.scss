@@ -23,23 +23,6 @@
   }
 }
 
-.slider__controls {
-  position: absolute;
-  top: 0;
-  width: 18%;
-  z-index: 2;
-  height: 100%;
-  cursor: none;
-  
-  &-right {
-    right: 0;
-  }
-
-  &-left {
-    left: 0;
-  }
-}
-
 .slider {
   position: relative;
   display: flex;

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, ReactNode  } from 'react';
 import styles from './DinamicSlider.module.scss';
 import { ArrowCursor } from '../../atoms/ArrowCursor';
+import DinamicControlButtons from '../DinamicControlButtons';
 
 type CursorPositionType = {
   x: string | number;
@@ -23,12 +24,6 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
   const [isRightDisabled, setIsRightDisabled] = useState(elementsData.length <= visibleSlides);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const [cursorPosition, setCursorPosition] = useState<CursorPositionType>({ x: '90%', y: '80%' });
-  const [isCursorInside, setIsCursorInside] = useState(false);
-  const [sliderSide, setSliderSide] = useState<"left" | "right" | null>(null);
-
-  const [isInit, setIsInit] = useState(false);
-
   const nextSlide = () => {
     if (currentIndex < elementsData.length - visibleSlides) setCurrentIndex(prevState => prevState + 1);
   };
@@ -37,43 +32,13 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
     if (currentIndex > 0) setCurrentIndex(prevState => prevState - 1);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isCursorInside && isInit) {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    }
-  };
 
-  const handleMouseEnter = (side: "left" | "right") => {
-    setSliderSide(side);
-    setIsCursorInside(true);
-    setIsInit(true);
-  };
-
-  const handleMouseLeave = () => {
-      setIsCursorInside(false);
-  };
-
-  // const initAnimatedCursor = () => {
-  //   console.log('initanimated cursor');
-  //   if (!isInit) {
-  //     setIsInit(true);
-  //   }
+  // let isArrowButtonDisabled = false;
+  // if (sliderSide === "left" && isLeftDisabled) {
+  //   isArrowButtonDisabled = true;
+  // } else if (sliderSide === "right" && isRightDisabled) {
+  //   isArrowButtonDisabled = true;
   // }
-
-  // console.log('isCursorInside: ' + isCursorInside);
-  // console.log('isInit: ' + isInit);
-
-  let isArrowButtonDisabled = false;
-  if (sliderSide === "left" && isLeftDisabled) {
-    isArrowButtonDisabled = true;
-  } else if (sliderSide === "right" && isRightDisabled) {
-    isArrowButtonDisabled = true;
-  }
-  //const slideGap = 2; // [2rem] - the space between each slide (set in scss)
-  // const slideWidthPercentage = 100 / visibleSlides;
-  // const gapWidthPercentage = (slideGap / 100) * slideWidthPercentage; 
-  // const effectiveSlideWidthPercentage = slideWidthPercentage + gapWidthPercentage;
-  // const totalTranslation = -currentIndex * effectiveSlideWidthPercentage;
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -88,13 +53,11 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
   return (
     <>
       <div className={styles['slider__wrapper']}  >
-        <button
-          className={`${styles['slider__controls']} ${styles["slider__controls-left"]}`}
-          onMouseEnter={() => handleMouseEnter("left")}
-          onMouseLeave={handleMouseLeave}
-          onMouseMove={handleMouseMove}
-          onClick={prevSlide}
-        />
+
+        <DinamicControlButtons
+            onLeftClick={prevSlide}
+            onRightClick={nextSlide}
+        >
         <div className={styles['slider__mask']}>
           <div className={styles['slider']} ref={sliderRef}>
             {elementsData.map((elementData: ElementData , index) => (
@@ -108,15 +71,10 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
             ))}
           </div>
         </div>
-        <button
-          className={`${styles['slider__controls']} ${styles["slider__controls-right"]}`}
-          onMouseEnter={() => handleMouseEnter("right")}
-          onMouseLeave={handleMouseLeave}
-          onMouseMove={handleMouseMove}
-          onClick={nextSlide}
-        />
+
+        </DinamicControlButtons>
         {/* <span onMouseOver={initAnimatedCursor} className={styles['init-button']} ></span> */}
-        <ArrowCursor
+        {/* <ArrowCursor
           topPosition={cursorPosition.y}
           leftPosition={cursorPosition.x}
           isCursorInside={isCursorInside}
@@ -124,7 +82,7 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
           isDisabled={isArrowButtonDisabled}
           isInit={isInit}
           color='brown'
-        />
+        /> */}
       </div>
     </>
   );

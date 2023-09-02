@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { IconButton } from '../atoms';
 import { ArrowsNav } from '../atoms/ArrowsNav';
+import DinamicControlButtons from './DinamicControlButtons';
 import styles from "./FullScreenImage.module.scss";
+import { ArrowCursor } from '../atoms/ArrowCursor';
 
 type FullScreenImageProps = {
   images: string[];
@@ -10,9 +13,14 @@ type FullScreenImageProps = {
   onRight: () => void;
 };
 
+
 export const FullScreenImage = ({ images, currentIndex, onLeft, onRight, onClose }: FullScreenImageProps) => {
+ 
+  
+  
   return (
     <section className={styles.fullscreen}>
+
     <span className={styles.fullscreen__btn}>
       <IconButton
         size='m'
@@ -22,11 +30,24 @@ export const FullScreenImage = ({ images, currentIndex, onLeft, onRight, onClose
         onClick={onClose}
       />
     </span>
-    <img className={styles.fullscreen__img} src={images[currentIndex]} alt=""/>
-    <ArrowsNav color='brown' onLeft={onLeft} onRight={onRight} />
+    <div className={styles['fullscreen__img-wrapper']}>
+    <DinamicControlButtons
+     onLeftClick={onLeft}
+     onRightClick={onRight}
+   
+    >
+      <img className={styles.fullscreen__img} src={images[currentIndex]} alt=""/>
+    </DinamicControlButtons>
+
+    </div>
+      
     <div className={styles.fullscreen__pagination}>
         {currentIndex + 1}/{images.length}
     </div>
+
+
   </section>
   );
 };
+
+{/* <ArrowsNav color='brown' onLeft={onLeft} onRight={onRight} /> */}
