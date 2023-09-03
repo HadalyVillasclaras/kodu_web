@@ -21,7 +21,7 @@ export const Accordion = () => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const accordionItems = Array.from(accordionRef.current.children);
-      slidesUpOnScroll(accordionItems as HTMLElement[], accordionRef.current, 0, true);
+      slidesUpOnScroll(accordionItems as HTMLElement[], accordionRef.current, 0);
 
       const nonNullDividers = dividerRefs.current.filter(divider => divider !== null) as HTMLElement[];
       expandWidthOnScroll(nonNullDividers, accordionRef.current);

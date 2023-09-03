@@ -9,7 +9,7 @@ export const useGsapSlidesUp = () => {
     element: string | string[] | HTMLElement | HTMLElement[],
     triggerElement?: string | HTMLElement,
     delay?: number,
-    scrub:boolean = false
+    // scrub:boolean = false
   ) => {
     gsap.from(element, {
       scrollTrigger: {

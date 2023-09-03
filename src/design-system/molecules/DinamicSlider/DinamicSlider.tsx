@@ -3,11 +3,6 @@ import styles from './DinamicSlider.module.scss';
 import { ArrowCursor } from '../../atoms/ArrowCursor';
 import DinamicControlButtons from '../DinamicControlButtons';
 
-type CursorPositionType = {
-  x: string | number;
-  y: string | number;
-};
-
 type ElementData = Record<string, string | number>;
 
 interface SliderProps {
