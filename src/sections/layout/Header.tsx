@@ -36,20 +36,23 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
   }
 
 useLayoutEffect(() => {
-    const updateMarginBottom = () => {
-      if (deviceType !== DeviceType.DESKTOP) {
-        setMarginBottom(logoMain.current.offsetHeight);
-      } else {
-        setMarginBottom(0);
-      }
-    };
+  if (isDinamic) {
+        const updateMarginBottom = () => {
+          if (deviceType !== DeviceType.DESKTOP) {
+            setMarginBottom(logoMain.current.offsetHeight);
+          } else {
+            setMarginBottom(0);
+          }
+        };
+        
+        updateMarginBottom(); 
+        window.addEventListener('resize', updateMarginBottom); 
     
-    updateMarginBottom(); 
-    window.addEventListener('resize', updateMarginBottom); 
+        return () => {
+          window.removeEventListener('resize', updateMarginBottom); 
+        };
 
-    return () => {
-      window.removeEventListener('resize', updateMarginBottom); 
-    };
+  }
   }, [deviceType]);
 
   useLayoutEffect(() => {

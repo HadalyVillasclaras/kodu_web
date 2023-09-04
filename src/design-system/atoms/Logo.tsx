@@ -10,7 +10,7 @@ type LogoProps = {
 
 export const Logo = ({ color = "brown", size = '10rem', clickable = true }: LogoProps) => {
   return (
-    <a href='/kodu_web/'  style={{ pointerEvents: clickable ? 'auto' : 'none', width: "100%" }} tabIndex={clickable ? 0 : -1}>
+    <a href='/kodu_web/'  style={{ pointerEvents: clickable ? 'auto' : 'none' }} tabIndex={clickable ? 0 : -1}>
       <svg
         viewBox="0 0 803 299"
         xmlns="http://www.w3.org/2000/svg"

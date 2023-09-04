@@ -11,39 +11,46 @@
   align-items: center;
   top: 0; 
   left: 0; 
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: colors.$bg--green-opacity;
   // background-color: colors.$cream;
-  z-index: 5;
+  z-index: 1;
+  padding: spacing.$pd__mb--small;
 
-    &__btn {
-    position: absolute;
-    top: spacing.$pd__mb--small;
-    left: spacing.$pd__mb--small;
-    z-index: 6;
-
-    @include tablet()  {
-      padding: spacing.$m;
-    }
+  @include tablet()  {
+    padding: spacing.$l;
   }
 
-  &__img {
-    width: auto;
-    height: 70vh;
-    display: inline-block;
-    object-fit: contain;
-    border-radius: border.$radius--large;
+  &__btn {
+    position: relative;
+    align-self: self-end;
+    z-index: 3;
+    cursor: pointer;
   }
 
   &__pagination {
     z-index: 10;  
+    font-weight: 800;
+    color: colors.$cream;
   }
 }
 
 .fullscreen__img-wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
-  border: 1px solid red;
+
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: auto;
+    height: 85%;
+    object-fit: contain;
+    border-radius: border.$radius--large;
+  }
 }

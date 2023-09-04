@@ -27,7 +27,9 @@ export const FullScreenImage = ({ images, currentIndex, onLeft, onRight, onClose
           onLeftClick={onLeft}
           onRightClick={onRight}
         >
-          <img className={styles.fullscreen__img} src={images[currentIndex]} alt="" />
+          <section>
+            <img src={images[currentIndex]} alt="" />
+          </section>
         </DinamicControlButtons>
       </div>
       <div className={styles.fullscreen__pagination}>
