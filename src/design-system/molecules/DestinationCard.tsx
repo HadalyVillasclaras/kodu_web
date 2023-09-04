@@ -9,11 +9,18 @@ export type DestinationCardData = {
   alt: string;
 };
 
+type PaginationData = {
+  currentIndex: number;
+  totalSlides: number;
+};
+
 type DestinationCardProps = {
   data?: DestinationCardData;
+  paginationData?: PaginationData;
 }
+const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH;
 
-export const DestinationCard = ({ data }: DestinationCardProps) => {
+export const DestinationCard = ({ data, paginationData }: DestinationCardProps) => {
   let destinationData;
   if (data) {
     destinationData = {
@@ -24,7 +31,6 @@ export const DestinationCard = ({ data }: DestinationCardProps) => {
     }
   }
 
-  const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH;
   const destinationUrl = destinationData?.id ? `${VITE_BASE_PATH}/#/destination/${destinationData.id}` : "destination/901/";
   const deviceType = useDeviceType();
 
@@ -42,9 +48,12 @@ export const DestinationCard = ({ data }: DestinationCardProps) => {
           </a>
           {
             deviceType === DeviceType.MOBILE &&
-            <a href={destinationUrl} className={styles['destination-card__destinationname']}>
+            <section className={styles['destination-card__destinationname']}>
+            <a href={destinationUrl} >
               <Heading as="h4" color="green">{destinationData.destinationName}</Heading>
             </a>
+              {paginationData && <p>{paginationData.currentIndex} / {paginationData.totalSlides}</p>}
+            </section>
           }
         </article>
         : <span>no destination data</span>

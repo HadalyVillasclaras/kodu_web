@@ -30,7 +30,7 @@ export const Destinations = () => {
 
   return (
     <>
-      <section ref={destinationHRef} className={styles["destinations__sect-heading"]}>
+      <section ref={destinationHRef} className={styles["destinations__header"]}>
         <Heading color='green' font='fancy' as='h2'>Destinations</Heading>
       </section>
       {
@@ -38,7 +38,12 @@ export const Destinations = () => {
           ? <section className={styles["destinations__sect-swipe"]}>
             <Swipe
               elementsData={destinations}
-              renderElement={(data) => <DestinationCard data={data as DestinationCardData} />}
+              renderElement={(data, paginationData) =>
+                <DestinationCard
+                  data={data as DestinationCardData}
+                  paginationData={paginationData}
+                />
+              }
             />
           </section>
           : <section style={{ height: "70vh" }}>

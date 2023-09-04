@@ -1,5 +1,5 @@
 import { Logo, Frieze} from '../../design-system/atoms';
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Colors } from '../../design-system/types';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import styles from './Header.module.scss';
@@ -11,8 +11,8 @@ type HeaderProps = {
 };
 
 export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
-  const logoMain = useRef<HTMLDivElement | null>(null);
-  const headerRef = useRef<HTMLDivElement | null>(null);
+  const logoMain = useRef<HTMLDivElement>(null!);
+  const headerRef = useRef<HTMLDivElement>(null!);
   const [marginBottom, setMarginBottom] = useState<number>(null!);
 
   const deviceType = useDeviceType();
@@ -35,15 +35,16 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
     });
   }
 
-  useLayoutEffect(() => {
+useLayoutEffect(() => {
     const updateMarginBottom = () => {
-      if (deviceType !== DeviceType.DESKTOP && logoMain.current) {
+      if (deviceType !== DeviceType.DESKTOP) {
         setMarginBottom(logoMain.current.offsetHeight);
+      } else {
+        setMarginBottom(0);
       }
     };
-
+    
     updateMarginBottom(); 
-
     window.addEventListener('resize', updateMarginBottom); 
 
     return () => {

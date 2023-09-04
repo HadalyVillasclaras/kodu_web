@@ -9,7 +9,7 @@
   flex-direction: column;
   position: relative;
   height: 80vh;
-
+  width: 100%;
   @include mobile() {
     height: 100%;
   }
@@ -47,12 +47,20 @@
   &__image {
     border-radius: border.$radius--mid;
     height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 
   &__destinationname {
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 1rem;
+    position: relative;
+
+    p {
+      font-weight: 800;
+    }
   }
 
   &__destinationname-dk {
