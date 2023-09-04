@@ -6,22 +6,25 @@ type Props = {
   onLeftClick: () => void;
   onRightClick: () => void;
   children?: React.ReactNode;
+  isLeftDisabled?: boolean;
+  isRightDisabled?: boolean;
 }
 type CursorPositionType = {
   x: string | number;
   y: string | number;
 };
 
-const DinamicControlButtons = ({
+export const DinamicControlButtons = ({
   onLeftClick,
   onRightClick,
+  isLeftDisabled, 
+  isRightDisabled,
   children
 }: Props) => {
 
   const [cursorPosition, setCursorPosition] = useState<CursorPositionType>({ x: '90%', y: '80%' });
   const [isCursorInside, setIsCursorInside] = useState(false);
   const [sliderSide, setSliderSide] = useState<"left" | "right" | null>(null);
-
   const [isInit, setIsInit] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -37,13 +40,19 @@ const DinamicControlButtons = ({
   };
 
   const handleMouseLeave = () => {
-      setIsCursorInside(false);
+    setIsCursorInside(false);
   };
-  let isArrowButtonDisabled = false;
 
+  let isArrowButtonDisabled = false;
+  if (sliderSide === "left" && isLeftDisabled) {
+    isArrowButtonDisabled = true;
+  } else if (sliderSide === "right" && isRightDisabled) {
+    isArrowButtonDisabled = true;
+  }
+  
   return (
     <div className={`${styles['control-btns-wrapper']}`}>
-    <button
+      <button
         className={`${styles['control-btn']} ${styles["control-btn--left"]}`}
         onMouseEnter={() => handleMouseEnter("left")}
         onMouseLeave={handleMouseLeave}
@@ -58,17 +67,16 @@ const DinamicControlButtons = ({
         onMouseMove={handleMouseMove}
         onClick={onRightClick}
       />
-          <ArrowCursor
-          topPosition={cursorPosition.y}
-          leftPosition={cursorPosition.x}
-          isCursorInside={isCursorInside}
-          arrowDirection={sliderSide}
-          isDisabled={isArrowButtonDisabled}
-          isInit={isInit}
-          color='brown'
-        />
+      <ArrowCursor
+        topPosition={cursorPosition.y}
+        leftPosition={cursorPosition.x}
+        isCursorInside={isCursorInside}
+        arrowDirection={sliderSide}
+        isDisabled={isArrowButtonDisabled}
+        isInit={isInit}
+        color='brown'
+      />
     </div>
   )
 }
-
-export default DinamicControlButtons
+ 

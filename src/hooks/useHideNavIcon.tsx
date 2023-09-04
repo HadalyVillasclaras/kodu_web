@@ -1,23 +1,19 @@
-// import { useContext, useEffect, useState } from 'react';
-// import { NavIconContext } from '../contexts/NavIconContext';
-// import { useOnviewObserver } from '.';
+import { useContext, useEffect } from 'react';
+import { NavIconContext } from '../contexts/NavIconContext';
+import { useOnviewObserver } from '.';
 
-// export function useHideNavIcon(sectionId, ref) {
-//   const { setHidden } = useContext(NavIconContext);
-  
-//   const refsToObserve = {
-//     [sectionId]: ref
-//   };
+export function useHideNavIcon(sectionId: string, ref: Record<string, React.RefObject<HTMLElement>>) {
+  const { setHidden } = useContext(NavIconContext);
 
-//   const inViewSectionId = useOnviewObserver(refsToObserve);
-//   useEffect(() => {
-//     if (inViewSectionId === sectionId) {
-//       setHidden(true);
-//     } else if (inViewSectionId !== sectionId) {
-//       setHidden(false);
-//     }
-//   }, [inViewSectionId, sectionId, setHidden]);
+  const inViewSectionId = useOnviewObserver(ref);
 
-//   return inViewSectionId;
-//   }
-  
+  function hideNavIconOnSection() {
+    if (inViewSectionId === sectionId) {
+      setHidden(true);
+    }
+  }
+
+  useEffect(() => {
+    hideNavIconOnSection();
+  }, [inViewSectionId]);
+}

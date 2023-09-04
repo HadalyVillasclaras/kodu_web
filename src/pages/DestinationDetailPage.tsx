@@ -7,6 +7,8 @@ import { Heading } from "../design-system/atoms";
 import { Destination } from "../core/destination/domain/Destination";
 import { getById } from "../core/destination/application/getById";
 import { Gallery } from "../design-system/molecules";
+import { AvailabilityForm } from "../design-system/molecules/AvailabilityForm";
+import { DestinationAvailabilityList } from "../design-system/molecules/DestinationAvailabilityList";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
@@ -21,7 +23,8 @@ export const DestinationDetailPage = () => {
 
   useEffect(() => {
     getCurrentDestination();
-  }, [])
+  }, []);
+  
   return (
     <>
       {currentDestination 
@@ -49,6 +52,7 @@ export const DestinationDetailPage = () => {
             <section>
               check form
             </section>
+            <AvailabilityForm/>
           </Section>
         </>
       : 

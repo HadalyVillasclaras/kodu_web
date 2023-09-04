@@ -1,5 +1,5 @@
 import { IconButton } from '../atoms';
-import DinamicControlButtons from './DinamicControlButtons';
+import { DinamicControlButtons } from './DinamicControlButtons';
 import styles from "./FullScreenImage.module.scss";
 
 type FullScreenImageProps = {

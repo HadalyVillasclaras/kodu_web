@@ -2,7 +2,7 @@ import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import { Heading } from "../atoms";
 import styles from "./DestinationCard.module.scss";
 
-type DestinationData = {
+export type DestinationCardData = {
   id: number;
   destinationName: string;
   img: string;
@@ -10,7 +10,7 @@ type DestinationData = {
 };
 
 type DestinationCardProps = {
-  data?: DestinationData;
+  data?: DestinationCardData;
 }
 
 export const DestinationCard = ({ data }: DestinationCardProps) => {

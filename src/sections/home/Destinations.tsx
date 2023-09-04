@@ -7,13 +7,7 @@ import { useGsapSlidesUp } from "../../hooks/gsap";
 import styles from './Destinations.module.scss';
 import destinations from "../../core/data/DestinationsSlideData.json";
 import { gsap } from 'gsap';
-
-type DestinationData = {
-  id: number;
-  destinationName: string;
-  img: string;
-  alt: string;
-};
+import { DestinationCardData } from '../../design-system/molecules/DestinationCard';
 
 export const Destinations = () => {
   const [visibleSlides, setVisibleSlides] = useState(3);
@@ -44,13 +38,13 @@ export const Destinations = () => {
           ? <section className={styles["destinations__sect-swipe"]}>
             <Swipe
               elementsData={destinations}
-              renderElement={(data) => <DestinationCard data={data as DestinationData} />}
+              renderElement={(data) => <DestinationCard data={data as DestinationCardData} />}
             />
           </section>
           : <section style={{ height: "70vh" }}>
             <DinamicSlider
               elementsData={destinations}
-              renderElement={(data) => <DestinationCard data={data as DestinationData} />}
+              renderElement={(data) => <DestinationCard data={data as DestinationCardData} />}
               visibleSlides={visibleSlides}
             />
           </section>

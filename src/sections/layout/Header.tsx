@@ -36,21 +36,29 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
   }
 
   useLayoutEffect(() => {
+    const updateMarginBottom = () => {
+      if (deviceType !== DeviceType.DESKTOP && logoMain.current) {
+        setMarginBottom(logoMain.current.offsetHeight);
+      }
+    };
+
+    updateMarginBottom(); 
+
+    window.addEventListener('resize', updateMarginBottom); 
+
+    return () => {
+      window.removeEventListener('resize', updateMarginBottom); 
+    };
+  }, [deviceType]);
+
+  useLayoutEffect(() => {
     if (isDinamic) {
       const ctx = gsap.context(() => {
         animateLogo(logoMain.current, headerRef.current);
-
-        if (deviceType !== DeviceType.DESKTOP) {
-          logoMain.current && setMarginBottom(logoMain.current.offsetHeight)
-        }
-        // setMarginBottom(0)
-
       }, headerRef);
-
       return () => ctx.revert();
     }
   }, [deviceType]);
-
 
   return (
     <header 

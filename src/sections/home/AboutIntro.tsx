@@ -1,10 +1,8 @@
-import { Heading } from '../../design-system/atoms';
+import { Heading, Curtain } from '../../design-system/atoms';
 import { useLayoutEffect, useRef } from "react";
 import { useGsapSlidesUp } from "../../hooks/gsap";
-import styles from "./AboutUs.module.scss";
-
+import styles from "./About.module.scss";
 import gsap from 'gsap';
-import { Curtain } from '../../design-system/atoms/Curtain';
 
 const text = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
@@ -31,19 +29,19 @@ export const AboutIntro = () => {
 
   return (
     <>
-      <header ref={bigHeadingRef} className={styles['intro-about__header']}>
+      <header ref={bigHeadingRef} className={styles['about-intro__header']}>
         <Heading font='fancy' as='h1'>Nourish Nature</Heading>
         <Heading font='fancy' as='h1'>Your Next Getaway</Heading>
       </header>
-      <section className={`${styles['intro-about']}`}>
-        <div className={`${styles['intro-about-left']}`}>
+      <section className={`${styles['about-intro__content']}`}>
+        <div className={`${styles['about-intro__content--left']}`}>
           <img src={BASE_ASSETS + 'imgs/destinations/paraty/paraty-3.png'} alt="description" />
-          <Curtain elementRef={curtain1} triggerElement={curtain1}/>
+          <Curtain elementRef={curtain1} triggerElement={curtain1} />
         </div>
-        <div className={`${styles['intro-about-right']}`}>
+        <div className={`${styles['about-intro__content--right']}`}>
           <div>
             <img src={BASE_ASSETS + 'imgs/destinations/bloom/bloom-1.png'} alt="description" />
-            <Curtain elementRef={curtain2} triggerElement={curtain2}/>
+            <Curtain elementRef={curtain2} triggerElement={curtain2} />
           </div>
           <section ref={paragraphRef}>
             <Heading as='h4' color='brown' font='fancy'>Sustainable destinations</Heading>

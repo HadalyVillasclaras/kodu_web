@@ -1,11 +1,10 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { Heading, Button } from '../../design-system/atoms';
+import { Heading, Button, Curtain } from '../../design-system/atoms';
 import { ShowMoreText } from "../../design-system/molecules";
 import { useGsapSlidesUp } from "../../hooks/gsap";
-import styles from "./AboutUs.module.scss";
 import sectionImages from '../../core/data/SectionImages.json';
+import styles from "./About.module.scss";
 import gsap from 'gsap';
-import { Curtain } from '../../design-system/atoms/Curtain';
 
 const text = "Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
 const hiddenText = " Et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
@@ -32,8 +31,8 @@ export const AboutUs = () => {
   }, []);
 
   return (
-    <section className={`${styles['about']}`}>
-      <div ref={animatedDivRef} className={`${styles['care-about']}`}>
+    <section className={`${styles['care-about']}`}>
+      <div ref={animatedDivRef} className={`${styles['care-about__elm']}`}>
         <Heading as='h3' font='fancy'>This is what we care about</Heading>
         <ShowMoreText visibleText={text} hiddenText={hiddenText} showMoreText={showMore} onToggle={toggleShowMore} />
         <Button
@@ -43,7 +42,7 @@ export const AboutUs = () => {
           onClick={toggleShowMore}
         />
       </div>
-      <div className={`${styles['care-about']}`}>
+      <div className={`${styles['care-about__elm']}`}>
         <img src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
         <Curtain elementRef={careAboutImg} triggerElement={careAboutImg} />
       </div>

@@ -1,18 +1,12 @@
 
 ---
 TO DO 
--Dinamic control buttons (working): implememet disabled arrows.
--Slide up wave (footer)
--Header height (adapt vw resize)
+-availability
 Styles
 -FullScreen styles
 -Destinations (pagination at swipe)
 
 Refactor
--cambiar los types en forwardrefs
--Destinationdata type (x2 in Destinations and DestinationCard)
--Same hide function: credits & footer
--Normalize about section classes and name components.
 
 Design
 -Decidir position nav icon
@@ -23,6 +17,16 @@ New functs:
 -About slider (Horizontal scrolling)
 -Smooth scrolling (library)
 
+----
+DONE
+-Slide up wave (footer)
+-Dinamic control buttons (working): implememet disabled arrows.
+-Header height (adapt vw resize)
+-fix nav icon on footer and credits 
+-Same hide function: credits & footer / added useHideNavIcon
+-Destinationdata type (x2 in Destinations and DestinationCard)
+-Normalize about section classes and name components.
+-availability form / availability hook
 
 --
 quarterly retreats in sustainable lodges

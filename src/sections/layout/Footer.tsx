@@ -1,27 +1,31 @@
 import { Link, Logo } from '../../design-system/atoms';
-import { useContext, useLayoutEffect, useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { useGsapSlidesUp } from '../../hooks/gsap';
-import { NavIconContext } from '../../contexts/NavIconContext';
-import { useOnviewObserver } from '../../hooks/useOnviewObserver';
 import styles from './Footer.module.scss';
 import navItems from '../../core/data/NavItems.json';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useHideNavIcon } from '../../hooks/useHideNavIcon';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Footer = () => {
-  const listRefs = useRef<HTMLElement[]>([]);
-  const policiesRef = useRef<HTMLElement>(null!);
   const footerRef = useRef<HTMLElement>(null!);
-  const [hasIntersected, setHasIntersected] = useState(false);
-  const { setHidden } = useContext(NavIconContext);
+  const ulRefs = useRef<HTMLUListElement>(null!);
+  const fContactRef = useRef<HTMLElement>(null!);
+  const policiesRef = useRef<HTMLElement>(null!);
+  const footerLogoRef = useRef<HTMLElement>(null!);
   
   const { slidesUpOnScroll } = useGsapSlidesUp();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      slidesUpOnScroll(listRefs.current, footerRef.current);
+      const footerChildrenRefs = [ulRefs, policiesRef, fContactRef, footerLogoRef];
+
+      footerChildrenRefs.forEach(childRef => {
+        const childItems = Array.from(childRef.current.children);
+        slidesUpOnScroll(childItems as HTMLElement[], footerRef.current);
+      });
     }, footerRef);
 
     return () => {
@@ -33,38 +37,22 @@ export const Footer = () => {
     footer: footerRef
   };
 
-  const inViewSectionId = useOnviewObserver(refsToObserve);
+  useHideNavIcon( "footer", refsToObserve);
 
-  function hideNavIconOnFooter() {
-    if (inViewSectionId === "footer") {
-      setHidden(true);
-      setHasIntersected(true);
-    }
-    if (hasIntersected && inViewSectionId !== "footer") {
-      setHidden(false);
-    }
-  }
-
-  useEffect(() => {
-    hideNavIconOnFooter();
-  }, [inViewSectionId]);
 
   return (
-    <footer id="footer" ref={footerRef} className={styles["footer"]}>
-      <section>
+    <footer ref={footerRef} id="footer" className={styles["footer"]}>
+      <section ref={footerLogoRef}>
         <Logo color='cream' size='15rem' />
       </section>
-      <ul className={styles["footer__nav-list"]}>
+      <ul ref={ulRefs} className={styles["footer__nav-list"]}>
         {navItems.map((navItem, index) => (
-          <li
-            key={index}
-            ref={el => { if (el) listRefs.current[index] = el }}
-          >
+          <li key={index}>
             <Link color='cream' size='l' href={navItem.link}>{navItem.name}</Link>
           </li>
         ))}
       </ul>
-      <section className={styles["footer__contact"]}>
+      <section ref={fContactRef} className={styles["footer__contact"]}>
         <p>info@koduhost.com</p>
         <p>+45 564 545 342</p>
       </section>

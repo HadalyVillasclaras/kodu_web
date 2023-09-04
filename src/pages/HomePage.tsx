@@ -16,7 +16,7 @@ type SectionType = {
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 export const HomePage = () => {
-  const { setIconColor } = useContext(NavIconContext);
+  const { setHidden, setIconColor } = useContext(NavIconContext);
   const refs = {
     hero: useRef(null),
     dunlap: useRef(null),
@@ -43,6 +43,7 @@ export const HomePage = () => {
     const sectionInView = sections.find((section: SectionType) => section?.ref?.current?.id === inViewSectionId);
     if (sectionInView) {
       setIconColor(sectionInView.iconColor);
+      setHidden(false)
     } else {
       setIconColor('green');
     }
