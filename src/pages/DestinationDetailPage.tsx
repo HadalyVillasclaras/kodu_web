@@ -9,11 +9,12 @@ import { getById } from "../core/destination/application/getById";
 import { Gallery } from "../design-system/molecules";
 import { AvailabilityForm } from "../design-system/molecules/AvailabilityForm";
 import { DestinationAvailabilityList } from "../design-system/molecules/DestinationAvailabilityList";
+import { DestinationCheckForm } from "../sections/detail/DestinationCheckForm";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
   const { id: destinationId } = useParams();
-  
+
   function getCurrentDestination() {
     if (destinationId) {
       const destination = getById(destinationId)
@@ -36,8 +37,12 @@ export const DestinationDetailPage = () => {
             </section>
           </Section>
           <hr />
-          <DetailHeader name={currentDestination?.name} location={currentDestination?.location} />
-          <DetailInfo description={currentDestination?.description} details={currentDestination?.details} />
+          <Section size='small'>
+            <DetailHeader name={currentDestination?.name} location={currentDestination?.location} />
+            <DetailInfo description={currentDestination?.description} details={currentDestination?.details} />
+          </Section>
+
+
           <Section customStyle={{ flexDirection: 'row' }} size='big'>
             <section>
               <span>
@@ -50,10 +55,10 @@ export const DestinationDetailPage = () => {
               </span>
             </section>
             <section>
-              check form
+              <DestinationCheckForm destinationId={currentDestination.id.toString()}/>
             </section>
-            <AvailabilityForm/>
           </Section>
+          <AvailabilityForm/>
         </>
       : 
       <Section size="big">

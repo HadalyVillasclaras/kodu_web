@@ -50,8 +50,9 @@ export const Hero = () => {
         </div>
       </section>
       <section className={styles['hero__sect-img']}>
-        <img ref={introImgRef} src={`${BASE_ASSETS}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />
-        <Curtain elementRef={curtainHero} bgColor="cream" triggerElement={introTextRef} delay={3} />
+        <Curtain elementRef={curtainHero} bgColor="cream" triggerElement={introTextRef} delay={3}>
+          <img ref={introImgRef} src={`${BASE_ASSETS}${sectionImages.hero.src}`} alt={sectionImages.hero.alt} />
+        </Curtain>
       </section>
     </>
   )

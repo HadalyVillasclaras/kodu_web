@@ -42,16 +42,16 @@ export const DestinationCard = ({ data, paginationData }: DestinationCardProps) 
         <article className={styles['destination-card']}>
           <a href={destinationUrl} className={styles['destination-card__image-wrapper']}>
             <img className={styles['destination-card__image']} src={`${VITE_BASE_PATH}${destinationData.src}`} alt={destinationData.alt} />
-            <span className={styles['destination-card__destinationname-dk']}>
+            <span className={styles['destination-card__info-dk']}>
               <Heading as="h4" color="cream">{destinationData.destinationName}</Heading>
             </span>
           </a>
           {
             deviceType === DeviceType.MOBILE &&
-            <section className={styles['destination-card__destinationname']}>
-            <a href={destinationUrl} >
-              <Heading as="h4" color="green">{destinationData.destinationName}</Heading>
-            </a>
+            <section className={styles['destination-card__info']}>
+              <a href={destinationUrl} >
+                <Heading as="h4" color="green">{destinationData.destinationName}</Heading>
+              </a>
               {paginationData && <p>{paginationData.currentIndex} / {paginationData.totalSlides}</p>}
             </section>
           }

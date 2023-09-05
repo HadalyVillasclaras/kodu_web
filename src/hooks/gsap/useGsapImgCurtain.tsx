@@ -12,7 +12,7 @@ export const useGsapImgCurtain = () => {
     gsap.from(element, {
       scrollTrigger: {
         trigger: triggerElement || element,
-        start: "top 60%",
+        start: "top 80%",
         toggleActions: "play none none none ",
       },
       top: '0',

@@ -10,6 +10,7 @@
   position: relative;
   height: 80vh;
   width: 100%;
+
   @include mobile() {
     height: 100%;
   }
@@ -51,19 +52,20 @@
     object-fit: cover;
   }
 
-  &__destinationname {
+  &__info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
     position: relative;
+    text-align: left;
 
     p {
       font-weight: 800;
     }
   }
 
-  &__destinationname-dk {
+  &__info-dk {
     position: absolute;
     text-align: center;
     display: none;

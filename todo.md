@@ -2,11 +2,13 @@
 ---
 TO DO 
 -availability form and flow
--close open sidebar (arrastre)
+
+Styles:
+-review curtain style to fit container
 
 Refactor
 -review header bottom margin 
--review curtain curtain - care about after load
+-review curtain - care about after load
 
 Design
 -Decidir position nav icon
@@ -19,7 +21,8 @@ New functs:
 
 ----
 DONE
-
+-Update Curtain component 
+-close open sidebar (arrastre)
 
 
 --

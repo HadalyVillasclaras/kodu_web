@@ -2,6 +2,15 @@
 @use "../settings/fonts";
 @import "../../design-system/settings/colors";
 
+.curtain-wrapper {
+  object-position: center;
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  position: relative;
+  width: 100%;
+  height: "100%"
+}
 .curtain {
   top: 100%;
   left: 0;

@@ -1,4 +1,4 @@
-import { Logo, Frieze} from '../../design-system/atoms';
+import { Logo, Frieze } from '../../design-system/atoms';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Colors } from '../../design-system/types';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
@@ -29,30 +29,28 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
       },
       width: deviceType !== DeviceType.DESKTOP ? "80vw" : "55vw",
       ease: "power3.out",
-      y: deviceType === DeviceType.MOBILE ? "20px" : "50px", 
+      y: deviceType === DeviceType.MOBILE ? "20px" : "50px",
       x: deviceType === DeviceType.MOBILE ? "0px" : "1.5rem",
       duration: 20,
     });
   }
 
-useLayoutEffect(() => {
-  if (isDinamic) {
-        const updateMarginBottom = () => {
-          if (deviceType !== DeviceType.DESKTOP) {
-            setMarginBottom(logoMain.current.offsetHeight);
-          } else {
-            setMarginBottom(0);
-          }
-        };
-        
-        updateMarginBottom(); 
-        window.addEventListener('resize', updateMarginBottom); 
-    
-        return () => {
-          window.removeEventListener('resize', updateMarginBottom); 
-        };
+  useEffect(() => {
+    if (isDinamic) {
+      const updateMarginBottom = () => {
+        if (deviceType !== DeviceType.DESKTOP) {
+          setMarginBottom(logoMain.current.offsetHeight);
+        } else {
+          setMarginBottom(0);
+        }
+      };
+      updateMarginBottom();
+      window.addEventListener('resize', updateMarginBottom);
 
-  }
+      return () => {
+        window.removeEventListener('resize', updateMarginBottom);
+      };
+    }
   }, [deviceType]);
 
   useLayoutEffect(() => {
@@ -65,21 +63,21 @@ useLayoutEffect(() => {
   }, [deviceType]);
 
   return (
-    <header 
+    <header
       id="header"
-      ref={headerRef} 
+      ref={headerRef}
       className={`${styles[`header`]} ${bgColor ? styles[`header__bg--${bgColor}`] : ""}`}
     >
       <Frieze />
       <div className={styles["header__flexnav"]}>
         {
           isDinamic
-          ? <div className={styles["header__logo-dinamic-wp"]} style={{ marginBottom:`${marginBottom}px` }}>
+            ? <div className={styles["header__logo-dinamic-wp"]} style={{ marginBottom: `${marginBottom}px` }}>
               <span ref={logoMain} id='logoSpan' className={styles["header__logo--dinamic"]} >
                 <Logo size='100%' />
               </span>
             </div>
-          : <Logo/>
+            : <Logo />
         }
         <p>HEY</p>
         {/* <CheckAvailabilityForm /> */}

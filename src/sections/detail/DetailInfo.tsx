@@ -10,6 +10,7 @@ type Props = {
 }
 
 export const DetailInfo = ({ description, details }: Props) => {
+  console.log(details);
   return (
     <section className={styles['detail-info']}>
       <p>{description}</p>

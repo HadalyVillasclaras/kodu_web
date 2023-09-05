@@ -108,17 +108,17 @@
     gap: 2rem;
     align-items: flex-start;
     width: 100%;
-  
+
+    @include desktop() {
+      flex-basis: 30vw;
+    }
+
     &:nth-child(2) {
       height: 60vh;
   
       @include desktop() {
         height: unset;
       }
-    }
-    
-    @include desktop() {
-      flex-basis: 30vw;
     }
   
     img {

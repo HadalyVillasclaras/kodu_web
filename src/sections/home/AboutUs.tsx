@@ -43,8 +43,9 @@ export const AboutUs = () => {
         />
       </div>
       <div className={`${styles['care-about__elm']}`}>
-        <img src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
-        <Curtain elementRef={careAboutImg} triggerElement={careAboutImg} />
+        <Curtain elementRef={careAboutImg} triggerElement={careAboutImg}>
+          <img src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
+        </Curtain>
       </div>
     </section>
   )

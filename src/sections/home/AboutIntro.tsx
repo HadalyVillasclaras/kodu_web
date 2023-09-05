@@ -35,13 +35,15 @@ export const AboutIntro = () => {
       </header>
       <section className={`${styles['about-intro__content']}`}>
         <div className={`${styles['about-intro__content--left']}`}>
-          <img src={BASE_ASSETS + 'imgs/destinations/paraty/paraty-3.png'} alt="description" />
-          <Curtain elementRef={curtain1} triggerElement={curtain1} />
+          <Curtain elementRef={curtain1} triggerElement={curtain1}>
+            <img src={BASE_ASSETS + 'imgs/destinations/paraty/paraty-3.png'} alt="description" />
+          </Curtain>
         </div>
         <div className={`${styles['about-intro__content--right']}`}>
           <div>
+            <Curtain elementRef={curtain2} triggerElement={curtain2}>
             <img src={BASE_ASSETS + 'imgs/destinations/bloom/bloom-1.png'} alt="description" />
-            <Curtain elementRef={curtain2} triggerElement={curtain2} />
+            </Curtain>
           </div>
           <section ref={paragraphRef}>
             <Heading as='h4' color='brown' font='fancy'>Sustainable destinations</Heading>

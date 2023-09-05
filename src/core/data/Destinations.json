@@ -8,8 +8,8 @@
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
     "details": {
       "person": 4,
-      "bed": 3,
-      "bathroom": 1,
+      "beds": 3,
+      "bathrooms": 1,
       "amenities": ["Food farming", "Hot water", "Permaculture classes", " Sustainable living workshops", "Volunteer with local communities", "Offset carbon emmisions", "Waste mangement", "Locally grown food", "Slow living", "Terrace", "No wiFi", "Vegan & organic", "Organic soap workshop", "Yoga classes"]
     },
     "images": [
@@ -31,7 +31,7 @@
     "details": {
       "persons": 8,
       "beds": 6,
-      "bathroom": 3
+      "bathrooms": 3
     },
     "images": [
       "imgs/destinations/dunlap/dunlap-1.png",
@@ -51,7 +51,7 @@
     "details": {
       "persons": 6,
       "beds": 3,
-      "bathroom": 2
+      "bathrooms": 2
     },
     "images": [
       "imgs/destinations/paraty/paraty-2.png",
