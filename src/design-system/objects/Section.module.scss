@@ -12,7 +12,7 @@
   // padding: spacing.$section__mb;
   flex-wrap: wrap;
   overflow: hidden;
-  
+  align-items: start;
   @include tablet() {
     justify-content: unset;
   }

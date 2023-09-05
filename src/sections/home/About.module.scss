@@ -99,6 +99,9 @@
     flex-direction: row;
     justify-content: space-between;
     height: 100vh;
+    padding: spacing.$pd__dk--small spacing.$pd__dk--big;
+    margin-bottom: spacing.$pd__dk--small;
+
   }
 
   &__elm {
@@ -117,7 +120,7 @@
       height: 60vh;
   
       @include desktop() {
-        height: unset;
+        height: 100%;
       }
     }
   

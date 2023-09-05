@@ -8,6 +8,7 @@ type Props = {
   children?: React.ReactNode;
   isLeftDisabled?: boolean;
   isRightDisabled?: boolean;
+  btnsWidth?: string | number;
 }
 type CursorPositionType = {
   x: string | number;
@@ -19,6 +20,7 @@ export const DinamicControlButtons = ({
   onRightClick,
   isLeftDisabled, 
   isRightDisabled,
+  btnsWidth,
   children
 }: Props) => {
 
@@ -53,6 +55,7 @@ export const DinamicControlButtons = ({
   return (
     <div className={`${styles['control-btns-wrapper']}`}>
       <button
+        style={{ width: btnsWidth }}
         className={`${styles['control-btn']} ${styles["control-btn--left"]}`}
         onMouseEnter={() => handleMouseEnter("left")}
         onMouseLeave={handleMouseLeave}
@@ -61,6 +64,7 @@ export const DinamicControlButtons = ({
       />
       {children}
       <button
+        style={{ width: btnsWidth }}
         className={`${styles['control-btn']} ${styles["control-btn--right"]}`}
         onMouseEnter={() => handleMouseEnter("right")}
         onMouseLeave={handleMouseLeave}

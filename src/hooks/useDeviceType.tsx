@@ -8,6 +8,7 @@ export enum DeviceType {
 }
 
 export const useDeviceType = (): DeviceType => {
+
   const getInitialDeviceType = (): DeviceType => {
     const matchDesktop = window.matchMedia(breakpointValues.desktop).matches;
     const matchTablet = window.matchMedia(breakpointValues.tablet).matches;
@@ -25,19 +26,19 @@ export const useDeviceType = (): DeviceType => {
 
   useEffect(() => {
     const determineDevice = () => {
-      const matchDesktop = window.matchMedia(breakpointValues.desktop).matches;
-      const matchTablet = window.matchMedia(breakpointValues.tablet).matches;
-      
-      if (matchDesktop) {
-        setDeviceType(DeviceType.DESKTOP);
-      } else if (matchTablet) {
-        setDeviceType(DeviceType.TABLET);
-      } else {
-        setDeviceType(DeviceType.MOBILE);
-      }
-    }
-    window.addEventListener('resize', determineDevice);
-    return () => window.removeEventListener('resize', determineDevice);
+      setDeviceType(getInitialDeviceType());
+    };
+
+    const mediaDesktop = window.matchMedia(breakpointValues.desktop);
+    const mediaTablet = window.matchMedia(breakpointValues.tablet);
+
+    mediaDesktop.addEventListener('change', determineDevice);
+    mediaTablet.addEventListener('change', determineDevice);
+
+    return () => {
+      mediaDesktop.removeEventListener('change', determineDevice);
+      mediaTablet.removeEventListener('change', determineDevice);
+    };
   }, []); 
 
   return deviceType;

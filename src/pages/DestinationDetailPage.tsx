@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Section } from "../design-system/objects"
 import { DetailHeader } from "../sections/detail/DetailHeader"
 import { DetailInfo } from "../sections/detail/DetailInfo";
-import { Heading } from "../design-system/atoms";
+import { Heading, IconButton } from "../design-system/atoms";
 import { Destination } from "../core/destination/domain/Destination";
 import { getById } from "../core/destination/application/getById";
 import { Gallery } from "../design-system/molecules";
@@ -62,7 +62,16 @@ export const DestinationDetailPage = () => {
         </>
       : 
       <Section size="big">
-        <Heading as="h3">Destination with id {destinationId} is not available</Heading>
+        <Heading as="h4" color="green">Sorry, destination with id "{destinationId}" is not found.</Heading>
+        <a href="/" style={{marginTop: "1rem"}}>
+          <IconButton
+            text="Go to home page" 
+            ariaLabel="Link to home page" 
+            icon="arrowLeft" 
+            color="brown" 
+            size="m"
+          />
+      </a>
       </Section>
       }
     </>

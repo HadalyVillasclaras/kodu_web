@@ -14,6 +14,11 @@ export const useGsapImgCurtain = () => {
         trigger: triggerElement || element,
         start: "top 80%",
         toggleActions: "play none none none ",
+        onRefreshInit: function(self) {
+          if (self.progress === 1) {
+            gsap.set(element, { top: '0' }); 
+          }
+        }
       },
       top: '0',
       stagger: 0.3,

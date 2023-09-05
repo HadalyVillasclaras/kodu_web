@@ -3,12 +3,9 @@
 TO DO 
 -availability form and flow
 
-Styles:
--review curtain style to fit container
 
 Refactor
 -review header bottom margin 
--review curtain - care about after load
 
 Design
 -Decidir position nav icon
@@ -23,7 +20,9 @@ New functs:
 DONE
 -Update Curtain component 
 -close open sidebar (arrastre)
-
+-review curtain style to fit container
+-fix curtain - care about after load
+- dinamic buttons width
 
 --
 quarterly retreats in sustainable lodges

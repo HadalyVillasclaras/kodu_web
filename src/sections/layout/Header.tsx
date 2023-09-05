@@ -13,7 +13,7 @@ type HeaderProps = {
 export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
   const logoMain = useRef<HTMLDivElement>(null!);
   const headerRef = useRef<HTMLDivElement>(null!);
-  const [marginBottom, setMarginBottom] = useState<number>(null!);
+  const [marginBottom, setMarginBottom] = useState<number>(0);
 
   const deviceType = useDeviceType();
 

@@ -2,6 +2,8 @@
 @use "../../design-system/settings/breakpoints";
 @use "../../design-system/settings/spacing";
 @use '../../design-system/settings/colors';
+@import '../../design-system/settings/colors';
+
 
 @mixin circleBase() {
   width: 60px;
@@ -88,11 +90,11 @@
 }
 
 .iconbutton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: .5rem;
   position: relative;
-
+  cursor: pointer;
   transition: transform 0.3s ease; 
 
   &:hover {
@@ -103,6 +105,12 @@
     color: colors.$cream;
     font-weight: 400;
     margin-top: .2rem;
+    
+
+    &__color {
+      @include color;
+    }
+
 
     &__size {
       &--xs {

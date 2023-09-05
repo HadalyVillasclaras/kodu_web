@@ -26,6 +26,7 @@ export const FullScreenImage = ({ images, currentIndex, onLeft, onRight, onClose
         <DinamicControlButtons
           onLeftClick={onLeft}
           onRightClick={onRight}
+          btnsWidth="30%"
         >
           <section>
             <img src={images[currentIndex]} alt="" />

@@ -66,7 +66,7 @@ export const HomePage = () => {
       <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
       </Section>
-      <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='big'>
+      <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='full'>
         <AboutUs />
       </Section>
       <Section id="accordion" ref={refs.accordion} bgColor='brown' size='big'>

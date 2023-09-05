@@ -42,6 +42,7 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
             onRightClick={nextSlide}
             isLeftDisabled={isLeftDisabled} 
             isRightDisabled={isRightDisabled}
+            btnsWidth="17%"
         >
         <div className={styles['slider__mask']}>
           <div className={styles['slider']} ref={sliderRef}>
