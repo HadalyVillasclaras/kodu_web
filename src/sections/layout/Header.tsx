@@ -79,8 +79,6 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
             </div>
             : <Logo />
         }
-        <p>HEY</p>
-        {/* <CheckAvailabilityForm /> */}
       </div>
     </header>
   )

@@ -1,0 +1,31 @@
+@use "../design-system/settings/spacing";
+@use "../design-system/settings/border";
+@use "../design-system/settings/colors";
+@use "../design-system/settings/fonts";
+
+
+.section-noname {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4rem;
+
+
+  &__list {
+    width:750px;
+
+  }
+
+
+}
+
+.detail__list {
+  display: grid;
+  grid-template-columns:auto auto;
+  font-size: 3rem;
+  line-height: 7rem;
+  font-family: 'Eklektyk';
+  color: colors.$green;
+}

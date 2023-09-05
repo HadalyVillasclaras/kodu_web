@@ -2,10 +2,11 @@
 ---
 TO DO 
 -availability form and flow
-
+-fix: checkform button onsubmit err...
 
 Refactor
 -review header bottom margin 
+-not found destination single component. 
 
 Design
 -Decidir position nav icon

@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react';
 import { Section } from "../design-system/objects"
 import { DetailHeader } from "../sections/detail/DetailHeader"
 import { DetailInfo } from "../sections/detail/DetailInfo";
-import { Heading, IconButton } from "../design-system/atoms";
+import { Divider, Heading, IconButton } from "../design-system/atoms";
 import { Destination } from "../core/destination/domain/Destination";
 import { getById } from "../core/destination/application/getById";
 import { Gallery } from "../design-system/molecules";
 import { AvailabilityForm } from "../design-system/molecules/AvailabilityForm";
 import { DestinationAvailabilityList } from "../design-system/molecules/DestinationAvailabilityList";
 import { DestinationCheckForm } from "../sections/detail/DestinationCheckForm";
+import styles from "./DestinationDetailPageProv.module.scss";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
@@ -21,58 +22,56 @@ export const DestinationDetailPage = () => {
       destination && setCurrentDestination(destination);
     }
   }
-
+  console.log(currentDestination);
   useEffect(() => {
     getCurrentDestination();
   }, []);
-  
+
   return (
     <>
-      {currentDestination 
-      ?
+      {currentDestination
+        ?
         <>
-          <Section size='small' customStyle={{ paddingTop:"0rem" }}>
-            <section style={{ height: "70vh" }}>
+          <Section size='small' customStyle={{ paddingTop: "0rem", gap: "2rem" }}>
+            <div style={{ height: "65vh" }}>
               <Gallery imgs={currentDestination.images} />
-            </section>
+            </div>
+            <DetailHeader destination={currentDestination} />
+            <DetailInfo description={currentDestination?.description} amenities={currentDestination?.details.amenities} />
+            <Divider color="green" />
           </Section>
-          <hr />
           <Section size='small'>
-            <DetailHeader name={currentDestination?.name} location={currentDestination?.location} />
-            <DetailInfo description={currentDestination?.description} details={currentDestination?.details} />
-          </Section>
+            <section className={`${styles['section-noname']} `}>
+              <section className={`${styles['section-noname__list']} `}>
+                {
+                  <ul className={`${styles['detail__list']}`}>
+                    {
+                      currentDestination?.details.amenities.map((am: string, key: number) => (
+                        <li key={key}>{am}</li>
+                      ))
+                    }
+                  </ul>
+                }
+              </section>
+              <DestinationCheckForm destinationId={currentDestination.id.toString()} />
 
+            </section>
 
-          <Section customStyle={{ flexDirection: 'row' }} size='big'>
-            <section>
-              <span>
-                <h3>Prices</h3>
-                <p>things</p>
-              </span>
-              <span>
-                <h3>Check-In & Check-Out</h3>
-                <p>things</p>
-              </span>
-            </section>
-            <section>
-              <DestinationCheckForm destinationId={currentDestination.id.toString()}/>
-            </section>
           </Section>
-          <AvailabilityForm/>
         </>
-      : 
-      <Section size="big">
-        <Heading as="h4" color="green">Sorry, destination with id "{destinationId}" is not found.</Heading>
-        <a href="/" style={{marginTop: "1rem"}}>
-          <IconButton
-            text="Go to home page" 
-            ariaLabel="Link to home page" 
-            icon="arrowLeft" 
-            color="brown" 
-            size="m"
-          />
-      </a>
-      </Section>
+        :
+        <Section size="big">
+          <Heading as="h4" color="green">Sorry, destination with id "{destinationId}" is not found.</Heading>
+          <a href="/" style={{ marginTop: "1rem" }}>
+            <IconButton
+              text="Go to home page"
+              ariaLabel="Link to home page"
+              icon="arrowLeft"
+              color="brown"
+              size="m"
+            />
+          </a>
+        </Section>
       }
     </>
   )

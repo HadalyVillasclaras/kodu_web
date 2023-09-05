@@ -3,6 +3,8 @@ import { DropdownMenu } from '../../design-system/molecules'
 import { useAvailability } from '../../hooks/useAvailability'
 import { Quarter } from '../../core/common/quarters/domain/Quarter'
 import { DropdownRenderData } from '../../design-system/molecules/DropdownMenu'
+import { Button, Heading } from '../../design-system/atoms'
+import styles from "./DestinationCheckForm.module.scss";
 
 type Props = {
   destinationId: string
@@ -28,17 +30,22 @@ export const DestinationCheckForm = ({ destinationId }: Props) => {
   }, [])
 
   return (
-    <form onSubmit={handleSubmit}>
-      <DropdownMenu
-        label="Select a quarter"
-        onSelectChange={(selected) => setSelectedQuarter(selected)}
-        color="green"
-        data={availableQuarters as DropdownRenderData[]}
-      />
-      <br /><br /><br /><br />
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    <section className={`${styles['avblty-form']}`}>
+      <Heading as="h3" color="brown">Check availability</Heading>
+      <p>Please, select the year period that better fits with your needs</p>
+      <form onSubmit={handleSubmit}>
+        <DropdownMenu
+          label="Select a quarter"
+          onSelectChange={(selected) => setSelectedQuarter(selected)}
+          color="green"
+          data={availableQuarters as DropdownRenderData[]}
+        />
+        <br />
+        <div>
+          <Button type='submit' onClick={handleSubmit} text='Check' />
+        </div>
+      </form>
+    </section>
+
   )
 }

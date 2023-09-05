@@ -1,14 +1,22 @@
-.detail-info {
-  display: flex; 
-  gap: 2rem;
-  position: relative;
+@use '../../design-system/settings/colors';
 
-  & > * {
-    flex-basis: 50%;
+.detail {
+  display: flex; 
+  justify-content: space-between;
+  position: relative;
+  color: colors.$green;
+
+  &__description {
+    width: 55%;
+    line-height: 1.7rem;
   }
 
+
   &__list {
+    width: 30%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  font-weight: 600;
+
+    grid-template-columns: 1fr 1fr;
   }
 }

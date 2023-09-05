@@ -7,7 +7,7 @@
     "availability": ["Q1", "Q2", "Q3"],
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
     "details": {
-      "person": 4,
+      "persons": 4,
       "beds": 3,
       "bathrooms": 1,
       "amenities": ["Food farming", "Hot water", "Permaculture classes", " Sustainable living workshops", "Volunteer with local communities", "Offset carbon emmisions", "Waste mangement", "Locally grown food", "Slow living", "Terrace", "No wiFi", "Vegan & organic", "Organic soap workshop", "Yoga classes"]
@@ -31,7 +31,9 @@
     "details": {
       "persons": 8,
       "beds": 6,
-      "bathrooms": 3
+      "bathrooms": 3,
+      "amenities": ["No wiFi", "Food farming", "Hot water", "Locally grown food", "Slow living", "Terrace"]
+
     },
     "images": [
       "imgs/destinations/dunlap/dunlap-1.png",
@@ -45,13 +47,14 @@
     "id": 903,
     "name": "Paraty",
     "price": 105,
-    "location": "Aldeia Rizoma",
+    "location": "Aldeia Rizoma, Brazil",
     "availability": ["Q1", "Q3", "Q4"],
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
     "details": {
       "persons": 6,
       "beds": 3,
-      "bathrooms": 2
+      "bathrooms": 2,
+      "amenities": ["No wiFi", "Food farming", "Hot water", "Locally grown food", "Slow living", "Terrace"]
     },
     "images": [
       "imgs/destinations/paraty/paraty-2.png",

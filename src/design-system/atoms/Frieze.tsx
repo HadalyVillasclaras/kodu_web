@@ -2,6 +2,7 @@ import { Colors } from '../types'
 import styles from './Frieze.module.scss';
 import { useState, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
+import { AvailabilityForm } from '../molecules/AvailabilityForm';
 type Props = {
   color?: Colors;
 }
@@ -54,6 +55,9 @@ export const Frieze = ({ color = "brown" }: Props) => {
           <section>
             <p>Design & web development by Hadaly Villasclaras © 2023</p>
           </section>
+
+          <AvailabilityForm />
+
         </section>
       </div>
     </>

@@ -1,7 +1,8 @@
 export interface DestinationDetails {
-  person?: number;
-  bed?: number;
-  bathroom?: number;
+  persons?: number;
+  beds?: number;
+  bathrooms?: number;
+  amenities: string[];
 }
 
 export interface Destination {
