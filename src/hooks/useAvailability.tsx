@@ -24,5 +24,11 @@ export const useAvailability = () => {
     return destinationsAvailable;
   };
 
-  return { checkAvailabilityByDestination, checkAvailabilityByQuarter };
+  const isQuarterAvailableOnDestination = (quarterId: string, destinationId: string): boolean => {
+    const destination = destinationData.find(dest => dest.id.toString() === destinationId);
+    if (!destination) return false; 
+    return destination.availability.includes(quarterId);
+  };
+  
+  return { checkAvailabilityByDestination, checkAvailabilityByQuarter, isQuarterAvailableOnDestination };
 };

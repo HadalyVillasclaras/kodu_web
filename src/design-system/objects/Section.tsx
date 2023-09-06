@@ -10,6 +10,7 @@ type SectionProps = {
   customStyle?: CSSProperties;
   bgColor?: Colors;
   bgImage?: string;
+  direction?: "column" | "row";
   size?: SectionSize;
 }
 
@@ -20,6 +21,7 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
       bgColor = 'cream',
       size = "full",
       customStyle,
+      direction = "column",
       children,
       ...props
     },
@@ -27,11 +29,12 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(
   ) => {
     const bgColorClass = styles[`section__bg--${bgColor}`];
     const sectionSize = size ? styles[`section__size--${size}`] : "";
+    const flexDirection = direction ? styles[`section--${direction}`] : '';
 
     return (
       <section 
         id={id}
-        className={`${styles["section"]} ${bgColorClass} ${sectionSize}`} 
+        className={`${styles["section"]} ${bgColorClass} ${sectionSize} ${flexDirection}`} 
         style={customStyle}
         ref={ref}
         {...props}

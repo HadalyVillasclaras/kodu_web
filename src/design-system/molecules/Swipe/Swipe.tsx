@@ -1,4 +1,7 @@
-/*Implements Swiper library*/
+/**
+ * Implements Swiper library
+ * Note: should be inside an element with prefixed width (ie: 100vw and not 100%)
+ * */
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Pagination, Navigation } from 'swiper/modules';
 import SwiperCore  from 'swiper';

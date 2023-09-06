@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { DropdownMenu } from '../../design-system/molecules'
 import { useAvailability } from '../../hooks/useAvailability'
 import { Quarter } from '../../core/common/quarters/domain/Quarter'
+import allQuarters  from '../../core/data/AvailabilityQuarters.json'
+
 import { DropdownRenderData } from '../../design-system/molecules/DropdownMenu'
 import { Button, Heading } from '../../design-system/atoms'
 import styles from "./DestinationCheckForm.module.scss";
@@ -12,22 +14,23 @@ type Props = {
 
 export const DestinationCheckForm = ({ destinationId }: Props) => {
   const [selectedQuarter, setSelectedQuarter] = useState<string | null>(null);
-  const [availableQuarters, setAvailableQuarters] = useState<Quarter[]>()
+  const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
+  const {  checkAvailabilityByDestination, isQuarterAvailableOnDestination } = useAvailability();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(selectedQuarter);
+    if (selectedQuarter) {
+      const availability = isQuarterAvailableOnDestination(selectedQuarter, destinationId);
+      setIsAvailable(availability);
+    }
   }
-  const { checkAvailabilityByDestination } = useAvailability();
 
   function getAvailableQuarters() {
-    const quarters = checkAvailabilityByDestination(destinationId);
-    setAvailableQuarters(quarters);
+    const availableQuarters = checkAvailabilityByDestination(destinationId);
+    return availableQuarters;
   }
 
-  useEffect(() => {
-    getAvailableQuarters()
-  }, [])
+
 
   return (
     <section className={`${styles['avblty-form']}`}>
@@ -38,12 +41,17 @@ export const DestinationCheckForm = ({ destinationId }: Props) => {
           label="Select a quarter"
           onSelectChange={(selected) => setSelectedQuarter(selected)}
           color="green"
-          data={availableQuarters as DropdownRenderData[]}
+          data={allQuarters as DropdownRenderData[]}
         />
         <br />
         <div>
           <Button type='submit' onClick={handleSubmit} text='Check' />
         </div>
+        {isAvailable !== null && (
+          <p>
+            {isAvailable ? "The selected quarter is available!" : "Sorry, the selected quarter is not available."}
+          </p>
+        )}
       </form>
     </section>
 

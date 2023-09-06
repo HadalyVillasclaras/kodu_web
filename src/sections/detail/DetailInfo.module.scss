@@ -1,22 +1,35 @@
 @use '../../design-system/settings/colors';
+@import '../../design-system/settings/breakpoints';
+
 
 .detail {
+  position: relative;
   display: flex; 
   justify-content: space-between;
-  position: relative;
   color: colors.$green;
+  flex-direction: column;
+
+  gap: 2rem;
 
   &__description {
-    width: 55%;
     line-height: 1.7rem;
   }
 
-
   &__list {
-    width: 30%;
     display: grid;
-  font-weight: 600;
-
+    font-weight: 600;
     grid-template-columns: 1fr 1fr;
+  }
+
+  @include mobile(){
+    flex-direction: row;
+    
+    &__description {
+      width: 50%;
+    }
+  
+    &__list {
+      width: 50%;  
+    }
   }
 }

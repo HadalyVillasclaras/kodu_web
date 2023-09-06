@@ -17,7 +17,7 @@
 
   &__image-wrapper {
     position: relative;
-    height: 90%;
+    height: 100%;
     overflow: hidden; 
     border-radius: border.$radius--mid;
 
@@ -52,6 +52,16 @@
     object-fit: cover;
   }
 
+  &__pag-corner {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: colors.$cream;
+    border: 1px solid ;
+    padding: 8px 8px 3px 8px;
+    border-radius: 1rem;
+  }
+
   &__info {
     display: flex;
     justify-content: space-between;
@@ -59,6 +69,10 @@
     margin-top: 1rem;
     position: relative;
     text-align: left;
+
+    @include mobile() {
+      display: block;
+    }
 
     p {
       font-weight: 800;

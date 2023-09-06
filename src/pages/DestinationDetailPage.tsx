@@ -6,11 +6,10 @@ import { DetailInfo } from "../sections/detail/DetailInfo";
 import { Divider, Heading, IconButton } from "../design-system/atoms";
 import { Destination } from "../core/destination/domain/Destination";
 import { getById } from "../core/destination/application/getById";
-import { Gallery } from "../design-system/molecules";
-import { AvailabilityForm } from "../design-system/molecules/AvailabilityForm";
-import { DestinationAvailabilityList } from "../design-system/molecules/DestinationAvailabilityList";
+import { Fader } from "../design-system/molecules";
 import { DestinationCheckForm } from "../sections/detail/DestinationCheckForm";
-import styles from "./DestinationDetailPageProv.module.scss";
+import { DestinationImages } from "../sections/detail/DestinationImages";
+import { MappedList } from "../design-system/molecules/MappedList";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
@@ -27,36 +26,22 @@ export const DestinationDetailPage = () => {
     getCurrentDestination();
   }, []);
 
+
   return (
     <>
+      <Fader />
       {currentDestination
         ?
         <>
           <Section size='small' customStyle={{ paddingTop: "0rem", gap: "2rem" }}>
-            <div style={{ height: "65vh" }}>
-              <Gallery imgs={currentDestination.images} />
-            </div>
+            <DestinationImages imgs={currentDestination.images} />
             <DetailHeader destination={currentDestination} />
             <DetailInfo description={currentDestination?.description} amenities={currentDestination?.details.amenities} />
             <Divider color="green" />
           </Section>
-          <Section size='small'>
-            <section className={`${styles['section-noname']} `}>
-              <section className={`${styles['section-noname__list']} `}>
-                {
-                  <ul className={`${styles['detail__list']}`}>
-                    {
-                      currentDestination?.details.amenities.map((am: string, key: number) => (
-                        <li key={key}>{am}</li>
-                      ))
-                    }
-                  </ul>
-                }
-              </section>
-              <DestinationCheckForm destinationId={currentDestination.id.toString()} />
-
-            </section>
-
+          <Section size='small' direction="row">
+            <MappedList color="green" size="l" items={currentDestination?.details.amenities} />
+            <DestinationCheckForm destinationId={currentDestination.id.toString()} />
           </Section>
         </>
         :

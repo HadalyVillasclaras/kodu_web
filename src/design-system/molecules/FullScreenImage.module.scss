@@ -15,7 +15,7 @@
   height: 100vh;
   background-color: colors.$bg--green-opacity;
   // background-color: colors.$cream;
-  z-index: 1;
+  z-index: 5;
   padding: spacing.$pd__mb--small;
 
   @include tablet()  {

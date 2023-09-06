@@ -6,15 +6,22 @@
 .section {
   position: relative;
   display: flex;
-  flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  // padding: spacing.$section__mb;
   flex-wrap: wrap;
   overflow: hidden;
   align-items: start;
-  @include tablet() {
-    justify-content: unset;
+  flex-direction: column;
+
+  &--column {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  &--row {
+    align-items: start;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   &__size {

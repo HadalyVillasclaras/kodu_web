@@ -1,8 +1,17 @@
+@import "../settings/breakpoints";
+  
   .gallery {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
     height: 100%;                  
     gap: 1rem;
+
+    @include tablet() {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include desktop() {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
 
     &__elmt {
       border-radius: 3rem;
@@ -16,6 +25,7 @@
         object-fit: cover;     
       }
     }
+
     &__left-side {
       grid-column: 1 / 2;           
     }
@@ -27,7 +37,12 @@
       }
   
       &--bottom {
-        grid-column: 3 / 4;  
+        grid-column: 3 / 4; 
+        display: none; 
+
+        @include desktop() {
+          display:block; 
+        }
       }
     }
   }
