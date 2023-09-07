@@ -16,16 +16,20 @@ export const Curtain = ({ bgColor = 'green', elementRef, children, triggerElemen
   const { verticalCurtainOnScroll } = useGsapImgCurtain();
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      verticalCurtainOnScroll(elementRef.current, triggerElement.current as HTMLElement, delay);
-    }, elementRef);
-    return () => ctx.revert();
+    if (gsap) {
+      const ctx = gsap.context(() => {
+        verticalCurtainOnScroll(elementRef.current, triggerElement.current as HTMLElement, delay);
+      }, elementRef);
+      return () => ctx.revert();
+    } else {
+      elementRef.current.style.display = "none";
+    }
   }, [elementRef, delay]);
 
   return (
     <div className={`${styles['curtain-wrapper']}`}>
       {children}
-      <div ref={elementRef} className={`${styles['curtain']} ${styles[`curtain__bg--${bgColor}`]}`}>
+      <div ref={elementRef} className={`${styles['curtain']} ${styles[`curtain__bg--${bgColor}`]} `}>
       </div>
     </div>
   )

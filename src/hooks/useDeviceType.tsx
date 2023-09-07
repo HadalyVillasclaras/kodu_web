@@ -39,7 +39,7 @@ export const useDeviceType = (): DeviceType => {
       mediaDesktop.removeEventListener('change', determineDevice);
       mediaTablet.removeEventListener('change', determineDevice);
     };
-  }, []); 
+  }, []);
 
   return deviceType;
 }

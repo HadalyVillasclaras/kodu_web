@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { DropdownMenu } from '../../design-system/molecules'
+import React, { useState } from 'react'
 import { useAvailability } from '../../hooks/useAvailability'
-import { Quarter } from '../../core/common/quarters/domain/Quarter'
-import allQuarters  from '../../core/data/AvailabilityQuarters.json'
-
-import { DropdownRenderData } from '../../design-system/molecules/DropdownMenu'
-import { Button, Heading } from '../../design-system/atoms'
+import allQuarters from '../../core/data/AvailabilityQuarters.json'
+import { DropdownRenderData, DropdownMenu } from '../../design-system/molecules/DropdownMenu'
+import { Button, Heading, Loader } from '../../design-system/atoms'
 import styles from "./DestinationCheckForm.module.scss";
 
 type Props = {
@@ -15,22 +12,28 @@ type Props = {
 export const DestinationCheckForm = ({ destinationId }: Props) => {
   const [selectedQuarter, setSelectedQuarter] = useState<string | null>(null);
   const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
-  const {  checkAvailabilityByDestination, isQuarterAvailableOnDestination } = useAvailability();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [hasRequested, setHasRequested] = useState<boolean>(false);
+
+  const { isQuarterAvailableOnDestination } = useAvailability();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (selectedQuarter) {
+      setLoading(true);
       const availability = isQuarterAvailableOnDestination(selectedQuarter, destinationId);
-      setIsAvailable(availability);
+
+      setTimeout(() => {
+        setIsAvailable(availability);
+        setLoading(false);
+      }, 4000);
     }
   }
 
-  function getAvailableQuarters() {
-    const availableQuarters = checkAvailabilityByDestination(destinationId);
-    return availableQuarters;
-  }
-
-
+  const handleRequestClick = () => {
+    setHasRequested(true);
+    console.log('request?: ' + hasRequested);
+  };
 
   return (
     <section className={`${styles['avblty-form']}`}>
@@ -44,10 +47,18 @@ export const DestinationCheckForm = ({ destinationId }: Props) => {
           data={allQuarters as DropdownRenderData[]}
         />
         <br />
-        <div>
-          <Button type='submit' onClick={handleSubmit} text='Check' />
-        </div>
-        {isAvailable !== null && (
+        {!loading && !hasRequested && (
+          <div>
+            {isAvailable ? (
+              <Button onClick={handleRequestClick} text="Request for stay" />
+            ) : (
+              <Button type='submit' text='Check' />
+            )}
+          </div>
+        )}
+        {loading && <Loader />}
+
+        {isAvailable != null && (
           <p>
             {isAvailable ? "The selected quarter is available!" : "Sorry, the selected quarter is not available."}
           </p>

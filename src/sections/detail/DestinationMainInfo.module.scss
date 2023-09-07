@@ -1,8 +1,33 @@
 @use '../../design-system/settings/colors';
 @import '../../design-system/settings/breakpoints';
 
+.detail-header {
+  width: 100%;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  
+  section {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
 
-.detail {
+    &:nth-child(2) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__location {
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    @include desktop() {
+      font-size: 1.5rem;
+    }
+  }
+}
+.detail-info {
   position: relative;
   display: flex; 
   justify-content: space-between;

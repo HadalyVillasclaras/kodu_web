@@ -10,14 +10,14 @@ const destinations = destinationData.map(dest => ({
   label: dest.name,
 }));
 export const AvailabilityForm = () => {
-  const [selectedQuarter, setSelectedQuarter] = useState<string | null>(null);
-  const [selectedDestination, setSelectedDestination] = useState<string | null>(null);
+  const [selectedQuarter, setSelectedQuarter] = useState<string>(null!);
+  const [selectedDestination, setSelectedDestination] = useState<string>(null!);
   const [submitted, setSubmitted] = useState(false)
   const [availableDestinations, setAvailableDestinations] = useState<string[] | undefined>();
   const { checkAvailabilityByDestination, checkAvailabilityByQuarter } = useAvailability();
 
   const [choice, setChoice] = useState<'destination' | 'quarter'>('destination');
-
+console.log(availableDestinations);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -86,7 +86,7 @@ export const AvailabilityForm = () => {
         <section>
           <DestinationAvailabilityList
             destinations={destinations}
-            quarter={selectedQuarter}
+            // quarter={selectedQuarter}
           />
 
         </section>

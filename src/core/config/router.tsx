@@ -23,7 +23,7 @@ export const router = createHashRouter([
         element: <DestinationDetailPage />,
         handle: {
           crumb: () => 'Destination'
-        }
+        },
       }
     ]
   }

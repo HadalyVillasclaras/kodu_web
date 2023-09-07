@@ -99,7 +99,7 @@
     flex-direction: row;
     justify-content: space-between;
     height: 100vh;
-    padding: spacing.$pd__dk--small spacing.$pd__dk--big;
+    padding: 0 spacing.$pd__dk--small;
     margin-bottom: spacing.$pd__dk--small;
 
   }
@@ -120,7 +120,7 @@
       height: 60vh;
   
       @include desktop() {
-        height: 100%;
+        height: 70%;
       }
     }
   

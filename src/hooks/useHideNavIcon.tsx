@@ -6,10 +6,13 @@ export function useHideNavIcon(sectionId: string, ref: Record<string, React.RefO
   const { setHidden } = useContext(NavIconContext);
 
   const inViewSectionId = useOnviewObserver(ref);
-
+console.log(inViewSectionId);
+console.log(sectionId);
   function hideNavIconOnSection() {
     if (inViewSectionId === sectionId) {
       setHidden(true);
+    } else if (inViewSectionId !== 'footer' && inViewSectionId !== 'credits'){
+      setHidden(false)
     }
   }
 

@@ -10,7 +10,7 @@ export interface Destination {
   name: string;
   location: string;
   price: number;
-  avaibility: string[];
+  avaibility?: string[];
   description: string;
   details: DestinationDetails;
   images: string[];

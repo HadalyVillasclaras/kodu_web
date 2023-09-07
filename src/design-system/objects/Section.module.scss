@@ -57,6 +57,7 @@
 
     &--full {
       padding: spacing.$pd--full;
+      min-height: unset;
     }
   }
 

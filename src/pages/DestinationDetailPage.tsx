@@ -1,19 +1,25 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Section } from "../design-system/objects"
-import { DetailHeader } from "../sections/detail/DetailHeader"
-import { DetailInfo } from "../sections/detail/DetailInfo";
-import { Divider, Heading, IconButton } from "../design-system/atoms";
+import { Divider } from "../design-system/atoms";
 import { Destination } from "../core/destination/domain/Destination";
 import { getById } from "../core/destination/application/getById";
 import { Fader } from "../design-system/molecules";
 import { DestinationCheckForm } from "../sections/detail/DestinationCheckForm";
 import { DestinationImages } from "../sections/detail/DestinationImages";
 import { MappedList } from "../design-system/molecules/MappedList";
+import { DestinationMainInfo } from "../sections/detail/DestinationMainInfo";
+import { DestinationNotFound } from "../sections/errors/DestinationNotFound";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
   const { id: destinationId } = useParams();
+
+  const refs = {
+    detImages: useRef(null),
+    detInfo: useRef(null),
+    detNotFound: useRef(null),
+  };
 
   function getCurrentDestination() {
     if (destinationId) {
@@ -21,11 +27,10 @@ export const DestinationDetailPage = () => {
       destination && setCurrentDestination(destination);
     }
   }
-  console.log(currentDestination);
+
   useEffect(() => {
     getCurrentDestination();
   }, []);
-
 
   return (
     <>
@@ -33,29 +38,20 @@ export const DestinationDetailPage = () => {
       {currentDestination
         ?
         <>
-          <Section size='small' customStyle={{ paddingTop: "0rem", gap: "2rem" }}>
+          <Section id="detImages" ref={refs.detImages} size='full' customStyle={{ gap: "2rem" }}>
             <DestinationImages imgs={currentDestination.images} />
-            <DetailHeader destination={currentDestination} />
-            <DetailInfo description={currentDestination?.description} amenities={currentDestination?.details.amenities} />
+            <DestinationMainInfo destination={currentDestination}/>
             <Divider color="green" />
           </Section>
-          <Section size='small' direction="row">
+
+          <Section id="detInfo" ref={refs.detInfo} size='small' direction="row">
             <MappedList color="green" size="l" items={currentDestination?.details.amenities} />
             <DestinationCheckForm destinationId={currentDestination.id.toString()} />
           </Section>
         </>
         :
-        <Section size="big">
-          <Heading as="h4" color="green">Sorry, destination with id "{destinationId}" is not found.</Heading>
-          <a href="/" style={{ marginTop: "1rem" }}>
-            <IconButton
-              text="Go to home page"
-              ariaLabel="Link to home page"
-              icon="arrowLeft"
-              color="brown"
-              size="m"
-            />
-          </a>
+        <Section id="detNotFound" ref={refs.detNotFound} size="big">
+          <DestinationNotFound destinationId={destinationId}/>
         </Section>
       }
     </>

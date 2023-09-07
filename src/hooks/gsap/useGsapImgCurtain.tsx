@@ -18,6 +18,11 @@ export const useGsapImgCurtain = () => {
           if (self.progress === 1) {
             gsap.set(element, { top: '0' }); 
           }
+        },
+        onRefresh: function(self) {
+          if (self.progress === 1) {
+            gsap.set(element, { top: '100%' });
+          }
         }
       },
       top: '0',
