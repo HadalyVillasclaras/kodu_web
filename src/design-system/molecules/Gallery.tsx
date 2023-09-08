@@ -18,6 +18,9 @@ export const Gallery = ({ imgs }: GalleryProps) => {
     setCurrentImg((prevIndex) => (prevIndex - 1 + imgs.length) % imgs.length);
   };
 
+  const handleClose = () => {
+    setIsFullscreen(false)
+  }
   return (
     <>
       <section className={`${styles['gallery']}`}>
@@ -41,13 +44,13 @@ export const Gallery = ({ imgs }: GalleryProps) => {
         </div>
       </section>
       {
-        isFullscreen &&
         <FullScreenImage
           images={imgs}
           currentIndex={currentImg}
           onLeft={handlePrevImage}
           onRight={handleNextImage}
-          onClose={() => setIsFullscreen(false)}
+          onClose={handleClose}
+          isOpen={isFullscreen}
         />
       }
     </>

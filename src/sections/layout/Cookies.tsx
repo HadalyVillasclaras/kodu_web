@@ -53,9 +53,10 @@ export const Cookies = () => {
           We use cookies to improve <br/>the user experience
         </p>
         <div className={styles.cookies__btns}>
-          <Button color="cream" variant="underline" text="I refuse" onClick={handleRefuse} />
-          <Button color="cream" variant="underline" text="It's ok for me" onClick={handleAccept} />
+          <Button color="brown" variant="default" text="I refuse" onClick={handleRefuse} />
+          <Button color="brown" variant="default" text="It's ok" onClick={handleAccept} />
         </div>
+        <p>Read about our Cookies policy <u>here</u></p>
       </section>
     : <></>
   )

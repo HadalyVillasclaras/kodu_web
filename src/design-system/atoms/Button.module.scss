@@ -40,8 +40,15 @@
 
     &--brown {
       @extend .button__default;
-      background-color: colors.$button-tertiary;
-      color: colors.$button-secondary;
+      background-color: colors.$brown;
+      color: colors.$brown;
+
+      &:hover {
+        background-color: colors.$cream;
+        background-size: 100% 0;
+        color: colors.$green;
+        border: 1px solid colors.$green;
+      }
     }
   }
 

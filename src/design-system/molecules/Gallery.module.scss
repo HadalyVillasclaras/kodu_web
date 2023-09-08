@@ -1,4 +1,5 @@
 @import "../settings/breakpoints";
+@import "../settings/mixins/mixins";
   
   .gallery {
     display: grid;
@@ -19,10 +20,18 @@
       display: flex;           
       overflow: hidden;       
       cursor: pointer;
-  
+      position: relative; 
+
+      @include hoverBackgroundOverlay;
+
       img {
         border-radius: 3rem;
         object-fit: cover;     
+        transition: transform 0.9s ease;
+
+        &:hover {
+          transform: scale(1.02);
+        }
       }
     }
 

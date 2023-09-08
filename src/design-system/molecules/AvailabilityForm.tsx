@@ -17,10 +17,9 @@ export const AvailabilityForm = () => {
   const { checkAvailabilityByDestination, checkAvailabilityByQuarter } = useAvailability();
 
   const [choice, setChoice] = useState<'destination' | 'quarter'>('destination');
-console.log(availableDestinations);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+console.log(availableDestinations);
     if (selectedQuarter) {
       const destinations = checkAvailabilityByQuarter(selectedQuarter);
       console.log("Destinations available in", selectedQuarter, ":", destinations);

@@ -15,7 +15,8 @@
   }
 
   &__sect-swipe {
-    padding: spacing.$pd__mb--small;
+    padding: 0 spacing.$pd__mb--small;
     width: 100%;
+    height: 80vh;
   }
 }

@@ -9,11 +9,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 0; 
+  // top: 100%; 
   left: 0; 
   width: 100%;
   height: 100vh;
-  background-color: colors.$bg--green-opacity;
+  background-color: colors.$opacity-green-dark;
   // background-color: colors.$cream;
   z-index: 5;
   padding: spacing.$pd__mb--small;

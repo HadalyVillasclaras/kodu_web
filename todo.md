@@ -1,18 +1,27 @@
 
 ---
 TO DO 
--availability form and flow
--fix: checkform button onsubmit err... (?)
--nav icon on detail page (check)
+-header dropdown
 
+Styles
+-Selection texts
+-hover nav icon, close button fullscreen
+-normalize cursors on buttons / links
+-buttons hover
 
 Refactor
+-header margin not working ok on mb 
+-fix header
 -review header bottom margin 
+-scrollTo0,0 detail page issue. can we reload?
 
 Design
--Decidir position nav icon
 -Contact
 -Detail page
+
+Backlog
+-anchor link not working on deploy
+-Fullscreen on detail slider mb?
 
 New functs:
 -About slider (Horizontal scrolling)
@@ -30,6 +39,15 @@ DONE
 -curtain broke on resize vw
 -not found destination single component. 
 -checkdestination flow 
+-fix: checkform button onsubmit err (type)
+-nav icon on detail page (check)
+
+
+
+8/9
+-Decidir position nav icon
+-availability form and flow
+
 --
 quarterly retreats in sustainable lodges
 collaborative and sustainable retreats

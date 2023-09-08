@@ -8,74 +8,51 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 80vh;
+  height: 100%;
   width: 100%;
-
-  @include mobile() {
-    height: 100%;
-  }
+  gap: 1rem;
 
   &__image-wrapper {
     position: relative;
     height: 100%;
-    overflow: hidden; 
+    overflow: hidden;
     border-radius: border.$radius--mid;
-
-    @include mobile() {
-      min-height: 100%;
-    }
 
     &::after {
       content: '';
       position: absolute;
-      inset: 0; 
-      transform-origin: 50% 100%; 
+      inset: 0;
+      transform-origin: 50% 100%;
       transform: scaleY(0);
-      background-color: colors.$card-brown-hover-dk;  
-      border-radius: border.$radius--mid;
+      background-color: colors.$opacity-brown-dark;
       transition: transform .3s ease-out;
-      z-index: 1; 
     }
 
     &:hover::after {
       @include mobile() {
-        transform: scaleY(1); 
+        transform: scaleY(1);
         transition: transform .4s ease-out;
       }
     }
+
+    // img pagination
+    span {
+      position: absolute;
+      bottom: spacing.$pd__mb--big;
+      right: spacing.$pd__mb--big;
+    }
   }
 
-  &__image {
-    border-radius: border.$radius--mid;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  &__pag-corner {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    color: colors.$cream;
-    border: 1px solid ;
-    padding: 8px 8px 3px 8px;
-    border-radius: 1rem;
-  }
-
-  &__info {
+  &__info-mb {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
-    position: relative;
     text-align: left;
-
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    
     @include mobile() {
-      display: block;
-    }
-
-    p {
-      font-weight: 800;
+      display: none;
     }
   }
 
@@ -86,38 +63,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0; 
+    opacity: 0;
     transition: opacity 0.5s ease-out;
     z-index: 2;
 
     .destination-card__image-wrapper:hover & {
-      opacity: 1; 
+      opacity: 1;
     }
+
     @include mobile() {
       display: block;
     }
 
   }
 }
-
-
-// &::after {
-//   content: '';
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: transparent;  
-//   border-radius: border.$radius-mid;
-//   transition: background-color 0.3s ease;
-//   z-index: 1; 
-// }
-
-// &:hover::after {
-//   background-color: colors.$card-brown-hover; 
-//   @include mobile()  {
-//     background-color: colors.$card-brown-hover-dk; 
-
-//   }
-// }

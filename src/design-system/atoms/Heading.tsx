@@ -1,15 +1,15 @@
-import { ReactNode } from 'react'; // Import CSSProperties
+import { HTMLAttributes, ReactNode } from 'react'; // Import CSSProperties
 import styles from "./Heading.module.scss"; 
 import { Colors } from '../types';
-
+type ExtendedProps = Omit<HTMLAttributes<HTMLElement>, 'color' | 'font' | 'as'>;
 type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4";
   font?: "simple" | "fancy";
   color?: Colors;
   children: ReactNode;
   onClick?: () => void;
-}
-export const Heading = ({ children, as = "h1", color='cream', font = 'simple', onClick }: HeadingProps) => { 
+}& ExtendedProps;
+export const Heading = ({ children, as = "h1", color='cream', font = 'simple', onClick, ...props }: HeadingProps) => { 
   const Tag = as;
 
   let fontClass = `${styles[`heading--${as}`]}`;
@@ -26,6 +26,7 @@ export const Heading = ({ children, as = "h1", color='cream', font = 'simple', o
         color: `var(--${color})`, 
       }}
       onClick={onClick}
+      {...props}
     >
       {children}
     </Tag>

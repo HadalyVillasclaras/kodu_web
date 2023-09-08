@@ -4,6 +4,7 @@ import { Colors } from '../../design-system/types';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import styles from './Header.module.scss';
 import { gsap } from 'gsap';
+import { useLocation } from 'react-router-dom';
 
 type HeaderProps = {
   isDinamic?: boolean;
@@ -14,7 +15,7 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
   const logoMain = useRef<HTMLDivElement>(null!);
   const headerRef = useRef<HTMLDivElement>(null!);
   const [marginBottom, setMarginBottom] = useState<number>(0);
-
+  const location = useLocation();
   const deviceType = useDeviceType();
 
   const animateLogo = (element: HTMLElement | null, triggerElement: HTMLElement | null) => {
@@ -34,7 +35,6 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
       duration: 20,
     });
   }
-
   useEffect(() => {
     if (isDinamic) {
       const updateMarginBottom = () => {
@@ -60,7 +60,7 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
       }, headerRef);
       return () => ctx.revert();
     }
-  }, [deviceType]);
+  }, [location]);
 
   return (
     <header

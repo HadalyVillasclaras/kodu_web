@@ -44,21 +44,34 @@ export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMen
     : label;
 
   return (
-    <div ref={ref} className={styles["dropdown"]}>
+    <div ref={ref} className={styles["dropdown"]} aria-multiselectable="false" aria-labelledby='dropdown-label'>
       <button 
-      type="button"
+        type="button"
         onClick={() => setIsOpen(!isOpen)} 
         className={`${styles["dropdown__button"]} ${styles[`dropdown__button--${color}`]}`} 
         aria-haspopup="listbox"
-        aria-expanded={isOpen}>
-        {displayedLabel}
+        aria-expanded={isOpen}
+        aria-owns="dropdown-listbox"
+      >
+        <span>{displayedLabel}</span><span>+</span>
+         
       </button>
       {isOpen && (
-        <ul className={`${styles["dropdown__list"]} ${isOpen ? styles["dropdown__list-open"] : ""}`} role="listbox">
+        <ul 
+          className={`${styles["dropdown__list"]} ${isOpen ? styles["dropdown__list-open"] : ""}`} 
+          role="listbox"  
+          id="dropdown-listbox" 
+        >
         {data.map((item, index) => (
-          <li key={index} onClick={() => handleOptionClick(item.id)} className={styles["dropdown__option"]} role="option" tabIndex={0}>
-            {item.label}
-          </li>
+           <li key={index} role="option" >
+           <button 
+             onClick={() => handleOptionClick(item.id)} 
+             className={styles["dropdown__option"]} tabIndex={isOpen ? 0 : -1}
+             aria-selected={selectedValue === item.id}
+           >
+             {item.label}
+           </button>
+         </li>
         ))}
       </ul>
       )}

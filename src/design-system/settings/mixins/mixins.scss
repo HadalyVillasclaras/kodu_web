@@ -1,3 +1,5 @@
+@use "../colors";
+
 @mixin title($arg1, $arg2, $arg3: 600) {
   color: $arg1;
   font-size: $arg2;
@@ -7,5 +9,24 @@
 @mixin mobile() {
   @media screen and (max-width: 480px) {
     @content;
+  }
+}
+
+@mixin hoverBackgroundOverlay {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: colors.$opacity-brown-light;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 1rem;
+  }
+
+  &:hover::after {
+    opacity: 1;
   }
 }

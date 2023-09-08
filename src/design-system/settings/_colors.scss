@@ -14,8 +14,9 @@ $bg--cream: $cream;
 $bg--green: $green;
 $bg--brown: $brown;
 
-$bg--green-opacity: rgba(23, 27, 14, 0.979);
-
+$opacity-brown-light: rgba(126, 52, 24, 0.3);
+$opacity-brown-dark: rgba(126, 52, 24, 0.8);
+$opacity-green-dark: rgba(23, 27, 14, 0.98);
 
 $text-primary: $green;
 $text-secondary: $cream;
@@ -25,8 +26,7 @@ $button-primary: $green;
 $button-secondary: $cream;
 $button-tertiary: $brown;
 
-$card-brown-hover: rgba(126, 52, 24, 0.4);
-$card-brown-hover-dk: rgba(126, 52, 24, 0.8);
+
 
 
 @mixin bg-color(){
@@ -54,6 +54,20 @@ $card-brown-hover-dk: rgba(126, 52, 24, 0.8);
 
   &--brown {
     color: $brown;
+  }
+}
+
+@mixin borderColor(){
+  &--green {
+    border-color: $green;
+  }
+
+  &--cream {
+    border-color: $cream;
+  }
+
+  &--brown {
+    border-color: $brown;
   }
 }
 

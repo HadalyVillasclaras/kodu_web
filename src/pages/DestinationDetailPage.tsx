@@ -10,14 +10,14 @@ import { DestinationImages } from "../sections/detail/DestinationImages";
 import { MappedList } from "../design-system/molecules/MappedList";
 import { DestinationMainInfo } from "../sections/detail/DestinationMainInfo";
 import { DestinationNotFound } from "../sections/errors/DestinationNotFound";
+import { DestinationCheckContainer } from "../sections/detail/DestinationCheckContainer";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
   const { id: destinationId } = useParams();
-
   const refs = {
-    detImages: useRef(null),
-    detInfo: useRef(null),
+    detMain: useRef(null),
+    detCheck: useRef(null),
     detNotFound: useRef(null),
   };
 
@@ -30,7 +30,8 @@ export const DestinationDetailPage = () => {
 
   useEffect(() => {
     getCurrentDestination();
-  }, []);
+    window.scrollTo(0, 0);
+  }, [destinationId]);
 
   return (
     <>
@@ -38,15 +39,14 @@ export const DestinationDetailPage = () => {
       {currentDestination
         ?
         <>
-          <Section id="detImages" ref={refs.detImages} size='full' customStyle={{ gap: "2rem" }}>
+          <Section id="detMain" ref={refs.detMain} size='small' customStyle={{ paddingTop: "0", gap: "2rem" }}>
             <DestinationImages imgs={currentDestination.images} />
             <DestinationMainInfo destination={currentDestination}/>
-            <Divider color="green" />
+            <Divider color="green" customStyle={{marginTop: "2rem"}} />
           </Section>
 
-          <Section id="detInfo" ref={refs.detInfo} size='small' direction="row">
-            <MappedList color="green" size="l" items={currentDestination?.details.amenities} />
-            <DestinationCheckForm destinationId={currentDestination.id.toString()} />
+          <Section id="detCheck" ref={refs.detCheck} size='small' direction="row">
+            <DestinationCheckContainer destination={currentDestination}/>
           </Section>
         </>
         :

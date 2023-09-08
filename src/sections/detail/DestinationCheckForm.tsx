@@ -35,36 +35,42 @@ export const DestinationCheckForm = ({ destinationId }: Props) => {
     console.log('request?: ' + hasRequested);
   };
 
+  const renderButtonOrLoader = () => {
+    if (isAvailable) return <Button onClick={handleRequestClick} text="Request for stay" />;
+    return <Button type='submit' text='Check' />;
+  };
+
   return (
-    <section className={`${styles['avblty-form']}`}>
-      <Heading as="h3" color="brown">Check availability</Heading>
-      <p>Please, select the year period that better fits with your needs</p>
-      <form onSubmit={handleSubmit}>
+
+    <form className={`${styles['avblty-form']}`} onSubmit={handleSubmit} aria-labelledby="form-title">
+      <Heading id='form-title' as="h3" color="brown">Check availability</Heading>
+      <fieldset >
+        <label id="dropdown-label">Please, select the year period that better fits with your needs</label>
         <DropdownMenu
           label="Select a quarter"
-          onSelectChange={(selected) => setSelectedQuarter(selected)}
+          onSelectChange={(selected) => {
+            setSelectedQuarter(selected);
+            setIsAvailable(null);  // Reset the isAvailable state
+          }}
           color="green"
           data={allQuarters as DropdownRenderData[]}
         />
-        <br />
-        {!loading && !hasRequested && (
-          <div>
-            {isAvailable ? (
-              <Button onClick={handleRequestClick} text="Request for stay" />
-            ) : (
-              <Button type='submit' text='Check' />
-            )}
-          </div>
-        )}
-        {loading && <Loader />}
-
-        {isAvailable != null && (
-          <p>
-            {isAvailable ? "The selected quarter is available!" : "Sorry, the selected quarter is not available."}
+      </fieldset>
+      <section>
+        {renderButtonOrLoader()}
+      </section>
+      {loading && 
+      <section className={`${styles['avblty-form__loader']}`}>
+        <Loader />
+      </section>
+      }
+      {isAvailable != null && !loading &&(
+        <section>
+          <p className={`${styles['avblty-form__feedback']}`}>
+            {isAvailable ? "The selected quarter is available!" : "Sorry, the selected quarter is not available. Try with another quarter."}
           </p>
-        )}
-      </form>
-    </section>
-
+        </section>
+      )}
+    </form>
   )
 }

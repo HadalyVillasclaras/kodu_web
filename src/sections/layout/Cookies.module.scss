@@ -6,9 +6,9 @@
   position: fixed;
   z-index: 1;
   padding: spacing.$s;
-  background-color: colors.$bg--brown;
-  color: colors.$text-primary;
-  border: 1px solid colors.$green;
+  background-color: colors.$green;
+  color: colors.$cream;
+  border: 1px solid colors.$brown;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -18,23 +18,22 @@
   max-width: calc(100% - 1rem); 
 
   @include mobile() {
-    flex-direction: row;
-    width: 650px;
-    padding: spacing.$s spacing.$m;
-    left: 50%; 
-    transform: translateX(-50%); 
+    width: 300px;
+    left: unset;
+    transform: unset; 
+    right: spacing.$l;
+    // gap: 2.6rem;
+    padding:spacing.$m;
   }
 
   &__text {
     font-family: "Eklektyk";
-    font-size: 2rem;
-    line-height: 2.2rem;
-
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     @include mobile() {
-      font-size: 2.4rem;
-      line-height: 2.4rem;
+      line-height: 2.8rem;
+      margin-bottom: 3rem;
     }
-
   }
 
   &__btns {
@@ -51,7 +50,12 @@
 
     @include mobile() {
       flex-wrap: nowrap;
-      position: absolute;
+      // position: absolute;
+    }
+    + p {
+      font-size: 0.8rem;
+      color: colors.$brown;
+      text-align: right;
     }
   }
 

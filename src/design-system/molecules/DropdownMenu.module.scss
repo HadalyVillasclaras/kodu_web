@@ -7,15 +7,17 @@
   position: relative;
   
   &__button {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     width: 100%;
-    line-height: 1.5rem;
-    text-align: left;
-    padding: 0 0.8rem;
-  
+    padding: 0.5rem 0.8rem 0.4rem 0.8rem;
+    font-weight: 500;
+
+    border: 1px solid;
+    
     @include tablet() {
-      line-height: 2rem;
-      min-width: 200px;
     }
 
     &--cream {
@@ -25,14 +27,12 @@
     }
   
     &--green {
-      border: 1px solid colors.$green;
-      border-right: 1px solid colors.$green;
+      border-color: colors.$green;
       color: colors.$green;
     }
   
     &--brown {
-      border-bottom: 1px solid colors.$brown;
-      border-right: 1px solid colors.$brown;
+      border-color: colors.$brown;
       color: colors.$brown;
     }
   }
@@ -40,15 +40,23 @@
   &__list {
     position: absolute;
     min-width: 100%;
-    border: 1px solid colors.$green;
     margin-top: 0.3rem;
-    z-index: 10;
-    color: colors.$text-secondary;
+    z-index: 2;
+    height: auto;
     background: colors.$green;
   }
   
   &__option {
+    text-align: left;
+    width: 100%;
+    padding-left: 10px;
     padding: 10px;
-    cursor: pointer;
+    color: colors.$cream;
+    transition: padding-left .5s ease;
+
+    &:hover {
+    padding-left: 20px;
+    transition: padding-left .5s ease;
+    }
   }
 }

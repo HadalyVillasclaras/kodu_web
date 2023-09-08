@@ -9,6 +9,8 @@ export { Frieze } from "./Frieze";
 export { Divider } from "./Divider";
 export { Curtain } from "./Curtain";
 export { Loader } from "./Loader";
+export { Pagination } from "./Pagination";
+
 
 
 

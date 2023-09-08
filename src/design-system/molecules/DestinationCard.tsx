@@ -1,5 +1,4 @@
-import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
-import { Heading } from "../atoms";
+import { Heading, Pagination } from "../atoms";
 import styles from "./DestinationCard.module.scss";
 
 export type DestinationCardData = {
@@ -21,8 +20,6 @@ type DestinationCardProps = {
 const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH;
 
 export const DestinationCard = ({ data, paginationData }: DestinationCardProps) => {
-  const deviceType = useDeviceType();
-
   let destinationData;
   if (data) {
     destinationData = {
@@ -34,37 +31,35 @@ export const DestinationCard = ({ data, paginationData }: DestinationCardProps) 
   }
 
   const pagAtImgCorner = paginationData && !destinationData?.destinationName;
-  const destinationUrl = destinationData?.id ? `${VITE_BASE_PATH}/#/destination/${destinationData.id}` : null;
+  const destinationUrl = destinationData?.id ? `${VITE_BASE_PATH}#/destination/${destinationData.id}` : null;
+  const destinationImgPath = VITE_BASE_PATH + destinationData?.src;
 
   return (
     <>
       {
-        destinationData
-        ?
+        destinationData &&
         <article className={styles['destination-card']}>
           <a 
             href={destinationUrl ? destinationUrl : '#'} 
             className={styles['destination-card__image-wrapper']}
-
-            onClick={(e) => !destinationUrl && e.preventDefault()}
-            >
-            <img className={styles['destination-card__image']} src={`${VITE_BASE_PATH}${destinationData.src}`} alt={destinationData.alt} />
-            <span className={styles['destination-card__info-dk']}>
+            onClick={(e) => {!destinationUrl && e.preventDefault();}}
+          >
+            <img className={styles['destination-card__image']} src={destinationImgPath} alt={destinationData.alt} />
+            <div className={styles['destination-card__info-dk']}>
               <Heading as="h4" color="cream">{destinationData.destinationName}</Heading>
-            </span>
+            </div>
             {
               pagAtImgCorner &&
-              <span className={styles['destination-card__pag-corner']}>{paginationData.currentIndex} / {paginationData.totalSlides}</span>
+              <Pagination color='cream' current={paginationData.currentIndex} total={paginationData.totalSlides}/>
             }
           </a>
           {
-            deviceType === DeviceType.MOBILE && !pagAtImgCorner &&
-            <section className={styles['destination-card__info']}>
+            !pagAtImgCorner &&
+            <section className={styles['destination-card__info-mb']}>
               {
                 destinationData.destinationName &&
                 <a
                   href={destinationUrl ? destinationUrl : '#'} 
-                  className={styles['destination-card__image-wrapper']}
                   onClick={(e) => !destinationUrl && e.preventDefault()}
                 >
                   <Heading as="h4" color="green">{destinationData.destinationName}</Heading>
@@ -72,14 +67,11 @@ export const DestinationCard = ({ data, paginationData }: DestinationCardProps) 
               }
               {
                 paginationData  &&
-                <p>
-                  {paginationData.currentIndex} / {paginationData.totalSlides}
-                </p>
+                <Pagination current={paginationData.currentIndex} total={paginationData.totalSlides} color='brown'/>
               }
             </section>
           }
         </article>
-        : <span>no destination data</span>
       }
     </>
   )

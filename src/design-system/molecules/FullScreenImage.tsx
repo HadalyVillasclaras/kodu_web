@@ -1,18 +1,57 @@
-import { IconButton } from '../atoms';
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import { IconButton, Pagination } from '../atoms';
 import { DinamicControlButtons } from './DinamicControlButtons';
 import styles from "./FullScreenImage.module.scss";
+import { gsap } from 'gsap';
 
 type FullScreenImageProps = {
   images: string[];
   currentIndex: number;
-  onClose: () => void;
+  isOpen: boolean;
   onLeft: () => void;
   onRight: () => void;
+  onClose: () => void;
+
 };
 
-export const FullScreenImage = ({ images, currentIndex, onLeft, onRight, onClose }: FullScreenImageProps) => {
+export const FullScreenImage = ({ images, currentIndex, isOpen, onClose, onLeft, onRight }: FullScreenImageProps) => {
+  const fullScreenRef = useRef(null);
+  const fsTween = useRef<gsap.core.Tween | null>(null);
+
+  useLayoutEffect(() => {
+    if (!fsTween.current) {
+      fsTween.current = gsap.fromTo(fullScreenRef.current,
+        {
+          top: '100%', 
+          borderTopRightRadius: '5rem',
+          borderTopLeftRadius: '5rem',
+        },
+        {
+          top: '0%',
+          borderTopRightRadius: '0px',
+          borderTopLeftRadius: '0px',
+          ease: 'ease',
+          duration: .5,
+          paused: true
+        }
+      );
+    }
+
+    return () => {
+      fsTween.current?.kill();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      fsTween.current?.play();
+    } else {
+      fsTween.current?.reverse();
+    }
+  }, [isOpen]);
+
   return (
-    <section className={styles.fullscreen}>
+    <section ref={fullScreenRef} className={styles.fullscreen}>
       <span className={styles.fullscreen__btn}>
         <IconButton
           size='m'
@@ -33,11 +72,10 @@ export const FullScreenImage = ({ images, currentIndex, onLeft, onRight, onClose
           </section>
         </DinamicControlButtons>
       </div>
-      <div className={styles.fullscreen__pagination}>
+      <Pagination current={currentIndex + 1} total={images.length} color='cream'/>
+      {/* <div className={styles.fullscreen__pagination}>
         {currentIndex + 1}/{images.length}
-      </div>
+      </div> */}
     </section>
   );
 };
-
-{/* <ArrowsNav color='brown' onLeft={onLeft} onRight={onRight} /> */ }
