@@ -1,4 +1,4 @@
-import { Logo, Frieze } from '../../design-system/atoms';
+import {Logo } from '../../design-system/atoms';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Colors } from '../../design-system/types';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
@@ -68,7 +68,6 @@ export const Header = ({ bgColor = null, isDinamic = false }: HeaderProps) => {
       ref={headerRef}
       className={`${styles[`header`]} ${bgColor ? styles[`header__bg--${bgColor}`] : ""}`}
     >
-      <Frieze />
       <div className={styles["header__flexnav"]}>
         {
           isDinamic

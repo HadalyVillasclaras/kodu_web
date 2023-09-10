@@ -1,0 +1,62 @@
+@use "../../design-system/settings/colors";
+@use "../../design-system/settings/spacing";
+
+@import "../../design-system/settings/breakpoints";
+
+.dest-x__container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  padding: 2rem spacing.$pd__dk--small;
+  @include mobile() {
+
+  }
+
+  @include tablet() {
+    flex-direction: row;
+    
+  }
+
+}
+
+.dest-info {
+  position: relative;
+  width: 100%;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet() {
+    width: 50%;
+  }
+
+  @include desktop() {
+    width: 60%;
+  }
+
+  &__capacity {
+    display: flex;
+    gap: 2rem;
+    font-weight: 600;
+  }
+
+  &__description {
+    line-height: 1.7rem;
+    color: colors.$green;
+  }
+}
+
+.dest-form-wrapper {
+  width: 100%;
+
+  @include tablet() {
+    width: 50%;
+  }
+
+  @include desktop() {
+    width: 30%;
+  }
+}

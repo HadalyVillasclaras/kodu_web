@@ -6,7 +6,7 @@ import { Button, Heading, Loader } from '../../design-system/atoms'
 import styles from "./DestinationCheckForm.module.scss";
 
 type Props = {
-  destinationId: string
+  destinationId?: string
 }
 
 export const DestinationCheckForm = ({ destinationId }: Props) => {
@@ -43,14 +43,14 @@ export const DestinationCheckForm = ({ destinationId }: Props) => {
   return (
 
     <form className={`${styles['avblty-form']}`} onSubmit={handleSubmit} aria-labelledby="form-title">
-      <Heading id='form-title' as="h3" color="brown">Check availability</Heading>
+      <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
       <fieldset >
         <label id="dropdown-label">Please, select the year period that better fits with your needs</label>
         <DropdownMenu
           label="Select a quarter"
           onSelectChange={(selected) => {
             setSelectedQuarter(selected);
-            setIsAvailable(null);  // Reset the isAvailable state
+            setIsAvailable(null);  
           }}
           color="green"
           data={allQuarters as DropdownRenderData[]}

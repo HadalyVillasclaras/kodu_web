@@ -1,6 +1,7 @@
 import { Outlet, useMatches } from 'react-router-dom'
 import { Header, Navbar, Footer, Credits } from "../sections/layout" 
 import { Cookies } from '../sections/layout/Cookies'
+import { Frieze } from '../sections/layout/Frieze';
 
 export const KoduTemplate = () => {
   const routesData = useMatches();
@@ -9,6 +10,7 @@ export const KoduTemplate = () => {
 
   return (
     <>
+      <Frieze/>
       <Header isDinamic={isDestinationPage}/>
       <Navbar/>
       <main>

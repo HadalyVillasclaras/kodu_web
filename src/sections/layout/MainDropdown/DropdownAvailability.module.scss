@@ -1,0 +1,29 @@
+@use "../../../design-system/settings/colors";
+@use "../../../design-system/settings/border";
+@use "../../../design-system/settings/spacing";
+@import "../../../design-system/settings/colors";
+@import "../../../design-system/settings/breakpoints";
+
+.dd-avblty {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+
+  @include tablet() {
+    flex-direction: row;
+  }
+
+  &__destination {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @include tablet() {
+      gap: 3rem;
+    }
+  }
+}

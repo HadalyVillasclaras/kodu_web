@@ -10,19 +10,29 @@ type DropdownMenuProps = {
   label: string;
   color: Colors;
   data: DropdownRenderData[]
-  onSelectChange?: (selectedOption: string) => void;
+  onSelectChange?: (selectedOption: DropdownRenderData) => void;
 };
 
 export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<string | null>(null);
+  const [selectedValue, setSelectedValue] = useState<DropdownRenderData | null>(null);
+  const [displayedLabel, setDisplayedLabel] = useState<string>();
   const ref = useRef<HTMLDivElement>(null);
 
-  const handleOptionClick = (id: string) => {
-    setSelectedValue(id);
+  const handleOptionClick = (id: string, label: string) => {
+    setSelectedValue({
+      id: id,
+      label: label
+    });
+
+    setDisplayedLabel(label);
+
     setIsOpen(false);
     if (onSelectChange) {
-      onSelectChange(id);
+      onSelectChange({ 
+        id: id,
+        label: label
+    });
     }
   };
 
@@ -33,15 +43,16 @@ export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMen
   };
 
   useEffect(() => {
+    setDisplayedLabel(label)
+  }, [label])
+
+  useEffect(() => {
     document.addEventListener("mousedown", closeOnClickOutside);
     return () => {
       document.removeEventListener("mousedown", closeOnClickOutside);
     };
+   
   }, []);
-
-  const displayedLabel = selectedValue 
-    ? data.find(q => q.id === selectedValue)?.label
-    : label;
 
   return (
     <div ref={ref} className={styles["dropdown"]} aria-multiselectable="false" aria-labelledby='dropdown-label'>
@@ -65,9 +76,9 @@ export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMen
         {data.map((item, index) => (
            <li key={index} role="option" >
            <button 
-             onClick={() => handleOptionClick(item.id)} 
+             onClick={() => handleOptionClick(item.id, item.label)} 
              className={styles["dropdown__option"]} tabIndex={isOpen ? 0 : -1}
-             aria-selected={selectedValue === item.id}
+             aria-selected={selectedValue?.id === item.id}
            >
              {item.label}
            </button>

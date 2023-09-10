@@ -1,10 +1,16 @@
 
 ---
 TO DO 
--header dropdown
+-header dropdown (open/close rare behaviour) kill
+-render response of check availability form
+-dropdown close button logic. (quita top)
+
+Responsive
+avblty dropdown
+
 
 Styles
--Selection texts
+-Selection texts (logic based on section)
 -hover nav icon, close button fullscreen
 -normalize cursors on buttons / links
 -buttons hover
@@ -16,8 +22,7 @@ Refactor
 -scrollTo0,0 detail page issue. can we reload?
 
 Design
--Contact
--Detail page
+-Form after avaibility
 
 Backlog
 -anchor link not working on deploy
@@ -42,12 +47,14 @@ DONE
 -fix: checkform button onsubmit err (type)
 -nav icon on detail page (check)
 
-
-
 8/9
 -Decidir position nav icon
 -availability form and flow
+-check avaibility dropdown (design)
+-Detail page(design)
 
+10/9
+Design: contact
 --
 quarterly retreats in sustainable lodges
 collaborative and sustainable retreats

@@ -1,0 +1,24 @@
+@use "../../../design-system/settings/colors";
+@use "../../../design-system/settings/border";
+@use "../../../design-system/settings/spacing";
+@import "../../../design-system/settings/colors";
+@import "../../../design-system/settings/breakpoints";
+
+.dd-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    @include tablet() {
+      flex-direction: row;
+    }
+
+    &__destination {
+
+      @include tablet() {
+      }
+    }
+}
