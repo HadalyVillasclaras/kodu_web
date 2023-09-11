@@ -1,33 +1,32 @@
-import styles from './DropdownSection.module.scss';
 import { ReactNode, useRef, useLayoutEffect, forwardRef, useState, useImperativeHandle } from 'react';
-import { gsap } from 'gsap';
 import { Colors } from '../types';
-import { Heading } from '../atoms';
+import { Heading, IconButton } from '../atoms';
+import styles from './DropdownMain.module.scss';
+import { gsap } from 'gsap';
 
 type Props = {
   children: ReactNode;
   customStyle?: React.CSSProperties;
   color?: Colors;
   title: string;
-  // isOpen: boolean;
 }
 
-type DropdownRef = {
-  toggleMenu: () => void;
+export type DropdownRef = {
+  openDropdown: () => void;
 };
 
-export const DropdownSection = forwardRef<DropdownRef, Props>(({ title, color = 'brown', children }, parentRef) => {
+export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'brown', children }, parentRef) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const menuTween = useRef<gsap.core.Tween | null>(null);
+  const dropdownTween = useRef<gsap.core.Tween | null>(null);
 
   useImperativeHandle(parentRef, () => {
-    return { toggleMenu }
+    return { openDropdown }
   });
 
   useLayoutEffect(() => {
-    if (!menuTween.current) {
-      menuTween.current = gsap.to(dropdownRef.current, {
+    if (!dropdownTween.current) {
+      dropdownTween.current = gsap.to(dropdownRef.current, {
         y: '0%',
         borderBottomLeftRadius: '35px',
         borderBottomRightRadius: '35px',
@@ -36,22 +35,24 @@ export const DropdownSection = forwardRef<DropdownRef, Props>(({ title, color = 
       });
     }
     return () => {
-      menuTween.current?.kill();
+      dropdownTween.current?.kill();
     };
   }, []);
 
-  const toggleMenu = () => {
+
+  const openDropdown = () => {
     if (!isOpen) {
-      console.log('play');
-      menuTween.current?.play();
-    } else {
-      console.log('reverse');
-      menuTween.current?.reverse();
+      dropdownTween.current?.play();
     }
-    setIsOpen(!isOpen)
+    setIsOpen(true);
   }
 
-
+  const closeDropdown = () => {
+    if (isOpen) {
+      dropdownTween.current?.reverse();
+    }
+    setIsOpen(false);
+  }
 
   return (
     <div
@@ -61,10 +62,11 @@ export const DropdownSection = forwardRef<DropdownRef, Props>(({ title, color = 
     >
       <section>
         <header>
-          <Heading as='h1' font='fancy'>{title}</Heading>
+          {/* <Heading as='h1' font='fancy'>{title}</Heading> */}
         </header>
         {children}
       </section>
+      <IconButton icon='x' size='l' color='cream' onClick={closeDropdown} ariaLabel='Close dropdown'/>
     </div>
   )
 });

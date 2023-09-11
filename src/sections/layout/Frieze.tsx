@@ -1,13 +1,12 @@
 import { Colors } from '../../design-system/types'
+import { useState, useRef } from 'react';
+import { Button } from '../../design-system/atoms';
+import { DropdownMain, DropdownRef } from '../../design-system/molecules/DropdownMain';
+import { AvailabilityDdSection } from './MainDropdownSections/AvailabilityDdSection';
+import { ContactDdSection } from './MainDropdownSections/ContactDdSection';
+import { AvailabilityFormPicker } from '../../design-system/molecules/AvailabilityForms/AvailabilityFormPicker';
 import styles from './Frieze.module.scss';
-import { useState, useRef, useLayoutEffect } from 'react';
-import { gsap } from 'gsap';
-import { AvailabilityForm } from '../../design-system/molecules/AvailabilityForm';
-import { Button, Heading } from '../../design-system/atoms';
-import { FormPicker } from '../../design-system/molecules/AvailabilityForms/FormPicker';
-import { DropdownSection } from '../../design-system/molecules/DropdownSection';
-import { DropdownContact } from './MainDropdown/DropdownContact';
-import { DropdownAvailability } from './MainDropdown/DropdownAvailability';
+
 type Props = {
   color?: Colors;
 }
@@ -16,17 +15,17 @@ export const Frieze = ({ color = "brown" }: Props) => {
   const [choice, setChoice] = useState<'destination' | 'quarter'>('destination');
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownType, setDropdownType] = useState<'availability' | 'contact'>()
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<DropdownRef>(null);
 
   function handleAvlbtyBtn() {
     setIsOpen(!isOpen);
-    dropdownRef.current?.toggleMenu();
+    dropdownRef.current?.openDropdown();
     setDropdownType('availability');
   }
 
   function handleContactBtn() {
     setIsOpen(!isOpen);
-    dropdownRef.current?.toggleMenu();
+    dropdownRef.current?.openDropdown();
     setDropdownType('contact');
   }
 
@@ -36,16 +35,17 @@ export const Frieze = ({ color = "brown" }: Props) => {
         <Button color='cream' variant='underline' text='Contact' onClick={handleContactBtn} />
         <Button color='cream' variant='underline' text='Availability' onClick={handleAvlbtyBtn} />
       </div>
-
       {
         dropdownType === 'contact'
-          ? <DropdownSection title='Contact' color='green' ref={dropdownRef} >
-            <DropdownContact />
-          </DropdownSection>
-          : <DropdownSection title='Check availability' color='brown' ref={dropdownRef} >
-            <FormPicker currentChoice={choice} setChoice={setChoice} />
-            <DropdownAvailability choice={choice}/>
-          </DropdownSection>
+          ?
+          <DropdownMain title='Contact' color='green' ref={dropdownRef}>
+            <ContactDdSection />
+          </DropdownMain>
+          :
+          <DropdownMain title='Check availability' color='brown' ref={dropdownRef} >
+            <AvailabilityFormPicker currentChoice={choice} setChoice={setChoice} />
+            <AvailabilityDdSection formChoice={choice} />
+          </DropdownMain>
       }
     </>
   )

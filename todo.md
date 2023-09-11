@@ -1,19 +1,13 @@
 
 ---
 TO DO 
--header dropdown (open/close rare behaviour) kill
--render response of check availability form
--dropdown close button logic. (quita top)
-
-Responsive
-avblty dropdown
-
+-dropdown (quita top + scroll?)
+-form response
 
 Styles
 -Selection texts (logic based on section)
--hover nav icon, close button fullscreen
 -normalize cursors on buttons / links
--buttons hover
+-buttons hover (nav icon, close button fullscreen etc)
 
 Refactor
 -header margin not working ok on mb 
@@ -55,6 +49,14 @@ DONE
 
 10/9
 Design: contact
+-avblty dropdown responsive
+
+11/9
+-header dropdown (open/close rare behaviour) kill -- https://greensock.com/forums/topic/23982-toggle-width-with-play-and-reverse/
+-dropdown close button logic.
+-render response of check availability form
+
+
 --
 quarterly retreats in sustainable lodges
 collaborative and sustainable retreats

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from 'react';
 import { Section } from "../design-system/objects"
 import { Destination } from "../core/destination/domain/Destination";
-import { getById } from "../core/destination/application/getById";
+import { getDestinationById } from "../core/destination/application/getDestinationById";
 import { Fader } from "../design-system/molecules";
 import { DestinationImages } from "../sections/detail/DestinationImages";
 import { DestinationMainInfo } from "../sections/detail/DestinationMainInfo";
@@ -20,7 +20,7 @@ export const DestinationDetailPage = () => {
 
   function getCurrentDestination() {
     if (destinationId) {
-      const destination = getById(destinationId)
+      const destination = getDestinationById(destinationId)
       destination && setCurrentDestination(destination);
     }
   }

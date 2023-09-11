@@ -1,11 +1,11 @@
-import styles from './FormPicker.module.scss';
+import styles from './AvailabilityFormPicker.module.scss';
 
-type FormPickerProps = {
+type AvailabilityFormPickerProps = {
   currentChoice: 'destination' | 'quarter';
   setChoice: (choice: 'destination' | 'quarter') => void;
 };
 
-export const FormPicker = ({currentChoice, setChoice}: FormPickerProps) => {
+export const AvailabilityFormPicker = ({currentChoice, setChoice}: AvailabilityFormPickerProps) => {
   return (
     <div className={`${styles[`avlbty__form-picker`]}`}>
       <label>

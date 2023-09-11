@@ -1,7 +1,7 @@
 export { ShowMoreText } from "./ShowMoreText";
 export { FullScreenImage } from "./FullScreenImage";
 export { Fader } from "./Fader";
-export { DropdownMenu } from "./DropdownMenu";
+export { DropdownList } from "./DropdownList";
 export { DestinationCard } from "./DestinationCard";
 export { Breadcrumbs } from "./Breadcrumbs";
 export { AboutUsSlider } from "./AboutUsSlider";

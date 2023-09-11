@@ -1,6 +1,7 @@
-import { HTMLAttributes, ReactNode } from 'react'; // Import CSSProperties
+import { HTMLAttributes, ReactNode } from 'react'; 
 import styles from "./Heading.module.scss"; 
 import { Colors } from '../types';
+
 type ExtendedProps = Omit<HTMLAttributes<HTMLElement>, 'color' | 'font' | 'as'>;
 type HeadingProps = {
   as?: "h1" | "h2" | "h3" | "h4";
@@ -9,6 +10,7 @@ type HeadingProps = {
   children: ReactNode;
   onClick?: () => void;
 }& ExtendedProps;
+
 export const Heading = ({ children, as = "h1", color='cream', font = 'simple', onClick, ...props }: HeadingProps) => { 
   const Tag = as;
 

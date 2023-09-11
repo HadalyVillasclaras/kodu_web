@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAvailability } from '../../hooks/useAvailability'
 import allQuarters from '../../core/data/AvailabilityQuarters.json'
-import { DropdownRenderData, DropdownMenu } from '../../design-system/molecules/DropdownMenu'
+import { DropdownRenderData, DropdownList } from '../../design-system/molecules/DropdownList'
 import { Button, Heading, Loader } from '../../design-system/atoms'
 import styles from "./DestinationCheckForm.module.scss";
 
@@ -46,7 +46,7 @@ export const DestinationCheckForm = ({ destinationId }: Props) => {
       <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
       <fieldset >
         <label id="dropdown-label">Please, select the year period that better fits with your needs</label>
-        <DropdownMenu
+        <DropdownList
           label="Select a quarter"
           onSelectChange={(selected) => {
             setSelectedQuarter(selected);

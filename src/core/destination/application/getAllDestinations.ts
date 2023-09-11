@@ -1,6 +1,6 @@
 import destinations from "../../data/Destinations.json";
 
-export function getAll() {
+export function getAllDestinations() {
   try {
     if (destinations && destinations.length > 0) {
       return destinations;

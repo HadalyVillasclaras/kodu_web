@@ -31,7 +31,8 @@ $button-tertiary: $brown;
 
 @mixin bg-color(){
   &--green {
-    background-color: $green;
+    // background-color: $green;
+    background-color: rgb(45, 43, 48);
   }
 
   &--cream {
@@ -39,7 +40,8 @@ $button-tertiary: $brown;
   }
 
   &--brown {
-    background-color: $brown;
+    // background-color: $brown;
+    background-color: rgb(45, 43, 48);
   }
 }
 

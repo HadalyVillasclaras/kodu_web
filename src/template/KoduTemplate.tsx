@@ -5,8 +5,7 @@ import { Frieze } from '../sections/layout/Frieze';
 
 export const KoduTemplate = () => {
   const routesData = useMatches();
-  const isDestinationPage = routesData
-  .some((route) => (route?.id === 'home'));
+  const isDestinationPage = routesData.some((route) => (route?.id === 'home'));
 
   return (
     <>

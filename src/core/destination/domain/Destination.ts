@@ -1,3 +1,5 @@
+import { Quarter } from "../../common/quarters/domain/Quarter";
+
 export interface DestinationDetails {
   persons?: number;
   beds?: number;
@@ -10,7 +12,7 @@ export interface Destination {
   name: string;
   location: string;
   price: number;
-  avaibility?: string[];
+  availability?: string[] | Quarter[];
   description: string;
   details: DestinationDetails;
   images: string[];

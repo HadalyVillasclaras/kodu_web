@@ -1,19 +1,20 @@
 import { useState, useRef, useEffect } from 'react';
-import styles from './DropdownMenu.module.scss';
+import styles from './DropdownList.module.scss';
 import { Colors } from '../types';
 
 export type DropdownRenderData = {
   id: string,
   label: string
 }
-type DropdownMenuProps = {
+type DropdownListProps = {
   label: string;
   color: Colors;
   data: DropdownRenderData[]
   onSelectChange?: (selectedOption: DropdownRenderData) => void;
+  onHoverOption?: (destinationId: string) => void;
 };
 
-export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMenuProps) => {
+export const DropdownList = ({ label, onSelectChange, onHoverOption, color, data }: DropdownListProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<DropdownRenderData | null>(null);
   const [displayedLabel, setDisplayedLabel] = useState<string>();
@@ -26,8 +27,8 @@ export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMen
     });
 
     setDisplayedLabel(label);
-
     setIsOpen(false);
+
     if (onSelectChange) {
       onSelectChange({ 
         id: id,
@@ -35,6 +36,10 @@ export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMen
     });
     }
   };
+
+  const handleOnMouseOver = (id: string) => {
+    onHoverOption && onHoverOption(id);
+  }
 
   const closeOnClickOutside = (event: Event) => {
     if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -51,7 +56,6 @@ export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMen
     return () => {
       document.removeEventListener("mousedown", closeOnClickOutside);
     };
-   
   }, []);
 
   return (
@@ -77,6 +81,7 @@ export const DropdownMenu = ({ label, onSelectChange, color, data }: DropdownMen
            <li key={index} role="option" >
            <button 
              onClick={() => handleOptionClick(item.id, item.label)} 
+             onMouseOver={() => handleOnMouseOver(item.id)}
              className={styles["dropdown__option"]} tabIndex={isOpen ? 0 : -1}
              aria-selected={selectedValue?.id === item.id}
            >
