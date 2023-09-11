@@ -12,18 +12,62 @@
   position: relative;
   justify-content: space-between;
   width: 100%;
+  // border: 1px solid pink;
 
   @include tablet() {
     flex-direction: row;
   }
 
-  &__response {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+  ul {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    
+    li {
+      font-weight: 800;
+    }
+  }
+
+  form {
+    width: 100%;
 
     @include tablet() {
-      gap: 3rem;
+      width: 50%;
+    }
+
+    @include desktop() {
+      width: 35%;
+
+    }
+  }
+
+  &__response {
+    width: 100%;
+
+    @include desktop() {
+      width: 50%;
+    }
+
+    &__clm-sect {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &-destination {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      @include mobile() {
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+      }
+      img {
+        height: 250px;
+        border-radius: 2rem;
+      }
     }
   }
 }

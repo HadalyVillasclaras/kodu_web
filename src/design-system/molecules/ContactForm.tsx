@@ -29,45 +29,45 @@ const ContactForm = () => {
     console.log('Form Data:', formData);
     setFormData(initialFormData);
   };
-  
+
   return (
     <form className={`${styles[`contact-form`]}`} onSubmit={handleSubmit}>
-          <fieldset>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone"
-              pattern="^\d{10}$"
-              value={formData.phone}
-              onChange={handleInputChange}
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Message"
-              value={formData.message}
-              onChange={handleInputChange}
-              required
-            />
-          </fieldset>
-          <Button type='submit' text='Submit' />
-        </form>
+      <fieldset>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone"
+          pattern="^\d{10}$"
+          value={formData.phone}
+          onChange={handleInputChange}
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Message"
+          value={formData.message}
+          onChange={handleInputChange}
+          required
+        />
+      </fieldset>
+      <Button type='submit' color='cream' text='Submit' />
+    </form>
   )
 }
 

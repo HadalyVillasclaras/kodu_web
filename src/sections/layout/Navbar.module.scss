@@ -1,4 +1,6 @@
 @use '../../design-system/settings/colors';
+@use '../../design-system/settings/spacing';
+@use '../../design-system/settings/border';
 @import '../../design-system/settings/breakpoints';
 
 .navbar {
@@ -20,18 +22,21 @@
   &__menu {
     position: fixed;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
     top: 0;
+    right: 0;
     height: 100vh;
     width: 100vw;
+    border-radius: border.$radius--xxl 0 0 border.$radius--xxl;
     background-color:colors.$brown;
     z-index: 3;
-    padding: 0 4rem;
+    padding: spacing.$pd__mb--small;
     transform: translateX(100%);
     transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
   
     @include tablet() {
-      padding: 0 10rem;
+      padding: spacing.$pd__dk--small;
     }
 
     &-list {
@@ -65,4 +70,10 @@
 
   transition: all 0.8s forwards;
   // transform: rotate(90deg);
+}
+
+.xxxl-koduq {
+  font-size: 20vw;
+  line-height: 20vw;
+  font-family: 'Eklektyk';
 }

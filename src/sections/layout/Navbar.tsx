@@ -56,6 +56,7 @@ export const Navbar = () => {
         </span>
       </div>
       <nav className={styles["navbar__menu"]} style={isOpen ? { transform: 'translateX(0)' } : {}}>
+        <p className={styles["xxxl-koduq"]}>KODUQ</p>
         <ul ref={navListRef} className={styles["navbar__menu-list"]}>
           {navItems.map((navItem, index) => (
             <li key={index} onClick={toggleSidebar}>

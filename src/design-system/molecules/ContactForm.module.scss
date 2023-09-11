@@ -1,10 +1,15 @@
 .contact-form {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
   fieldset {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
   }
+
+
 }

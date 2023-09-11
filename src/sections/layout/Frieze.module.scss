@@ -4,13 +4,11 @@
 @import "../../design-system/settings/colors";
 @import "../../design-system/settings/breakpoints";
 
-
 .frieze {
   min-height: 1.8rem;
   width: 100%;
   z-index: 3;
   position: relative;
-  // border: 1px solid black;
 
   display: flex;
   gap: 3rem;
@@ -21,5 +19,9 @@
 
   &__bg {
     @include bg-color;
+  }
+
+  button {
+    width: 200px;
   }
 }

@@ -28,8 +28,8 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
     if (!dropdownTween.current) {
       dropdownTween.current = gsap.to(dropdownRef.current, {
         y: '0%',
-        borderBottomLeftRadius: '35px',
-        borderBottomRightRadius: '35px',
+        // borderBottomLeftRadius: '35px',
+        // borderBottomRightRadius: '35px',
         ease: 'linear',
         paused: true
       });
@@ -54,6 +54,7 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
     setIsOpen(false);
   }
 
+  //if isOpen && is mobile --- body { overflow-y: hidden}
   return (
     <div
       ref={dropdownRef}
@@ -62,11 +63,13 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
     >
       <section>
         <header>
-          {/* <Heading as='h1' font='fancy'>{title}</Heading> */}
+          <Heading as='h1' font='fancy'>{title}</Heading>
         </header>
         {children}
       </section>
-      <IconButton icon='x' size='l' color='cream' onClick={closeDropdown} ariaLabel='Close dropdown'/>
+      <div className={`${styles[`dropdown__btn`]}`}>
+        <IconButton icon='x' size='l' color='cream' onClick={closeDropdown} ariaLabel='Close dropdown'/>
+      </div>
     </div>
   )
 });

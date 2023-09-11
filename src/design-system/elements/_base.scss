@@ -88,3 +88,20 @@ img {
   color: colors.$bg--cream; 
   background: colors.$bg--green;
 }
+
+
+input, textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #F5F0DE;
+  color: inherit;
+  padding: 0.2rem 0;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+input::placeholder, textarea::placeholder  {
+  color: inherit;
+}

@@ -31,9 +31,9 @@ export const Frieze = ({ color = "brown" }: Props) => {
 
   return (
     <>
-      <div className={`${styles[`frieze`]} ${styles[`frieze__bg--${color}`]}`} style={{ position: isOpen ? 'fixed' : 'relative' }}>
-        <Button color='cream' variant='underline' text='Contact' onClick={handleContactBtn} />
-        <Button color='cream' variant='underline' text='Availability' onClick={handleAvlbtyBtn} />
+      <div className={`${styles[`frieze`]} ${styles[`frieze__bg--${color}`]}`} style={{ position: isOpen ? 'fixed' : 'absolute' }}>
+        <Button color='cream' variant='default' text='Contact' onClick={handleContactBtn} />
+        <Button color='cream' variant='default' text='Availability' onClick={handleAvlbtyBtn} />
       </div>
       {
         dropdownType === 'contact'

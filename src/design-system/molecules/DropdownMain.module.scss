@@ -6,24 +6,24 @@
 
 .dropdown {
   position: absolute;
-  top: 1.5rem;
+  top: 0rem;
   right: 0;
-  padding: calc(spacing.$pd__mb--big * 2)  spacing.$pd__mb--small;
+  padding: spacing.$pd__mb--small;
   z-index: 5;
   width: 100%;
   background-color: colors.$brown;
   min-height: 80vh;
   transform: translateY(-105%);
-  border-radius: 0 0 border.$radius--large border.$radius--large;
-  
+  border-radius: 0 0 border.$radius--xxl border.$radius--xxl;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
   color: colors.$cream;
 
   @include tablet() {
     padding: spacing.$pd__dk--small;
+    padding-bottom: 1rem;
     gap: 2rem;
   }
 
@@ -43,5 +43,10 @@
     @include tablet() {
       gap: 2.5rem;
     }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
   }
 }

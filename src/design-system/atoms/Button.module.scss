@@ -34,8 +34,17 @@
 
     &--cream {
       @extend .button__default;
-      background-color: colors.$button-secondary;
-      color: colors.$button-primary;
+    background-image: unset;
+    border: 1px solid colors.$cream;
+      
+      color: colors.$cream;
+
+      &:hover {
+        background-color: colors.$cream;
+        background-size: 100% 0;
+        color: colors.$green;
+        border: 1px solid colors.$green;
+      }
     }
 
     &--brown {
