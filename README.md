@@ -6,12 +6,12 @@ Koduq is a Front-end web application that simulates a platform that offers long-
 ### Technologies & libs
 - TypeScript
 - React
-- React Router
 - SASS
-- Vite 
 - GSAP
+- React Router
+- Vite 
 
-### Methodolodies & architectures: 
+### Methodologies & architectures: 
 - Component-first
 - Design System implementation
 - Atomic Design
