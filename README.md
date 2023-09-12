@@ -1,14 +1,23 @@
 # KODUQ
 ! [work in progress]
 
-Koduq is Front-end web application that simulates a platform that offers long-term retreats in sustainable homes, ensuring guests have a zero environmental footprint during their stay.
+Koduq is a Front-end web application that simulates a platform that offers long-term retreats in sustainable homes, ensuring guests have a zero environmental footprint during their stay.
 
 ### Technologies & libs
-TypeScript + React + React Router + SASS + Vite 
-GSAP + Swiper.js
+- TypeScript
+- React
+- React Router
+- SASS
+- Vite 
+- GSAP
 
 ### Methodolodies & architectures: 
-Component-first - Design System implementation - Atomic Design - BEM - ITCSS & a bit of DDD for bussiness logic.
+- Component-first
+- Design System implementation
+- Atomic Design
+- BEM
+- ITCSS
+- And a bit of DDD for bussiness logic
 
 ---
 
