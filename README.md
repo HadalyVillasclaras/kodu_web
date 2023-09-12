@@ -20,6 +20,7 @@ Koduq is a Front-end web application that simulates a platform that offers long-
 - And a bit of DDD for bussiness logic
 
 ---
+### Description & goals
 
 In this project, my focus has been on implementing  a **Design System** I initially conceptualized on Figma. The main goal was to be able to traslate this visual system into code, ensuring consistent theming, **component modularity** for ensuring **UI re-usability**, and scalability. 
 
