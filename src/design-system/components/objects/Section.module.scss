@@ -1,0 +1,94 @@
+@use "../../settings/spacing";
+@use "../../settings/colors";
+@use "../../settings/border";
+@import "../../settings/breakpoints";
+
+.section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  overflow: hidden;
+  align-items: start;
+  flex-direction: column;
+
+  &--column {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  &--row {
+    align-items: start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__size {
+    &--xs {
+      @include tablet() {
+        padding: spacing.$pd__tb;
+      }
+
+      @include desktop() {
+        padding: spacing.$pd__dk--xs;
+      }
+    }
+
+    &--small {
+      padding: spacing.$pd__mb--small;
+
+      @include tablet() {
+        padding: spacing.$pd__dk--small;
+      }
+    }
+
+    &--big {
+      padding: spacing.$section--mb;
+
+      @include tablet() {
+        padding: spacing.$pd__tb;
+      }
+
+      @include desktop() {
+        padding: spacing.$pd__dk--big;
+      }
+    }
+
+    &--full {
+      padding: spacing.$pd--full;
+      min-height: unset;
+    }
+  }
+
+  &__bg {
+    &--cream {
+      background-color: colors.$bg--cream;
+      color: colors.$bg--brown;
+      ::selection {
+        color: colors.$bg--green; 
+        background: colors.$bg--brown;
+      }
+    }
+
+    &--green {
+      background-color: colors.$bg--green;
+      color: colors.$bg--cream;
+
+      ::selection {
+        color: colors.$bg--brown; 
+        background: colors.$bg--cream;
+      }
+    }
+
+    &--brown {
+      background-color: colors.$bg--brown;
+      color: colors.$bg--cream; 
+
+      ::selection {
+        color: colors.$bg--cream; 
+        background: colors.$bg--green;
+      }
+    }
+  }
+}

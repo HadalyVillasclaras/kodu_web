@@ -6,5 +6,5 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [svgr(), react()],
   base: '/kodu_web/',
-  publicDir: 'src/assets',
+  publicDir: 'src/public',
 })

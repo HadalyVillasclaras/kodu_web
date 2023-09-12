@@ -1,0 +1,81 @@
+@use "../../settings/colors";
+@use "../../settings/fonts";
+
+.link {
+  font-weight: 600;
+  position: relative;
+  
+  &:active {
+    // color: colors.$text-secondary;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    transition: .5s ease;
+    background: colors.$button-secondary;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+
+  &__color {
+    &--green {
+      @extend .link;
+      color: colors.$green;
+      &:after {
+        background: colors.$green;
+      }
+    }
+
+    &--cream {
+      @extend .link;
+      color: colors.$cream;
+      &:after {
+        background: colors.$cream;
+      }
+    }
+
+    &--brown {
+      @extend .link;
+      color: colors.$brown;
+      &:after {
+        background: colors.$brown;
+      }
+    }
+  }
+
+  &__size {
+    &-xs {
+      font-size: fonts.$link-xs;
+      &:after {
+        height: 1px;
+      }
+    }
+
+    &--s {
+      font-size: fonts.$link-s;
+      &:after {
+        height: 2px;
+      }
+    }
+
+    &--m {
+      font-size: fonts.$link-m;
+      &:after {
+        height: 3px;
+      }
+    }
+
+    &--l {
+      font-size: fonts.$link-l;
+      &:after {
+        height: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@use "../../../../design-system/settings/colors";
+@use "../../../../design-system/settings/border";
+@use "../../../../design-system/settings/spacing";
+@import "../../../../design-system/settings/colors";
+@import "../../../../design-system/settings/breakpoints";
+
+.dd-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+  width: 100%;
+  position: relative;
+  height: 100%;
+  margin-top: 3rem;
+
+  @include tablet() {
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: unset;
+  }
+
+  &__sect {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &.contact {
+      font-size: 2.5rem;
+      line-height: 2rem;
+      margin-top: auto;
+    }
+  }
+}

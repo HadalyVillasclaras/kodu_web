@@ -1,0 +1,9 @@
+@import "../../settings/colors";
+
+.logo {
+  width: 100%;
+
+  &__fill {
+    @include fill;
+  }
+}

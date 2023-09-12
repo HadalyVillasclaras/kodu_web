@@ -1,0 +1,60 @@
+@use "../../settings/border";
+@use "../../settings/spacing";
+@import "../../settings/breakpoints";
+
+.destination-slider-container {
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0 ;
+
+  @include tablet()  {
+    margin: 0 spacing.$pd__dk--small;
+  }
+
+  @include desktop()  {
+    margin: spacing.$pd__dk--big;
+  }
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  transition: transform 500ms ease-in-out;
+  height: 100%;
+
+  &__slide {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+    border-radius: border.$radius--large;
+  }
+
+  &__controls {
+    position: absolute;
+    top: 0;
+    width: 18%;
+    z-index: 2;
+    height: 100%;
+    cursor: none;
+    
+    &-right {
+      right: 0;
+    }
+
+    &-left {
+      left: 0;
+    }
+  }
+}

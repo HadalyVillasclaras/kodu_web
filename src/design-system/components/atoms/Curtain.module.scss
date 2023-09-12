@@ -1,0 +1,36 @@
+@use "../../settings/colors";
+@use "../../settings/fonts";
+@import "../../settings/colors";
+
+.curtain-wrapper {
+  object-position: center;
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  position: relative;
+  width: 100%;
+  height: 100%
+}
+
+.curtain {
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  pointer-events: none;
+  transform: translate(0);
+  height: 100%;
+  width: 100%;
+  transition: transform 1s ease;
+
+  &__bg {
+    @include bg-color;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}

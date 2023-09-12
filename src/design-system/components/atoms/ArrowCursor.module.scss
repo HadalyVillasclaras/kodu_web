@@ -1,0 +1,10 @@
+@use "../../settings/colors";
+
+.arrow-cursor {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  transition: opacity .3s ease;
+}

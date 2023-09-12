@@ -1,0 +1,66 @@
+@use "../../../settings/colors";
+@use "../../../settings/fonts";
+@import "../../../settings/breakpoints";
+
+.accordion {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__item {
+    width: 100%;
+
+    .opened {
+      color: colors.$green !important;
+    }
+
+    h3 {
+      transition: color 0.1s ease;
+      cursor: pointer;
+      display: inline-block;
+      font-family: 'Eklektyk';
+      color: colors.$cream;
+      font-size: fonts.$h3-mb;
+
+
+      @include tablet() {
+        font-size: fonts.$h1-mb;
+      }
+
+      &:hover,
+      &:active {
+        color: colors.$green !important;
+
+        ~hr {
+          background-color: colors.$green !important;
+        }
+      }
+
+      .opened {
+        color: colors.$green !important;
+      }
+
+      @include desktop() {
+        font-size: 5rem;
+        line-height: 6rem;
+      }
+    }
+  }
+
+  &__content {
+    height: auto;
+    overflow: hidden;
+    box-sizing: content-box;
+
+    p {
+      padding: 1.3rem 0 1rem 0;
+      color: colors.$green;
+      font-weight: 700;
+
+      @include desktop() {
+        width: 55vw;
+      }
+    }
+  }
+}

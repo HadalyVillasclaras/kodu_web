@@ -1,0 +1,85 @@
+@use "../../../design-system/settings/colors";
+@import "../../../design-system/settings/breakpoints";
+
+.features {
+  &__container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+  
+    > section {
+      position: relative;
+      flex-basis: 400px;
+      display: flex;
+      gap: 2rem;
+
+      @include desktop() {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__displayed {
+    display: flex;
+    flex-direction: column;
+    color: colors.$cream;
+
+    &--selected {
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    li {
+      font-family: 'Eklektyk';
+    }
+    
+    hr {
+      margin-top: 0.5rem;
+    }
+
+    &__item {
+
+      button {
+        color: colors.$green;
+        cursor: pointer;
+        font-size: 2.5rem;
+        transition: color 0.1s linear;
+      }
+
+      button:hover {
+        color: colors.$cream;
+        transition: color 0.5s linear;
+      }
+
+      hr {
+        border-top:3px solid colors.$green;
+        transition: all 0.1s linear;
+      }
+
+      button:hover ~ hr {
+        border-top:3px solid colors.$cream;
+        transition: all 0.5s linear;
+      }
+
+      &--selected {
+        button {
+          color: colors.$cream;
+          font-size: 2.5rem;
+
+        }
+        hr {
+          border-top:3px solid colors.$cream;
+        }
+      }
+    }
+  }
+}

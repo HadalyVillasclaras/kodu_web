@@ -1,0 +1,49 @@
+@use "../../../design-system/settings/spacing";
+@use '../../../design-system/settings/colors';
+@import "../../../design-system/settings/colors";
+@import '../../../design-system/settings/breakpoints';
+
+.header {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  // margin-bottom: 8rem;
+
+  // @include desktop() {
+  // margin-bottom: 0rem;
+
+  // }
+
+  &__flexnav {
+    position: relative;
+    padding: spacing.$pd__mb--small ;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    @include tablet() {
+      gap: 2rem;
+      padding: spacing.$pd__dk--xs ;
+    }
+  }
+
+  &__logo-dinamic-wp {
+    position: relative;
+    width: 100%;
+
+    @include tablet() {
+      width: 200px;
+    }
+  }
+
+  &__logo--dinamic {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    z-index: 2;
+  }
+
+  &__bg {
+    @include bg-color;
+  }
+}

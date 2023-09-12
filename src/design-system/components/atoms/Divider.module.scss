@@ -1,0 +1,14 @@
+@import "../../settings/colors";
+
+.hr {
+  width:  100%;
+  position: relative;
+  z-index: 1;
+  height: 1px; 
+  border: none; 
+  overflow: hidden; 
+  
+  &__bg {
+    @include bg-color;
+  }
+}

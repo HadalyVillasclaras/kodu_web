@@ -1,0 +1,57 @@
+@import "../../settings/breakpoints";
+@import "../../settings/mixins/mixins";
+  
+  .gallery {
+    display: grid;
+    height: 100%;                  
+    gap: 1rem;
+
+    @include tablet() {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include desktop() {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    &__elmt {
+      border-radius: 3rem;
+      height: 100%;
+      display: flex;           
+      overflow: hidden;       
+      cursor: pointer;
+      position: relative; 
+
+      @include hoverBackgroundOverlay;
+
+      img {
+        border-radius: 3rem;
+        object-fit: cover;     
+        transition: transform 0.9s ease;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+
+    &__left-side {
+      grid-column: 1 / 2;           
+    }
+  
+    &__right-side {
+  
+      &--top {
+        grid-column: 2 / 3;      
+      }
+  
+      &--bottom {
+        grid-column: 3 / 4; 
+        display: none; 
+
+        @include desktop() {
+          display:block; 
+        }
+      }
+    }
+  }

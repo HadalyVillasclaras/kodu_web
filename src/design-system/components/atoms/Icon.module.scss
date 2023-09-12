@@ -1,0 +1,133 @@
+@use "../../../design-system/settings/border";
+@use "../../../design-system/settings/breakpoints";
+@use "../../../design-system/settings/spacing";
+@use '../../../design-system/settings/colors';
+@import '../../../design-system/settings/colors';
+
+@mixin circleBase() {
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  transition: all 0.2s ease;
+  stroke-width: 2;
+
+  &__size {
+    &--xs {
+      --icon-size: 1rem;
+    }
+  
+    &--s {
+      --icon-size: 1.2rem;
+    }
+  
+    &--m {
+      --icon-size: 1.5rem;
+    }
+  
+    &--l {
+      --icon-size: 1.8rem;
+    }
+  }
+
+  &__simple {
+    &--green {
+      stroke: colors.$green;
+    }
+  
+    &--cream {
+      stroke: colors.$cream;
+    }
+  
+    &--brown {
+      stroke: colors.$brown;
+    }
+  }
+
+  &__circle {
+    @include circleBase();
+  
+    &--green {
+      stroke: colors.$cream;
+
+      &--active {
+        background-color: colors.$green;
+      }
+      &--disabled {
+        background-color: colors.$green--disabled;
+      }
+    }
+  
+    &--cream {
+      stroke: colors.$brown;
+      &--active {
+        background-color: colors.$cream;
+      }
+      &--disabled {
+        background-color: colors.$cream--disabled;
+      }
+    }
+  
+    &--brown {
+      stroke: colors.$cream;
+      &--active {
+        background-color: colors.$brown;
+      }
+      &--disabled {
+        background-color: colors.$brown--disabled;
+      }
+    }
+  }
+}
+
+.iconbutton {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+
+  &:hover {
+    // transform: translateY(-3px);  
+  }
+
+  &__text {
+    color: colors.$cream;
+    font-weight: 400;
+    margin-top: .2rem;
+    
+
+    &__color {
+      @include color;
+    }
+
+
+    &__size {
+      &--xs {
+        font-size: 1rem;
+      }
+    
+      &--s {
+        font-size: 1.2rem;
+      }
+    
+      &--m {
+        font-size: 1.6rem;
+      }
+    
+      &--l {
+        font-size: 2rem;
+        margin-top: .3rem;
+      }
+    }
+  }
+}

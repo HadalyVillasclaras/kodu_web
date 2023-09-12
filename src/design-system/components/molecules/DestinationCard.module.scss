@@ -1,0 +1,79 @@
+@use "../../settings/spacing";
+@use "../../settings/colors";
+@use "../../settings/border";
+@import "../../settings/breakpoints";
+
+
+.destination-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  gap: 1rem;
+
+  &__image-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: border.$radius--mid;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 100%;
+      transform: scaleY(0);
+      background-color: colors.$opacity-brown-dark;
+      transition: transform .3s ease-out;
+    }
+
+    &:hover::after {
+      @include mobile() {
+        transform: scaleY(1);
+        transition: transform .4s ease-out;
+      }
+    }
+
+    // img pagination
+    span {
+      position: absolute;
+      bottom: spacing.$pd__mb--big;
+      right: spacing.$pd__mb--big;
+    }
+  }
+
+  &__info-mb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    
+    @include mobile() {
+      display: none;
+    }
+  }
+
+  &__info-dk {
+    position: absolute;
+    text-align: center;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    z-index: 2;
+
+    .destination-card__image-wrapper:hover & {
+      opacity: 1;
+    }
+
+    @include mobile() {
+      display: block;
+    }
+
+  }
+}

@@ -1,0 +1,67 @@
+@use '../../../design-system/settings/colors';
+@use '../../../design-system/settings/spacing';
+@use '../../../design-system/settings/border';
+@import '../../../design-system/settings/breakpoints';
+
+.credits__container {
+  position: relative;
+}
+
+.credits__toggle {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.credits__bg {
+  background-color: colors.$green;
+  position: relative;
+  overflow: hidden;
+  }
+
+.credits {
+  height: 100%;
+  position: relative;
+  bottom: 0px;
+  background-color: colors.$bg--brown;
+  color: colors.$text-primary;
+  padding: spacing.$section__mb;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  gap: 4rem;
+  border-radius:border.$pd-radius--mid;
+
+
+  @include mobile() {
+    padding: spacing.$pd__dk--xs;
+  }
+
+  p {
+    font-family: "Eklektyk";
+    font-size: 2rem;
+  }
+
+
+  &__sect {
+    display: flex;
+
+    &--up {
+      flex-direction: row;
+      justify-content: space-between;
+
+      p {
+        font-size: 3rem;
+      }
+    }
+
+    &--down {
+      flex-direction: column;
+      text-align: right;
+    }
+  }
+}
