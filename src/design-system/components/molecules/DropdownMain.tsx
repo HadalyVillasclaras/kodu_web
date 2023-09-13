@@ -13,6 +13,7 @@ type Props = {
 
 export type DropdownRef = {
   openDropdown: () => void;
+  closeDropdown: () => void;
 };
 
 export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'brown', children }, parentRef) => {
@@ -21,15 +22,13 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
   const dropdownTween = useRef<gsap.core.Tween | null>(null);
 
   useImperativeHandle(parentRef, () => {
-    return { openDropdown }
+    return { openDropdown, closeDropdown }
   });
 
   useLayoutEffect(() => {
     if (!dropdownTween.current) {
       dropdownTween.current = gsap.to(dropdownRef.current, {
         y: '0%',
-        // borderBottomLeftRadius: '35px',
-        // borderBottomRightRadius: '35px',
         ease: 'linear',
         paused: true
       });
@@ -63,13 +62,13 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
     >
       <section>
         <header>
-          <Heading as='h1' font='fancy'>{title}</Heading>
+          {/* <Heading as='h1' font='fancy'>{title}</Heading> */}
         </header>
         {children}
       </section>
-      <div className={`${styles[`dropdown__btn`]}`}>
+      <span className={`${styles[`dropdown__btn`]}`}>
         <IconButton icon='x' size='l' color='cream' onClick={closeDropdown} ariaLabel='Close dropdown'/>
-      </div>
+      </span>
     </div>
   )
 });

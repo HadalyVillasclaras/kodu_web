@@ -27,9 +27,10 @@
     gap: 2rem;
   }
 
-  &__color {
-    @include bg-color();
-  }
+  background-color: rgb(32, 36, 46);
+  // &__color {
+  //   @include bg-color();
+  // }
 
   >section {
     position: relative;

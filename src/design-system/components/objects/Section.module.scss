@@ -2,6 +2,7 @@
 @use "../../settings/colors";
 @use "../../settings/border";
 @import "../../settings/breakpoints";
+@import "../../settings/colors";
 
 .section {
   position: relative;
@@ -65,30 +66,19 @@
     &--cream {
       background-color: colors.$bg--cream;
       color: colors.$bg--brown;
-      ::selection {
-        color: colors.$bg--green; 
-        background: colors.$bg--brown;
-      }
+      @include selectionBrownBg;
     }
 
     &--green {
       background-color: colors.$bg--green;
       color: colors.$bg--cream;
-
-      ::selection {
-        color: colors.$bg--brown; 
-        background: colors.$bg--cream;
-      }
+      @include selectionCreamBg;
     }
 
     &--brown {
       background-color: colors.$bg--brown;
       color: colors.$bg--cream; 
-
-      ::selection {
-        color: colors.$bg--cream; 
-        background: colors.$bg--green;
-      }
+      @include selectionGreenBg;
     }
   }
 }

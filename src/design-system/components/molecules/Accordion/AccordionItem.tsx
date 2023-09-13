@@ -7,7 +7,6 @@ interface AccordionProps {
   content: string;
   isOpen: boolean;
   onTitleClick: () => void;
-
 }
 
 export const AccordionItem = ({ title, content, isOpen, onTitleClick }: AccordionProps) => {
@@ -49,9 +48,9 @@ export const AccordionItem = ({ title, content, isOpen, onTitleClick }: Accordio
 
   return (
     <>
-      <h3 className={` ${isOpen && styles.opened }`} onClick={onTitleClick}>
+      <button className={` ${isOpen && styles.opened }`} onClick={onTitleClick}>
         {title}
-      </h3>
+      </button>
       <div className={styles['accordion__content']} ref={accContentRef}>
         <p>{content}</p>
       </div>

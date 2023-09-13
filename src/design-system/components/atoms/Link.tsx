@@ -13,7 +13,12 @@ export interface LinkProps {
 
 export const Link = ({ color = "green", size = "s", children, href, openInNewTab = false, }: LinkProps) => {
   return (
-    <HashLink target={openInNewTab ? "_blank" : "_self"}  className={`${styles["link"]} ${styles[`link__color--${color}`]} ${styles[`link__size--${size}`]}`} to={href}>{children}</HashLink>
+    <HashLink 
+      target={openInNewTab ? "_blank" : "_self"}  
+      className={`${styles["link"]} ${styles[`link__color--${color}`]} ${styles[`link__size--${size}`]}`} 
+      to={href}>
+        {children}
+    </HashLink>
     // <LinkR target={openInNewTab ? "_blank" : "_self"}  className={`${styles["link"]} ${styles[`link__color--${color}`]} ${styles[`link__size--${size}`]}`} to={href} >{children}</LinkR>
     // <a 
     //   href={href} 

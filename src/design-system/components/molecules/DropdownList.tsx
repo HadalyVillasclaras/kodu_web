@@ -11,7 +11,7 @@ type DropdownListProps = {
   color: Colors;
   data: DropdownRenderData[]
   onSelectChange?: (selectedOption: DropdownRenderData) => void;
-  onHoverOption?: (destinationId: string) => void;
+  onHoverOption?: (id: string, label: string) => void;
 };
 
 export const DropdownList = ({ label, onSelectChange, onHoverOption, color, data }: DropdownListProps) => {
@@ -37,8 +37,8 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color, data
     }
   };
 
-  const handleOnMouseOver = (id: string) => {
-    onHoverOption && onHoverOption(id);
+  const handleOnMouseOver = (id: string, label: string) => {
+    onHoverOption && onHoverOption(id, label);
   }
 
   const closeOnClickOutside = (event: Event) => {
@@ -81,7 +81,7 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color, data
            <li key={index} role="option" >
            <button 
              onClick={() => handleOptionClick(item.id, item.label)} 
-             onMouseOver={() => handleOnMouseOver(item.id)}
+             onMouseOver={() => handleOnMouseOver(item.id, item.label)}
              className={styles["dropdown__option"]} tabIndex={isOpen ? 0 : -1}
              aria-selected={selectedValue?.id === item.id}
            >

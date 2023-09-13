@@ -20,6 +20,10 @@
   transition: all 0.2s ease;
   stroke-width: 2;
 
+  // &:hover {
+  //   transform: translateY(-3px);  
+  // }
+
   &__size {
     &--xs {
       --icon-size: 1rem;
@@ -93,23 +97,20 @@
   align-items: center;
   gap: .5rem;
   position: relative;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 
   &:hover {
-    // transform: translateY(-3px);  
+    transform: translateY(-3px);  
   }
 
   &__text {
     color: colors.$cream;
     font-weight: 400;
     margin-top: .2rem;
-    
 
     &__color {
       @include color;
     }
-
 
     &__size {
       &--xs {

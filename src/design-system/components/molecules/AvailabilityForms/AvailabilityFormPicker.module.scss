@@ -1,11 +1,15 @@
+@use "../../../settings/colors";
+@import "../../../settings/colors";
+@import "../../../settings/breakpoints";
+
 .avlbty__form-picker {
   display: flex;
-  gap: 3rem;
+  gap: 1rem;
+  flex-wrap: wrap;
   position: relative;
   top: -1.5rem;
-  
-  label {
-    display: flex;
-    gap: .5rem;
+
+  @include mobile() {
+    gap: 3rem;
   }
 }

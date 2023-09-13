@@ -3,4 +3,10 @@
   gap: 3rem;
   margin: 2rem 0;
   align-self: center;
+
+  button {
+    &:hover {
+      transform: translateY(0);  
+    }
+  }
 }

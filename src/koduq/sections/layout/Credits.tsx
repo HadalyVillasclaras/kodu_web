@@ -12,8 +12,6 @@ export const Credits = () => {
   };
 
   useHideNavIcon( "credits", refsToObserve);
-
-
   // let toggleCredits: any;
 
   //   function handleToggle() {

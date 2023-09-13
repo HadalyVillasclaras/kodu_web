@@ -22,9 +22,10 @@ export type QuarterAvailability = {
 
 type AvailabilityFormProps = {
   formType: 'destination' | 'quarter';
-  setDestinationImgPreview: (imgPath: string) => void;
+  setDestinationPreview: (destinationPrev: any) => void;
+  setQuarterPreview: (quarter: Quarter) => void;
   setDestination: (destination: Destination | null) => void;
-  setQuarter: (quarterData:QuarterAvailability | null) => void;
+  setQuarter: (quarterData: QuarterAvailability | null) => void;
 };
 
 type FormData = {
@@ -32,10 +33,10 @@ type FormData = {
   label: string;
   dropdownLabel: string;
   dropdownData: DropdownRenderData[];
-  dropDownOnHoverOption?: (destinationId: string) => void;
+  dropDownOnHoverOption?: (id: string, label: string) => void;
 }
 
-export const AvailabilityForm = ({ formType, setDestinationImgPreview, setDestination, setQuarter}: AvailabilityFormProps) => {
+export const AvailabilityForm = ({ formType, setDestinationPreview, setQuarterPreview, setDestination, setQuarter }: AvailabilityFormProps) => {
   const [formTypeData, setFormtypeData] = useState<FormData | null>(null);
 
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
@@ -72,22 +73,43 @@ export const AvailabilityForm = ({ formType, setDestinationImgPreview, setDestin
         if (destination) {
           setSelectedDestination(destination);
           setSelectedQuarter(null);
+          setDestination(null);
         }
       }
     } else if (formType === 'quarter') {
-      setSelectedQuarter(optionData)
+      setSelectedQuarter(optionData);
       setSelectedDestination(null);
+      setQuarter(null);
     }
   }
 
-  const handleOnHoverOption = (destinationId: string) => {
+  const handleOnHoverDestination = (destinationId: string, label: string) => {
     if (formType === 'destination') {
       if (destinationId) {
         const destination = getDestinationById(destinationId)
         if (destination) {
-          setDestinationImgPreview(destination.images[0])
+          setDestinationPreview(
+            {
+              name: destination.name,
+              location: destination.location,
+              img: destination.images[0],
+            }
+          )
         }
       }
+    }
+
+
+  }
+  const handleOnHoverQuarter = (quarterId: string, label: string) => {
+    console.log(quarterId);
+    console.log(quarterId);
+
+    if (formType === 'quarter') {
+      setQuarterPreview({
+        id: quarterId,
+        label
+      })
     }
   }
 
@@ -99,6 +121,7 @@ export const AvailabilityForm = ({ formType, setDestinationImgPreview, setDestin
         label: 'Please, select the yearly quarter that better fits your needs',
         dropdownLabel: "Select a quarter",
         dropdownData: quartersData,
+        dropDownOnHoverOption: handleOnHoverQuarter
       }
     } else if (formType === 'destination') {
       newFormData = {
@@ -106,7 +129,7 @@ export const AvailabilityForm = ({ formType, setDestinationImgPreview, setDestin
         label: 'Please, select the destination you prefer',
         dropdownLabel: "Select a destination",
         dropdownData: destinationData,
-        dropDownOnHoverOption: handleOnHoverOption
+        dropDownOnHoverOption: handleOnHoverDestination
       }
     }
     setFormtypeData(newFormData);
@@ -114,7 +137,7 @@ export const AvailabilityForm = ({ formType, setDestinationImgPreview, setDestin
 
   useEffect(() => {
     setFormDataByType(formType);
-    setDestinationImgPreview('');
+    setDestinationPreview('');
     setDestination(null);
     setQuarter(null)
   }, [formType]);
@@ -129,7 +152,7 @@ export const AvailabilityForm = ({ formType, setDestinationImgPreview, setDestin
             <DropdownList
               label={formTypeData.dropdownLabel}
               onSelectChange={(selected) => handleSelectedOption(selected)}
-              onHoverOption={ (selectedId) => formTypeData?.dropDownOnHoverOption && formTypeData?.dropDownOnHoverOption(selectedId)}
+              onHoverOption={(id, label) => formTypeData?.dropDownOnHoverOption && formTypeData?.dropDownOnHoverOption(id, label)}
               color="green"
               data={formTypeData.dropdownData}
             />

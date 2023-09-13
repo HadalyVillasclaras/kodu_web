@@ -2,6 +2,7 @@
 @use '../../../design-system/settings/spacing';
 @use '../../../design-system/settings/border';
 @import '../../../design-system/settings/breakpoints';
+@import '../../../design-system/settings/colors';
 
 .navbar {
   width: 100%;
@@ -35,6 +36,8 @@
     transform: translateX(100%);
     transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
   
+    @include selectionGreenBg;
+
     @include tablet() {
       padding: spacing.$pd__dk--small;
     }
@@ -67,9 +70,7 @@
 
 .rotate360 {
   animation: rotate360 1s forwards;
-
   transition: all 0.8s forwards;
-  // transform: rotate(90deg);
 }
 
 .xxxl-koduq {

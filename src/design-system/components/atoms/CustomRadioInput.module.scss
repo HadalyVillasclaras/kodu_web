@@ -1,0 +1,32 @@
+@use "../../settings/colors";
+
+.customRadio {
+  display: inline-flex;
+
+  input[type="radio"] {
+    display: none;
+
+    & + span {
+      width: 16px;
+      min-width: 16px;
+
+      height: 16px;
+      border: 1px solid colors.$cream;
+      margin-right: 8px;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    &:checked + span::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: colors.$cream;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

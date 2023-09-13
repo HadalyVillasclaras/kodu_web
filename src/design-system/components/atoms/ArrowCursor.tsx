@@ -16,7 +16,7 @@ export const ArrowCursor = ({topPosition, leftPosition, isCursorInside, isInit, 
   const hidden = isInit && !isCursorInside;
 
   return (
-    <span
+    <button
       aria-label={arrowDirection === 'left' ? 'Previous Slide' : 'Next Slide'}
       className={`${styles['arrow-cursor']}`} 
       style={{
@@ -27,6 +27,6 @@ export const ArrowCursor = ({topPosition, leftPosition, isCursorInside, isInit, 
       }}
     >
     <Icon disabled={isDisabled} color={color} variant='circle' icon={arrowDirection === "left" ? 'arrowLeft' : 'arrowRight'} />
-  </span>
+  </button>
   )
 }

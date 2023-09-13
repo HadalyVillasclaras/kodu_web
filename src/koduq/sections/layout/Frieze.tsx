@@ -28,6 +28,9 @@ export const Frieze = ({ color = "brown" }: Props) => {
     dropdownRef.current?.openDropdown();
     setDropdownType('contact');
   }
+  function handleCloseDd() {
+    dropdownRef.current?.closeDropdown();
+  }
 
   return (
     <>
@@ -39,12 +42,12 @@ export const Frieze = ({ color = "brown" }: Props) => {
         dropdownType === 'contact'
           ?
           <DropdownMain title='Contact' color='green' ref={dropdownRef}>
-            <ContactDdSection />
+            <ContactDdSection/>
           </DropdownMain>
           :
           <DropdownMain title='Check availability' color='brown' ref={dropdownRef} >
             <AvailabilityFormPicker currentChoice={choice} setChoice={setChoice} />
-            <AvailabilityDdSection formChoice={choice} />
+            <AvailabilityDdSection closeDropdown={handleCloseDd} formChoice={choice} />
           </DropdownMain>
       }
     </>

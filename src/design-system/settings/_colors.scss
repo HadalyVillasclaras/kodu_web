@@ -9,7 +9,6 @@ $brown--disabled: #BF9A8B;
 $green--disabled: #4e5a48;
 $cream--disabled: #61483e;
 
-
 $bg--cream: $cream;
 $bg--green: $green;
 $bg--brown: $brown;
@@ -26,22 +25,20 @@ $button-primary: $green;
 $button-secondary: $cream;
 $button-tertiary: $brown;
 
-
-
-
 @mixin bg-color(){
   &--green {
     background-color: $green;
-    // background-color: rgb(45, 43, 48);
+    @include selectionCreamBg;
   }
 
   &--cream {
     background-color: $cream;
+    @include selectionBrownBg;
   }
 
   &--brown {
     background-color: $brown;
-    // background-color: rgb(45, 43, 48);
+    @include selectionGreenBg;
   }
 }
 
@@ -85,4 +82,28 @@ $button-tertiary: $brown;
   &--brown {
     fill: $brown;
   }
+}
+
+@mixin selection($background-color, $text-color) {
+  ::selection {
+    background-color: $background-color;
+    color: $text-color;
+  }
+  
+  ::-moz-selection { 
+    background-color: $background-color;
+    color: $text-color;
+  }
+}
+
+@mixin selectionGreenBg {
+  @include selection($green, $cream)
+}
+
+@mixin selectionBrownBg {
+  @include selection($brown, $cream)
+}
+
+@mixin selectionCreamBg {
+  @include selection($cream, $brown)
 }

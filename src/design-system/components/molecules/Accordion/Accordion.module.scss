@@ -15,14 +15,13 @@
       color: colors.$green !important;
     }
 
-    h3 {
+    button {
+      text-align: left;
       transition: color 0.1s ease;
-      cursor: pointer;
       display: inline-block;
       font-family: 'Eklektyk';
       color: colors.$cream;
       font-size: fonts.$h3-mb;
-
 
       @include tablet() {
         font-size: fonts.$h1-mb;

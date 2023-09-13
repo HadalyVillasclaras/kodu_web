@@ -1,6 +1,8 @@
 @use '../../../design-system/settings/colors';
 @use '../../../design-system/settings/spacing';
 @import '../../../design-system/settings/breakpoints';
+@import '../../../design-system/settings/colors';
+
 
 .footer {
   display: flex;
@@ -20,10 +22,7 @@
     padding: spacing.$pd__dk--xs;
   }
   
-  ::selection {
-    background-color: colors.$bg--brown;
-    color: colors.$text-primary;
-  }
+  @include selectionBrownBg;
 
   &__nav-list {
     text-align: right;

@@ -2,9 +2,11 @@
 @use '../../../design-system/settings/spacing';
 @use '../../../design-system/settings/border';
 @import '../../../design-system/settings/breakpoints';
+@import '../../../design-system/settings/colors';
 
 .credits__container {
   position: relative;
+  @include selectionGreenBg;
 }
 
 .credits__toggle {

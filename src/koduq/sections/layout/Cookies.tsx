@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, IconButton } from "../../../design-system/components/atoms"  
+import { Button, IconButton } from "../../../design-system/components/atoms"
 import styles from "./Cookies.module.scss";
 import { setCookie } from "../../core/common/cookies/services/setCookie";
 import { getCookie } from "../../core/common/cookies/services/getCookie";
@@ -33,13 +33,13 @@ export const Cookies = () => {
     setTimeout(() => {
       setShowAnimation(true);
     }, 2400);
-   
+
   }, []);
 
   return (
-    isOpen 
-    ? 
-    <section className={`${styles.cookies} ${showAnimation ? styles.slideUp : ''} ${hideAnimation ? styles.slideDown : ''}`}>
+    isOpen
+      ?
+      <section className={`${styles.cookies} ${showAnimation ? styles.slideUp : ''} ${hideAnimation ? styles.slideDown : ''}`}>
         <span className={styles.cookies__close}>
           <IconButton
             icon='x'
@@ -50,7 +50,7 @@ export const Cookies = () => {
           />
         </span>
         <p className={styles.cookies__text}>
-          We use cookies to improve <br/>the user experience
+          We use cookies to improve <br />the user experience
         </p>
         <div className={styles.cookies__btns}>
           <Button color="brown" variant="default" text="I refuse" onClick={handleRefuse} />
@@ -58,6 +58,6 @@ export const Cookies = () => {
         </div>
         <p>Read about our Cookies policy <u>here</u></p>
       </section>
-    : <></>
+      : <></>
   )
 }

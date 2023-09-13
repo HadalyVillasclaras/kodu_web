@@ -8,9 +8,11 @@ type LogoProps = {
   height?: string;
 };
 
+const BASE_URL = import.meta.env.VITE_BASE_PATH;
+
 export const Logo = ({ color = "brown", size = '10rem', clickable = true }: LogoProps) => {
   return (
-    <a href='/kodu_web/'  style={{ pointerEvents: clickable ? 'auto' : 'none' }} tabIndex={clickable ? 0 : -1}>
+    <a href={BASE_URL}  style={{ pointerEvents: clickable ? 'auto' : 'none' }} tabIndex={clickable ? 0 : -1}>
       <svg
         viewBox="0 0 803 299"
         xmlns="http://www.w3.org/2000/svg"
