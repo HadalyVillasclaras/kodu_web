@@ -1,12 +1,12 @@
-
----
+------------------------ 
+------------------------
 TO DO 
 -dropdown (quita top + scroll?)
 -form response
-
-Styles:
-buttons styles
-
+-if click check after select... render message
+-normalize loader 
+-use loader in dropdown
+ 
 Refactor
 -header margin not working ok on mb 
 -fix header
@@ -63,6 +63,7 @@ Form styles
 -custom radio button
 -normalize cursors on buttons / links: links -> hand | buttons -> default. Apple’s Human Interface Guidelines states that the hand cursor should be used when “the content is a URL link”. W3C User Interface guidelines says the same thing again with “The cursor is a pointer that indicates a link”. if doubts: does it do something on right click?
 -icons hover (nav icon, close button fullscreen, close button cookies etc). 
+-buttons styles
 
 --
 quarterly retreats in sustainable lodges

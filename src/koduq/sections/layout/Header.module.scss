@@ -7,25 +7,7 @@
   position: relative;
   width: 100%;
   z-index: 1;
-  // margin-bottom: 8rem;
-
-  // @include desktop() {
-  // margin-bottom: 0rem;
-
-  // }
-
-  &__flexnav {
-    position: relative;
-    padding: spacing.$pd__mb--small ;
-    display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
-
-    @include tablet() {
-      gap: 2rem;
-      padding: spacing.$pd__dk--xs ;
-    }
-  }
+  border: 1px solid salmon;
 
   &__logo-dinamic-wp {
     position: relative;
@@ -37,6 +19,7 @@
   }
 
   &__logo--dinamic {
+    border: 1px solid purple;
     position: absolute;
     top: 0;
     width: 200px;

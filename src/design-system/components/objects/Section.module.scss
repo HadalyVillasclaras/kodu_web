@@ -66,19 +66,19 @@
     &--cream {
       background-color: colors.$bg--cream;
       color: colors.$bg--brown;
-      @include selectionBrownBg;
+      @include selectionGreenBg;
     }
 
     &--green {
       background-color: colors.$bg--green;
       color: colors.$bg--cream;
-      @include selectionCreamBg;
+      @include selectionBrownBg;
     }
 
     &--brown {
       background-color: colors.$bg--brown;
       color: colors.$bg--cream; 
-      @include selectionGreenBg;
+      @include selectionCreamBg;
     }
   }
 }

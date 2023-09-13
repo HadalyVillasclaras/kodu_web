@@ -8,7 +8,7 @@
   position: absolute;
   top: 0rem;
   right: 0;
-  padding: spacing.$pd__mb--small;
+  padding: spacing.$pd__mb--big;
   z-index: 5;
   width: 100%;
   background-color: colors.$brown;
@@ -27,10 +27,11 @@
     gap: 2rem;
   }
 
-  background-color: rgb(32, 36, 46);
-  // &__color {
-  //   @include bg-color();
-  // }
+  &__color {
+    @include bg-color();
+  }
+
+  @include selectionCreamBg();
 
   >section {
     position: relative;

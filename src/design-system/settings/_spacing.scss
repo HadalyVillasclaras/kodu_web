@@ -15,3 +15,14 @@ $pd__dk--small: 3.4rem;
 $pd__dk--big: 8rem;
 
 $section__mb: $pd__mb--big $pd__mb--small;
+
+@mixin btn-space {
+  padding: 0.6rem 0.8rem 0.4rem 0.8rem;
+  height: 2.8rem;
+}
+
+@mixin btn-space-header {
+  padding: 0.2rem 0.6rem 0.1rem 0.6rem;
+  height: 1.8rem;
+}
+

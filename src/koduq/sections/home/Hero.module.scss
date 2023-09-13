@@ -45,7 +45,7 @@
     width: 100%;
     flex-direction: column;
     gap: .5rem;
-
+    
      @include desktop() {
       border-left: 1px solid colors.$brown;
       flex-direction: column;

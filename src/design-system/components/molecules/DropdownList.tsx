@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './DropdownList.module.scss';
 import { Colors } from '../../tokens';
+import { Icon } from '../atoms';
 
 export type DropdownRenderData = {
   id: string,
@@ -14,7 +15,7 @@ type DropdownListProps = {
   onHoverOption?: (id: string, label: string) => void;
 };
 
-export const DropdownList = ({ label, onSelectChange, onHoverOption, color, data }: DropdownListProps) => {
+export const DropdownList = ({ label, onSelectChange, onHoverOption, color='green', data }: DropdownListProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<DropdownRenderData | null>(null);
   const [displayedLabel, setDisplayedLabel] = useState<string>();
@@ -30,10 +31,10 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color, data
     setIsOpen(false);
 
     if (onSelectChange) {
-      onSelectChange({ 
+      onSelectChange({
         id: id,
         label: label
-    });
+      });
     }
   };
 
@@ -60,36 +61,36 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color, data
 
   return (
     <div ref={ref} className={styles["dropdown"]} aria-multiselectable="false" aria-labelledby='dropdown-label'>
-      <button 
+      <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)} 
-        className={`${styles["dropdown__button"]} ${styles[`dropdown__button--${color}`]}`} 
+        onClick={() => setIsOpen(!isOpen)}
+        className={`${styles["dropdown__button"]} ${styles[`dropdown__button--${color}`]}`}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-owns="dropdown-listbox"
       >
-        <span>{displayedLabel}</span><span>+</span>
-         
+        <span>{displayedLabel}</span>
+        <span><Icon icon='plus' color='green' size='s'/></span>
       </button>
       {isOpen && (
-        <ul 
-          className={`${styles["dropdown__list"]} ${isOpen ? styles["dropdown__list-open"] : ""}`} 
-          role="listbox"  
-          id="dropdown-listbox" 
+        <ul
+          className={`${styles["dropdown__list"]} ${isOpen ? styles["dropdown__list-open"] : ""}`}
+          role="listbox"
+          id="dropdown-listbox"
         >
-        {data.map((item, index) => (
-           <li key={index} role="option" >
-           <button 
-             onClick={() => handleOptionClick(item.id, item.label)} 
-             onMouseOver={() => handleOnMouseOver(item.id, item.label)}
-             className={styles["dropdown__option"]} tabIndex={isOpen ? 0 : -1}
-             aria-selected={selectedValue?.id === item.id}
-           >
-             {item.label}
-           </button>
-         </li>
-        ))}
-      </ul>
+          {data.map((item, index) => (
+            <li key={index} role="option" >
+              <button
+                onClick={() => handleOptionClick(item.id, item.label)}
+                onMouseOver={() => handleOnMouseOver(item.id, item.label)}
+                className={styles["dropdown__option"]} tabIndex={isOpen ? 0 : -1}
+                aria-selected={selectedValue?.id === item.id}
+              >
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   )

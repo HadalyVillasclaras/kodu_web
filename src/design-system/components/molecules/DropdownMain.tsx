@@ -62,7 +62,7 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
     >
       <section>
         <header>
-          {/* <Heading as='h1' font='fancy'>{title}</Heading> */}
+          <Heading as='h1' font='fancy'>{title}</Heading>
         </header>
         {children}
       </section>

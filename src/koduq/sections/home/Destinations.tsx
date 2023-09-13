@@ -30,7 +30,7 @@ export const Destinations = () => {
   return (
     <>
       <section ref={destinationHRef} className={styles["destinations__header"]}>
-        <Heading color='green' font='fancy' as='h2'>Destinations</Heading>
+        <Heading color='brown' font='fancy' as='h2'>Destinations</Heading>
       </section>
       {
         deviceType === DeviceType.MOBILE

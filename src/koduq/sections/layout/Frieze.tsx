@@ -1,6 +1,6 @@
 import { Colors } from '../../../design-system/tokens'
 import { useState, useRef } from 'react';
-import { Button } from '../../../design-system/components/atoms';
+import { Button, Logo } from '../../../design-system/components/atoms';
 import { DropdownMain, DropdownRef } from '../../../design-system/components/molecules/DropdownMain';
 import { AvailabilityDdSection } from './MainDropdownSections/AvailabilityDdSection';
 import { ContactDdSection } from './MainDropdownSections/ContactDdSection';
@@ -9,9 +9,10 @@ import styles from './Frieze.module.scss';
 
 type Props = {
   color?: Colors;
+  hasLogo: boolean;
 }
 
-export const Frieze = ({ color = "brown" }: Props) => {
+export const Frieze = ({ color = "brown", hasLogo = false }: Props) => {
   const [choice, setChoice] = useState<'destination' | 'quarter'>('destination');
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownType, setDropdownType] = useState<'availability' | 'contact'>()
@@ -34,9 +35,14 @@ export const Frieze = ({ color = "brown" }: Props) => {
 
   return (
     <>
-      <div className={`${styles[`frieze`]} ${styles[`frieze__bg--${color}`]}`} style={{ position: isOpen ? 'fixed' : 'absolute' }}>
-        <Button color='cream' variant='default' text='Contact' onClick={handleContactBtn} />
-        <Button color='cream' variant='default' text='Availability' onClick={handleAvlbtyBtn} />
+      <div className={`${styles[`frieze`]} ${styles[`frieze__bg--${color}`]}`}>
+        <span>
+          { hasLogo && <Logo color='cream' size='6rem'/> }
+        </span>
+        <span>
+          <Button color='cream' variant='header' text='Contact' onClick={handleContactBtn} />
+          <Button color='cream' variant='header' text='Availability' onClick={handleAvlbtyBtn} />
+        </span>
       </div>
       {
         dropdownType === 'contact'

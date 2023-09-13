@@ -13,6 +13,7 @@ $bg--cream: $cream;
 $bg--green: $green;
 $bg--brown: $brown;
 
+$opacity-cream-light: rgba(228, 227, 223, 0.3);
 $opacity-brown-light: rgba(126, 52, 24, 0.3);
 $opacity-brown-dark: rgba(126, 52, 24, 0.8);
 $opacity-green-dark: rgba(23, 27, 14, 0.98);
@@ -97,7 +98,7 @@ $button-tertiary: $brown;
 }
 
 @mixin selectionGreenBg {
-  @include selection($green, $cream)
+  @include selection($green, $brown)
 }
 
 @mixin selectionBrownBg {

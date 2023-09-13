@@ -66,7 +66,7 @@ const ContactForm = () => {
           required
         />
       </fieldset>
-      <Button type='submit' color='cream' text='Submit' />
+      <Button type='submit' color='cream' variant='default' text='Submit' />
     </form>
   )
 }

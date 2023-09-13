@@ -36,7 +36,7 @@ export const DestinationDetailPage = () => {
       {currentDestination
         ?
         <>
-          <Section id="detMain" ref={refs.detMain} size='small' customStyle={{ minHeight: "unset", paddingBottom: "0", paddingTop: "0", gap: "2rem" }}>
+          <Section id="detMain" ref={refs.detMain} size='small' customStyle={{ minHeight: "unset", paddingBottom: "0", gap: "2rem" }}>
             <DestinationImages imgs={currentDestination.images} />
             <DestinationMainInfo destination={currentDestination} />
           </Section>

@@ -37,7 +37,7 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
   };
 
   const renderButtonOrLoader = () => {
-    if (isAvailable) return <Button onClick={handleRequestClick} text="Request for stay" />;
+    if (isAvailable) return <Button onClick={handleRequestClick} color='brown' text="Request for stay" />;
     return <Button type='submit' text='Check' />;
   };
 
@@ -67,7 +67,7 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
       {isAvailable != null && !loading && (
         <section>
           <p className={`${styles['avblty-form__feedback']}`}>
-            {isAvailable ? "The selected quarter is available!" : "Sorry, the selected quarter is not available. Try with another quarter."}
+            {isAvailable ? "The selected quarter is available!. Please, click on the request button to continue with the reservation process." : "Sorry, the selected quarter is not available. Check another quarter."}
           </p>
         </section>
       )}

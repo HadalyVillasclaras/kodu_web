@@ -10,7 +10,8 @@
       "persons": 4,
       "beds": 3,
       "bathrooms": 1,
-      "amenities": ["Food farming", "Hot water", "Permaculture classes", " Sustainable living workshops", "Volunteer with local communities", "Offset carbon emmisions", "Waste mangement", "Locally grown food", "Slow living", "Terrace", "No wiFi", "Vegan & organic", "Organic soap workshop", "Yoga classes"]
+      "amenities": ["Food farming", "Hot water", "Permaculture classes", "Waste management", 
+       "No wiFi", "Vegan & organic food"]
     },
     "images": [
       "imgs/destinations/bloom/bloom-7.png",

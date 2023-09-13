@@ -5,12 +5,15 @@ import { Frieze } from '../sections/layout/Frieze';
 
 export const KoduTemplate = () => {
   const routesData = useMatches();
-  const isDestinationPage = routesData.some((route) => (route?.id === 'home'));
+  const isHomePage = routesData.some((route) => (route?.id === 'home'));
 
   return (
     <>
-      <Frieze/>
-      <Header isDinamic={isDestinationPage}/>
+    {
+      !isHomePage 
+      ? <Frieze hasLogo={true}/>
+      : <Header/>
+    }
       <Navbar/>
       <main>
         <Outlet/>

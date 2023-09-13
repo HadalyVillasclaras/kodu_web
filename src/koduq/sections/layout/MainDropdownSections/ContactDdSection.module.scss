@@ -8,11 +8,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 4rem;
+  gap: 3rem;
   width: 100%;
   position: relative;
   height: 100%;
-  margin-top: 3rem;
+  margin-top: 2rem;
 
   @include tablet() {
     flex-direction: row;
@@ -24,12 +24,19 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    @include tablet() {
+      gap: 2rem;
+    }
 
     &.contact {
-      font-size: 2.5rem;
-      line-height: 2rem;
+      font-size: 2rem;
       margin-top: auto;
+      @include tablet() {
+        font-size: 2.5rem;
+        line-height: 2rem;
+      }
     }
   }
 }

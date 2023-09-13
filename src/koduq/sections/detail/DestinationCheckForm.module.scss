@@ -1,24 +1,25 @@
 @use "../../../design-system/settings/colors";
 @import "../../../design-system/settings/breakpoints";
+@import "../../../design-system/settings/colors";
 
 
 .avblty-form {
   // border: 1px solid colors.$green;
+  // padding: 1.2rem;
   display:flex; 
   flex-direction: column; 
-  gap: 2rem;
-  padding: 1.2rem;
+  gap: 1rem;
   border-radius: 3rem;
 
   @include tablet() {
     padding: 1.8rem;
+    gap: 1rem;
   }
 
   fieldset {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
   }
 
   h4 {
@@ -26,16 +27,21 @@
   }
 
   &__loader {
-    padding: .3rem 0;
+    padding: .8rem 0;
     display: flex;
     text-align: center;
     justify-content: center;
+    color: colors.$brown;
+    border: 3px dotted colors.$brown;
+    border-radius: 1rem;
   }
 
   &__feedback {
     text-align: left;
-    border: 1px solid colors.$brown;
-    padding: 0.5rem;
+    // background-color: colors.$brown;
+    color: colors.$brown;
+    border: 3px dotted colors.$brown;
+    padding: 0.8rem;
     border-radius: 1rem;
   }
 }

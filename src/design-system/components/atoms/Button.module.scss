@@ -1,62 +1,129 @@
 @use "../../settings/colors";
 @use "../../settings/fonts";
+@import "../../settings/spacing";
+
+@mixin vertical-color($color) {
+  background-image: linear-gradient($color, $color 100%);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 
 .button {
   display: flex;
   white-space: nowrap;
 
+  &__header {
+    font-family: "Eklektyk";
+    font-size: 1.5rem;
+    transition: all 0.7s;
+    display: inline-block;
+    width: auto;
+    @include btn-space-header;
+
+    &--green {
+      @extend .button__header;
+      color: colors.$cream;
+      border: 1px solid colors.$green;
+      @include vertical-color(colors.$green);
+
+      &:hover {
+        color: colors.$green;
+        background-size: 100% 0;
+      }
+
+      &:active {
+        background-color: colors.$green;
+        color: colors.$cream;
+      }
+    }
+
+    &--cream {
+      @extend .button__header;
+      color: colors.$cream;
+      border: 1px solid colors.$cream;
+      @include vertical-color(colors.$brown);
+
+      &:hover {
+        background-color: colors.$green;
+        color: colors.$cream;
+        background-size: 100% 0;
+      }
+    }
+
+    &--brown {
+      @extend .button__header;
+      color: colors.$cream;
+      border: 1px solid colors.$brown;
+      @include vertical-color(colors.$brown);
+
+      &:hover {
+        color: colors.$brown;
+        background-size: 100% 0;
+      }
+
+      &:active {
+        background-color: colors.$brown;
+        color: colors.$cream;
+      }
+    }
+  }
+
   &__default {
     font-family: "Eklektyk";
     font-size: 1.5rem;
-    padding: 0.4rem 0  0.1rem 0;
+    @include btn-space;
     text-transform: uppercase;
-    border: 1px solid transparent;
-    transition: all .7s;
-    text-align: center !important;
+    transition: all .5s;
     width: 100%;
     display: inline-block;
-    background-image: linear-gradient(colors.$green, colors.$green 100%);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
 
     &--green {
       @extend .button__default;
-      color: colors.$button-secondary;
+      color: colors.$cream;
+      border: 1px solid colors.$green;
+      @include vertical-color(colors.$green);
 
       &:hover {
         background-color: colors.$cream;
-        background-size: 100% 0;
-        color: colors.$green;
+        color: colors.$brown;
         border: 1px solid colors.$green;
+
+        background-size: 100% 0;
+      }
+
+      &:active {
+        background-color: colors.$green;
+        color: colors.$cream;
       }
     }
 
     &--cream {
       @extend .button__default;
-    background-image: unset;
-    border: 1px solid colors.$cream;
-      
-      color: colors.$cream;
+      color: colors.$brown;
+      border: 1px solid colors.$cream;
+      @include vertical-color(colors.$cream);
 
       &:hover {
-        background-color: colors.$cream;
+        color: colors.$cream;
         background-size: 100% 0;
-        color: colors.$green;
-        border: 1px solid colors.$green;
       }
     }
 
     &--brown {
       @extend .button__default;
-      background-color: colors.$brown;
-      color: colors.$brown;
+      color: colors.$cream;
+      border: 1px solid colors.$brown;
+      @include vertical-color(colors.$brown);
 
       &:hover {
-        background-color: colors.$cream;
+        color: colors.$brown;
         background-size: 100% 0;
-        color: colors.$green;
-        border: 1px solid colors.$green;
+      }
+
+      &:active {
+        background-color: colors.$brown;
+        color: colors.$cream;
       }
     }
   }
@@ -106,3 +173,4 @@
     }
   }
 }
+

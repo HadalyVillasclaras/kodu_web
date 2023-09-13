@@ -1,1 +1,1 @@
-export type ButtonVariants = "default" | "underline";
+export type ButtonVariants = "default" | "underline" | "header";

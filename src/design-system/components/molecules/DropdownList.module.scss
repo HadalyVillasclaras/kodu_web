@@ -2,27 +2,31 @@
 @use "../../settings/colors";
 @use "../../settings/border";
 @import "../../settings/breakpoints";
+@import "../../settings/spacing";
 
 .dropdown {
   position: relative;
-  
+
+  :hover {
+    color: colors.$cream;
+    background-color: colors.$green;
+  }
+
+  :hover  svg {
+    stroke: colors.$cream;
+  }
+
   &__button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     width: 100%;
-    padding: 0.5rem 0.8rem 0.4rem 0.8rem;
+    @include btn-space;
     font-weight: 500;
-
     border: 1px solid;
     
-    @include tablet() {
-    }
-
     &--cream {
-      border-bottom: 1px solid colors.$cream;
-      border-right: 1px solid colors.$cream;
+      border-color: colors.$cream;
       color: colors.$cream;
     }
   

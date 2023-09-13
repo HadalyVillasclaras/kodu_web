@@ -2,10 +2,12 @@ import { Destination } from "../../core/destination/domain/Destination";
 import { MappedList } from "../../../design-system/components/molecules";
 import { DestinationCheckForm } from "./DestinationCheckForm";
 import styles from "./DestinationInfoContainer.module.scss";
+import { Divider } from "../../../design-system/components/atoms";
 
 type Props = {
   destination: Destination
 }
+
 export const DestinationInfoContainer = ({ destination }: Props) => {
 
   return (
@@ -18,6 +20,7 @@ export const DestinationInfoContainer = ({ destination }: Props) => {
         <p className={`${styles['dest-info__description']}`}>{destination.description}</p>
         <MappedList color="green" size="m" items={destination?.details.amenities} />
       </section>
+      <Divider/>
       <section className={`${styles['dest-form-wrapper']}`}>
         <DestinationCheckForm destinationId={destination.id.toString()} />
       </section>

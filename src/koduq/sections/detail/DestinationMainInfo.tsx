@@ -9,7 +9,7 @@ type Props = {
 export const DestinationMainInfo = ({ destination }: Props) => {
   return (
     <header className={styles['detail-header']}>
-      <Heading as="h3" color="green">{destination.name}</Heading>
+      <Heading as="h2" color="green" font='fancy'>{destination.name}</Heading>
       <p className={styles['detail-header__location']}>{destination.location}</p>
       <Divider color="green" />
     </header>
