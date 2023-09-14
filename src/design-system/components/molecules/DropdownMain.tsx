@@ -42,7 +42,7 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
   const openDropdown = () => {
     if (!isOpen) {
       dropdownTween.current?.play();
-      document.body.style.overflowY = 'hidden';
+      document.body.classList.add('overflow-hidden');
     }
     setIsOpen(true);
   }
@@ -50,7 +50,7 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
   const closeDropdown = () => {
     if (isOpen) {
       dropdownTween.current?.reverse();
-      document.body.style.overflowY = 'auto';
+      document.body.classList.remove('overflow-hidden');
     }
     setIsOpen(false);
   }
@@ -59,7 +59,6 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
     <div
       ref={dropdownRef}
       className={`${styles[`dropdown`]} ${styles[`dropdown__color--${color}`]}`}
-      style={{ position: isOpen ? 'fixed' : 'absolute' }}
     >
       <section>
         <header>

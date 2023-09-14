@@ -28,25 +28,37 @@
     top: 0;
     right: 0;
     height: 100vh;
-    width: 100vw;
+    width: 95vw;
     border-radius: border.$radius--xxl 0 0 border.$radius--xxl;
     background-color:colors.$brown;
     z-index: 3;
-    padding: spacing.$pd__mb--small;
+    padding:calc(spacing.$pd__mb--big * 4) calc(spacing.$pd__mb--big * 2);
     transform: translateX(100%);
     transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-  
+    
+    
     @include selectionGreenBg;
 
-    @include tablet() {
-      padding: spacing.$pd__dk--small;
+    @include tablet() {    
+      padding:calc(spacing.$pd__dk--small * 1.4) calc(spacing.$pd__dk--small * 1.5);
+      svg {
+        width: 60vw;
+      }
     }
 
     &-list {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 2rem;
       font-family: "Eklektyk";
+      color: colors.$brown;
+
+      @include tablet() {
+        width: 60%;
+      grid-template-columns: 1fr 1fr;
+
+
+      }
     }
   }
 }

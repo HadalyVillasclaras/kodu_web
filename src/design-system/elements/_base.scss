@@ -1,5 +1,6 @@
 @use "../settings/fonts";
 @use "../settings/colors";
+@import "../settings/breakpoints";
 
 :root {
   --cream: #F5F0DE;
@@ -15,6 +16,14 @@
   scroll-behavior: smooth;
 }
 
+.overflow-hidden {
+  overflow-y: hidden;
+  @include mobile{
+  overflow-y: unset;
+
+  }
+}
+
 input,
 textarea,
 button,
@@ -25,11 +34,9 @@ a {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
-  // background-color: #2D3748;
   font-size: fonts.$m;
   color: colors.$text-primary;
   font-family: Trap;

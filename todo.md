@@ -1,11 +1,9 @@
------------------------- 
 ------------------------
 TO DO 
 -form response
--if click check after select... render message
--normalize loader 
--use loader in dropdown
- 
+ -add view full gallery over img on detail sect
+ -refactor contact form styles
+
 Refactor
 -header margin not working ok on mb 
 -fix header
@@ -66,6 +64,10 @@ Form styles
 
 14/9
 -dropdown (quita top + scroll?)
+-use loader in dropdown
+-normalize loader 
+-if click check after select... render message
+-msg if check without opt
 
 --
 quarterly retreats in sustainable lodges

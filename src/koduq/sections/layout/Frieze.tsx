@@ -48,7 +48,7 @@ export const Frieze = ({ color = "brown", hasLogo = false }: Props) => {
         dropdownType === 'contact'
           ?
           <DropdownMain title='Contact' color='green' ref={dropdownRef}>
-            <ContactDdSection/>
+            <ContactDdSection />
           </DropdownMain>
           :
           <DropdownMain title='Check availability' color='brown' ref={dropdownRef} >

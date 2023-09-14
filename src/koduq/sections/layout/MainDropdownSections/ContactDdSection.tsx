@@ -1,6 +1,6 @@
 import { Heading } from '../../../../design-system/components/atoms';
+import { ContactForm } from '../../../../design-system/components/molecules/ContactForm';
 import styles from './ContactDdSection.module.scss';
-import ContactForm from '../../../../design-system/components/molecules/ContactForm';
 
 export const ContactDdSection = () => {
 

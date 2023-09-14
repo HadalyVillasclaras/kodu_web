@@ -15,11 +15,19 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
   const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [hasRequested, setHasRequested] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   const { isQuarterAvailableOnDestination } = useAvailability();
-
+console.log(selectedQuarter);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!selectedQuarter) {
+      setError("Please, select a year quarter to check availability.");
+      return;
+    }
+    setError(null);
+
     if (selectedQuarter) {
       setLoading(true);
       const availability = isQuarterAvailableOnDestination(selectedQuarter.id, destinationId);
@@ -41,6 +49,7 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
     return <Button type='submit' text='Check' />;
   };
 
+
   return (
     <form className={`${styles['avblty-form']}`} onSubmit={handleSubmit} aria-labelledby="form-title">
       <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
@@ -51,6 +60,7 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
           onSelectChange={(selected) => {
             setSelectedQuarter(selected);
             setIsAvailable(null);
+            setError(null);
           }}
           color="green"
           data={allQuarters as DropdownRenderData[]}
@@ -59,7 +69,11 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
       <section>
         {renderButtonOrLoader()}
       </section>
+      <section>
+      {error && <p className={`${styles['avblty-form__error']}`}>{error}</p>}
+      </section>
       { loading && <Loader /> }
+
       {isAvailable != null && !loading && (
         <section>
           <p className={`${styles['avblty-form__feedback']}`}>

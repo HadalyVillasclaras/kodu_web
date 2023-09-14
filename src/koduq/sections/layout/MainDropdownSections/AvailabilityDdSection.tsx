@@ -81,7 +81,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
                   <div className={`${styles[`dd-avblty__response__submitted`]}`}>
                     {
                       isLoading
-                        ? <Loader />
+                        ? <Loader color='cream' />
                         : <div>
                           <p>Available quarter periods: </p>
                           <ul className={`${styles[`dd-avblty__response-destination-ul`]}`}>

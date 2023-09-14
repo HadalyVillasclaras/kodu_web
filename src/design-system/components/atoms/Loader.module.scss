@@ -1,4 +1,5 @@
 @use "../../settings/colors";
+@import "../../settings/colors";
 @import "../../settings/breakpoints";
 
 .loaderwrapper {
@@ -7,18 +8,26 @@
   text-align: center;
   justify-content: center;
   color: colors.$cream;
-  border: 3px dotted colors.$cream;
+  border: 3px dotted;
   border-radius: 1rem;
   align-items: center;
+
+  &__color {
+    @include borderColor();
+  }
 }
 
 .loader {
-  border: 4px solid colors.$cream;
+  border: 3px solid;
   border-radius: 50%;
-  border-top: 4px solid colors.$brown;
+  border-top: 3px solid transparent!important;
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
+
+  &__color {
+    @include borderColor();
+  }
 }
 
 @keyframes spin {

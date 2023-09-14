@@ -17,3 +17,10 @@
     color: colors.$opacity-cream-light;
   }
 }
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4;
+}

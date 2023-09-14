@@ -1,4 +1,4 @@
-import { IconButton, Link } from '../../../design-system/components/atoms';
+import { IconButton, Link, Logo } from '../../../design-system/components/atoms';
 import { NavIconContext } from "../../contexts/NavIconContext";
 import { useContext, useEffect, useState, useRef, useLayoutEffect } from "react";
 import styles from "./Navbar.module.scss";
@@ -54,7 +54,7 @@ export const Navbar = () => {
         </span>
       </div>
       <nav className={styles["navbar__menu"]} style={isOpen ? { transform: 'translateX(0)' } : {}}>
-        <p className={styles["xxxl-koduq"]}>KODUQ</p>
+        <Logo color='cream' size='20rem' clickable={false}/>
         <ul ref={navListRef} className={styles["navbar__menu-list"]}>
           {navItems.map((navItem, index) => (
             <li key={index} onClick={toggleSidebar}>
