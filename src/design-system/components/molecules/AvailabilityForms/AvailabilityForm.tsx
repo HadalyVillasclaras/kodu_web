@@ -22,6 +22,7 @@ export type QuarterAvailability = {
 
 type AvailabilityFormProps = {
   formType: 'destination' | 'quarter';
+  isSubmited: boolean;
   setIsSelected: any;
   setIsSubmited: any;
   setDestinationPreview: (destinationPrev: any) => void;
@@ -38,54 +39,70 @@ type FormData = {
   dropDownOnHoverOption?: (id: string, label: string) => void;
 }
 
-export const AvailabilityForm = ({ formType, setIsSelected, setIsSubmited, setDestinationPreview, setQuarterPreview, setDestination, setQuarter }: AvailabilityFormProps) => {
+export const AvailabilityForm = ({ formType, setIsSelected, isSubmited, setIsSubmited, setDestinationPreview, setQuarterPreview, setDestination, setQuarter }: AvailabilityFormProps) => {
   const [formTypeData, setFormtypeData] = useState<FormData | null>(null);
 
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
   const [selectedQuarter, setSelectedQuarter] = useState<Quarter | null>(null);
 
   const { checkAvailabilityByDestination, checkAvailabilityByQuarter } = useAvailability();
-
+  const [showError, setShowError] = useState<boolean>(false);
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setShowError(false);
+
+    if (!selectedQuarter && !selectedDestination && !isSubmited) {
+        setShowError(true);
+        return; 
+    }
     setIsSelected(false);
 
     if (selectedQuarter) {
-      const avlbDestinations = checkAvailabilityByQuarter(selectedQuarter.id);
-      setQuarter({
-        quarter: selectedQuarter,
-        availableDestinations: avlbDestinations
-      });
-      setDestination(null);
+      try {
+        const avlbDestinations = checkAvailabilityByQuarter(selectedQuarter.id);
+        setQuarter({
+          quarter: selectedQuarter,
+          availableDestinations: avlbDestinations
+        });
+        setDestination(null);
+        setIsSubmited(true);
+      } catch (error) {
+        setQuarter(null);
+      }
+      setSelectedQuarter(null);
     }
-
+  
     if (selectedDestination) {
-      const avlbQuarters: Quarter[] = checkAvailabilityByDestination(selectedDestination.id);
-      setDestination({
-        ...selectedDestination,
-        availability: avlbQuarters
-      });
-      setQuarter(null);
+      try {
+        const avlbQuarters: Quarter[] = checkAvailabilityByDestination(selectedDestination.id);
+        setDestination({
+          ...selectedDestination,
+          availability: avlbQuarters
+        });
+        setQuarter(null);
+        setIsSubmited(true);
+      } catch (error) {
+        setDestination(null);
+      }
+      setSelectedDestination(null);
     }
-
-    setIsSubmited(true);
   }
 
   const handleOnSelectOption = (optionData: DropdownRenderData) => {
-
+    setShowError(false);
     if (formType === 'destination' && optionData.id) {
       const destination: Destination | undefined = getDestinationById(optionData.id)
       if (destination) {
         setSelectedDestination(destination);
-        setDestination(null); //null previous  
+        setDestination(null);
         setIsSelected(true);
+        setSelectedQuarter(null);
       }
     } else if (formType === 'quarter') {
       setSelectedQuarter(optionData);
-      setQuarter(null); //null previous
       setIsSelected(true);
-    }
-
+      setSelectedDestination(null);
+    } 
     setIsSubmited(false);
   }
 
@@ -159,6 +176,9 @@ export const AvailabilityForm = ({ formType, setIsSelected, setIsSubmited, setDe
             />
           </fieldset>
           <Button type='submit' text='Check' />
+          {
+             showError && <span>Please, select an option before check</span>
+          }
         </form>
       }
     </>

@@ -12,14 +12,10 @@ export const QuarterPreview = ({quarterPreview, isSelected}: Props) => {
   }, [isSelected]);
 
   return (
-    <>
-      <img src={quarterPreview.img} alt="" />
-      <section className={`${styles[`dd-avblty__response__clm-sect`]}`}>
-        <div >
+      <section className={`${styles[`dd-avblty__response__column-sect`]}`}>
           <Heading as='h4' color='cream' font='fancy'>{`${quarterPreview.id} | ${quarterPreview.label}`}</Heading>
-        </div>
-        <span>{ isSelected ?  "Click check to see availability" : ""}</span>
+
+        { isSelected ? <i>Click the check button to see available destinations</i> : <></>}
       </section>
-    </>
   )
 }

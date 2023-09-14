@@ -21,16 +21,22 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
 
   const [isSubmited, setIsSubmited] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setDestination(null);
     setQuarter(null);
+    setIsSubmited(false);
+    setIsLoading(false);
   }, [destinationPreview, quarterPreview])
 
   useEffect(() => {
     setDestinationPreview(null);
     setQuarterPreview(null);
+    setDestination(null);
+    setQuarter(null);
+    setIsSubmited(false);
+    setIsLoading(false);
   }, [formChoice])
 
   useEffect(() => {
@@ -41,10 +47,11 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
       }, 5000);
     }
   }, [isSubmited])
-
+  console.log(quarter);
   return (
     <section className={`${styles[`dd-avblty`]}`}>
       <AvailabilityForm
+        isSubmited={isSubmited}
         setIsSelected={setIsSelected}
         setIsSubmited={setIsSubmited}
         setDestination={setDestination}
@@ -58,74 +65,72 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
           formChoice === 'destination' &&
           <section className={`${styles[`dd-avblty__response-destination`]}`}>
             {
-              destinationPreview && !isSubmited &&
-              <DestinationPreview destinationPreview={destinationPreview} isSelected={isSelected} />
+              destinationPreview &&
+              <img src={destinationPreview.img} alt="" />
             }
-            {
-              destination && isSubmited &&
-              <>
-                <img src={destination.images[0]} alt="" />
-                <section className={`${styles[`dd-avblty__response__column-sect`]}`}>
+            <section className={`${styles[`dd-avblty__response__column-sect`]}`}>
+              {destinationPreview && !isSubmited &&
+                <DestinationPreview destinationPreview={destinationPreview} isSelected={isSelected} />
+              }
+              {destination && isSubmited &&
+                <>
                   <div>
                     <Heading as='h4' color='cream' font='fancy'>{destination.name}</Heading>
                     <p>{destination.location}</p>
                   </div>
-                  {
-                    isLoading
-                      ? <Loader />
-                      : <div>
-                        <p>Available quarter periods: </p>
-                        <ul className={`${styles[`dd-avblty__response-destination-ul`]}`}>
-                          {
-                            destination?.availability?.map((q: Quarter, k: number) => {
-                              return (
-                                <li key={k} onClick={closeDropdown}>
-                                  <Link openInNewTab={false} size='s' color="cream" href={destinationBaseUrl + destination.id}>
-                                    {`${q.id} | ${q.label}`}
-                                  </Link>
-                                </li>)
-                            })
-                          }
-                        </ul>
-                      </div>
-                  }
-                </section>
-              </>
-            }
+                  <div className={`${styles[`dd-avblty__response__submitted`]}`}>
+                    {
+                      isLoading
+                        ? <Loader />
+                        : <div>
+                          <p>Available quarter periods: </p>
+                          <ul className={`${styles[`dd-avblty__response-destination-ul`]}`}>
+                            {
+                              destination?.availability?.map((q: Quarter, k: number) => {
+                                return (
+                                  <li key={k} onClick={closeDropdown}>
+                                    <Link openInNewTab={false} size='m' color="cream" href={destinationBaseUrl + destination.id}>
+                                      {`+ ${q.id} | ${q.label}`}
+                                    </Link>
+                                  </li>)
+                              })
+                            }
+                          </ul>
+                        </div>
+                    }
+                  </div>
+                </>
+              }
+            </section>
           </section>
         }
 
         {
           formChoice === 'quarter' &&
           <section className={`${styles[`dd-avblty__response__column-sect`]}`}>
-            {
-              quarterPreview && !isSubmited &&
+            {quarterPreview &&
               <QuarterPreview quarterPreview={quarterPreview} isSelected={isSelected} />
             }
-            {
-              quarter && isSubmited &&
-              <div>
-                <div>
-                  <Heading as='h4' color='cream' font='fancy'>{`${quarterPreview.id} | ${quarterPreview.label}`}</Heading>
-                </div>
+            {quarter && isSubmited &&
+              <div className={`${styles[`dd-avblty__response__submitted`]}`}>
                 {
                   isLoading
                     ? <Loader />
-                    : <>
+                    : <div>
                       <p>Available destinations in selected quarter: </p>
                       <ul>
                         {
                           quarter.availableDestinations.map((destination: Destination, k: number) => {
                             return (
                               <li key={k} onClick={closeDropdown}>
-                                <Link openInNewTab={false} size='s' color="cream" href={destinationBaseUrl + destination.id}>
-                                  {destination.name}
+                                <Link openInNewTab={false} size='m' color="cream" href={destinationBaseUrl + destination.id}>
+                                  + {destination.name}
                                 </Link>
                               </li>)
                           })
                         }
                       </ul>
-                    </>
+                    </div>
                 }
               </div>
             }
