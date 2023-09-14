@@ -26,16 +26,6 @@
     font-size: 3rem;
   }
 
-  &__loader {
-    padding: .8rem 0;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    color: colors.$brown;
-    border: 3px dotted colors.$brown;
-    border-radius: 1rem;
-  }
-
   &__feedback {
     text-align: left;
     // background-color: colors.$brown;

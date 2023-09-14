@@ -59,11 +59,7 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
       <section>
         {renderButtonOrLoader()}
       </section>
-      {loading &&
-        <section className={`${styles['avblty-form__loader']}`}>
-          <Loader />
-        </section>
-      }
+      { loading && <Loader /> }
       {isAvailable != null && !loading && (
         <section>
           <p className={`${styles['avblty-form__feedback']}`}>

@@ -1,35 +1,52 @@
 import { useEffect, useState } from 'react';
-import { Heading, Link } from '../../../../design-system/components/atoms';
+import { Heading, Link, Loader } from '../../../../design-system/components/atoms';
 import { AvailabilityForm, QuarterAvailability } from '../../../../design-system/components/molecules/AvailabilityForms/AvailabilityForm';
 import styles from './AvailabilityDdSection.module.scss';
 import { Quarter } from '../../../core/common/quarters/domain/Quarter';
 import { Destination } from '../../../core/destination/domain/Destination';
-import { getQuartersByIds } from '../../../core/common/quarters/services/getQuartersByIds';
+import { DestinationPreview } from './DestinationPreview';
+import { QuarterPreview } from './QuarterPreview';
 
 type Props = {
   formChoice: "destination" | "quarter";
   closeDropdown: () => void;
 }
-
-const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH;
+const destinationBaseUrl = `/destination/`;
 
 export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
-  const [destinationPreview, setDestinationPreview] = useState<any | null>(null);
-  const [quarterPreview, setQuarterPreview] = useState<any | null>(null);
-  const [isLoading, setIsLoading] = useState(null)
-  const [destination, setDestination] = useState<any | null>(null);
   const [quarter, setQuarter] = useState<QuarterAvailability | null>(null);
+  const [quarterPreview, setQuarterPreview] = useState<any | null>(null);
+  const [destination, setDestination] = useState<any | null>(null);
+  const [destinationPreview, setDestinationPreview] = useState<any | null>(null);
 
-  const destinationBaseUrl = `/destination/`;
+  const [isSubmited, setIsSubmited] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setDestination(null);
     setQuarter(null);
   }, [destinationPreview, quarterPreview])
 
+  useEffect(() => {
+    setDestinationPreview(null);
+    setQuarterPreview(null);
+  }, [formChoice])
+
+  useEffect(() => {
+    if (isSubmited) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
+    }
+  }, [isSubmited])
+
   return (
     <section className={`${styles[`dd-avblty`]}`}>
       <AvailabilityForm
+        setIsSelected={setIsSelected}
+        setIsSubmited={setIsSubmited}
         setDestination={setDestination}
         setQuarter={setQuarter}
         formType={formChoice}
@@ -41,74 +58,75 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
           formChoice === 'destination' &&
           <section className={`${styles[`dd-avblty__response-destination`]}`}>
             {
-              destinationPreview &&
-              <img src={destinationPreview.img} alt="" />
+              destinationPreview && !isSubmited &&
+              <DestinationPreview destinationPreview={destinationPreview} isSelected={isSelected} />
             }
-            <section className={`${styles[`dd-avblty__response__clm-sect`]}`}>
-              {
-                destinationPreview &&
-                <div>
-                  <Heading as='h4' color='cream' font='fancy'>{destinationPreview.name}</Heading>
-                  <p>{destinationPreview.location}</p>
-                </div>
-              }
-              {
-                destination !== null && isLoading === null
-                  ?
-                  <span>Please, click the check button.</span>
-                  :
+            {
+              destination && isSubmited &&
+              <>
+                <img src={destination.images[0]} alt="" />
+                <section className={`${styles[`dd-avblty__response__column-sect`]}`}>
                   <div>
-                    {
-                      isLoading
-                        ? <span>loading</span>
-                        : <>
-                          <p>Available quarter periods: </p>
-                          <ul className={`${styles[`dd-avblty__response-destination-ul`]}`}>
-                            {
-                              destination?.availability?.map((q: Quarter, k: number) => {
-                                return (
-                                  <li key={k} onClick={closeDropdown}>
-                                    <Link openInNewTab={false} size='s' color="cream" href={destinationBaseUrl + destination.id}>
-                                      {`${q.id} | ${q.label}`}
-                                    </Link>
-                                  </li>)
-                              })
-                            }
-                          </ul>
-
-                        </>
-                    }
-
+                    <Heading as='h4' color='cream' font='fancy'>{destination.name}</Heading>
+                    <p>{destination.location}</p>
                   </div>
-              }
-
-
-            </section>
+                  {
+                    isLoading
+                      ? <Loader />
+                      : <div>
+                        <p>Available quarter periods: </p>
+                        <ul className={`${styles[`dd-avblty__response-destination-ul`]}`}>
+                          {
+                            destination?.availability?.map((q: Quarter, k: number) => {
+                              return (
+                                <li key={k} onClick={closeDropdown}>
+                                  <Link openInNewTab={false} size='s' color="cream" href={destinationBaseUrl + destination.id}>
+                                    {`${q.id} | ${q.label}`}
+                                  </Link>
+                                </li>)
+                            })
+                          }
+                        </ul>
+                      </div>
+                  }
+                </section>
+              </>
+            }
           </section>
         }
+
         {
           formChoice === 'quarter' &&
-          <section className={`${styles[`dd-avblty__response__clm-sect`]}`}>
+          <section className={`${styles[`dd-avblty__response__column-sect`]}`}>
             {
-              quarterPreview &&
-              <Heading as='h4' color='cream' font='fancy'>{`${quarterPreview.id} | ${quarterPreview.label}`}</Heading>
+              quarterPreview && !isSubmited &&
+              <QuarterPreview quarterPreview={quarterPreview} isSelected={isSelected} />
             }
             {
-              quarter &&
+              quarter && isSubmited &&
               <div>
-                <p>Available destinations in selected quarter: </p>
-                <ul>
-                  {
-                    quarter.availableDestinations.map((destination: Destination, k: number) => {
-                      return (
-                        <li key={k} onClick={closeDropdown}>
-                          <Link openInNewTab={false} size='s' color="cream" href={destinationBaseUrl + destination.id}>
-                            {destination.name}
-                          </Link>
-                        </li>)
-                    })
-                  }
-                </ul>
+                <div>
+                  <Heading as='h4' color='cream' font='fancy'>{`${quarterPreview.id} | ${quarterPreview.label}`}</Heading>
+                </div>
+                {
+                  isLoading
+                    ? <Loader />
+                    : <>
+                      <p>Available destinations in selected quarter: </p>
+                      <ul>
+                        {
+                          quarter.availableDestinations.map((destination: Destination, k: number) => {
+                            return (
+                              <li key={k} onClick={closeDropdown}>
+                                <Link openInNewTab={false} size='s' color="cream" href={destinationBaseUrl + destination.id}>
+                                  {destination.name}
+                                </Link>
+                              </li>)
+                          })
+                        }
+                      </ul>
+                    </>
+                }
               </div>
             }
           </section>

@@ -42,6 +42,7 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
   const openDropdown = () => {
     if (!isOpen) {
       dropdownTween.current?.play();
+      document.body.style.overflowY = 'hidden';
     }
     setIsOpen(true);
   }
@@ -49,11 +50,11 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
   const closeDropdown = () => {
     if (isOpen) {
       dropdownTween.current?.reverse();
+      document.body.style.overflowY = 'auto';
     }
     setIsOpen(false);
   }
 
-  //if isOpen && is mobile --- body { overflow-y: hidden}
   return (
     <div
       ref={dropdownRef}
