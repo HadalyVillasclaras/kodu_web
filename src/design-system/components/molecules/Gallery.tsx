@@ -29,6 +29,7 @@ export const Gallery = ({ imgs }: GalleryProps) => {
           onClick={() => { setIsFullscreen(true); setCurrentImg(0) }}
         >
           <img src={imgs[0]} alt={''} />
+          <span className={`${styles['gallery__btn-view']}`}>View gallery</span>
         </div>
         <div
           className={`${styles['gallery__elmt']} ${styles['gallery__right-side']} ${styles['gallery__right-side--top']}`}

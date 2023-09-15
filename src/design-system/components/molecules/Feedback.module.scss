@@ -1,0 +1,15 @@
+@use "../../settings/colors";
+@import "../../settings/colors";
+
+.feedback {
+  text-align: left;
+  color: colors.$brown;
+  border: 3px dotted;
+  padding: 0.8rem;
+  border-radius: 1rem;
+
+  &__color {
+    @include color;
+    @include borderColor;
+  }
+}

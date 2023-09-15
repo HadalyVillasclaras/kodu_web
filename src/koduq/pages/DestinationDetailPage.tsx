@@ -5,13 +5,14 @@ import { Destination } from "../core/destination/domain/Destination";
 import { getDestinationById } from "../core/destination/application/getDestinationById";
 import { Fader } from "../../design-system/components/molecules";
 import { DestinationImages } from "../sections/detail/DestinationImages";
-import { DestinationMainInfo } from "../sections/detail/DestinationMainInfo";
-import { DestinationNotFound } from "../sections/errors/DestinationNotFound";
-import { DestinationInfoContainer } from "../sections/detail/DestinationInfoContainer";
+import { DestinationHeader } from "../sections/detail/DestinationHeader";
+import { DestinationNotFound } from "../sections/shared/errors/DestinationNotFound";
+import { DestinationCheckSection } from "../sections/detail/DestinationCheckSection";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
   const { id: destinationId } = useParams();
+
   const refs = {
     detMain: useRef(null),
     detCheck: useRef(null),
@@ -38,10 +39,10 @@ export const DestinationDetailPage = () => {
         <>
           <Section id="detMain" ref={refs.detMain} size='small' customStyle={{ minHeight: "unset", paddingBottom: "0", gap: "2rem" }}>
             <DestinationImages imgs={currentDestination.images} />
-            <DestinationMainInfo destination={currentDestination} />
+            <DestinationHeader destination={currentDestination} />
           </Section>
           <Section id="detCheck" ref={refs.detCheck} size='full'>
-            <DestinationInfoContainer destination={currentDestination} />
+            <DestinationCheckSection destination={currentDestination} />
           </Section>
         </>
         :

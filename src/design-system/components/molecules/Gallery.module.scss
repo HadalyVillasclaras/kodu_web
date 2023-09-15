@@ -1,5 +1,8 @@
+@use "../../settings/colors";
 @import "../../settings/breakpoints";
 @import "../../settings/mixins/mixins";
+@import "../../settings/mixins/buttons";
+
   
   .gallery {
     display: grid;
@@ -52,5 +55,12 @@
           display:block; 
         }
       }
+    }
+
+    &__btn-view{
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      @include badgeRound(colors.$cream);
     }
   }

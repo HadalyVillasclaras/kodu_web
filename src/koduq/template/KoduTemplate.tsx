@@ -1,7 +1,7 @@
 import { Outlet, useMatches } from 'react-router-dom'
 import { Header, Navbar, Footer, Credits } from "../sections/layout" 
 import { Cookies } from '../sections/layout/Cookies'
-import { Frieze } from '../sections/layout/Frieze';
+import { DropdownFrieze } from '../sections/shared/DropdownFrieze/DropdownFrieze';
 
 export const KoduTemplate = () => {
   const routesData = useMatches();
@@ -11,7 +11,7 @@ export const KoduTemplate = () => {
     <>
     {
       !isHomePage 
-      ? <Frieze hasLogo={true}/>
+      ? <DropdownFrieze hasLogo={true}/>
       : <Header/>
     }
       <Navbar/>

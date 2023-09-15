@@ -1,11 +1,11 @@
 import { Logo } from '../../../design-system/components/atoms';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { Colors } from '../../../design-system/tokens';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import styles from './Header.module.scss';
 import { gsap } from 'gsap';
 import { useLocation } from 'react-router-dom';
-import { Frieze } from './Frieze';
+import { DropdownFrieze } from '../shared/DropdownFrieze/DropdownFrieze';
 
 type HeaderProps = {
   bgColor?: Colors | null;
@@ -44,7 +44,7 @@ export const Header = ({ bgColor = null }: HeaderProps) => {
 
   return (
     <>
-      <Frieze hasLogo={false} />
+      <DropdownFrieze hasLogo={false} />
       <header
         id="header"
         ref={headerRef}
@@ -56,8 +56,6 @@ export const Header = ({ bgColor = null }: HeaderProps) => {
             </span>
         </div>
       </header>
-
     </>
-
   )
 }

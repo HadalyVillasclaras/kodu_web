@@ -1,0 +1,45 @@
+@use "../../../design-system/settings/colors";
+
+.contact-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  fieldset {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ::placeholder {
+    color: colors.$opacity-cream-light;
+  }
+}
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  gap: 0.3rem;
+}
+
+.input-error {
+  font-size: 0.8rem;
+  color: colors.$cream;
+  height: 1rem;
+  transition: opacity 1s ease;
+
+  &--visible {
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+
+  &--hidden {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+}

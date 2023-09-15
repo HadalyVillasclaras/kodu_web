@@ -1,12 +1,12 @@
 import { Destination } from '../../core/destination/domain/Destination';
 import { Divider, Heading } from '../../../design-system/components/atoms'
-import styles from "./DestinationMainInfo.module.scss";
+import styles from "./DestinationHeader.module.scss";
 
 type Props = {
   destination: Destination
 }
 
-export const DestinationMainInfo = ({ destination }: Props) => {
+export const DestinationHeader = ({ destination }: Props) => {
   return (
     <header className={styles['detail-header']}>
       <Heading as="h2" color="green" font='fancy'>{destination.name}</Heading>

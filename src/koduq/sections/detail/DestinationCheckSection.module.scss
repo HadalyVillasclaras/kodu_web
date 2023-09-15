@@ -1,23 +1,22 @@
 @use "../../../design-system/settings/colors";
 @use "../../../design-system/settings/spacing";
-
 @import "../../../design-system/settings/breakpoints";
+@import "../../../design-system/settings/mixins/mixins";
 
-.dest-x__container {
-  display: flex;
-  justify-content: space-between;
-  gap: 4rem;
-  flex-direction: column;
+
+.dest-check__container {
   position: relative;
   width: 100%;
   padding: 2rem spacing.$pd__mb--small;
+
+  @include flexColumn;
+  gap: 4rem;
 
   hr {
     @include tablet() {
       display: none;
     }
   }
-
   
   @include tablet() {
     padding: 2rem spacing.$pd__dk--small;
@@ -53,7 +52,7 @@
   }
 }
 
-.dest-form-wrapper {
+.dest-form {
   width: 100%;
 
   @include tablet() {

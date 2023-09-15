@@ -23,8 +23,8 @@ export type QuarterAvailability = {
 type AvailabilityFormProps = {
   formType: 'destination' | 'quarter';
   isSubmited: boolean;
-  setIsSelected: any;
-  setIsSubmited: any;
+  setIsSelected: (x: boolean) => void;
+  setIsSubmited: (x: boolean) => void;
   setDestinationPreview: (destinationPrev: any) => void;
   setQuarterPreview: (quarter: Quarter) => void;
   setDestination: (destination: Destination | null) => void;
@@ -38,6 +38,13 @@ type FormData = {
   dropdownData: DropdownRenderData[];
   dropDownOnHoverOption?: (id: string, label: string) => void;
 }
+
+export type DestinationPreview = {
+  name: string,
+  location: string,
+  img: string
+}
+
 
 export const AvailabilityForm = ({ formType, setIsSelected, isSubmited, setIsSubmited, setDestinationPreview, setQuarterPreview, setDestination, setQuarter }: AvailabilityFormProps) => {
   const [formTypeData, setFormtypeData] = useState<FormData | null>(null);

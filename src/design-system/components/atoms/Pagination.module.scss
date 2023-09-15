@@ -1,13 +1,10 @@
 @use "../../settings/colors";
 @import "../../settings/breakpoints";
+@import "../../settings/mixins/buttons";
 @import "../../settings/colors";
 
 .pagination {
-  display: flex;
-  font-weight: 600;
-  border: 1px solid;
-  padding: 8px 8px 3px 8px;
-  border-radius: 1rem;
+  @include badgeRound();
 
   &__color {
     @include color;

@@ -1,7 +1,5 @@
 @use "../../../design-system/settings/colors";
 @import "../../../design-system/settings/breakpoints";
-@import "../../../design-system/settings/colors";
-
 
 .avblty-form {
   // border: 1px solid colors.$green;
@@ -24,14 +22,5 @@
 
   h4 {
     font-size: 3rem;
-  }
-
-  &__feedback {
-    text-align: left;
-    // background-color: colors.$brown;
-    color: colors.$brown;
-    border: 3px dotted colors.$brown;
-    padding: 0.8rem;
-    border-radius: 1rem;
   }
 }

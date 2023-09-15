@@ -5,6 +5,7 @@ import { DropdownRenderData, DropdownList } from '../../../design-system/compone
 import { Button, Heading, Loader } from '../../../design-system/components/atoms';
 import styles from "./DestinationCheckForm.module.scss";
 import { Quarter } from '../../core/common/quarters/domain/Quarter';
+import { Feedback } from '../../../design-system/components/molecules';
 
 type DestinationCheckFormProps = {
   destinationId: string
@@ -15,18 +16,18 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
   const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [hasRequested, setHasRequested] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [hasError, setHasError] = useState<boolean | null>(null);
 
   const { isQuarterAvailableOnDestination } = useAvailability();
-console.log(selectedQuarter);
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!selectedQuarter) {
-      setError("Please, select a year quarter to check availability.");
+      setHasError(true);
       return;
     }
-    setError(null);
+    setHasError(false);
 
     if (selectedQuarter) {
       setLoading(true);
@@ -44,12 +45,6 @@ console.log(selectedQuarter);
     console.log('request?: ' + hasRequested);
   };
 
-  const renderButtonOrLoader = () => {
-    if (isAvailable) return <Button onClick={handleRequestClick} color='brown' text="Request for stay" />;
-    return <Button type='submit' text='Check' />;
-  };
-
-
   return (
     <form className={`${styles['avblty-form']}`} onSubmit={handleSubmit} aria-labelledby="form-title">
       <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
@@ -60,27 +55,38 @@ console.log(selectedQuarter);
           onSelectChange={(selected) => {
             setSelectedQuarter(selected);
             setIsAvailable(null);
-            setError(null);
+            setHasError(null);
           }}
           color="green"
           data={allQuarters as DropdownRenderData[]}
         />
       </fieldset>
-      <section>
-        {renderButtonOrLoader()}
-      </section>
-      <section>
-      {error && <p className={`${styles['avblty-form__error']}`}>{error}</p>}
-      </section>
-      { loading && <Loader /> }
-
-      {isAvailable != null && !loading && (
-        <section>
-          <p className={`${styles['avblty-form__feedback']}`}>
-            {isAvailable ? "The selected quarter is available!. Please, click on the request button to continue with the reservation process." : "Sorry, the selected quarter is not available. Check another quarter."}
-          </p>
-        </section>
-      )}
+      {
+        isAvailable
+        ? <Button onClick={handleRequestClick} type='submit' color='brown' text="Request for stay" />
+        : <Button type='submit' text='Check' />
+      }
+      {
+        hasError &&
+        <p className={`${styles['avblty-form__error']}`}>Please, select a year quarter to check availability.</p>
+      }
+      {
+        loading &&
+        <Loader />
+      }
+      {
+        isAvailable != null && !loading &&
+        <Feedback color={isAvailable ? 'brown' : 'green'}>
+          {
+            isAvailable
+              ? <>
+                <p>The selected quarter is available!</p>
+                <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
+              </>
+              : <p>Sorry, the selected quarter is not available. Check another quarter.</p>
+          }
+        </Feedback>
+      }
     </form>
   )
 }

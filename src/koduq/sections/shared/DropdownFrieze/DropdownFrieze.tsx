@@ -1,18 +1,18 @@
-import { Colors } from '../../../design-system/tokens'
+import { Colors } from '../../../../design-system/tokens'
 import { useState, useRef } from 'react';
-import { Button, Logo } from '../../../design-system/components/atoms';
-import { DropdownMain, DropdownRef } from '../../../design-system/components/molecules/DropdownMain';
-import { AvailabilityDdSection } from './MainDropdownSections/AvailabilityDdSection';
-import { ContactDdSection } from './MainDropdownSections/ContactDdSection';
-import { AvailabilityFormPicker } from '../../../design-system/components/molecules/AvailabilityForms/AvailabilityFormPicker';
-import styles from './Frieze.module.scss';
+import { Button, Logo, Frieze } from '../../../../design-system/components/atoms';
+import { DropdownMain, DropdownRef } from '../../../../design-system/components/molecules/DropdownMain';
+import { AvailabilityFormPicker } from '../../../../design-system/components/molecules/AvailabilityForms/AvailabilityFormPicker';
+import { ContactDdSection } from './DropdownSections/ContactDdSection';
+import { AvailabilityDdSection } from './DropdownSections/AvailabilityDdSection';
+import styles from './DropdownFrieze.module.scss';
 
 type Props = {
   color?: Colors;
   hasLogo: boolean;
 }
 
-export const Frieze = ({ color = "brown", hasLogo = false }: Props) => {
+export const DropdownFrieze = ({ color = "brown", hasLogo = false }: Props) => {
   const [choice, setChoice] = useState<'destination' | 'quarter'>('destination');
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownType, setDropdownType] = useState<'availability' | 'contact'>()
@@ -29,31 +29,31 @@ export const Frieze = ({ color = "brown", hasLogo = false }: Props) => {
     dropdownRef.current?.openDropdown();
     setDropdownType('contact');
   }
-  function handleCloseDd() {
+
+  function handleCloseDropdown() {
     dropdownRef.current?.closeDropdown();
   }
 
   return (
     <>
-      <div className={`${styles[`frieze`]} ${styles[`frieze__bg--${color}`]}`}>
-        <span>
-          { hasLogo && <Logo color='cream' size='6rem'/> }
+      <Frieze color={color}>
+        <span className={styles['frieze-logo']}>
+          {hasLogo && <Logo color='cream' size='6rem' />}
         </span>
-        <span>
+        <span className={styles['frieze-btns']}>
           <Button color='cream' variant='header' text='Contact' onClick={handleContactBtn} />
           <Button color='cream' variant='header' text='Availability' onClick={handleAvlbtyBtn} />
         </span>
-      </div>
+      </Frieze>
       {
-        dropdownType === 'contact'
-          ?
+        dropdownType === 'contact' ?
           <DropdownMain title='Contact' color='green' ref={dropdownRef}>
             <ContactDdSection />
           </DropdownMain>
           :
           <DropdownMain title='Check availability' color='brown' ref={dropdownRef} >
             <AvailabilityFormPicker currentChoice={choice} setChoice={setChoice} />
-            <AvailabilityDdSection closeDropdown={handleCloseDd} formChoice={choice} />
+            <AvailabilityDdSection closeDropdown={handleCloseDropdown} formChoice={choice} />
           </DropdownMain>
       }
     </>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heading, Loader } from "../../../../design-system/components/atoms";
+import { Heading, Loader } from "../../../../../design-system/components/atoms";
 
 export const DestinationResponse = ({ destination, isLoading, closeDropdown }) => {
   

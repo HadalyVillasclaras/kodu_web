@@ -20,6 +20,7 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color='gree
   const [selectedValue, setSelectedValue] = useState<DropdownRenderData | null>(null);
   const [displayedLabel, setDisplayedLabel] = useState<string>();
   const ref = useRef<HTMLDivElement>(null);
+console.log(displayedLabel);
 
   const handleOptionClick = (id: string, label: string) => {
     setSelectedValue({
@@ -55,7 +56,7 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color='gree
   useEffect(() => {
     document.addEventListener("mousedown", closeOnClickOutside);
     return () => {
-      document.removeEventListener("mousedown", closeOnClickOutside);
+    document.removeEventListener("mousedown", closeOnClickOutside);
     };
   }, []);
 

@@ -11,6 +11,7 @@ export { Loader } from "./Loader";
 export { Pagination } from "./Pagination";
 export { Marquee } from "./Marquee";
 export { ArrowCursor } from "./ArrowCursor";
+export { Frieze } from "./Frieze";
 
 
 

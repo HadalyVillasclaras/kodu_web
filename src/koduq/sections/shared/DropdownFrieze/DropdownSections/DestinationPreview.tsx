@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Heading } from '../../../../design-system/components/atoms'
+import { Heading } from '../../../../../design-system/components/atoms'
 
 type Props = {
   destinationPreview: any;

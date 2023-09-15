@@ -11,5 +11,7 @@ export { Accordion } from "./Accordion/Accordion";
 export { Gallery } from "./Gallery";
 export { DinamicControlButtons } from "./DinamicControlButtons";
 export { MappedList } from "./MappedList";
+export { Feedback } from "./Feedback";
+
 
 

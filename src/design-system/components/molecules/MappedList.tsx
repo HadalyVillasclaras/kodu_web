@@ -5,7 +5,6 @@ type Props = {
   items: string[];
   size?: Size;
   color?: Colors;
-
 }
 
 export const MappedList = ({size = "m", color="green", items}: Props) => {
