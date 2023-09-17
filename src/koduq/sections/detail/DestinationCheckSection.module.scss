@@ -3,14 +3,34 @@
 @import "../../../design-system/settings/breakpoints";
 @import "../../../design-system/settings/mixins/mixins";
 
-
-.dest-check__container {
+.dest__container {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  transition: transform 1s ease;
+
+}
+
+.dest__section {
+  position: relative;
+  flex: 0 0 100%;
   width: 100%;
   padding: 2rem spacing.$pd__mb--small;
-
+  gap: 2rem !important;
   @include flexColumn;
-  gap: 4rem;
+  
+  @include tablet() {
+  justify-content: space-between!important;
+  padding: 2rem spacing.$pd__dk--small;
+  }
+
+}
+
+.dest-check {
+  @include tablet() {
+    flex-direction: row;
+  }
 
   hr {
     @include tablet() {
@@ -18,48 +38,68 @@
     }
   }
   
-  @include tablet() {
-    padding: 2rem spacing.$pd__dk--small;
-    flex-direction: row;
-  }
-
-}
-
-.dest-info {
-  position: relative;
-  width: 100%;
-  gap: 2rem;
-  display: flex;
-  flex-direction: column;
-
-  @include tablet() {
-    width: 50%;
-  }
-
-  @include desktop() {
-    width: 50%;
-  }
-
-  &__capacity {
-    display: flex;
+  &__info {
+    position: relative;
+    width: 100%;
     gap: 2rem;
-    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+  
+    @include tablet() {
+      width: 50%;
+    }
+  
+    @include desktop() {
+      width: 50%;
+    }
+  
+    &__capacity {
+      display: flex;
+      gap: 2rem;
+      font-weight: 600;
+    }
+  
+    &__description {
+      line-height: 1.7rem;
+      color: colors.$green;
+    }
+  }
+  
+  &__form {
+    width: 100%;
+  
+    @include tablet() {
+      width: 50%;
+    }
+  
+    @include desktop() {
+      width: 40%;
+    }
   }
 
-  &__description {
-    line-height: 1.7rem;
-    color: colors.$green;
+
+}
+
+.dest-request {
+  header {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    p {
+      color: colors.$green;
+      font-size: 1.4rem
+    } 
   }
 }
 
-.dest-form {
-  width: 100%;
+.slides-out {
+  transform: translateX(-100%);
+}
 
-  @include tablet() {
-    width: 50%;
-  }
-
-  @include desktop() {
-    width: 40%;
-  }
+.slides-in {
+  transform: translateX(0%);
 }

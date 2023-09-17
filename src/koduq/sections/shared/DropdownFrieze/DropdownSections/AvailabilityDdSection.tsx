@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Heading, Link, Loader } from '../../../../../design-system/components/atoms';
-import { AvailabilityForm, DestinationPreview, QuarterAvailability } from '../../../../../design-system/components/molecules/AvailabilityForms/AvailabilityForm';
 import styles from './AvailabilityDdSection.module.scss';
 import { Quarter } from '../../../../core/common/quarters/domain/Quarter';
 import { Destination } from '../../../../core/destination/domain/Destination';
-import { DestinationPreview } from './DestinationPreview';
 import { QuarterPreview } from './QuarterPreview';
-import { AvailabilityQuarterForm } from '../../../../../design-system/components/molecules/AvailabilityForms/AvailabilityQuarterForm';
+// import { AvailabilityQuarterForm } from '../../../../../design-system/components/molecules/AvailabilityForms/AvailabilityQuarterForm';
+import {  AvailabilityForm,  QuarterAvailability } from '../../../../../design-system/components/molecules/AvailabilityForms/AvailabilityForm';
+import { DestinationPreview } from './DestinationPreview';
 
 type Props = {
   formChoice: "destination" | "quarter";
@@ -16,7 +16,7 @@ const destinationBaseUrl = `/destination/`;
 
 export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
   const [quarter, setQuarter] = useState<QuarterAvailability | null>(null);
-  const [quarterPreview, setQuarterPreview] = useState<DestinationPreview | null>(null);
+  const [quarterPreview, setQuarterPreview] = useState<any | null>(null);
   const [destination, setDestination] = useState<any | null>(null);
   const [destinationPreview, setDestinationPreview] = useState<any | null>(null);
 

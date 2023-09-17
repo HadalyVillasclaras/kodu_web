@@ -59,7 +59,7 @@
 
       &:hover {
         color: colors.$brown;
-        background-size: 100% 0;
+        background-size: 0% 0;
       }
 
       &:active {
@@ -117,13 +117,13 @@
       @include vertical-color(colors.$brown);
 
       &:hover {
-        color: colors.$brown;
-        background-size: 100% 0;
+        color: colors.$cream;
+        // background-size: 100% 0;
       }
 
       &:active {
-        background-color: colors.$brown;
-        color: colors.$cream;
+        background-color: colors.$green;
+        color: colors.$brown;
       }
     }
   }

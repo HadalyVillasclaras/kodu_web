@@ -98,6 +98,8 @@ input, textarea {
   border-bottom: 1px solid #F5F0DE;
   color: inherit;
   padding: 0.2rem 0;
+  resize: vertical;
+
 }
 
 input:focus, textarea:focus {

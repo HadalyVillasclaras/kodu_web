@@ -8,14 +8,14 @@ import { Quarter } from '../../core/common/quarters/domain/Quarter';
 import { Feedback } from '../../../design-system/components/molecules';
 
 type DestinationCheckFormProps = {
-  destinationId: string
+  destinationId: string,
+  setIsRequested: (isRequested: boolean) => void;
 }
 
-export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProps) => {
+export const DestinationCheckForm = ({ destinationId, setIsRequested }: DestinationCheckFormProps) => {
   const [selectedQuarter, setSelectedQuarter] = useState<Quarter | null>(null);
   const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [hasRequested, setHasRequested] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean | null>(null);
 
   const { isQuarterAvailableOnDestination } = useAvailability();
@@ -41,8 +41,8 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
   }
 
   const handleRequestClick = () => {
-    setHasRequested(true);
-    console.log('request?: ' + hasRequested);
+    console.log('object');
+    setIsRequested(true);
   };
 
   return (
@@ -63,7 +63,7 @@ export const DestinationCheckForm = ({ destinationId }: DestinationCheckFormProp
       </fieldset>
       {
         isAvailable
-        ? <Button onClick={handleRequestClick} type='submit' color='brown' text="Request for stay" />
+        ? <Button onClick={handleRequestClick} color='brown' text="Request for stay" />
         : <Button type='submit' text='Check' />
       }
       {
