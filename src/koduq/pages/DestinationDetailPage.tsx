@@ -8,10 +8,14 @@ import { DestinationImages } from "../sections/detail/DestinationImages";
 import { DestinationHeader } from "../sections/detail/DestinationHeader";
 import { DestinationNotFound } from "../sections/shared/errors/DestinationNotFound";
 import { DestinationCheckSection } from "../sections/detail/DestinationCheckSection";
+import { getQuarterById } from "../core/common/quarters/services/getQuarterById";
+import { Quarter } from "../core/common/quarters/domain/Quarter";
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
-  const { id: destinationId } = useParams();
+  const [selectedQuarter, setSelectedQuarter] = useState<Quarter | undefined>();
+
+  const { id: destinationId, quarterId } = useParams();
 
   const refs = {
     detMain: useRef(null),
@@ -26,8 +30,16 @@ export const DestinationDetailPage = () => {
     }
   }
 
+  function getSelectedQuarter() {
+    const quarter = quarterId && getQuarterById(quarterId);
+    quarter && setSelectedQuarter(quarter);
+  }
+
+  console.log(selectedQuarter);
+
   useEffect(() => {
     getCurrentDestination();
+    quarterId && getSelectedQuarter();
     window.scrollTo(0, 0);
   }, [destinationId]);
 
@@ -42,7 +54,7 @@ export const DestinationDetailPage = () => {
             <DestinationHeader destination={currentDestination} />
           </Section>
           <Section id="detCheck" ref={refs.detCheck} size='full'>
-            <DestinationCheckSection destination={currentDestination} />
+            <DestinationCheckSection destination={currentDestination} selectedQuarterFromUrl={selectedQuarter}/>
           </Section>
         </>
         :

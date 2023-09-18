@@ -2,7 +2,7 @@ import { Colors } from '../../../../design-system/tokens'
 import { useState, useRef } from 'react';
 import { Button, Logo, Frieze } from '../../../../design-system/components/atoms';
 import { DropdownMain, DropdownRef } from '../../../../design-system/components/molecules/DropdownMain';
-import { AvailabilityFormPicker } from '../../../../design-system/components/molecules/AvailabilityForms/AvailabilityFormPicker';
+import { AvailabilityFormPicker } from '../forms/AvailabilityForms/AvailabilityFormPicker';
 import { ContactDdSection } from './DropdownSections/ContactDdSection';
 import { AvailabilityDdSection } from './DropdownSections/AvailabilityDdSection';
 import styles from './DropdownFrieze.module.scss';

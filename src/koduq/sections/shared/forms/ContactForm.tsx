@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Button, Loader } from '../../../design-system/components/atoms';
+import { Button, Loader } from '../../../../design-system/components/atoms';
 import styles from './ContactForm.module.scss';
-import { Feedback } from '../../../design-system/components/molecules';
+import { Feedback } from '../../../../design-system/components/molecules';
 
 interface ContactFormData {
   name: string;
@@ -30,6 +30,7 @@ export const ContactForm = () => {
   const [errors, setErrors] = useState<ContactFormData>(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [submittedData, setSubmittedData] = useState<ContactFormData | null>(null); 
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const name = event.target.name as ContactFormDataKey;
@@ -41,7 +42,6 @@ export const ContactForm = () => {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
     setIsSubmitted(false);
-
   };
 
   const validateFormData = (): ContactFormData => ({
@@ -64,8 +64,8 @@ export const ContactForm = () => {
       return;
     }
 
-    console.log('Form Data:', formData);
     setIsLoading(true);
+    setSubmittedData(formData);
 
     setTimeout(() => {
       setIsLoading(false);
@@ -98,9 +98,9 @@ export const ContactForm = () => {
         <Button type='submit' color='cream' variant='default' text='Submit' />
       </form>
       {isLoading && <Loader color='cream' />}
-      {isSubmitted && !isLoading && (
+      {isSubmitted && !isLoading && submittedData &&(
         <Feedback color='cream'>
-          Thank you for getting in touch, {formData.name}! We will contact you soon.
+          Thank you for getting in touch, {submittedData.name}! We will contact you soon.
         </Feedback>
       )}
     </>

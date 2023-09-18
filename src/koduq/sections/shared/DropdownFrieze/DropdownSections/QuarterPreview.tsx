@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Heading } from '../../../../../design-system/components/atoms'
 import styles from './AvailabilityDdSection.module.scss';
 

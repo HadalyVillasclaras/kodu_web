@@ -1,5 +1,5 @@
 import { Heading } from '../../../../../design-system/components/atoms';
-import { ContactForm } from '../../ContactForm';
+import { ContactForm } from '../../forms/ContactForm';
 import styles from './ContactDdSection.module.scss';
 
 export const ContactDdSection = () => {

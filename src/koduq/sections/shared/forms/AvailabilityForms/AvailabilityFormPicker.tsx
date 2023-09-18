@@ -1,4 +1,4 @@
-import { CustomRadioInput } from '../../atoms/CustomRadioInput';
+import { CustomRadioInput } from '../../../../../design-system/components/atoms/CustomRadioInput';
 import styles from './AvailabilityFormPicker.module.scss';
 
 type AvailabilityFormPickerProps = {

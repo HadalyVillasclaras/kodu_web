@@ -9,7 +9,6 @@ import { slidesUpOnScroll } from "../../../design-system/animations/gsap";
 gsap.registerPlugin(ScrollTrigger);
 
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-console.log('hero:   -   ' + BASE_ASSETS + sectionImages.hero.src);
 export const Hero = () => {
   const introTextRef = useRef<HTMLDivElement>(null!);
   const introImgRef = useRef<HTMLImageElement>(null!);

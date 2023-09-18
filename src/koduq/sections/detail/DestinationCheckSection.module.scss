@@ -9,22 +9,20 @@
   flex-direction: row;
   height: 100%;
   transition: transform 1s ease;
-
 }
 
 .dest__section {
   position: relative;
   flex: 0 0 100%;
   width: 100%;
-  padding: 2rem spacing.$pd__mb--small;
+  padding: 2rem spacing.$pd__mb--small 5rem spacing.$pd__mb--small;
   gap: 2rem !important;
+
   @include flexColumn;
-  
   @include tablet() {
   justify-content: space-between!important;
   padding: 2rem spacing.$pd__dk--small;
   }
-
 }
 
 .dest-check {

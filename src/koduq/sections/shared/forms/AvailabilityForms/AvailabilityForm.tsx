@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { DropdownList } from "../";
-import quartersData from "../../../../koduq/core/data/AvailabilityQuarters.json"
-import destinations from "../../../../koduq/core/data/Destinations.json"
-import { useAvailability } from "../../../../koduq/hooks/useAvailability";
-import { Button, Heading } from "../../atoms";
-import { Quarter } from "../../../../koduq/core/common/quarters/domain/Quarter";
+import { DropdownList } from "../../../../../design-system/components/molecules";
+import quartersData from "../../../../core/data/AvailabilityQuarters.json"
+import destinations from "../../../../core/data/Destinations.json"
+import { useAvailability } from "../../../../hooks/useAvailability";
+import { Button, Heading } from "../../../../../design-system/components/atoms";
+import { Quarter } from "../../../../core/common/quarters/domain/Quarter";
 import styles from './AvailabilityForm.module.scss';
-import { DropdownRenderData } from '../DropdownList';
-import { getDestinationById } from '../../../../koduq/core/destination/application/getDestinationById';
-import { Destination } from '../../../../koduq/core/destination/domain/Destination';
+import { DropdownRenderData } from '../../../../../design-system/components/molecules/DropdownList';
+import { getDestinationById } from '../../../../core/destination/application/getDestinationById';
+import { Destination } from '../../../../core/destination/domain/Destination';
 
 const destinationData = destinations.map(dest => ({
   id: dest.id.toString(),
@@ -26,7 +26,7 @@ type AvailabilityFormProps = {
   setIsSelected: (x: boolean) => void;
   setIsSubmited: (x: boolean) => void;
   setDestinationPreview: (destinationPrev: any) => void;
-  setQuarterPreview: (quarter: Quarter) => void;
+  setQuarterPreview: (quarter: any) => void;
   setDestination: (destination: Destination | null) => void;
   setQuarter: (quarterData: QuarterAvailability | null) => void;
 };
@@ -39,7 +39,7 @@ type FormData = {
   dropDownOnHoverOption?: (id: string, label: string) => void;
 }
 
-export type DestinationPreview = {
+export type DestinationPreviewType = {
   name: string,
   location: string,
   img: string
@@ -59,8 +59,8 @@ export const AvailabilityForm = ({ formType, setIsSelected, isSubmited, setIsSub
     setShowError(false);
 
     if (!selectedQuarter && !selectedDestination && !isSubmited) {
-        setShowError(true);
-        return; 
+      setShowError(true);
+      return;
     }
     setIsSelected(false);
 
@@ -78,7 +78,7 @@ export const AvailabilityForm = ({ formType, setIsSelected, isSubmited, setIsSub
       }
       setSelectedQuarter(null);
     }
-  
+
     if (selectedDestination) {
       try {
         const avlbQuarters: Quarter[] = checkAvailabilityByDestination(selectedDestination.id);
@@ -109,7 +109,7 @@ export const AvailabilityForm = ({ formType, setIsSelected, isSubmited, setIsSub
       setSelectedQuarter(optionData);
       setIsSelected(true);
       setSelectedDestination(null);
-    } 
+    }
     setIsSubmited(false);
   }
 
@@ -184,7 +184,7 @@ export const AvailabilityForm = ({ formType, setIsSelected, isSubmited, setIsSub
           </fieldset>
           <Button type='submit' text='Check' />
           {
-             showError && <span>Please, select an option before check</span>
+            showError && <span>Please, select an option before check</span>
           }
         </form>
       }

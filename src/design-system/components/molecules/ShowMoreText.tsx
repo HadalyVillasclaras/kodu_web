@@ -1,16 +1,33 @@
 import { useRef, useEffect, useState } from 'react';
 import styles from './ShowMoreText.module.scss';
+import { Button } from '../atoms';
+import { Colors } from '../../tokens';
+import { splitTextToShowMore } from '../../../koduq/core/utils/splitTextToShowMore';
 
 interface Props {
-  visibleText: string;
-  hiddenText?: string;
-  showMoreText: boolean;
-  onToggle?: () => void;
+  text: string;  
+  limit: number; 
+  buttonShowMoreText: string;
+  buttonShowLessText: string;
+  buttonColor: Colors; 
 }
 
-export const ShowMoreText = ({ visibleText, hiddenText, showMoreText }: Props) => {
+export const ShowMoreText = ({ 
+  text, 
+  limit, 
+  buttonShowMoreText, 
+  buttonShowLessText, 
+  buttonColor 
+}: Props) => {
+  const [showMoreText, setShowMoreText] = useState(false);
   const [contentHeight, setContentHeight] = useState(0);  
   const contentRef = useRef<HTMLParagraphElement | null>(null);
+
+  const [visibleText, hiddenText] = splitTextToShowMore(text, limit);
+
+  const toggleShowMore = () => {
+    setShowMoreText(prevState => !prevState);
+  };
 
   useEffect(() => {
     if (contentRef?.current) {
@@ -19,6 +36,7 @@ export const ShowMoreText = ({ visibleText, hiddenText, showMoreText }: Props) =
   }, [showMoreText]);
 
   return (
+    <>
     <div className={styles.showMoreTextContainer}>
       <div className={styles.textContainer}>
         <p>
@@ -33,5 +51,12 @@ export const ShowMoreText = ({ visibleText, hiddenText, showMoreText }: Props) =
         }
       </div>
     </div>
+      <Button
+      variant='underline'
+      color={buttonColor}
+      text={showMoreText ? buttonShowLessText : buttonShowMoreText}
+      onClick={toggleShowMore}
+    />
+    </>
   );
 }

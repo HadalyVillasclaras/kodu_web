@@ -20,7 +20,6 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color='gree
   const [selectedValue, setSelectedValue] = useState<DropdownRenderData | null>(null);
   const [displayedLabel, setDisplayedLabel] = useState<string>();
   const ref = useRef<HTMLDivElement>(null);
-console.log(displayedLabel);
 
   const handleOptionClick = (id: string, label: string) => {
     setSelectedValue({
@@ -73,7 +72,6 @@ console.log(displayedLabel);
         <span>{displayedLabel}</span>
         <span><Icon icon='plus' color='green' size='s'/></span>
       </button>
-      {isOpen && (
         <ul
           className={`${styles["dropdown__list"]} ${isOpen ? styles["dropdown__list-open"] : ""}`}
           role="listbox"
@@ -92,7 +90,6 @@ console.log(displayedLabel);
             </li>
           ))}
         </ul>
-      )}
     </div>
   )
 }

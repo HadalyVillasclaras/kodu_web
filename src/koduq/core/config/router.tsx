@@ -19,7 +19,7 @@ export const router = createHashRouter([
         }
       },
       {
-        path: "destination/:id",
+        path: "destination/:id/:quarterId?",
         element: <DestinationDetailPage />,
         handle: {
           crumb: () => 'Destination'

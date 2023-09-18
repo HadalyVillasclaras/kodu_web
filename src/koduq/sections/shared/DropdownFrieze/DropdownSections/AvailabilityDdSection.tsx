@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Heading, Link, Loader } from '../../../../../design-system/components/atoms';
+import { AvailabilityForm, DestinationPreviewType, QuarterAvailability } from '../../forms/AvailabilityForms/AvailabilityForm';
 import styles from './AvailabilityDdSection.module.scss';
 import { Quarter } from '../../../../core/common/quarters/domain/Quarter';
 import { Destination } from '../../../../core/destination/domain/Destination';
-import { QuarterPreview } from './QuarterPreview';
-// import { AvailabilityQuarterForm } from '../../../../../design-system/components/molecules/AvailabilityForms/AvailabilityQuarterForm';
-import {  AvailabilityForm,  QuarterAvailability } from '../../../../../design-system/components/molecules/AvailabilityForms/AvailabilityForm';
 import { DestinationPreview } from './DestinationPreview';
+import { QuarterPreview } from './QuarterPreview';
 
 type Props = {
   formChoice: "destination" | "quarter";
@@ -16,7 +15,7 @@ const destinationBaseUrl = `/destination/`;
 
 export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
   const [quarter, setQuarter] = useState<QuarterAvailability | null>(null);
-  const [quarterPreview, setQuarterPreview] = useState<any | null>(null);
+  const [quarterPreview, setQuarterPreview] = useState<DestinationPreviewType | null>(null);
   const [destination, setDestination] = useState<any | null>(null);
   const [destinationPreview, setDestinationPreview] = useState<any | null>(null);
 
@@ -48,8 +47,6 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
       }, 5000);
     }
   }, [isSubmited])
-  console.log(quarterPreview);
-  console.log(formChoice);
 
   return (
     <section className={`${styles[`dd-avblty`]}`}>
@@ -63,14 +60,6 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
         setDestinationPreview={setDestinationPreview}
         setQuarterPreview={setQuarterPreview}
       />
-        {/* <AvailabilityQuarterForm
-        isSubmited={isSubmited}
-        setIsSelected={setIsSelected}
-        setIsSubmited={setIsSubmited}
-        setQuarter={setQuarter}
-        setQuarterPreview={setQuarterPreview}
-      /> */}
-
       <div className={`${styles[`dd-avblty__response`]}`}>
         {
           formChoice === 'destination' &&
@@ -100,7 +89,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
                               destination?.availability?.map((q: Quarter, k: number) => {
                                 return (
                                   <li key={k} onClick={closeDropdown}>
-                                    <Link openInNewTab={false} size='m' color="cream" href={destinationBaseUrl + destination.id}>
+                                    <Link openInNewTab={false} size='m' color="cream" href={`${destinationBaseUrl}${destination.id}/${q.id}`}>
                                       {`+ ${q.id} | ${q.label}`}
                                     </Link>
                                   </li>)
@@ -126,7 +115,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
               <div className={`${styles[`dd-avblty__response__submitted`]}`}>
                 {
                   isLoading
-                    ? <Loader />
+                    ? <Loader color='cream'/>
                     : <div>
                       <p>Available destinations in selected quarter: </p>
                       <ul>
@@ -134,7 +123,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
                           quarter.availableDestinations.map((destination: Destination, k: number) => {
                             return (
                               <li key={k} onClick={closeDropdown}>
-                                <Link openInNewTab={false} size='m' color="cream" href={destinationBaseUrl + destination.id}>
+                                <Link openInNewTab={false} size='m' color="cream"href={`${destinationBaseUrl}${destination.id}/${quarter.quarter.id}`}>
                                   + {destination.name}
                                 </Link>
                               </li>)

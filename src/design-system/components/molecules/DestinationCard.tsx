@@ -20,7 +20,6 @@ type DestinationCardProps = {
 const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH;
 const VITE_BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
-
 export const DestinationCard = ({ data, paginationData }: DestinationCardProps) => {
   let destinationData;
   if (data) {

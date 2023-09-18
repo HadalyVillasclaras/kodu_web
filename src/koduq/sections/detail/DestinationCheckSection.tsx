@@ -1,32 +1,33 @@
 import { Destination } from "../../core/destination/domain/Destination";
-import { MappedList } from "../../../design-system/components/molecules";
-import { DestinationCheckForm } from "./DestinationCheckForm";
+import { MappedList, ShowMoreText } from "../../../design-system/components/molecules";
 import styles from "./DestinationCheckSection.module.scss";
-import { Button, Divider, Heading, Icon, IconButton } from "../../../design-system/components/atoms";
+import { Divider, Heading, IconButton } from "../../../design-system/components/atoms";
 import { useEffect, useState } from "react";
-import { RequestForm } from "../shared/RequestForm";
+import { Quarter } from "../../core/common/quarters/domain/Quarter";
+import { getYearForSelectedQuarter } from "../../core/common/quarters/utils/getYearForSelectedQuarter";
+import { DestinationCheckForm } from "../shared/forms/DestinationCheckForm";
+import { RequestForm } from "../shared/forms/RequestForm";
 
 type Props = {
-  destination: Destination
+  destination: Destination;
+  selectedQuarterFromUrl?: Quarter
 }
 
-export const DestinationCheckSection = ({ destination }: Props) => {
+export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }: Props) => {
+  const [selectedQuarter, setSelectedQuarter] = useState<Quarter | null>(null);
   const [isRequested, setIsRequested] = useState(false);
+  const [isRequestSubmitted, setIsRequestSubmitted] = useState(false);
 
   function handleRequest() {
     setIsRequested(false);
- 
-
+    isRequestSubmitted && setIsRequestSubmitted(false);
   }
+
   useEffect(() => {
-    console.log(isRequested);
-if (isRequested === true) {
-  window.scrollTo(0, 500);
-
-  console.log('hey request?');
-
-}
-  }, [isRequested])
+    if (isRequested === true) {
+      window.scrollTo(0, 500);
+    }
+  }, [isRequested]);
 
   return (
     <>
@@ -37,25 +38,40 @@ if (isRequested === true) {
               <p>{` > ${destination.details.persons} persons`}</p>
               <p>{`${destination.details.persons} beds`}</p>
             </div>
-            <p className={`${styles['dest-check__info__description']}`}>{destination.description}</p>
+            <div className={`${styles['dest-check__info__description']}`}>
+              <ShowMoreText
+                text={destination.description}
+                limit={200}
+                buttonShowMoreText="Show more +"
+                buttonShowLessText="Show less -"
+                buttonColor="brown"
+              />
+            </div>
             <MappedList color="green" size="m" items={destination?.details.amenities} />
           </section>
           <Divider />
           <section className={`${styles['dest-check__form']}`}>
-            <DestinationCheckForm setIsRequested={setIsRequested} destinationId={destination.id.toString()} />
+            <DestinationCheckForm
+              setIsRequested={setIsRequested}
+              destinationId={destination.id.toString()}
+              selectedQuarter={selectedQuarter}
+              setSelectedQuarter={setSelectedQuarter}
+              selectedQuarterFromUrl={selectedQuarterFromUrl}
+            />
           </section>
         </section>
-
         <section className={`${styles['dest-request']} ${styles['dest__section']}`} >
           <header>
             <Heading as="h4" color="brown">Request form</Heading>
-            <p><b>Selected dates: Jan - Mar 2023</b></p>
+            <p><b>Selected dates: {selectedQuarter && selectedQuarter.label} {selectedQuarter?.id && getYearForSelectedQuarter(selectedQuarter.id)}</b></p>
           </header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet enim feugiat augue posuere pellentesque!</p>
-          <RequestForm />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet enim feugiat augue posuere pellentesque!</p>
+          <RequestForm 
+            setIsRequestSubmitted={setIsRequestSubmitted}
+            isRequestSubmitted={isRequestSubmitted}
+          />
           <section className={`${styles['dest-request__btns']}`} >
             <IconButton text="Back to availability form" variant="circle" ariaLabel="back" onClick={handleRequest} icon="arrowLeft" color="brown" />
-            {/* <Button text="Send request" color="green" /> */}
           </section>
         </section>
       </section>
