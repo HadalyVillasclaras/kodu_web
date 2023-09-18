@@ -7,6 +7,7 @@ import { Quarter } from "../../core/common/quarters/domain/Quarter";
 import { getYearForSelectedQuarter } from "../../core/common/quarters/utils/getYearForSelectedQuarter";
 import { DestinationCheckForm } from "../shared/forms/DestinationCheckForm";
 import { RequestForm } from "../shared/forms/RequestForm";
+import { useDeviceType, DeviceType } from "../../hooks/useDeviceType";
 
 type Props = {
   destination: Destination;
@@ -18,13 +19,19 @@ export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }:
   const [isRequested, setIsRequested] = useState(false);
   const [isRequestSubmitted, setIsRequestSubmitted] = useState(false);
 
+  const deviceType = useDeviceType();
+
+
   function handleRequest() {
     setIsRequested(false);
-    isRequestSubmitted && setIsRequestSubmitted(false);
+    if (isRequestSubmitted) {
+      setIsRequestSubmitted(false);
+      setSelectedQuarter(null)
+    }
   }
 
   useEffect(() => {
-    if (isRequested === true) {
+    if (isRequested === true && deviceType === DeviceType.MOBILE) {
       window.scrollTo(0, 500);
     }
   }, [isRequested]);
@@ -65,7 +72,7 @@ export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }:
             <Heading as="h4" color="brown">Request form</Heading>
             <p><b>Selected dates: {selectedQuarter && selectedQuarter.label} {selectedQuarter?.id && getYearForSelectedQuarter(selectedQuarter.id)}</b></p>
           </header>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet enim feugiat augue posuere pellentesque!</p>
+          <p>Test form as you like, data won't be sent or stored :)</p>
           <RequestForm 
             setIsRequestSubmitted={setIsRequestSubmitted}
             isRequestSubmitted={isRequestSubmitted}

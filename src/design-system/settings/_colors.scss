@@ -85,6 +85,9 @@ $button-tertiary: $brown;
   }
 }
 
+
+
+
 @mixin selection($background-color, $text-color) {
   ::selection {
     background-color: $background-color;
@@ -92,6 +95,11 @@ $button-tertiary: $brown;
   }
   
   ::-moz-selection { 
+    background-color: $background-color;
+    color: $text-color;
+  }
+
+  &::-webkit-selection {
     background-color: $background-color;
     color: $text-color;
   }

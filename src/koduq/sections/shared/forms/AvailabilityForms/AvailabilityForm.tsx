@@ -170,7 +170,7 @@ export const AvailabilityForm = ({ formType, setIsSelected, isSubmited, setIsSub
   return (
     <>
       {formTypeData &&
-        <form className={`${styles[`avlblty-form`]}`} onSubmit={handleOnSubmit}>
+        <form className={`${styles[`avlblty-form`]}`} >
           <Heading id='form-title' as="h4" color="green">Check by {formTypeData.name}</Heading>
           <fieldset>
             <label id="dropdown-label">{formTypeData.label}</label>
@@ -182,7 +182,7 @@ export const AvailabilityForm = ({ formType, setIsSelected, isSubmited, setIsSub
               data={formTypeData.dropdownData}
             />
           </fieldset>
-          <Button type='submit' text='Check' />
+          <Button onClick={handleOnSubmit}  text='Check' />
           {
             showError && <span>Please, select an option before check</span>
           }

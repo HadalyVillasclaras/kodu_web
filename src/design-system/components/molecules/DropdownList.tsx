@@ -21,7 +21,8 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color='gree
   const [displayedLabel, setDisplayedLabel] = useState<string>();
   const ref = useRef<HTMLDivElement>(null);
 
-  const handleOptionClick = (id: string, label: string) => {
+  const handleOptionClick = (event: any, id: string, label: string) => {
+    event.preventDefault();
     setSelectedValue({
       id: id,
       label: label
@@ -80,7 +81,7 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color='gree
           {data.map((item, index) => (
             <li key={index} role="option" >
               <button
-                onClick={() => handleOptionClick(item.id, item.label)}
+                onClick={(e) => handleOptionClick(e, item.id, item.label)}
                 onMouseOver={() => handleOnMouseOver(item.id, item.label)}
                 className={styles["dropdown__option"]} tabIndex={isOpen ? 0 : -1}
                 aria-selected={selectedValue?.id === item.id}

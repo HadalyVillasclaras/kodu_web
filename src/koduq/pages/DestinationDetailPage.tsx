@@ -35,8 +35,6 @@ export const DestinationDetailPage = () => {
     quarter && setSelectedQuarter(quarter);
   }
 
-  console.log(selectedQuarter);
-
   useEffect(() => {
     getCurrentDestination();
     quarterId && getSelectedQuarter();

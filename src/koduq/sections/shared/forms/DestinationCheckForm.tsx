@@ -54,9 +54,16 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
     setQuarterFromUrl(selectedQuarterFromUrl);
   }, [selectedQuarterFromUrl])
 
-  console.log(quarterFromUrl);
+  useEffect(() => {
+    if (selectedQuarter === null) {
+      setIsAvailable(null);
+      selectedQuarterFromUrl = undefined;
+    }
+  }, [selectedQuarter]);
+
+  console.log(selectedQuarter);
   return (
-    <form className={`${styles['avblty-form']}`} onSubmit={handleSubmit} aria-labelledby="form-title">
+    <form className={`${styles['avblty-form']}`}  aria-labelledby="form-title">
       <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
       <fieldset >
         <label id="dropdown-label">Please, select the year period that better fits with your needs</label>
@@ -74,7 +81,7 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
       {
         isAvailable
           ? <Button onClick={handleRequestClick} color='brown' text="Request for stay" />
-          : <Button type='submit' text='Check' />
+          : <Button onClick={handleSubmit}  text='Check' />
       }
       {
         hasError &&
@@ -85,7 +92,7 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
         <Loader />
       }
       {
-        isAvailable != null && !loading &&
+        isAvailable !== null && !loading &&
         <Feedback color={isAvailable ? 'brown' : 'green'}>
           {
             selectedQuarterFromUrl && isAvailable && quarterFromUrl
@@ -93,7 +100,7 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
                   <p>This is the selected yearly quarter you picked in form.</p>
                   <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
                 </>
-              : (isAvailable
+              : ( isAvailable
                 ? <>
                     <p>The selected quarter is available!</p>
                     <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>

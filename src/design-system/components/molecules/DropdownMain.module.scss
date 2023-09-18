@@ -8,7 +8,7 @@
   position: absolute;
   top: 0rem;
   right: 0;
-  padding: spacing.$pd__mb--big;
+  padding: spacing.$pd__mb--small;
   z-index: 5;
   width: 100%;
   background-color: colors.$brown;
@@ -20,13 +20,15 @@
   gap: 1rem;
   color: colors.$cream;
   overflow-y: auto;
-  max-height: 85vh; 
-  min-height: 85vh;
+  max-height: 90vh; 
+  min-height: 90vh;
 
   @include tablet() {
     padding: spacing.$pd__dk--small;
     padding-bottom: 1rem;
     gap: 2rem;
+    max-height: 85vh; 
+    min-height: 85vh;
   }
   
 // background-color: rgb(51, 54, 59);
@@ -42,7 +44,7 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     // min-height: 100%;
 
     @include tablet() {

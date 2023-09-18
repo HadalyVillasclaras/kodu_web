@@ -7,7 +7,7 @@
 .dd-avblty {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
   height: 100%;
   position: relative;
   justify-content: space-between;
@@ -16,6 +16,8 @@
 
   @include tablet() {
     flex-direction: row;
+  gap: 3rem;
+
   }
 
   ul {
@@ -32,6 +34,7 @@
   form {
     width: 100%;
 
+    margin-top: 2rem;
     @include tablet() {
       width: 50%;
     }

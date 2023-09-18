@@ -1,5 +1,5 @@
 import { Logo } from '../../../design-system/components/atoms';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { Colors } from '../../../design-system/tokens';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import styles from './Header.module.scss';
@@ -18,7 +18,6 @@ export const Header = ({ bgColor = null }: HeaderProps) => {
   const deviceType = useDeviceType();
 
   const animateLogo = (element: HTMLElement | null, triggerElement: HTMLElement | null) => {
-    console.log(element?.offsetHeight);
     return gsap.from(element, {
       scrollTrigger: {
         trigger: triggerElement,

@@ -7,7 +7,7 @@ type ButtonProps = {
   text: string;
   color?: Colors;
   customStyle?: React.CSSProperties;
-  onClick?: () => void;
+  onClick?: (x?: any) => void;
   type?:  React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
 };
 

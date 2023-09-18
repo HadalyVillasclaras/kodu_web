@@ -43,7 +43,7 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: Reque
   const [formData, setFormData] = useState<RequestFormData>(initialFormData);
   const [errors, setErrors] = useState<RequestFormData>(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [submittedData, setSubmittedData] = useState<RequestFormData | null>(null);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -107,17 +107,9 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: Reque
     !isRequestSubmitted && resetRequest();
   }, [isRequestSubmitted])
 
-  if (isSubmitted && !isLoading && submittedData) {
-    return (
-      <Feedback color='brown'>
-        Thank you for getting in touch, <b>{submittedData.name}</b>! We will carefully review your request.
-      </Feedback>
-    );
-  }
-
   return (
     <>
-      <form className={styles['contact-form']} onSubmit={handleSubmit} noValidate>
+      <form className={`${styles['request-form']} ${styles['contact-form']}`} onSubmit={handleSubmit} noValidate>
         {inputFields.map(({ type, name, placeholder }) => {
           const FormElement = type === 'textarea' ? 'textarea' : 'input';
           const fieldName = name as RequestFormDataKey;
@@ -135,10 +127,17 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: Reque
           );
         })}
         <span></span>
-        <Button type='submit' color='green' variant='default' text='Send request' />
+        <section className={styles['contact-btn-response']}>
+          <Button type='submit' color='green' variant='default' text='Send request' />
+          {isLoading && <Loader color='brown' />}
+          {
+            isSubmitted && !isLoading && submittedData &&
+            <Feedback color='brown'>
+              Thank you for getting in touch, <b>{submittedData.name}</b>! We will carefully review your request and contact you soon.
+            </Feedback>
+          }
+        </section>
       </form>
-      {isLoading && <Loader color='brown' />}
-
     </>
 
   )
