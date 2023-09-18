@@ -16,7 +16,6 @@ export const Header = ({ bgColor = null }: HeaderProps) => {
   const headerRef = useRef<HTMLDivElement>(null!);
   const location = useLocation();
   const deviceType = useDeviceType();
-  const [marginB, setMarginBottom] = useState<number>(0)
 
   const animateLogo = (element: HTMLElement | null, triggerElement: HTMLElement | null) => {
     console.log(element?.offsetHeight);
@@ -35,9 +34,6 @@ export const Header = ({ bgColor = null }: HeaderProps) => {
       y: deviceType === DeviceType.MOBILE ? "20px" : "50px",
       x: deviceType === DeviceType.MOBILE ? "0px" : "1.5rem",
       duration: 20,
-      onUpdate: () => {
-        setMarginBottom(logoMain.current.offsetHeight)
-    },
     });
   }
 
