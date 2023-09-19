@@ -1,21 +1,21 @@
-import { Heading, Pagination } from "../atoms";
-import styles from "./DestinationCard.module.scss";
+import { Heading, Pagination } from '../atoms';
+import styles from './DestinationCard.module.scss';
 
-export type DestinationCardData = {
-  id?: number;
-  destinationName?: string;
-  img: string;
-  alt?: string;
-};
+export interface DestinationCardData {
+  id?: number
+  destinationName?: string
+  img: string
+  alt?: string
+}
 
-type PaginationData = {
-  currentIndex: number;
-  totalSlides: number;
-};
+interface PaginationData {
+  currentIndex: number
+  totalSlides: number
+}
 
-type DestinationCardProps = {
-  data?: DestinationCardData;
-  paginationData?: PaginationData;
+interface DestinationCardProps {
+  data?: DestinationCardData
+  paginationData?: PaginationData
 }
 const VITE_BASE_PATH = import.meta.env.VITE_BASE_PATH;
 const VITE_BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
@@ -27,8 +27,8 @@ export const DestinationCard = ({ data, paginationData }: DestinationCardProps) 
       id: data.id,
       destinationName: data.destinationName,
       src: data.img,
-      alt: data.alt,
-    }
+      alt: data.alt
+    };
   }
 
   const pagAtImgCorner = paginationData && !destinationData?.destinationName;
@@ -40,10 +40,10 @@ export const DestinationCard = ({ data, paginationData }: DestinationCardProps) 
       {
         destinationData &&
         <article className={styles['destination-card']}>
-          <a 
-            href={destinationUrl ? destinationUrl : '#'} 
+          <a
+            href={destinationUrl || '#'}
             className={styles['destination-card__image-wrapper']}
-            onClick={(e) => {!destinationUrl && e.preventDefault();}}
+            onClick={(e) => { !destinationUrl && e.preventDefault(); }}
           >
             <img className={styles['destination-card__image']} src={destinationImgPath} alt={destinationData.alt} />
             <div className={styles['destination-card__info-dk']}>
@@ -60,14 +60,14 @@ export const DestinationCard = ({ data, paginationData }: DestinationCardProps) 
               {
                 destinationData.destinationName &&
                 <a
-                  href={destinationUrl ? destinationUrl : '#'} 
-                  onClick={(e) => !destinationUrl && e.preventDefault()}
+                  href={destinationUrl || '#'}
+                  onClick={(e) => { !destinationUrl && e.preventDefault(); }}
                 >
                   <Heading as="h4" color="green">{destinationData.destinationName}</Heading>
                 </a>
               }
               {
-                paginationData  &&
+                paginationData &&
                 <Pagination current={paginationData.currentIndex} total={paginationData.totalSlides} color='brown'/>
               }
             </section>
@@ -75,5 +75,5 @@ export const DestinationCard = ({ data, paginationData }: DestinationCardProps) 
         </article>
       }
     </>
-  )
-}
+  );
+};

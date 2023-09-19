@@ -1,10 +1,10 @@
 import { Heading, Curtain } from '../../../design-system/components/atoms';
-import { useLayoutEffect, useRef } from "react";
-import styles from "./About.module.scss";
+import { useLayoutEffect, useRef } from 'react';
+import styles from './About.module.scss';
 import gsap from 'gsap';
 import { slidesUpOnScroll } from '../../../design-system/animations/gsap';
 
-const text = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.";
+const text = 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.';
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 export const AboutIntro = () => {
@@ -12,7 +12,6 @@ export const AboutIntro = () => {
   const bigHeadingRef = useRef<HTMLElement>(null!);
   const curtain1 = useRef<HTMLDivElement>(null!);
   const curtain2 = useRef<HTMLDivElement>(null!);
-
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -23,7 +22,7 @@ export const AboutIntro = () => {
       slidesUpOnScroll(paragraphChildren as HTMLElement[], paragraphRef.current);
     }, bigHeadingRef);
 
-    return () => ctx.revert();
+    return () => { ctx.revert(); };
   }, []);
 
   return (
@@ -41,7 +40,7 @@ export const AboutIntro = () => {
         <div className={`${styles['about-intro__content--right']}`}>
           <div>
             <Curtain elementRef={curtain2} triggerElement={curtain2}>
-            <img src={BASE_ASSETS + 'imgs/destinations/bloom/bloom-1.png'} alt="description" />
+              <img src={BASE_ASSETS + 'imgs/destinations/bloom/bloom-1.png'} alt="description" />
             </Curtain>
           </div>
           <section ref={paragraphRef}>
@@ -51,5 +50,5 @@ export const AboutIntro = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};

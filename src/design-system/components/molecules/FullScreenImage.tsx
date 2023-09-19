@@ -1,18 +1,18 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { IconButton, Pagination } from '../atoms';
 import { DinamicControlButtons } from './DinamicControlButtons';
-import styles from "./FullScreenImage.module.scss";
+import styles from './FullScreenImage.module.scss';
 import { gsap } from 'gsap';
 
-type FullScreenImageProps = {
-  images: string[];
-  currentIndex: number;
-  isOpen: boolean;
-  onLeft: () => void;
-  onRight: () => void;
-  onClose: () => void;
+interface FullScreenImageProps {
+  images: string[]
+  currentIndex: number
+  isOpen: boolean
+  onLeft: () => void
+  onRight: () => void
+  onClose: () => void
 
-};
+}
 
 export const FullScreenImage = ({ images, currentIndex, isOpen, onClose, onLeft, onRight }: FullScreenImageProps) => {
   const fullScreenRef = useRef(null);
@@ -22,16 +22,16 @@ export const FullScreenImage = ({ images, currentIndex, isOpen, onClose, onLeft,
     if (!fsTween.current) {
       fsTween.current = gsap.fromTo(fullScreenRef.current,
         {
-          top: '100%', 
+          top: '100%',
           borderTopRightRadius: '5rem',
-          borderTopLeftRadius: '5rem',
+          borderTopLeftRadius: '5rem'
         },
         {
           top: '0%',
           borderTopRightRadius: '0px',
           borderTopLeftRadius: '0px',
           ease: 'ease',
-          duration: .5,
+          duration: 0.5,
           paused: true
         }
       );

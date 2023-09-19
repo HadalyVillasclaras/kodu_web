@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import styles from './RequestForm.module.scss';
 import { Button, Loader } from '../../../../design-system/components/atoms';
 import { Feedback } from '../../../../design-system/components/molecules';
 
 interface RequestFormData {
-  name: string;
-  email: string;
-  phone: string;
-  field1: string;
-  field2: string;
-  field3: string;
+  name: string
+  email: string
+  phone: string
+  field1: string
+  field2: string
+  field3: string
 }
 
 type RequestFormDataKey = keyof RequestFormData;
@@ -31,12 +31,12 @@ const inputFields = [
   { type: 'number', name: 'phone', placeholder: 'Phone number', pattern: undefined },
   { type: 'text', name: 'field1', placeholder: 'Lorem ipsum dolor?', pattern: undefined },
   { type: 'textarea', name: 'field2', placeholder: 'Sit amet', pattern: undefined },
-  { type: 'textarea', name: 'field3', placeholder: 'Consectetur adipiscing elit', pattern: undefined },
+  { type: 'textarea', name: 'field3', placeholder: 'Consectetur adipiscing elit', pattern: undefined }
 ];
 
-type RequestFormProps = {
-  isRequestSubmitted: boolean;
-  setIsRequestSubmitted: (isRequestSubmitted: boolean) => void;
+interface RequestFormProps {
+  isRequestSubmitted: boolean
+  setIsRequestSubmitted: (isRequestSubmitted: boolean) => void
 }
 
 export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: RequestFormProps) => {
@@ -74,13 +74,13 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: Reque
       phone: validatePhone(),
       field1: validateField(formData.field1),
       field2: validateField(formData.field2),
-      field3: validateField(formData.field3),
+      field3: validateField(formData.field3)
     };
   };
 
-  function resetRequest() {
+  function resetRequest () {
     setIsSubmitted(false);
-    setSubmittedData(null)
+    setSubmittedData(null);
   }
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -105,7 +105,7 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: Reque
 
   useEffect(() => {
     !isRequestSubmitted && resetRequest();
-  }, [isRequestSubmitted])
+  }, [isRequestSubmitted]);
 
   return (
     <>
@@ -140,5 +140,5 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: Reque
       </form>
     </>
 
-  )
-}
+  );
+};

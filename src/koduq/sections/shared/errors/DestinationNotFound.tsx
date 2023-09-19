@@ -1,7 +1,7 @@
-import { Heading, Link } from '../../../../design-system/components/atoms'
+import { Heading, Link } from '../../../../design-system/components/atoms';
 
-type Props = {
-  destinationId?: string;
+interface Props {
+  destinationId?: string
 }
 
 export const DestinationNotFound = ({ destinationId }: Props) => {
@@ -11,8 +11,8 @@ export const DestinationNotFound = ({ destinationId }: Props) => {
         {`Sorry, destination ${destinationId ? `with id "${destinationId}"` : ''} is not found.`}
       </Heading>
       <Link href='/' color='green'>
-        {`< Go to home page`}
+        {'< Go to home page'}
       </Link>
     </>
-  )
-}
+  );
+};

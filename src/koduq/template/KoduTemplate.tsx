@@ -1,6 +1,6 @@
-import { Outlet, useMatches } from 'react-router-dom'
-import { Header, Navbar, Footer, Credits } from "../sections/layout" 
-import { Cookies } from '../sections/layout/Cookies'
+import { Outlet, useMatches } from 'react-router-dom';
+import { Header, Navbar, Footer, Credits } from '../sections/layout';
+import { Cookies } from '../sections/layout/Cookies';
 import { DropdownFrieze } from '../sections/shared/DropdownFrieze/DropdownFrieze';
 
 export const KoduTemplate = () => {
@@ -9,11 +9,11 @@ export const KoduTemplate = () => {
 
   return (
     <>
-    {
-      !isHomePage 
-      ? <DropdownFrieze hasLogo={true}/>
-      : <Header/>
-    }
+      {
+        !isHomePage
+          ? <DropdownFrieze hasLogo={true}/>
+          : <Header/>
+      }
       <Navbar/>
       <main>
         <Outlet/>
@@ -22,5 +22,5 @@ export const KoduTemplate = () => {
       <Credits/>
       <Cookies/>
     </>
-  )
-}
+  );
+};

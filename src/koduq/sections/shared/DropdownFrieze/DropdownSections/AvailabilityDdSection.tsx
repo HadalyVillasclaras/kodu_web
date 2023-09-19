@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Heading, Link, Loader } from '../../../../../design-system/components/atoms';
-import { AvailabilityForm, DestinationPreviewType, QuarterAvailability } from '../../forms/AvailabilityForms/AvailabilityForm';
+import { AvailabilityForm, type DestinationPreviewType, type QuarterAvailability } from '../../forms/AvailabilityForms/AvailabilityForm';
 import styles from './AvailabilityDdSection.module.scss';
-import { Quarter } from '../../../../core/common/quarters/domain/Quarter';
-import { Destination } from '../../../../core/destination/domain/Destination';
+import { type Quarter } from '../../../../core/common/quarters/domain/Quarter';
+import { type Destination } from '../../../../core/destination/domain/Destination';
 import { DestinationPreview } from './DestinationPreview';
 import { QuarterPreview } from './QuarterPreview';
 
-type Props = {
-  formChoice: "destination" | "quarter";
-  closeDropdown: () => void;
+interface Props {
+  formChoice: 'destination' | 'quarter'
+  closeDropdown: () => void
 }
-const destinationBaseUrl = `/destination/`;
+const destinationBaseUrl = '/destination/';
 
 export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
   const [quarter, setQuarter] = useState<QuarterAvailability | null>(null);
@@ -28,7 +28,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
     setQuarter(null);
     setIsSubmited(false);
     setIsLoading(false);
-  }, [destinationPreview, quarterPreview])
+  }, [destinationPreview, quarterPreview]);
 
   useEffect(() => {
     setDestinationPreview(null);
@@ -37,7 +37,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
     setQuarter(null);
     setIsSubmited(false);
     setIsLoading(false);
-  }, [formChoice])
+  }, [formChoice]);
 
   useEffect(() => {
     if (isSubmited) {
@@ -46,10 +46,10 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
         setIsLoading(false);
       }, 5000);
     }
-  }, [isSubmited])
+  }, [isSubmited]);
 
   return (
-    <section className={`${styles[`dd-avblty`]}`}>
+    <section className={`${styles['dd-avblty']}`}>
       <AvailabilityForm
         isSubmited={isSubmited}
         setIsSelected={setIsSelected}
@@ -60,15 +60,15 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
         setDestinationPreview={setDestinationPreview}
         setQuarterPreview={setQuarterPreview}
       />
-      <div className={`${styles[`dd-avblty__response`]}`}>
+      <div className={`${styles['dd-avblty__response']}`}>
         {
           formChoice === 'destination' &&
-          <section className={`${styles[`dd-avblty__response-destination`]}`}>
+          <section className={`${styles['dd-avblty__response-destination']}`}>
             {
               destinationPreview &&
               <img src={destinationPreview.img} alt="" />
             }
-            <section className={`${styles[`dd-avblty__response__column-sect`]}`}>
+            <section className={`${styles['dd-avblty__response__column-sect']}`}>
               {destinationPreview && !isSubmited &&
                 <DestinationPreview destinationPreview={destinationPreview} isSelected={isSelected} />
               }
@@ -78,13 +78,13 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
                     <Heading as='h4' color='cream' font='fancy'>{destination.name}</Heading>
                     <p>{destination.location}</p>
                   </div>
-                  <div className={`${styles[`dd-avblty__response__submitted`]}`}>
+                  <div className={`${styles['dd-avblty__response__submitted']}`}>
                     {
                       isLoading
                         ? <Loader color='cream' />
                         : <div>
                           <p>Available quarter periods: </p>
-                          <ul className={`${styles[`dd-avblty__response-destination-ul`]}`}>
+                          <ul className={`${styles['dd-avblty__response-destination-ul']}`}>
                             {
                               destination?.availability?.map((q: Quarter, k: number) => {
                                 return (
@@ -92,7 +92,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
                                     <Link openInNewTab={false} size='m' color="cream" href={`${destinationBaseUrl}${destination.id}/${q.id}`}>
                                       {`+ ${q.id} | ${q.label}`}
                                     </Link>
-                                  </li>)
+                                  </li>);
                               })
                             }
                           </ul>
@@ -107,12 +107,12 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
 
         {
           formChoice === 'quarter' &&
-          <section className={`${styles[`dd-avblty__response__column-sect`]}`}>
+          <section className={`${styles['dd-avblty__response__column-sect']}`}>
             {quarterPreview &&
               <QuarterPreview quarterPreview={quarterPreview} isSelected={isSelected} />
             }
             {quarter && isSubmited &&
-              <div className={`${styles[`dd-avblty__response__submitted`]}`}>
+              <div className={`${styles['dd-avblty__response__submitted']}`}>
                 {
                   isLoading
                     ? <Loader color='cream'/>
@@ -126,7 +126,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
                                 <Link openInNewTab={false} size='m' color="cream"href={`${destinationBaseUrl}${destination.id}/${quarter.quarter.id}`}>
                                   + {destination.name}
                                 </Link>
-                              </li>)
+                              </li>);
                           })
                         }
                       </ul>
@@ -138,5 +138,5 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
         }
       </div>
     </section>
-  )
-}
+  );
+};

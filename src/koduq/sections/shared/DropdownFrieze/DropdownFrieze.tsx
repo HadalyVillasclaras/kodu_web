@@ -1,36 +1,36 @@
-import { Colors } from '../../../../design-system/tokens'
+import { type Colors } from '../../../../design-system/tokens';
 import { useState, useRef } from 'react';
 import { Button, Logo, Frieze } from '../../../../design-system/components/atoms';
-import { DropdownMain, DropdownRef } from '../../../../design-system/components/molecules/DropdownMain';
+import { DropdownMain, type DropdownRef } from '../../../../design-system/components/molecules/DropdownMain';
 import { AvailabilityFormPicker } from '../forms/AvailabilityForms/AvailabilityFormPicker';
 import { ContactDdSection } from './DropdownSections/ContactDdSection';
 import { AvailabilityDdSection } from './DropdownSections/AvailabilityDdSection';
 import styles from './DropdownFrieze.module.scss';
 
-type Props = {
-  color?: Colors;
-  hasLogo: boolean;
+interface Props {
+  color?: Colors
+  hasLogo: boolean
 }
 
-export const DropdownFrieze = ({ color = "brown", hasLogo = false }: Props) => {
+export const DropdownFrieze = ({ color = 'brown', hasLogo = false }: Props) => {
   const [choice, setChoice] = useState<'destination' | 'quarter'>('destination');
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownType, setDropdownType] = useState<'availability' | 'contact'>()
+  const [dropdownType, setDropdownType] = useState<'availability' | 'contact'>();
   const dropdownRef = useRef<DropdownRef>(null);
 
-  function handleAvlbtyBtn() {
+  function handleAvlbtyBtn () {
     setIsOpen(!isOpen);
     dropdownRef.current?.openDropdown();
     setDropdownType('availability');
   }
 
-  function handleContactBtn() {
+  function handleContactBtn () {
     setIsOpen(!isOpen);
     dropdownRef.current?.openDropdown();
     setDropdownType('contact');
   }
 
-  function handleCloseDropdown() {
+  function handleCloseDropdown () {
     dropdownRef.current?.closeDropdown();
   }
 
@@ -46,16 +46,15 @@ export const DropdownFrieze = ({ color = "brown", hasLogo = false }: Props) => {
         </span>
       </Frieze>
       {
-        dropdownType === 'contact' ?
-          <DropdownMain title='Contact' color='green' ref={dropdownRef}>
+        dropdownType === 'contact'
+          ? <DropdownMain title='Contact' color='green' ref={dropdownRef}>
             <ContactDdSection />
           </DropdownMain>
-          :
-          <DropdownMain title='Check availability' color='brown' ref={dropdownRef} >
+          : <DropdownMain title='Check availability' color='brown' ref={dropdownRef} >
             <AvailabilityFormPicker currentChoice={choice} setChoice={setChoice} />
             <AvailabilityDdSection closeDropdown={handleCloseDropdown} formChoice={choice} />
           </DropdownMain>
       }
     </>
-  )
-}
+  );
+};

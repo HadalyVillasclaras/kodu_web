@@ -8,7 +8,7 @@ export const Fader = () => {
 
   const handleLoad = () => {
     setIsLoaded(true);
-    
+
     setTimeout(() => {
       setTopStyle('-110vh');
     }, 2300);
@@ -19,10 +19,10 @@ export const Fader = () => {
   }, []);
 
   return (
-    <section className={styles["fader"]} style={{ top: topStyle }}>
-      <span className={`${styles["fader__logo"]} ${isLoaded ? styles['fader__logo--visible'] : ''}`}>
+    <section className={styles.fader} style={{ top: topStyle }}>
+      <span className={`${styles.fader__logo} ${isLoaded ? styles['fader__logo--visible'] : ''}`}>
         <Logo clickable={false} color='brown' size='25rem'/>
       </span>
     </section>
-  )
-}
+  );
+};

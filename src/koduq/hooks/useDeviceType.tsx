@@ -8,7 +8,6 @@ export enum DeviceType {
 }
 
 export const useDeviceType = (): DeviceType => {
-
   const getInitialDeviceType = (): DeviceType => {
     const matchDesktop = window.matchMedia(breakpointValues.desktop).matches;
     const matchTablet = window.matchMedia(breakpointValues.tablet).matches;
@@ -42,4 +41,4 @@ export const useDeviceType = (): DeviceType => {
   }, []);
 
   return deviceType;
-}
+};

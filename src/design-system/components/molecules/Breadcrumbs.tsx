@@ -1,38 +1,38 @@
-import { Link, useMatches } from "react-router-dom";
+import { Link, useMatches } from 'react-router-dom';
 
 interface MatchInterface {
   // route id
-  id: string,
+  id: string
   // the portion of the URL the route matched
-  pathname: string,
+  pathname: string
   // the data from the loader
-  data: any,
+  data: any
   // the parsed params from the URL
-  params: object,
+  params: object
   // the <Route handle> with any app specific data
-  handle: any,
+  handle: any
 }
 
 export const Breadcrumbs = () => {
   const matches = useMatches();
-  const crumbs = matches.filter((match: MatchInterface) => Boolean(match.handle?.crumb)) //elimina los que no tienen handle/crumb
-  const breadcumbs: { name: string, path: string }[] = [];
+  const crumbs = matches.filter((match: MatchInterface) => Boolean(match.handle?.crumb)); // elimina los que no tienen handle/crumb
+  const breadcumbs: Array<{ name: string, path: string }> = [];
 
   crumbs.map((crumb: MatchInterface) => {
-    if (crumb.handle!.crumb().includes('Id')) {
+    if (crumb.handle.crumb().includes('Id')) {
       const paramsArray = Object.entries(crumb.params);
       const [, id] = paramsArray[0];
-      crumb.handle!.idToShow = `ID. ${id}`;
+      crumb.handle.idToShow = `ID. ${id}`;
 
       breadcumbs.push({
         name: `ID. ${id}`,
         path: crumb.pathname
-      })
+      });
     } else {
       breadcumbs.push({
-        name: crumb.handle!.crumb(),
+        name: crumb.handle.crumb(),
         path: crumb.pathname
-      })
+      });
     }
   });
 
@@ -41,11 +41,11 @@ export const Breadcrumbs = () => {
       {breadcumbs.map((crumb, index: number) => {
         if (index + 1 === breadcumbs.length) {
           return (
-            <span key={index}>{crumb.name}</span>)
+            <span key={index}>{crumb.name}</span>);
         } else {
           return (
             <span key={index}><Link to={crumb.path}>{crumb.name}</Link></span>
-          )
+          );
         }
       })}
     </span>

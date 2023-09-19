@@ -1,8 +1,8 @@
-export type Breakpoints = {
-  desktop: string;
-  tablet: string;
-  mobile: string;
-};
+export interface Breakpoints {
+  desktop: string
+  tablet: string
+  mobile: string
+}
 
 export const breakpointValues: Breakpoints = {
   desktop: '(min-width: 992px)',

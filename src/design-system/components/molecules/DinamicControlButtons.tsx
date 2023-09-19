@@ -1,32 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import styles from './DinamicControlButtons.module.scss';
 import { ArrowCursor } from '../atoms/ArrowCursor';
 
-type Props = {
-  onLeftClick: () => void;
-  onRightClick: () => void;
-  children?: React.ReactNode;
-  isLeftDisabled?: boolean;
-  isRightDisabled?: boolean;
-  btnsWidth?: string | number;
+interface Props {
+  onLeftClick: () => void
+  onRightClick: () => void
+  children?: React.ReactNode
+  isLeftDisabled?: boolean
+  isRightDisabled?: boolean
+  btnsWidth?: string | number
 }
-type CursorPositionType = {
-  x: string | number;
-  y: string | number;
-};
+interface CursorPositionType {
+  x: string | number
+  y: string | number
+}
 
 export const DinamicControlButtons = ({
   onLeftClick,
   onRightClick,
-  isLeftDisabled, 
+  isLeftDisabled,
   isRightDisabled,
   btnsWidth,
   children
 }: Props) => {
-
   const [cursorPosition, setCursorPosition] = useState<CursorPositionType>({ x: '90%', y: '80%' });
   const [isCursorInside, setIsCursorInside] = useState(false);
-  const [sliderSide, setSliderSide] = useState<"left" | "right" | null>(null);
+  const [sliderSide, setSliderSide] = useState<'left' | 'right' | null>(null);
   const [isInit, setIsInit] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -35,7 +34,7 @@ export const DinamicControlButtons = ({
     }
   };
 
-  const handleMouseEnter = (side: "left" | "right") => {
+  const handleMouseEnter = (side: 'left' | 'right') => {
     setSliderSide(side);
     setIsCursorInside(true);
     setIsInit(true);
@@ -46,18 +45,18 @@ export const DinamicControlButtons = ({
   };
 
   let isArrowButtonDisabled = false;
-  if (sliderSide === "left" && isLeftDisabled) {
+  if (sliderSide === 'left' && isLeftDisabled) {
     isArrowButtonDisabled = true;
-  } else if (sliderSide === "right" && isRightDisabled) {
+  } else if (sliderSide === 'right' && isRightDisabled) {
     isArrowButtonDisabled = true;
   }
-  
+
   return (
     <div className={`${styles['control-btns-wrapper']}`}>
       <button
         style={{ width: btnsWidth }}
-        className={`${styles['control-btn']} ${styles["control-btn--left"]}`}
-        onMouseEnter={() => handleMouseEnter("left")}
+        className={`${styles['control-btn']} ${styles['control-btn--left']}`}
+        onMouseEnter={() => { handleMouseEnter('left'); }}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
         onClick={onLeftClick}
@@ -65,8 +64,8 @@ export const DinamicControlButtons = ({
       {children}
       <button
         style={{ width: btnsWidth }}
-        className={`${styles['control-btn']} ${styles["control-btn--right"]}`}
-        onMouseEnter={() => handleMouseEnter("right")}
+        className={`${styles['control-btn']} ${styles['control-btn--right']}`}
+        onMouseEnter={() => { handleMouseEnter('right'); }}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
         onClick={onRightClick}
@@ -81,6 +80,5 @@ export const DinamicControlButtons = ({
         color='brown'
       />
     </div>
-  )
-}
- 
+  );
+};

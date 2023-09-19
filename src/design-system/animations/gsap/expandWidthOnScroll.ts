@@ -13,12 +13,12 @@ export const expandWidthOnScroll = (
     scrollTrigger: {
       trigger: triggerElement || element,
       start: 'top bottom',
-      toggleActions: 'play none none reverse',
+      toggleActions: 'play none none reverse'
     },
     width: '100%',
     duration: 1,
     stagger: 0.3,
-    ease: "power3.out",
-    delay: delay
+    ease: 'power3.out',
+    delay
   });
 };

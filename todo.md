@@ -1,9 +1,6 @@
 ------------------------
 TO DO 
--header margin not working ok on mb 
--fix header
--review header bottom margin 
--check dropdown height.
+-review header  
 
 Refactor
 -scrollTo0,0 detail page issue. can we reload?
@@ -19,4 +16,6 @@ New functs:
 
 ----
 DONE
+-fix header
+-check dropdown height.
 

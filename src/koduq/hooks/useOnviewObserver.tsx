@@ -1,14 +1,14 @@
-import { RefObject, useEffect, useState } from "react";
+import { type RefObject, useEffect, useState } from 'react';
 
-/* Returns current section id on view*/
+/* Returns current section id on view */
 
-type ObserverOptions = {
-  root?: Element | null;
-  rootMargin?: string;
-  threshold?: number | number[];
-};
+interface ObserverOptions {
+  root?: Element | null
+  rootMargin?: string
+  threshold?: number | number[]
+}
 
-export function useOnviewObserver(refs: Record<string, RefObject<HTMLElement>>, observerOptions?: ObserverOptions) {
+export function useOnviewObserver (refs: Record<string, RefObject<HTMLElement>>, observerOptions?: ObserverOptions) {
   const [inViewSectionId, setInViewSectionId] = useState<string | null>('hero');
 
   const defaultObserverOptions: ObserverOptions = {
@@ -17,7 +17,7 @@ export function useOnviewObserver(refs: Record<string, RefObject<HTMLElement>>, 
     threshold: 0
   };
 
-  const activeSections: Set<string> = new Set();
+  const activeSections = new Set<string>();
 
   const callback = (entries: IntersectionObserverEntry[]) => {
     for (const entry of entries) {
@@ -47,7 +47,7 @@ export function useOnviewObserver(refs: Record<string, RefObject<HTMLElement>>, 
       observerOptions || defaultObserverOptions
     );
 
-    // Observe all refs  
+    // Observe all refs
     Object.values(refs).forEach(ref => {
       if (ref.current) {
         observer.observe(ref.current);

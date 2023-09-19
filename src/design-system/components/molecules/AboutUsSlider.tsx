@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import React, { useState, useEffect, useRef, type ReactNode } from 'react';
 import styles from './AboutUsSlider.module.scss';
 import { AboutUs } from '../../../koduq/sections/home';
 import { ArrowCursor } from '../atoms';
 
 interface SliderProps {
-  images?: string[];
-  transitionTime?: number;
-  visibleSlides?: number;
-  ChildComponent?: ReactNode;
+  images?: string[]
+  transitionTime?: number
+  visibleSlides?: number
+  ChildComponent?: ReactNode
 }
 
-export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderProps) => {
+export const AboutUsSlider = ({ images = ['1', '2'], visibleSlides = 1 }: SliderProps) => {
   const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,7 +20,7 @@ export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderPr
 
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isCursorInside, setIsCursorInside] = useState(false);
-  const [sliderSide, setSliderSide] = useState<"left" | "right" | null>(null);
+  const [sliderSide, setSliderSide] = useState<'left' | 'right' | null>(null);
 
   const nextSlide = () => {
     if (currentIndex < images.length - visibleSlides) setCurrentIndex(prevState => prevState + 1);
@@ -34,7 +34,7 @@ export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderPr
     setCursorPosition({ x: e.clientX, y: e.clientY });
   };
 
-  const handleMouseEnter = (side: "left" | "right") => {
+  const handleMouseEnter = (side: 'left' | 'right') => {
     setSliderSide(side);
     setIsCursorInside(true);
   };
@@ -44,9 +44,9 @@ export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderPr
   };
 
   let isArrowButtonDisabled = false;
-  if (sliderSide === "left" && isLeftDisabled) {
+  if (sliderSide === 'left' && isLeftDisabled) {
     isArrowButtonDisabled = true;
-  } else if(sliderSide === "right" && isRightDisabled) {
+  } else if (sliderSide === 'right' && isRightDisabled) {
     isArrowButtonDisabled = true;
   }
 
@@ -60,26 +60,26 @@ export const AboutUsSlider = ({ images=['1', '2'], visibleSlides = 1 }: SliderPr
 
   return (
     <>
-      <div className={styles['destination-slider-container']} onMouseMove={handleMouseMove}  >
-        <button 
-          className={`${styles['slider__controls']} ${styles["slider__controls-left"]}`} 
-          onMouseEnter={() => handleMouseEnter("left")} 
+      <div className={styles['destination-slider-container']} onMouseMove={handleMouseMove} >
+        <button
+          className={`${styles.slider__controls} ${styles['slider__controls-left']}`}
+          onMouseEnter={() => { handleMouseEnter('left'); }}
           onMouseLeave={handleMouseLeave}
-          onClick={prevSlide} 
+          onClick={prevSlide}
         />
         <div className={styles['slider-container']}>
-          <div className={styles['slider']} ref={sliderRef}>
-              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
+          <div className={styles.slider} ref={sliderRef}>
+            <div className={styles.slider__slide} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
               <AboutUs />
-              </div>
-              <div className={styles['slider__slide']} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
-                <img  src={`${BASE_ASSETS}imgs/destinations/paraty/paraty-1.png`} />
-              </div>
+            </div>
+            <div className={styles.slider__slide} style={{ flex: `0 0 calc(100% / ${visibleSlides})` }}>
+              <img src={`${BASE_ASSETS}imgs/destinations/paraty/paraty-1.png`} />
+            </div>
           </div>
         </div>
-        <button 
-          className={`${styles['slider__controls']} ${styles["slider__controls-right"]}`} 
-          onMouseEnter={() => handleMouseEnter("right")} 
+        <button
+          className={`${styles.slider__controls} ${styles['slider__controls-right']}`}
+          onMouseEnter={() => { handleMouseEnter('right'); }}
           onMouseLeave={handleMouseLeave}
           onClick={nextSlide}
         />

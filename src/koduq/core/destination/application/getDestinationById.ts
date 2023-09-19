@@ -1,8 +1,8 @@
-import destinations from "../../data/Destinations.json";
-import { Destination } from "../domain/Destination";
+import destinations from '../../data/Destinations.json';
+import { type Destination } from '../domain/Destination';
 // const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
-export function getDestinationById(id: string | undefined): Destination | undefined {
+export function getDestinationById (id: string | undefined): Destination | undefined {
   try {
     if (id) {
       const currentDestination = destinations.filter(destination => destination.id === parseInt(id));
@@ -13,12 +13,12 @@ export function getDestinationById(id: string | undefined): Destination | undefi
           ...destination
         };
       } else {
-        console.error("No destination found with the provided ID");
+        console.error('No destination found with the provided ID');
       }
     } else {
-      console.error("Undefined ID provided");
+      console.error('Undefined ID provided');
     }
   } catch (error) {
-    console.error("An error occurred while getting destination by ID:", error);
+    console.error('An error occurred while getting destination by ID:', error);
   }
 }

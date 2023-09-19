@@ -3,10 +3,10 @@ import styles from './Accordion.module.scss';
 import { gsap } from 'gsap';
 
 interface AccordionProps {
-  title: string;
-  content: string;
-  isOpen: boolean;
-  onTitleClick: () => void;
+  title: string
+  content: string
+  isOpen: boolean
+  onTitleClick: () => void
 }
 
 export const AccordionItem = ({ title, content, isOpen, onTitleClick }: AccordionProps) => {
@@ -22,7 +22,7 @@ export const AccordionItem = ({ title, content, isOpen, onTitleClick }: Accordio
         animationRef.current = gsap.from(accContentRef.current, {
           height: 0,
           duration: 0.5,
-          ease: 'power1.inOut',
+          ease: 'power1.inOut'
         }).reverse();
       }
     }
@@ -34,13 +34,13 @@ export const AccordionItem = ({ title, content, isOpen, onTitleClick }: Accordio
         gsap.to(accContentRef.current, {
           height: accContentRef.current.scrollHeight + 'px',
           duration: 0.5,
-          ease: 'power1.inOut',
+          ease: 'power1.inOut'
         });
       } else {
         gsap.to(accContentRef.current, {
           height: 0,
           duration: 0.5,
-          ease: 'power1.inOut',
+          ease: 'power1.inOut'
         });
       }
     }
@@ -48,10 +48,10 @@ export const AccordionItem = ({ title, content, isOpen, onTitleClick }: Accordio
 
   return (
     <>
-      <button className={` ${isOpen && styles.opened }`} onClick={onTitleClick}>
+      <button className={` ${isOpen && styles.opened}`} onClick={onTitleClick}>
         {title}
       </button>
-      <div className={styles['accordion__content']} ref={accContentRef}>
+      <div className={styles.accordion__content} ref={accContentRef}>
         <p>{content}</p>
       </div>
     </>

@@ -1,16 +1,16 @@
-import { Colors } from "../../tokens";
-import styles from './Frieze.module.scss'; 
-import { ReactNode } from 'react';
+import { type Colors } from '../../tokens';
+import styles from './Frieze.module.scss';
+import { type ReactNode } from 'react';
 
-type Props = {
-  color?: Colors;
-  children: ReactNode;
+interface Props {
+  color?: Colors
+  children: ReactNode
 }
 
-export const Frieze = ({ color = "brown", children }: Props) => {
+export const Frieze = ({ color = 'brown', children }: Props) => {
   return (
-    <div className={`${styles[`frieze`]} ${styles[`frieze__bg--${color}`]}`}>
+    <div className={`${styles.frieze} ${styles[`frieze__bg--${color}`]}`}>
       {children}
     </div>
-  )
-}
+  );
+};

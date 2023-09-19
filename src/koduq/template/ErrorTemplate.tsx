@@ -1,18 +1,18 @@
-import { Outlet } from 'react-router-dom'
-import { Navbar, Credits, Header } from "../sections/layout"
-import { ReactNode, useContext, useEffect } from 'react'
+import { Outlet } from 'react-router-dom';
+import { Navbar, Credits, Header } from '../sections/layout';
+import { type ReactNode, useContext, useEffect } from 'react';
 import { NavIconContext } from '../contexts/NavIconContext';
 
-type Props = {
-  children: ReactNode;
+interface Props {
+  children: ReactNode
 }
 
 export const ErrorTemplate = ({ children }: Props) => {
-  const { setIconColor } =  useContext(NavIconContext);
+  const { setIconColor } = useContext(NavIconContext);
 
   useEffect(() => {
-    setIconColor("cream");
-  }, [])
+    setIconColor('cream');
+  }, []);
 
   return (
     <>
@@ -23,5 +23,5 @@ export const ErrorTemplate = ({ children }: Props) => {
       </main>
       <Credits />
     </>
-  )
-}
+  );
+};

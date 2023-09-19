@@ -1,7 +1,7 @@
 import { IconButton, Link, Logo } from '../../../design-system/components/atoms';
-import { NavIconContext } from "../../contexts/NavIconContext";
-import { useContext, useEffect, useState, useRef, useLayoutEffect } from "react";
-import styles from "./Navbar.module.scss";
+import { NavIconContext } from '../../contexts/NavIconContext';
+import { useContext, useEffect, useState, useRef, useLayoutEffect } from 'react';
+import styles from './Navbar.module.scss';
 import navItems from '../../core/data/NavItems.json';
 import { slideUp } from '../../../design-system/animations/gsap';
 
@@ -10,11 +10,11 @@ export const Navbar = () => {
   const { color, hidden } = useContext(NavIconContext);
   const navListRef = useRef<HTMLUListElement>(null!);
   const navbarRef = useRef<HTMLDivElement>(null!);
-  
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
-  
+
   useEffect(() => {
   }, [hidden]);
   let animation: any;
@@ -28,17 +28,17 @@ export const Navbar = () => {
         animation.restart();
       }
     } else {
-      animation && animation.seek(0).pause();
+      animation?.seek(0).pause();
     }
   }, [isOpen]);
 
   return (
-    <div ref={navbarRef} className={styles["navbar"]}>
-      <div className={styles["navbar__icon-wrapper"]}>
+    <div ref={navbarRef} className={styles.navbar}>
+      <div className={styles['navbar__icon-wrapper']}>
         <span
           className={`
-          ${styles["icon-wrapper"]} 
-          ${isOpen ? styles["rotate45"] : ""} 
+          ${styles['icon-wrapper']} 
+          ${isOpen ? styles.rotate45 : ''} 
         `}
         >
           {
@@ -46,30 +46,30 @@ export const Navbar = () => {
             <IconButton
               icon='plus'
               color={isOpen ? 'cream' : color}
-              ariaLabel={isOpen ? "Close" : "Open"}
+              ariaLabel={isOpen ? 'Close' : 'Open'}
               onClick={toggleSidebar}
               size="l"
             />
           }
         </span>
       </div>
-      <nav className={styles["navbar__menu"]} style={isOpen ? { transform: 'translateX(0)' } : {}}>
+      <nav className={styles.navbar__menu} style={isOpen ? { transform: 'translateX(0)' } : {}}>
         <Logo color='cream' size='20rem' clickable={false}/>
-        <ul ref={navListRef} className={styles["navbar__menu-list"]}>
+        <ul ref={navListRef} className={styles['navbar__menu-list']}>
           {navItems.map((navItem, index) => (
             <li key={index} onClick={toggleSidebar}>
-              <Link 
-                color='cream' 
-                size='l' 
+              <Link
+                color='cream'
+                size='l'
                 href={navItem.link}
                 aria-label={`Navigate to ${navItem.name} section`}
               >
-                  {navItem.name}
+                {navItem.name}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
     </div>
-  )
-}
+  );
+};

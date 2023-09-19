@@ -1,9 +1,9 @@
 import { DestinationCard, Gallery, Swipe } from '../../../design-system/components/molecules';
-import { DestinationCardData } from '../../../design-system/components/molecules/DestinationCard';
-import styles from "./DestinationImages.module.scss";
+import { type DestinationCardData } from '../../../design-system/components/molecules/DestinationCard';
+import styles from './DestinationImages.module.scss';
 
-type DestinationImagesProps = {
-  imgs: string[];
+interface DestinationImagesProps {
+  imgs: string[]
 }
 
 export const DestinationImages = ({ imgs }: DestinationImagesProps) => {
@@ -22,5 +22,5 @@ export const DestinationImages = ({ imgs }: DestinationImagesProps) => {
         <Gallery imgs={imgs} />
       </section>
     </>
-  )
-}
+  );
+};

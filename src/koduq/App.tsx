@@ -1,13 +1,13 @@
-import { RouterProvider } from 'react-router-dom'
-import { router } from "./core/config/router";
-import { NavIconProvider } from "./contexts/NavIconProvider";
-import "../design-system/index.scss";
+import { RouterProvider } from 'react-router-dom';
+import { router } from './core/config/router';
+import { NavIconProvider } from './contexts/NavIconProvider';
+import '../design-system/index.scss';
 
-function App() {
+function App () {
   return (
     <NavIconProvider>
       <RouterProvider router={router} />
     </NavIconProvider>
-  )
+  );
 }
-export default App
+export default App;

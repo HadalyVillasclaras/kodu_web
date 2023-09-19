@@ -1,12 +1,12 @@
 import { useState, useRef } from 'react';
-import styles from "./Features.module.scss";
-import featureData from "../../core/data/FeaturesSect.json";
+import styles from './Features.module.scss';
+import featureData from '../../core/data/FeaturesSect.json';
 import { Heading, Divider } from '../../../design-system/components/atoms';
 
-type Feature = {
-  name: string;
-  description: string;
-};
+interface Feature {
+  name: string
+  description: string
+}
 
 export const Features = () => {
   const [selectedFeature, setSelectedFeature] = useState(featureData[0]);
@@ -21,16 +21,16 @@ export const Features = () => {
     } else {
       setExpandedFeature(feature.name);
     }
-  }
+  };
 
   return (
-    <div className={styles["features__container"]}>
-      <section className={styles["features__displayed"]}>
+    <div className={styles.features__container}>
+      <section className={styles.features__displayed}>
         <Heading as='h2' font='fancy'>{selectedFeature?.name}</Heading>
         <p>{selectedFeature?.description}</p>
       </section>
       <section>
-        <ul className={styles["features__list"]}>
+        <ul className={styles.features__list}>
           {featureData.map((feature, index) => (
             <li
               key={index}
@@ -39,14 +39,14 @@ export const Features = () => {
                   featureListRefs.current[index] = el;
                 }
               }}
-              className={selectedFeature?.name === feature.name ? styles['features__list__item--selected'] : styles['features__list__item']}
+              className={selectedFeature?.name === feature.name ? styles['features__list__item--selected'] : styles.features__list__item}
             >
-              <button onClick={() => handleFeatureClick(feature)}>{feature.name}</button>
+              <button onClick={() => { handleFeatureClick(feature); }}>{feature.name}</button>
               <Divider />
             </li>
           ))}
         </ul>
       </section>
     </div>
-  )
-}
+  );
+};

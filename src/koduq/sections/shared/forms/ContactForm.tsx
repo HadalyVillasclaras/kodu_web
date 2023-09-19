@@ -4,9 +4,9 @@ import styles from './ContactForm.module.scss';
 import { Feedback } from '../../../../design-system/components/molecules';
 
 interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
+  name: string
+  email: string
+  message: string
 }
 
 type ContactFormDataKey = keyof ContactFormData;
@@ -14,7 +14,7 @@ type ContactFormDataKey = keyof ContactFormData;
 const initialFormData: ContactFormData = {
   name: '',
   email: '',
-  message: '',
+  message: ''
 };
 
 const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -22,7 +22,7 @@ const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const inputFields = [
   { type: 'text', name: 'name', placeholder: 'Name', pattern: undefined },
   { type: 'email', name: 'email', placeholder: 'Email', pattern: undefined },
-  { type: 'textarea', name: 'message', placeholder: 'Message', pattern: undefined },
+  { type: 'textarea', name: 'message', placeholder: 'Message', pattern: undefined }
 ];
 
 export const ContactForm = () => {
@@ -30,7 +30,7 @@ export const ContactForm = () => {
   const [errors, setErrors] = useState<ContactFormData>(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [submittedData, setSubmittedData] = useState<ContactFormData | null>(null); 
+  const [submittedData, setSubmittedData] = useState<ContactFormData | null>(null);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const name = event.target.name as ContactFormDataKey;
@@ -98,11 +98,11 @@ export const ContactForm = () => {
         <Button type='submit' color='cream' variant='default' text='Submit' />
       </form>
       {isLoading && <Loader color='cream' />}
-      {isSubmitted && !isLoading && submittedData &&(
+      {isSubmitted && !isLoading && submittedData && (
         <Feedback color='cream'>
           Thank you for getting in touch, {submittedData.name}! We will contact you soon.
         </Feedback>
       )}
     </>
-  )
-}
+  );
+};

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useAvailability } from '../../../hooks/useAvailability';
 import allQuarters from '../../../core/data/AvailabilityQuarters.json';
-import { DropdownRenderData, DropdownList } from '../../../../design-system/components/molecules/DropdownList';
+import { type DropdownRenderData, DropdownList } from '../../../../design-system/components/molecules/DropdownList';
 import { Button, Heading, Loader } from '../../../../design-system/components/atoms';
-import { Quarter } from '../../../core/common/quarters/domain/Quarter';
+import { type Quarter } from '../../../core/common/quarters/domain/Quarter';
 import { Feedback } from '../../../../design-system/components/molecules';
-import styles from "./DestinationCheckForm.module.scss";
+import styles from './DestinationCheckForm.module.scss';
 
-type DestinationCheckFormProps = {
-  destinationId: string,
-  setIsRequested: (isRequested: boolean) => void;
-  selectedQuarter: Quarter | null;
-  setSelectedQuarter: React.Dispatch<React.SetStateAction<Quarter | null>>;
-  selectedQuarterFromUrl?: Quarter;
+interface DestinationCheckFormProps {
+  destinationId: string
+  setIsRequested: (isRequested: boolean) => void
+  selectedQuarter: Quarter | null
+  setSelectedQuarter: React.Dispatch<React.SetStateAction<Quarter | null>>
+  selectedQuarterFromUrl?: Quarter
 }
 
 export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, setIsRequested, selectedQuarter, setSelectedQuarter }: DestinationCheckFormProps) => {
@@ -26,7 +26,7 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setQuarterFromUrl(undefined)
+    setQuarterFromUrl(undefined);
     if (!selectedQuarter) {
       setHasError(true);
       return;
@@ -42,7 +42,7 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
         setLoading(false);
       }, 4000);
     }
-  }
+  };
 
   const handleRequestClick = () => {
     setIsRequested(true);
@@ -52,7 +52,7 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
     selectedQuarterFromUrl && setSelectedQuarter(selectedQuarterFromUrl);
     selectedQuarterFromUrl ? setIsAvailable(true) : setIsAvailable(null);
     setQuarterFromUrl(selectedQuarterFromUrl);
-  }, [selectedQuarterFromUrl])
+  }, [selectedQuarterFromUrl]);
 
   useEffect(() => {
     if (selectedQuarter === null) {
@@ -63,12 +63,12 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
 
   console.log(selectedQuarter);
   return (
-    <form className={`${styles['avblty-form']}`}  aria-labelledby="form-title">
+    <form className={`${styles['avblty-form']}`} aria-labelledby="form-title">
       <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
       <fieldset >
         <label id="dropdown-label">Please, select the year period that better fits with your needs</label>
         <DropdownList
-          label={selectedQuarterFromUrl ? selectedQuarterFromUrl.label : "Select a quarter"}
+          label={selectedQuarterFromUrl ? selectedQuarterFromUrl.label : 'Select a quarter'}
           onSelectChange={(selected) => {
             setSelectedQuarter(selected);
             setIsAvailable(null);
@@ -81,7 +81,7 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
       {
         isAvailable
           ? <Button onClick={handleRequestClick} color='brown' text="Request for stay" />
-          : <Button onClick={handleSubmit}  text='Check' />
+          : <Button onClick={handleSubmit} text='Check' />
       }
       {
         hasError &&
@@ -97,19 +97,19 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
           {
             selectedQuarterFromUrl && isAvailable && quarterFromUrl
               ? <>
-                  <p>This is the selected yearly quarter you picked in form.</p>
+                <p>This is the selected yearly quarter you picked in form.</p>
+                <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
+              </>
+              : (isAvailable
+                ? <>
+                  <p>The selected quarter is available!</p>
                   <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
                 </>
-              : ( isAvailable
-                ? <>
-                    <p>The selected quarter is available!</p>
-                    <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
-                  </>
                 : <p>Sorry, the selected quarter is not available. Check another quarter.</p>
               )
           }
         </Feedback>
       }
     </form>
-  )
-}
+  );
+};

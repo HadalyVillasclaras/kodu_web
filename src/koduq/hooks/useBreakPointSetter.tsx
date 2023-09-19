@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
-import { Breakpoints, breakpointValues } from '../../design-system/tokens/Breakpoints';
+import { type Breakpoints, breakpointValues } from '../../design-system/tokens/Breakpoints';
 
-/*Trigger an action with a value based on the current viewport size*/
+/* Trigger an action with a value based on the current viewport size */
 
 export const useBreakPointSetter = (action: (value: number) => void, values: Record<string, number>) => {
-  
   useEffect(() => {
     const mediaQueries = Object.keys(breakpointValues).map((bp) => {
       const mq = window.matchMedia(breakpointValues[bp as keyof Breakpoints]);
@@ -14,7 +13,7 @@ export const useBreakPointSetter = (action: (value: number) => void, values: Rec
         }
       };
       mq.addEventListener('change', listener);
-      listener(mq); 
+      listener(mq);
       return { mq, listener };
     });
 

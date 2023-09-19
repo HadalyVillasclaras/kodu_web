@@ -1,13 +1,13 @@
-import { Colors } from '../../tokens';
+import { type Colors } from '../../tokens';
 import styles from './Marquee.module.scss';
 
 interface MarqueeProps {
-  text?: string;
-  speed?: number;
-  color?: Colors;
+  text?: string
+  speed?: number
+  color?: Colors
 }
 
-export const Marquee = ({text, color='green'}: MarqueeProps) => {
+export const Marquee = ({ text, color = 'green' }: MarqueeProps) => {
   const marqueeColor = color ? styles[`marquee__color--${color}`] : '';
   return (
     <section className={styles.marqueeContainer}>

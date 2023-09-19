@@ -24,6 +24,7 @@
     @include btn-space;
     font-weight: 500;
     border: 1px solid;
+    text-align: left;
     
     &--cream {
       border-color: colors.$cream;

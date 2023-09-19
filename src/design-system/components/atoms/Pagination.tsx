@@ -1,19 +1,19 @@
-import { Colors } from '../../tokens';
+import { type Colors } from '../../tokens';
 import styles from './Pagination.module.scss';
 
 interface PaginationProps {
-  current: number;
-  total: number;
-  color?: Colors;
+  current: number
+  total: number
+  color?: Colors
 }
 
-export const Pagination = ({current, total, color='green'}: PaginationProps) => {
+export const Pagination = ({ current, total, color = 'green' }: PaginationProps) => {
   const paginationColor = color ? styles[`pagination__color--${color}`] : '';
   const paginationBorderColor = color ? styles[`pagination__border--${color}`] : '';
 
   return (
-      <span className={`${styles.pagination} ${paginationColor} ${paginationBorderColor}`}>
-        {current} / {total}
-      </span>
+    <span className={`${styles.pagination} ${paginationColor} ${paginationBorderColor}`}>
+      {current} / {total}
+    </span>
   );
 };

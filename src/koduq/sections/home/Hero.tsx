@@ -1,10 +1,10 @@
-import { Heading, Curtain } from "../../../design-system/components/atoms";
+import { Heading, Curtain } from '../../../design-system/components/atoms';
 import { useLayoutEffect, useRef } from 'react';
 import sectionImages from '../../core/data/SectionImages.json';
-import styles from "./Hero.module.scss";
+import styles from './Hero.module.scss';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
-import { slidesUpOnScroll } from "../../../design-system/animations/gsap";
+import { slidesUpOnScroll } from '../../../design-system/animations/gsap';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +13,6 @@ export const Hero = () => {
   const introTextRef = useRef<HTMLDivElement>(null!);
   const introImgRef = useRef<HTMLImageElement>(null!);
   const curtainHero = useRef<HTMLDivElement>(null!);
-
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -24,11 +23,11 @@ export const Hero = () => {
         scrollTrigger: {
           trigger: introTextRef.current,
           start: 'center top',
-          end: "bottom top",
+          end: 'bottom top',
           scrub: true,
           toggleActions: 'play none none reverse',
           onSnapComplete: () => {
-              console.log('object');
+            console.log('object');
           }
         },
         width: '100%',
@@ -36,13 +35,13 @@ export const Hero = () => {
       });
     }, introTextRef);
 
-    return () => ctx.revert();
+    return () => { ctx.revert(); };
   }, []);
 
   return (
     <>
-      <section className={styles["hero__sect-text"]}>
-        <div ref={introTextRef} className={styles["hero__sect-text-content"]}>
+      <section className={styles['hero__sect-text']}>
+        <div ref={introTextRef} className={styles['hero__sect-text-content']}>
           <Heading color='brown' as='h4'>Sustainable destinations</Heading>
           <p>Lorem ipsum dolor sit amet. Nunc auctor, et risus lacus quis sem. Sed sodales lorem, at lobortis odio porta vel. Nunc auctor. Class aptent et risus lacus quis sem taciti sociosqu ad litora torquent per nostra.</p>
         </div>
@@ -53,5 +52,5 @@ export const Hero = () => {
         </Curtain>
       </section>
     </>
-  )
-}
+  );
+};

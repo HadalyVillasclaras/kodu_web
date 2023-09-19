@@ -1,32 +1,32 @@
 import { Icon } from '../atoms';
-import { Colors } from '../../tokens';
+import { type Colors } from '../../tokens';
 import styles from './ArrowCursor.module.scss';
 
-type Props = {
-  topPosition: number | string;
-  leftPosition: number | string;
-  isCursorInside: boolean;
-  arrowDirection: "left" | "right" | null;
-  isDisabled: boolean;
-  isInit?: boolean;
-  color?: Colors;
-};
+interface Props {
+  topPosition: number | string
+  leftPosition: number | string
+  isCursorInside: boolean
+  arrowDirection: 'left' | 'right' | null
+  isDisabled: boolean
+  isInit?: boolean
+  color?: Colors
+}
 
-export const ArrowCursor = ({topPosition, leftPosition, isCursorInside, isInit, isDisabled = false, color="green", arrowDirection}: Props) => {
+export const ArrowCursor = ({ topPosition, leftPosition, isCursorInside, isInit, isDisabled = false, color = 'green', arrowDirection }: Props) => {
   const hidden = isInit && !isCursorInside;
 
   return (
     <button
       aria-label={arrowDirection === 'left' ? 'Previous Slide' : 'Next Slide'}
-      className={`${styles['arrow-cursor']}`} 
+      className={`${styles['arrow-cursor']}`}
       style={{
         top: topPosition,
         left: leftPosition,
-        opacity: hidden ? "0" : "1",
+        opacity: hidden ? '0' : '1',
         position: isCursorInside || isInit ? 'fixed' : 'absolute'
       }}
     >
-    <Icon disabled={isDisabled} color={color} variant='circle' icon={arrowDirection === "left" ? 'arrowLeft' : 'arrowRight'} />
-  </button>
-  )
-}
+      <Icon disabled={isDisabled} color={color} variant='circle' icon={arrowDirection === 'left' ? 'arrowLeft' : 'arrowRight'} />
+    </button>
+  );
+};

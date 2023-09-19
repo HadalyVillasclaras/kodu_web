@@ -1,8 +1,8 @@
-import { Destination } from '../../core/destination/domain/Destination';
-import { Divider, Heading } from '../../../design-system/components/atoms'
-import styles from "./DestinationHeader.module.scss";
+import { type Destination } from '../../core/destination/domain/Destination';
+import { Divider, Heading } from '../../../design-system/components/atoms';
+import styles from './DestinationHeader.module.scss';
 
-type Props = {
+interface Props {
   destination: Destination
 }
 
@@ -13,5 +13,5 @@ export const DestinationHeader = ({ destination }: Props) => {
       <p className={styles['detail-header__location']}>{destination.location}</p>
       <Divider color="green" />
     </header>
-  )
-}
+  );
+};

@@ -1,16 +1,16 @@
-import { Size, Colors } from "../../tokens";
-import styles from "./MappedList.module.scss";
+import { type Size, type Colors } from '../../tokens';
+import styles from './MappedList.module.scss';
 
-type Props = {
-  items: string[];
-  size?: Size;
-  color?: Colors;
+interface Props {
+  items: string[]
+  size?: Size
+  color?: Colors
 }
 
-export const MappedList = ({size = "m", color="green", items}: Props) => {
+export const MappedList = ({ size = 'm', color = 'green', items }: Props) => {
   return (
     <ul className={`
-    ${styles['list']}
+    ${styles.list}
     ${styles[`list__size--${size}`]}
     ${styles[`list__color--${color}`]}
     `}>
@@ -19,4 +19,4 @@ export const MappedList = ({size = "m", color="green", items}: Props) => {
       ))}
     </ul>
   );
-}
+};

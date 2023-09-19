@@ -1,18 +1,18 @@
 import { IconButton } from '../atoms';
-import { Colors } from '../../tokens';
-import styles from "./ArrowsNav.module.scss";
+import { type Colors } from '../../tokens';
+import styles from './ArrowsNav.module.scss';
 
-type ArrowsNavProps = {
-  color: Colors;
-  onLeft: () => void;
-  onRight: () => void;
-  isLeftDisabled?: boolean;
-  isRightDisabled?: boolean;
+interface ArrowsNavProps {
+  color: Colors
+  onLeft: () => void
+  onRight: () => void
+  isLeftDisabled?: boolean
+  isRightDisabled?: boolean
 }
 
 export const ArrowsNav = ({ onLeft, onRight, color, isLeftDisabled, isRightDisabled }: ArrowsNavProps) => {
   return (
-    <nav className={styles["arrows-nav"]}>
+    <nav className={styles['arrows-nav']}>
       <IconButton
         icon='arrowLeft'
         color={isLeftDisabled ? 'green' : color}
@@ -26,5 +26,5 @@ export const ArrowsNav = ({ onLeft, onRight, color, isLeftDisabled, isRightDisab
         onClick={isRightDisabled ? undefined : onRight}
       />
     </nav>
-  )
-}
+  );
+};

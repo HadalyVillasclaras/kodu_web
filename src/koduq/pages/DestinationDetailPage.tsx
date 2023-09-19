@@ -1,15 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { Section } from "../../design-system/components/objects"
-import { Destination } from "../core/destination/domain/Destination";
-import { getDestinationById } from "../core/destination/application/getDestinationById";
-import { Fader } from "../../design-system/components/molecules";
-import { DestinationImages } from "../sections/detail/DestinationImages";
-import { DestinationHeader } from "../sections/detail/DestinationHeader";
-import { DestinationNotFound } from "../sections/shared/errors/DestinationNotFound";
-import { DestinationCheckSection } from "../sections/detail/DestinationCheckSection";
-import { getQuarterById } from "../core/common/quarters/services/getQuarterById";
-import { Quarter } from "../core/common/quarters/domain/Quarter";
+import { Section } from '../../design-system/components/objects';
+import { type Destination } from '../core/destination/domain/Destination';
+import { getDestinationById } from '../core/destination/application/getDestinationById';
+import { Fader } from '../../design-system/components/molecules';
+import { DestinationImages } from '../sections/detail/DestinationImages';
+import { DestinationHeader } from '../sections/detail/DestinationHeader';
+import { DestinationNotFound } from '../sections/shared/errors/DestinationNotFound';
+import { DestinationCheckSection } from '../sections/detail/DestinationCheckSection';
+import { getQuarterById } from '../core/common/quarters/services/getQuarterById';
+import { type Quarter } from '../core/common/quarters/domain/Quarter';
 
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
@@ -20,17 +20,17 @@ export const DestinationDetailPage = () => {
   const refs = {
     detMain: useRef(null),
     detCheck: useRef(null),
-    detNotFound: useRef(null),
+    detNotFound: useRef(null)
   };
 
-  function getCurrentDestination() {
+  function getCurrentDestination () {
     if (destinationId) {
-      const destination = getDestinationById(destinationId)
+      const destination = getDestinationById(destinationId);
       destination && setCurrentDestination(destination);
     }
   }
 
-  function getSelectedQuarter() {
+  function getSelectedQuarter () {
     const quarter = quarterId && getQuarterById(quarterId);
     quarter && setSelectedQuarter(quarter);
   }
@@ -45,9 +45,8 @@ export const DestinationDetailPage = () => {
     <>
       <Fader />
       {currentDestination
-        ?
-        <>
-          <Section id="detMain" ref={refs.detMain} size='small' customStyle={{ minHeight: "unset", paddingBottom: "0", gap: "2rem" }}>
+        ? <>
+          <Section id="detMain" ref={refs.detMain} size='small' customStyle={{ minHeight: 'unset', paddingBottom: '0', gap: '2rem' }}>
             <DestinationImages imgs={currentDestination.images} />
             <DestinationHeader destination={currentDestination} />
           </Section>
@@ -55,11 +54,10 @@ export const DestinationDetailPage = () => {
             <DestinationCheckSection destination={currentDestination} selectedQuarterFromUrl={selectedQuarter}/>
           </Section>
         </>
-        :
-        <Section id="detNotFound" ref={refs.detNotFound} size="big">
+        : <Section id="detNotFound" ref={refs.detNotFound} size="big">
           <DestinationNotFound destinationId={destinationId} />
         </Section>
       }
     </>
-  )
-}
+  );
+};

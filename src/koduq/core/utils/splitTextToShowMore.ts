@@ -16,4 +16,4 @@ export const splitTextToShowMore = (text: string, limit: number): [string, strin
   const hiddenText = text.slice(cutOff).trim();
 
   return [visibleText, hiddenText];
-}
+};

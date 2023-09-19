@@ -1,11 +1,11 @@
 import styles from './CustomRadioInput.module.scss';
 
-type CustomRadioInputProps = {
-  label: string;
-  value: string;
-  currentChoice: string;
-  onChange: (choice: string) => void;
-};
+interface CustomRadioInputProps {
+  label: string
+  value: string
+  currentChoice: string
+  onChange: (choice: string) => void
+}
 
 export const CustomRadioInput = ({ label, value, currentChoice, onChange }: CustomRadioInputProps) => {
   return (
@@ -14,7 +14,7 @@ export const CustomRadioInput = ({ label, value, currentChoice, onChange }: Cust
         type="radio"
         value={value}
         checked={currentChoice === value}
-        onChange={() => onChange(value)}
+        onChange={() => { onChange(value); }}
       />
       <span></span>
       {label}

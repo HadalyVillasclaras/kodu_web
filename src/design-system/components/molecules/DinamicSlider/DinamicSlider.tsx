@@ -1,15 +1,15 @@
-import { useState, useEffect, useRef, ReactNode  } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import styles from './DinamicSlider.module.scss';
 import { DinamicControlButtons } from '../DinamicControlButtons';
 
 type ElementData = Record<string, string | number>;
 
 interface SliderProps {
-  transitionTime?: number;
-  visibleSlides?: number;
-  elementsData: ElementData[];
-  renderElement: (data:ElementData) => JSX.Element;
-  ChildComponent?: ReactNode;
+  transitionTime?: number
+  visibleSlides?: number
+  elementsData: ElementData[]
+  renderElement: (data: ElementData) => JSX.Element
+  ChildComponent?: ReactNode
 }
 
 export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }: SliderProps) => {
@@ -36,27 +36,27 @@ export const DinamicSlider = ({ elementsData, renderElement, visibleSlides = 3 }
 
   return (
     <>
-      <div className={styles['slider__wrapper']}  >
+      <div className={styles.slider__wrapper} >
         <DinamicControlButtons
-            onLeftClick={prevSlide}
-            onRightClick={nextSlide}
-            isLeftDisabled={isLeftDisabled} 
-            isRightDisabled={isRightDisabled}
-            btnsWidth="17%"
+          onLeftClick={prevSlide}
+          onRightClick={nextSlide}
+          isLeftDisabled={isLeftDisabled}
+          isRightDisabled={isRightDisabled}
+          btnsWidth="17%"
         >
-        <div className={styles['slider__mask']}>
-          <div className={styles['slider']} ref={sliderRef}>
-            {elementsData.map((elementData: ElementData , index) => (
-              <div
-                key={index}
-                className={styles['slider__slide']}
-                style={{ flex: `0 0 calc((100%  / ${visibleSlides})` }}
-              >
-                {renderElement(elementData)}
-              </div>
-            ))}
+          <div className={styles.slider__mask}>
+            <div className={styles.slider} ref={sliderRef}>
+              {elementsData.map((elementData: ElementData, index) => (
+                <div
+                  key={index}
+                  className={styles.slider__slide}
+                  style={{ flex: `0 0 calc((100%  / ${visibleSlides})` }}
+                >
+                  {renderElement(elementData)}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
         </DinamicControlButtons>
         {/* <span onMouseOver={initAnimatedCursor} className={styles['init-button']} ></span> */}
