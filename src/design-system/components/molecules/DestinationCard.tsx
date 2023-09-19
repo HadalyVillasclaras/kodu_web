@@ -4,7 +4,7 @@ import styles from './DestinationCard.module.scss';
 export interface DestinationCardData {
   id?: number
   destinationName?: string
-  img: string
+  img?: string
   alt?: string
 }
 

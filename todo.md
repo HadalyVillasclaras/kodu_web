@@ -1,6 +1,11 @@
 ------------------------
 TO DO 
--review header  
+
+fix selected date after choose on avalability
+reduce time header slide up
+from slide to detail, it appears on bottom 
+only 1 not available per destination
+header buttons hover
 
 Refactor
 -scrollTo0,0 detail page issue. can we reload?

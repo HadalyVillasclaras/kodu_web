@@ -20,15 +20,15 @@
   gap: 1rem;
   color: colors.$cream;
   overflow-y: auto;
-  max-height: 90vh; 
-  min-height: 90vh;
+  max-height: 95vh; 
+  min-height: 95vh;
 
   @include tablet() {
     padding: spacing.$pd__dk--small;
     padding-bottom: 1rem;
     gap: 2rem;
-    max-height: 85vh; 
-    min-height: 85vh;
+    max-height: 92vh; 
+    min-height: 92vh;
   }
   
 // background-color: rgb(51, 54, 59);

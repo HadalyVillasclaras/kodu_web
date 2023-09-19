@@ -7,6 +7,11 @@
   position: relative;
   width: 100%;
   z-index: 1;
+  height: 3vh;
+
+  @include tablet() {
+    height: 5vh;
+  }
 
   &__logo-dinamic-wp {
     position: relative;
@@ -22,10 +27,6 @@
     top: 0;
     width: 200px;
     z-index: 2;
-  }
-
-  &__bg {
-    @include bg-color;
   }
 }
 

@@ -1,17 +1,12 @@
 import { Logo } from '../../../design-system/components/atoms';
 import { useLayoutEffect, useRef, useState } from 'react';
-import { type Colors } from '../../../design-system/tokens';
 import { useDeviceType, DeviceType } from '../../hooks/useDeviceType';
 import styles from './Header.module.scss';
 import { gsap } from 'gsap';
 import { useLocation } from 'react-router-dom';
 import { DropdownFrieze } from '../shared/DropdownFrieze/DropdownFrieze';
 
-interface HeaderProps {
-  bgColor?: Colors | null
-}
-
-export const Header = ({ bgColor = null }: HeaderProps) => {
+export const Header = () => {
   const logoMain = useRef<HTMLDivElement>(null!);
   const headerRef = useRef<HTMLDivElement>(null!);
   const location = useLocation();
@@ -27,33 +22,27 @@ export const Header = ({ bgColor = null }: HeaderProps) => {
         pinSpacing: false,
         scrub: true,
         pin: true
-        // onRefresh: () => {
-        //   console.log(logoMain.current.offsetHeight);
-        //   if (deviceType !== DeviceType.DESKTOP) {
-        //     setMarginB(logoMain.current.offsetHeight)
-        //   } else {
-        //     setMarginB(50)
-        //   }
-        // }
       },
       width: deviceType !== DeviceType.DESKTOP ? '80vw' : '55vw',
       ease: 'power3.out',
-      y: deviceType === DeviceType.MOBILE ? '2vw' : '5vw',
-      x: deviceType === DeviceType.MOBILE ? '4vw' : '5vw',
+      y: deviceType === DeviceType.MOBILE ? '3vh' : '5vh', //header height
+      x: deviceType === DeviceType.MOBILE ? '0.8rem' : '3.4rem', //hero padding
       duration: 20
     });
   };
 
   useLayoutEffect(() => {
     if (deviceType !== DeviceType.DESKTOP) {
-      setMarginB(logoMain.current.offsetHeight);
+      setTimeout(() => {
+        setMarginB(logoMain.current.offsetHeight);
+      }, 200);
     } else {
       setMarginB(50);
     }
-
     const ctx = gsap.context(() => {
       animateLogo(logoMain.current, headerRef.current);
     }, headerRef);
+    
     return () => { ctx.revert(); };
   }, [location, deviceType]);
 
@@ -63,7 +52,7 @@ export const Header = ({ bgColor = null }: HeaderProps) => {
       <header
         id="header"
         ref={headerRef}
-        className={`${styles.header} ${bgColor ? styles[`header__bg--${bgColor}`] : ''}`}
+        className={`${styles.header} `}
       >
         <div className={styles['header__logo-dinamic-wp']} >
           <span ref={logoMain} id='logoSpan' className={styles['header__logo--dinamic']} >

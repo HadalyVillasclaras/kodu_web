@@ -16,7 +16,7 @@ export const ErrorTemplate = ({ children }: Props) => {
 
   return (
     <>
-      <Header bgColor='green'/>
+      <Header/>
       <Navbar />
       <main>
         {children ?? <Outlet />}
