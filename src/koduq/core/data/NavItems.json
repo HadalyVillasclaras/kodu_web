@@ -1,15 +1,15 @@
 [
 	{
 		"name": "Home",
-		"link": "#header"
+		"link": "/#header"
 	},
 	{
 		"name": "About",
-		"link": "#aboutIntro"
+		"link": "/#aboutIntro"
 	},
 	{
 		"name": "Destinations",
-		"link": "#destinations"
+		"link": "/#destinations"
 	},
 	{
 		"name": "Contact",

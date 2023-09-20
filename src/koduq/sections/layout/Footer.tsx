@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useHideNavIcon } from '../../hooks/useHideNavIcon';
 import { slidesUpOnScroll } from '../../../design-system/animations/gsap';
+import { useHandleNavigation } from '../../core/utils/useHandleNavigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,7 +35,7 @@ export const Footer = () => {
   const refsToObserve = {
     footer: footerRef
   };
-
+  const handleNavigation = useHandleNavigation();
   useHideNavIcon('footer', refsToObserve);
 
   return (
@@ -42,9 +43,12 @@ export const Footer = () => {
       <section ref={footerLogoRef}>
         <Logo color='cream' size='15rem' />
       </section>
-      <ul ref={ulRefs} className={styles['footer__nav-list']}>
+      <ul ref={ulRefs} className={styles['footer__nav-list']}
+      
+      >
         {navItems.map((navItem, index) => (
-          <li key={index}>
+          <li key={index}
+          onClick={(event) => handleNavigation(event, navItem.link)}>
             <Link color='cream' size='l' href={navItem.link}>{navItem.name}</Link>
           </li>
         ))}

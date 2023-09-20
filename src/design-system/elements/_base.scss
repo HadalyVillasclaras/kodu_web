@@ -109,69 +109,46 @@ img {
 }
 
 /* Common Styles */
-input, textarea,
-input:autofill,
-input:-webkit-autofill,
-input:-webkit-autofill-strong-password,
-input:-webkit-autofill-strong-password-viewable,
-input:-webkit-autofill-and-obscured {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid var(--cream);
-  color: var(--cream);
+input, 
+textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--cream);
+    color: var(--cream);
+    padding: 0.2rem 0;
+    resize: vertical;
 }
 
-/* Border Styles */
-input, textarea {
-  border: none;
-  border-bottom: 1px solid var(--cream);
-  padding: 0.2rem 0;
-  resize: vertical;
-  background-color: transparent;
-
+input:focus, 
+textarea:focus, 
+select:focus, 
+button:focus {
+    outline: none;
+    box-shadow: none;
 }
 
-/* Focus Styles */
-input:focus, textarea:focus, select:focus, button:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Placeholder Styles */
-input::placeholder, textarea::placeholder {
-  color: var(--cream);
+input::placeholder, 
+textarea::placeholder {
+    color: var(--cream);
 }
 
 /* Autofill Styles */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active {
-    -webkit-text-fill-color: var(--cream);
-    transition: background-color 5000s ease-in-out 0s;
-}
-
-/* Important Override Styles */
-input:autofill,
-input:-webkit-autofill,
-input:-webkit-autofill-strong-password,
-input:-webkit-autofill-strong-password-viewable,
-input:-webkit-autofill-and-obscured 
-{
-    background-image: none !important;
-    -webkit-text-fill-color: var(--cream) !important;
-}
-
-input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active,
+input:autofill,
+input:-webkit-autofill-strong-password,
+input:-webkit-autofill-strong-password-viewable,
+input:-webkit-autofill-and-obscured,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
 textarea:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0px 1000px transparent inset;
     transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--cream);
+    background-image: none !important;
 }
 
 

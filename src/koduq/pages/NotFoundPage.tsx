@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { Heading } from '../../design-system/components/atoms';
+import { Heading, Link } from '../../design-system/components/atoms';
 import { Section } from '../../design-system/components/objects';
 
 export const NotFoundPage = () => {
@@ -10,9 +10,9 @@ export const NotFoundPage = () => {
       <Heading font="fancy" as="h1" color="brown">Sorry, page not found</Heading>
       <div style={{ margin: '4rem 0' }}>
         <Heading as="h2" color="brown">Error | 404</Heading>
-        <Heading as="h4" color="brown">The requested URL <code>{location.pathname}</code> was not found</Heading>
+        <Heading as="h4" color="brown">{`The requested URL (${location.pathname}) was not found`}</Heading>
       </div>
-      <a href="/"> Go to home page </a>
+      <Link color='cream' href='/'> Go to home page </Link>
     </Section>
   );
 };

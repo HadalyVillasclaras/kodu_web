@@ -5,17 +5,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 
   fieldset {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
-    @include tablet() {
-      gap: 1rem;
-    }
   }
 
   ::placeholder {

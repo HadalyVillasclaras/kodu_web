@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Navbar, Credits, Header } from '../sections/layout';
+import { Navbar, Credits } from '../sections/layout';
 import { type ReactNode, useContext, useEffect } from 'react';
 import { NavIconContext } from '../contexts/NavIconContext';
 import { ScrollToTop } from '../sections/shared/ScrollToTop';
@@ -18,7 +18,6 @@ export const ErrorTemplate = ( { children }: Props ) => {
   return (
     <>
       <ScrollToTop/>
-      <Header/>
       <Navbar />
       <main>
         {children ?? <Outlet />}

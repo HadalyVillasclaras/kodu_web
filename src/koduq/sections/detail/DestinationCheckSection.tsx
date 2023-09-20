@@ -82,7 +82,7 @@ export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }:
             <Heading as="h4" color="brown">Request form</Heading>
             <p><b>Selected dates: {selectedQuarter?.label} {selectedQuarter?.id && getYearForSelectedQuarter(selectedQuarter.id)}</b></p>
           </header>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla tellus quam, in cursus dui ultricies eget. Aliquam nec massa at turpis porta eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla tellus quam, in cursus dui ultricies eget. Aliquam nec massa at turpis porta eleifend.</p>
           <RequestForm
             setIsRequestSubmitted={setIsRequestFormSubmitted}
             isRequestSubmitted={isRequestFormSubmitted}
