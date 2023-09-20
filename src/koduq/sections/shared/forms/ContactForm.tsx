@@ -100,7 +100,7 @@ export const ContactForm = () => {
       {isLoading && <Loader color='cream' />}
       {isSubmitted && !isLoading && submittedData && (
         <Feedback color='cream'>
-          Thank you for getting in touch, {submittedData.name}! We will contact you soon.
+          Thank you for getting in touch, <b>{submittedData.name}</b>! We will contact you soon.
         </Feedback>
       )}
     </>

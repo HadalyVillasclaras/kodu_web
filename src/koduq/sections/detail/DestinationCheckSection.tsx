@@ -17,23 +17,33 @@ interface Props {
 export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }: Props) => {
   const [selectedQuarter, setSelectedQuarter] = useState<Quarter | null>(null);
   const [isRequested, setIsRequested] = useState(false);
-  const [isRequestSubmitted, setIsRequestSubmitted] = useState(false);
-
+  const [hasClickedBack, setHasClickedBack] = useState(false);
+  const [isRequestFormSubmitted, setIsRequestFormSubmitted] = useState(false);
   const deviceType = useDeviceType();
 
-  function handleRequest () {
+  function handleBack() {
     setIsRequested(false);
-    if (isRequestSubmitted) {
-      setIsRequestSubmitted(false);
-      setSelectedQuarter(null);
+    if (isRequestFormSubmitted) {
+      setIsRequestFormSubmitted(false);
     }
+    setHasClickedBack(true);
   }
 
   useEffect(() => {
     if (isRequested && deviceType === DeviceType.MOBILE) {
-      window.scrollTo(0, 500);
+      window.scrollTo({
+        top: 500,
+        behavior: 'smooth'
+      });
     }
+    setHasClickedBack(false);
   }, [isRequested]);
+
+  useEffect(() => {
+    setIsRequested(false);
+    setHasClickedBack(false); 
+  }, [selectedQuarterFromUrl, destination]);
+
 
   return (
     <>
@@ -63,21 +73,30 @@ export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }:
               selectedQuarter={selectedQuarter}
               setSelectedQuarter={setSelectedQuarter}
               selectedQuarterFromUrl={selectedQuarterFromUrl}
+              isRequestFormSubmitted={isRequestFormSubmitted}
             />
           </section>
         </section>
         <section className={`${styles['dest-request']} ${styles.dest__section}`} >
           <header>
             <Heading as="h4" color="brown">Request form</Heading>
-            <p><b>Selected dates: {selectedQuarter && selectedQuarter.label} {selectedQuarter?.id && getYearForSelectedQuarter(selectedQuarter.id)}</b></p>
+            <p><b>Selected dates: {selectedQuarter?.label} {selectedQuarter?.id && getYearForSelectedQuarter(selectedQuarter.id)}</b></p>
           </header>
-          <p>Test form as you like, data won't be sent or stored :)</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla tellus quam, in cursus dui ultricies eget. Aliquam nec massa at turpis porta eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
           <RequestForm
-            setIsRequestSubmitted={setIsRequestSubmitted}
-            isRequestSubmitted={isRequestSubmitted}
+            setIsRequestSubmitted={setIsRequestFormSubmitted}
+            isRequestSubmitted={isRequestFormSubmitted}
+            hasClickedBack={hasClickedBack}
           />
           <section className={`${styles['dest-request__btns']}`} >
-            <IconButton text="Back to availability form" variant="circle" ariaLabel="back" onClick={handleRequest} icon="arrowLeft" color="brown" />
+            <IconButton
+              text="Back to availability form"
+              variant="circle"
+              ariaLabel="back"
+              onClick={handleBack}
+              icon="arrowLeft"
+              color="brown"
+            />
           </section>
         </section>
       </section>

@@ -35,11 +35,12 @@ const inputFields = [
 ];
 
 interface RequestFormProps {
+  hasClickedBack: boolean,
   isRequestSubmitted: boolean
   setIsRequestSubmitted: (isRequestSubmitted: boolean) => void
 }
 
-export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: RequestFormProps) => {
+export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted, hasClickedBack }: RequestFormProps) => {
   const [formData, setFormData] = useState<RequestFormData>(initialFormData);
   const [errors, setErrors] = useState<RequestFormData>(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -106,6 +107,10 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted }: Reque
   useEffect(() => {
     !isRequestSubmitted && resetRequest();
   }, [isRequestSubmitted]);
+
+  useEffect(() => {
+    hasClickedBack && setErrors(initialFormData);
+  }, [hasClickedBack]);
 
   return (
     <>

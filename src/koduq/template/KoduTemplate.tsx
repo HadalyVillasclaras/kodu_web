@@ -2,6 +2,7 @@ import { Outlet, useMatches } from 'react-router-dom';
 import { Header, Navbar, Footer, Credits } from '../sections/layout';
 import { Cookies } from '../sections/layout/Cookies';
 import { DropdownFrieze } from '../sections/shared/DropdownFrieze/DropdownFrieze';
+import { ScrollToTop } from '../sections/shared/ScrollToTop';
 
 export const KoduTemplate = () => {
   const routesData = useMatches();
@@ -9,6 +10,7 @@ export const KoduTemplate = () => {
 
   return (
     <>
+      <ScrollToTop />
       {
         !isHomePage
           ? <DropdownFrieze hasLogo={true}/>

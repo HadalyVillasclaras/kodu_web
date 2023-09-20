@@ -1,14 +1,8 @@
 ------------------------
 TO DO 
-
-fix selected date after choose on avalability
-reduce time header slide up
-from slide to detail, it appears on bottom 
-only 1 not available per destination
-header buttons hover
+review margin header on scroll (fromTo?)
 
 Refactor
--scrollTo0,0 detail page issue. can we reload?
 -normalize contact and check forms.
 
 Backlog
@@ -24,3 +18,13 @@ DONE
 -fix header
 -check dropdown height.
 
+20/9
+-only 1 not available per destination
+-reduce time header slide up
+-from slide to detail, it appears on bottom 
+-fix selected date after choose on avalability
+header buttons hover
+install lenis
+
+Refactor
+-scrollTo0,0 detail page issue. can we reload?

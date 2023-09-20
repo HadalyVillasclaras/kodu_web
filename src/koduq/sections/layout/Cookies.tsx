@@ -48,7 +48,7 @@ export const Cookies = () => {
           />
         </span>
         <p className={styles.cookies__text}>
-          We use cookies to improve <br />the user experience
+          We use cookies to improve the user experience
         </p>
         <div className={styles.cookies__btns}>
           <Button color="brown" variant="default" text="I refuse" onClick={handleRefuse} />

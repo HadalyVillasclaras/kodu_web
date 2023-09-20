@@ -22,6 +22,7 @@ const VITE_BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 export const DestinationCard = ({ data, paginationData }: DestinationCardProps) => {
   let destinationData;
+
   if (data) {
     destinationData = {
       id: data.id,

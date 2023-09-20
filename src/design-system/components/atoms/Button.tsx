@@ -11,7 +11,14 @@ interface ButtonProps {
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type']
 }
 
-export const Button = ({ variant = 'default', type = 'button', color = 'green', text = 'Button', customStyle, onClick }: ButtonProps) => {
+export const Button = ({ 
+  variant = 'default', 
+  type = 'button', 
+  color = 'green', 
+  text = 'Button', 
+  customStyle, 
+  onClick 
+}: ButtonProps) => {
   return (
     <button
       className={`${styles.button} ${styles[`button__${variant}--${color}`]}`}

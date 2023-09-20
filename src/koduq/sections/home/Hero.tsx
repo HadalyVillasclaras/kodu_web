@@ -17,7 +17,7 @@ export const Hero = () => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const introTextChildren = Array.from(introTextRef.current.children);
-      slidesUpOnScroll(introTextChildren as HTMLElement[], introTextRef.current, 2.5);
+      slidesUpOnScroll(introTextChildren as HTMLElement[], introTextRef.current, 1.8);
 
       gsap.to(introImgRef.current, {
         scrollTrigger: {

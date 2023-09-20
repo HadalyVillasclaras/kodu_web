@@ -39,6 +39,19 @@
     -webkit-appearance: none;
     margin: 0;
 }
+
+input, textarea,
+input:autofill,
+input:-webkit-autofill,
+input:-webkit-autofill-strong-password,
+input:-webkit-autofill-strong-password-viewable,
+input:-webkit-autofill-and-obscured {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--green);
+  color: var(--green);
+}
+
 }
 
 .input-wrapper {

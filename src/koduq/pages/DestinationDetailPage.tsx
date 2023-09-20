@@ -1,5 +1,5 @@
-import { useParams } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { Section } from '../../design-system/components/objects';
 import { type Destination } from '../core/destination/domain/Destination';
 import { getDestinationById } from '../core/destination/application/getDestinationById';
@@ -14,14 +14,8 @@ import { type Quarter } from '../core/common/quarters/domain/Quarter';
 export const DestinationDetailPage = () => {
   const [currentDestination, setCurrentDestination] = useState<Destination | undefined>();
   const [selectedQuarter, setSelectedQuarter] = useState<Quarter | undefined>();
-
   const { id: destinationId, quarterId } = useParams();
-
-  const refs = {
-    detMain: useRef(null),
-    detCheck: useRef(null),
-    detNotFound: useRef(null)
-  };
+  const { pathname } = useLocation();
 
   function getCurrentDestination () {
     if (destinationId) {
@@ -37,24 +31,25 @@ export const DestinationDetailPage = () => {
 
   useEffect(() => {
     getCurrentDestination();
-    quarterId && getSelectedQuarter();
-    window.scrollTo(0, 0);
-  }, [destinationId]);
+    if (quarterId) {
+      getSelectedQuarter();
+    }
+  }, [destinationId, quarterId, pathname]);
 
   return (
     <>
       <Fader />
       {currentDestination
         ? <>
-          <Section id="detMain" ref={refs.detMain} size='small' customStyle={{ minHeight: 'unset', paddingBottom: '0', gap: '2rem' }}>
+          <Section size='small' customStyle={{ minHeight: 'unset', paddingBottom: '0', gap: '2rem' }}>
             <DestinationImages imgs={currentDestination.images} />
             <DestinationHeader destination={currentDestination} />
           </Section>
-          <Section id="detCheck" ref={refs.detCheck} size='full'>
+          <Section size='full'>
             <DestinationCheckSection destination={currentDestination} selectedQuarterFromUrl={selectedQuarter}/>
           </Section>
         </>
-        : <Section id="detNotFound" ref={refs.detNotFound} size="big">
+        : <Section size="big">
           <DestinationNotFound destinationId={destinationId} />
         </Section>
       }

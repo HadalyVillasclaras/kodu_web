@@ -12,26 +12,24 @@ interface DestinationCheckFormProps {
   setIsRequested: (isRequested: boolean) => void
   selectedQuarter: Quarter | null
   setSelectedQuarter: React.Dispatch<React.SetStateAction<Quarter | null>>
-  selectedQuarterFromUrl?: Quarter
+  selectedQuarterFromUrl?: Quarter,
+  isRequestFormSubmitted: boolean;
 }
 
-export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, setIsRequested, selectedQuarter, setSelectedQuarter }: DestinationCheckFormProps) => {
+export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, selectedQuarterFromUrl, setIsRequested, selectedQuarter, setSelectedQuarter }: DestinationCheckFormProps) => {
   const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
-  const [quarterFromUrl, setQuarterFromUrl] = useState<Quarter | undefined>();
-
   const [loading, setLoading] = useState<boolean>(false);
-  const [hasError, setHasError] = useState<boolean | null>(null);
-
+  const [hasError, setHasError] = useState<boolean>(false);
   const { isQuarterAvailableOnDestination } = useAvailability();
+  const [isSettedFromAvailabilityForm, setIsSettedFromAvailabilityForm] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setQuarterFromUrl(undefined);
+    setIsSettedFromAvailabilityForm(false);
     if (!selectedQuarter) {
       setHasError(true);
       return;
     }
-    setHasError(false);
 
     if (selectedQuarter) {
       setLoading(true);
@@ -49,30 +47,36 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
   };
 
   useEffect(() => {
-    selectedQuarterFromUrl && setSelectedQuarter(selectedQuarterFromUrl);
-    selectedQuarterFromUrl ? setIsAvailable(true) : setIsAvailable(null);
-    setQuarterFromUrl(selectedQuarterFromUrl);
+    if (selectedQuarterFromUrl !== undefined) {
+      setIsSettedFromAvailabilityForm(true);
+      setSelectedQuarter(selectedQuarterFromUrl);
+      setIsAvailable(true);
+      setHasError(false);
+    }
   }, [selectedQuarterFromUrl]);
 
   useEffect(() => {
-    if (selectedQuarter === null) {
+    if (isRequestFormSubmitted) {
       setIsAvailable(null);
-      selectedQuarterFromUrl = undefined;
-    }
-  }, [selectedQuarter]);
+      setHasError(false);
+      setSelectedQuarter(null);
 
-  console.log(selectedQuarter);
+    }
+  }, [isRequestFormSubmitted]);
+
+
   return (
     <form className={`${styles['avblty-form']}`} aria-labelledby="form-title">
       <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
       <fieldset >
         <label id="dropdown-label">Please, select the year period that better fits with your needs</label>
         <DropdownList
-          label={selectedQuarterFromUrl ? selectedQuarterFromUrl.label : 'Select a quarter'}
+          label={selectedQuarter ? selectedQuarter.label : 'Select a quarter'}
           onSelectChange={(selected) => {
             setSelectedQuarter(selected);
             setIsAvailable(null);
-            setHasError(null);
+            setHasError(false);
+            setIsSettedFromAvailabilityForm(false);
           }}
           color="green"
           data={allQuarters as DropdownRenderData[]}
@@ -92,22 +96,25 @@ export const DestinationCheckForm = ({ destinationId, selectedQuarterFromUrl, se
         <Loader />
       }
       {
-        isAvailable !== null && !loading &&
+        isAvailable !== null && !loading && !isSettedFromAvailabilityForm &&
         <Feedback color={isAvailable ? 'brown' : 'green'}>
           {
-            selectedQuarterFromUrl && isAvailable && quarterFromUrl
+            isAvailable
               ? <>
-                <p>This is the selected yearly quarter you picked in form.</p>
+                <p>The selected quarter is available!</p>
                 <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
               </>
-              : (isAvailable
-                ? <>
-                  <p>The selected quarter is available!</p>
-                  <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
-                </>
-                : <p>Sorry, the selected quarter is not available. Check another quarter.</p>
-              )
+              : <p>Sorry, the selected quarter is not available. Check another quarter.</p>
           }
+        </Feedback>
+      }
+      {
+        isAvailable && !loading && isSettedFromAvailabilityForm &&
+        <Feedback color={isAvailable ? 'brown' : 'green'}>
+          <>
+            <p>This is the selected yearly quarter you picked in form.</p>
+            <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
+          </>
         </Feedback>
       }
     </form>

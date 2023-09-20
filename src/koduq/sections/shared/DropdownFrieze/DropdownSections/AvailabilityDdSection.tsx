@@ -115,7 +115,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
               <div className={`${styles['dd-avblty__response__submitted']}`}>
                 {
                   isLoading
-                    ? <Loader color='cream'/>
+                    ? <Loader color='cream' />
                     : <div>
                       <p>Available destinations in selected quarter: </p>
                       <ul>
@@ -123,7 +123,7 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
                           quarter.availableDestinations.map((destination: Destination, k: number) => {
                             return (
                               <li key={k} onClick={closeDropdown}>
-                                <Link openInNewTab={false} size='m' color="cream"href={`${destinationBaseUrl}${destination.id}/${quarter.quarter.id}`}>
+                                <Link openInNewTab={false} size='m' color="cream" href={`${destinationBaseUrl}${destination.id}/${quarter.quarter.id}`}>
                                   + {destination.name}
                                 </Link>
                               </li>);

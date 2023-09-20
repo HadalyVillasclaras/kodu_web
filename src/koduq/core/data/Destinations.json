@@ -4,7 +4,7 @@
     "name": "The Bloomhouse",
     "location": "Austin, TX",
     "price": 89,
-    "availability": ["Q1", "Q2"],
+    "availability": ["Q1", "Q2", "Q4"],
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
     "details": {
       "persons": 4,
@@ -27,7 +27,7 @@
     "name": "Dunlap Hollow",
     "location": "Hocking Hills",
     "price": 96,
-    "availability": ["Q2", "Q3"],
+    "availability": ["Q2", "Q3", "Q4"],
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
     "details": {
       "persons": 8,
@@ -49,7 +49,7 @@
     "name": "Paraty",
     "price": 105,
     "location": "Aldeia Rizoma, Brazil",
-    "availability": ["Q1", "Q3", "Q4"],
+    "availability": ["Q1", "Q2", "Q3"],
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
     "details": {
       "persons": 6,

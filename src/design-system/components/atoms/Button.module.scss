@@ -39,15 +39,17 @@
     }
 
     &--cream {
+      padding-top: 0.1rem !important;
+
       @extend .button__header;
       color: colors.$cream;
       border: 1px solid colors.$cream;
       @include vertical-color(colors.$brown);
 
       &:hover {
-        background-color: colors.$green;
-        color: colors.$cream;
-        background-size: 100% 0;
+        background-color: colors.$cream;
+        color: colors.$brown;
+        background-size: 100% 0%;
       }
     }
 
@@ -88,7 +90,6 @@
         background-color: colors.$cream;
         color: colors.$brown;
         border: 1px solid colors.$green;
-
         background-size: 100% 0;
       }
 
@@ -107,6 +108,11 @@
       &:hover {
         color: colors.$cream;
         background-size: 100% 0;
+      }
+
+      &:active {
+        // background-color: colors.$green;
+        color: colors.$cream;
       }
     }
 

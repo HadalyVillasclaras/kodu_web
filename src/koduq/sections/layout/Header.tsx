@@ -12,7 +12,7 @@ export const Header = () => {
   const location = useLocation();
   const deviceType = useDeviceType();
   const [marginB, setMarginB] = useState(0);
-  console.log(deviceType);
+  
   const animateLogo = (element: HTMLElement | null, triggerElement: HTMLElement | null) => {
     return gsap.from(element, {
       scrollTrigger: {
@@ -25,8 +25,8 @@ export const Header = () => {
       },
       width: deviceType !== DeviceType.DESKTOP ? '80vw' : '55vw',
       ease: 'power3.out',
-      y: deviceType === DeviceType.MOBILE ? '3vh' : '5vh', //header height
-      x: deviceType === DeviceType.MOBILE ? '0.8rem' : '3.4rem', //hero padding
+      y: deviceType === DeviceType.MOBILE ? '3vh' : '5vh', // header height
+      x: deviceType === DeviceType.MOBILE ? '0.8rem' : '3.4rem', // hero padding
       duration: 20
     });
   };
