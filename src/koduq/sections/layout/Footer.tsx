@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useHideNavIcon } from '../../hooks/useHideNavIcon';
 import { slidesUpOnScroll } from '../../../design-system/animations/gsap';
 import { useHandleNavigation } from '../../core/utils/useHandleNavigation';
+import { Credits } from '.';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,12 +40,12 @@ export const Footer = () => {
   useHideNavIcon('footer', refsToObserve);
 
   return (
-    <footer ref={footerRef} id="footer" className={styles.footer}>
+    <footer ref={footerRef} id="footer">
+    <section className={styles['footer-sect']}>
       <section ref={footerLogoRef}>
         <Logo color='cream' size='15rem' />
       </section>
-      <ul ref={ulRefs} className={styles['footer__nav-list']}
-      
+      <ul ref={ulRefs} className={styles['footer-sect__nav-list']}
       >
         {navItems.map((navItem, index) => (
           <li key={index}
@@ -53,15 +54,19 @@ export const Footer = () => {
           </li>
         ))}
       </ul>
-      <section ref={fContactRef} className={styles.footer__contact}>
-        <p>info@koduhost.com</p>
-        <p>+45 564 545 342</p>
+      <section className={styles['footer-sect__footer']}>
+        <section ref={fContactRef} className={styles['footer-sect__contact']}>
+          <p>info@koduhost.com</p>
+          <p>+45 564 545 342</p>
+        </section>
+        <section ref={policiesRef} className={styles['footer-sect__policies']}>
+          <Link color='brown' size="xs" href='#!'>Terms & Conditions</Link>
+          <Link color='brown' size="xs" href='#!'>Cookies</Link>
+          <Link color='brown' size="xs" href='#!'>Privacy Policy</Link>
+        </section>
       </section>
-      <section ref={policiesRef} className={styles.footer__policies}>
-        <Link color='brown' size="s" href='#!'>Terms & Conditions</Link>
-        <Link color='brown' size="s" href='#!'>Cookies</Link>
-        <Link color='brown' size="s" href='#!'>Privacy Policy</Link>
-      </section>
+    </section>
+    <Credits/>
     </footer>
   );
 };

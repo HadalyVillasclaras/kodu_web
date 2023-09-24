@@ -1,10 +1,16 @@
 @use '../../../design-system/settings/colors';
 @use '../../../design-system/settings/spacing';
+@use '../../../design-system/settings/border';
 @import '../../../design-system/settings/breakpoints';
 @import '../../../design-system/settings/colors';
 
+footer {
+  background-color: colors.$bg--brown;
+}
 
-.footer {
+.footer-sect {
+  z-index: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -12,6 +18,7 @@
   color: colors.$text-secondary;
   padding: spacing.$section__mb;
   margin-top: 3rem;
+  border-radius: 0rem 0rem border.$radius--mid border.$radius--mid ;
 
   @include tablet() {
     padding: spacing.$pd__tb;
@@ -33,30 +40,34 @@
     gap: 2rem;
   }
 
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   &__contact {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     font-size: 2rem;
     line-height: 2rem;
-
-    @include tablet() {
-      flex-direction: row;
-    }
   }
 
   &__policies {
     display: flex;
     flex-wrap: wrap;
-    font-size: 1.2rem;
     flex-direction: row;
     color: colors.$text-tertiary;
-    justify-content: flex-end;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    align-content: flex-end;
 
     @include mobile() {
-      flex-direction: row;
+      margin-top: 0;
+    justify-content: flex-end;
+
     }
+
   }
 }

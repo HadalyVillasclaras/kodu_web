@@ -4,31 +4,9 @@
 @import '../../../design-system/settings/breakpoints';
 @import '../../../design-system/settings/colors';
 
-.credits__container {
-  position: relative;
-  @include selectionGreenBg;
-}
-
-.credits__toggle {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 4;
-}
-
-.credits__bg {
-  background-color: colors.$green;
-  position: relative;
-  overflow: hidden;
-  }
 
 .credits {
   height: 100%;
-  position: relative;
-  bottom: 0px;
   background-color: colors.$bg--brown;
   color: colors.$text-primary;
   padding: spacing.$section__mb;
@@ -36,8 +14,12 @@
   justify-content: space-between;
   display: flex;
   gap: 4rem;
-  border-radius:border.$pd-radius--mid;
-
+  position: sticky;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 0;
 
   @include mobile() {
     padding: spacing.$pd__dk--xs;
@@ -48,13 +30,16 @@
     font-size: 2rem;
   }
 
-
   &__sect {
     display: flex;
 
     &--up {
-      flex-direction: row;
+      flex-direction: column;
+      gap: 1rem;
       justify-content: space-between;
+      @include tablet() {
+        flex-direction: row;
+      }
 
       p {
         font-size: 3rem;

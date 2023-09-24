@@ -51,7 +51,7 @@
   }
 
   &__size {
-    &-xs {
+    &--xs {
       font-size: fonts.$link-xs;
       &:after {
         height: 1px;

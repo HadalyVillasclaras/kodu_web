@@ -21,7 +21,7 @@ export const KoduTemplate = () => {
         <Outlet/>
       </main>
       <Footer />
-      <Credits/>
+      {/* <Credits/> */}
       <Cookies/>
     </>
   );
