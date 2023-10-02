@@ -6,6 +6,7 @@ import { NavIconContext } from '../contexts/NavIconContext';
 import { useContext, useEffect, useRef } from 'react';
 import { useOnviewObserver } from '../hooks';
 import { type Colors } from '../../design-system/tokens';
+import { HorizontalSection } from '../sections/home/HorizontalSection';
 
 interface SectionType {
   ref: React.RefObject<HTMLElement>
@@ -56,9 +57,7 @@ export const HomePage = () => {
   return (
     <>
       <Fader/>
-      <Section id="hero" ref={refs.hero} size='full'>
-        <Hero />
-      </Section>
+
       <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       {/* <Section id="dunlap" ref={refs.dunlap}>
         <BgImgContainer bgImage={`${BASE_ASSETS}imgs/destinations/dunlap/dunlap-2b.png`}></BgImgContainer>
@@ -66,9 +65,10 @@ export const HomePage = () => {
       <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
       </Section>
-      <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='small'>
+      <HorizontalSection/>
+      {/* <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='small'>
         <AboutUs />
-      </Section>
+      </Section> */}
       <Section id="accordion" ref={refs.accordion} bgColor='brown' size='big'>
         <Accordion />
       </Section>

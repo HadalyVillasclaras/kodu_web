@@ -32,25 +32,6 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
 
 body {
   font-size: fonts.$m;
@@ -60,6 +41,7 @@ body {
   background-color: var(--cream);
   height: 100vh;
   transition: background-color 1s ease;
+	overflow-x:hidden;
 }
 
 main {

@@ -1,8 +1,9 @@
 import { Outlet, useMatches } from 'react-router-dom';
-import { Header, Navbar, Footer, Credits } from '../sections/layout';
+import { Navbar, Footer} from '../sections/layout';
 import { Cookies } from '../sections/layout/Cookies';
 import { DropdownFrieze } from '../sections/shared/DropdownFrieze/DropdownFrieze';
 import { ScrollToTop } from '../sections/shared/ScrollToTop';
+import { Header } from '../sections/home/Header';
 
 export const KoduTemplate = () => {
   const routesData = useMatches();
@@ -21,7 +22,6 @@ export const KoduTemplate = () => {
         <Outlet/>
       </main>
       <Footer />
-      {/* <Credits/> */}
       <Cookies/>
     </>
   );

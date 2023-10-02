@@ -1,0 +1,18 @@
+.horizontal-container {
+  position: relative;
+}
+
+.horizontal-panels{
+  width:fit-content;
+	display:flex;
+	flex-wrap:nowrap;
+}
+
+.panel {
+  flex-shrink:0;
+  color:#000000;
+  margin:0;	
+  width: 100vw;
+  height: 90vh;
+  border: 1px solid white;
+}
