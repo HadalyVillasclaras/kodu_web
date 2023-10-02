@@ -23,22 +23,21 @@ export const Header = () => {
     console.log('enter!');
   }
 
-  const animate;
+  // const animate;
   const animateLogo = () => {
     return gsap.from(logoMain.current, {
       scrollTrigger: {
         trigger: headerRef.current,
-        start: '20px top',
-        end: '+=700px',
+        start: 'top top',
+        end: '+=400px',
         pinSpacing: false,
-        scrub: 1,
+        scrub: true,
         pin: true,
         invalidateOnRefresh: true,
-        // markers: true,
       },
       width: deviceType !== DeviceType.DESKTOP ? '80vw' : '55vw',
-      y: deviceType === DeviceType.MOBILE ? '3vh' : '5vh', // header height
-      x: deviceType === DeviceType.MOBILE ? '0.8rem' : '3.4rem', // hero padding
+      y: deviceType === DeviceType.MOBILE ? '3vh' : '7vh', // header height
+      x: deviceType === DeviceType.MOBILE ? '3vh' : '7vh', // hero padding
       ease: 'power2.out',
       duration: 3
     });

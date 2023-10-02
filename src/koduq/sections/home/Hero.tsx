@@ -25,11 +25,11 @@ export const Hero = ({setLogoColor}: any) => {
       gsap.to(introImgRef.current, {
         scrollTrigger: {
           trigger: introImgRef.current,
-          start: 'top top',
-          end: 'top bottom',
-          scrub: 2,
+          start: '-=200 100',
+          end: '100 100',
+          scrub: true,
           toggleActions: 'play none none reverse',
-          markers: true,
+          // markers: true,
           onLeave: () => {handleEnd('cream');}, 
           onLeaveBack: () => {handleEnd('brown');}, 
           onEnterBack:  () => {handleEnd('brown');}, 
@@ -38,7 +38,6 @@ export const Hero = ({setLogoColor}: any) => {
         borderRadius: '0px'
       });
     },  introImgRef);
-
 
     return () => { ctx.revert(); };
   }, []);
