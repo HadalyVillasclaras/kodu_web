@@ -1,12 +1,12 @@
 import { Section, BgImgContainer } from '../../design-system/components/objects';
-import { Hero, Destinations, AboutUs, AboutIntro } from '../sections/home';
+import { Destinations, AboutIntro } from '../sections/home';
 import { Marquee } from '../../design-system/components/atoms';
 import { Accordion, Fader } from '../../design-system/components/molecules';
 import { NavIconContext } from '../contexts/NavIconContext';
 import { useContext, useEffect, useRef } from 'react';
 import { useOnviewObserver } from '../hooks';
 import { type Colors } from '../../design-system/tokens';
-import { HorizontalSection } from '../sections/home/HorizontalSection';
+import { HorizontalSection } from '../sections/home/horizontalSections/HorizontalSection';
 
 interface SectionType {
   ref: React.RefObject<HTMLElement>
@@ -30,9 +30,7 @@ export const HomePage = () => {
 
   const sections: SectionType[] = [
     { ref: refs.hero, iconColor: 'brown', bgColor: 'cream' },
-    { ref: refs.dunlap, iconColor: 'cream', bgColor: 'cream' },
     { ref: refs.aboutIntro, iconColor: 'cream', bgColor: 'green' },
-    { ref: refs.aboutUs, iconColor: 'cream', bgColor: 'green' },
     { ref: refs.accordion, iconColor: 'green', bgColor: 'brown' },
     { ref: refs.bloom, iconColor: 'brown', bgColor: 'brown' },
     { ref: refs.destinations, iconColor: 'brown', bgColor: 'cream' }
@@ -59,16 +57,10 @@ export const HomePage = () => {
       <Fader/>
 
       <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
-      {/* <Section id="dunlap" ref={refs.dunlap}>
-        <BgImgContainer bgImage={`${BASE_ASSETS}imgs/destinations/dunlap/dunlap-2b.png`}></BgImgContainer>
-      </Section> */}
       <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
       </Section>
       <HorizontalSection/>
-      {/* <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='small'>
-        <AboutUs />
-      </Section> */}
       <Section id="accordion" ref={refs.accordion} bgColor='brown' size='big'>
         <Accordion />
       </Section>

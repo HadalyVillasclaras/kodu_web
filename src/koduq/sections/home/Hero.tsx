@@ -43,7 +43,6 @@ export const Hero = ({setLogoColor}: any) => {
   }, []);
 
   function handleEnd(color) {
-    console.log(color);
     setLogoColor(color);
   }
 

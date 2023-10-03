@@ -42,7 +42,6 @@ export const Header = () => {
       duration: 3
     });
   };
-  console.log(logoColor);
 
   useLayoutEffect(() => {
     // if (deviceType !== DeviceType.DESKTOP) {
@@ -70,7 +69,6 @@ export const Header = () => {
         </div>
       </header>
       <div ref={bottomLimitRef} className={styles['bottom-limit']} style={{ marginBottom: `${marginB}px` }}></div>
-
       <Section id="hero" size='full'>
         <Hero setLogoColor={setLogoColor} />
       </Section>

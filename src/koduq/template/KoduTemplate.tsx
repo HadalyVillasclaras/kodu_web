@@ -8,7 +8,7 @@ import { Header } from '../sections/home/Header';
 export const KoduTemplate = () => {
   const routesData = useMatches();
   const isHomePage = routesData.some((route) => (route?.id === 'home'));
-
+  console.log(routesData);
   return (
     <>
       <ScrollToTop />

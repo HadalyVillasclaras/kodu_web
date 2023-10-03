@@ -2,8 +2,10 @@
 
 .logo {
   width: 100%;
+  transition: fill .4s ease;
 
   &__fill {
     @include fill;
+    transition: fill .4s ease;
   }
 }

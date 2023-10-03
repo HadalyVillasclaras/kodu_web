@@ -31,7 +31,6 @@ export const DestinationCard = ({ data, paginationData }: DestinationCardProps) 
       alt: data.alt
     };
   }
-
   const pagAtImgCorner = paginationData && !destinationData?.destinationName;
   const destinationUrl = destinationData?.id ? `${VITE_BASE_PATH}#/destination/${destinationData.id}` : null;
   const destinationImgPath = VITE_BASE_ASSETS + destinationData?.src;

@@ -16,7 +16,7 @@ export const DestinationDetailPage = () => {
   const [selectedQuarter, setSelectedQuarter] = useState<Quarter | undefined>();
   const { id: destinationId, quarterId } = useParams();
   const { pathname } = useLocation();
-
+  console.log(pathname);
   function getCurrentDestination () {
     if (destinationId) {
       const destination = getDestinationById(destinationId);
