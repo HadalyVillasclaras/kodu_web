@@ -1,39 +1,36 @@
-import { useRef, useEffect } from 'react';
+import { useLayoutEffect, useRef} from 'react';
 import styles from './HorizontalSection.module.scss';
 import gsap from 'gsap';
 import sectionImages from '../../../core/data/SectionImages.json';
 import { Heading } from '../../../../design-system/components/atoms';
 import { CareAbout } from './CareAbout';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 gsap.registerPlugin(ScrollTrigger);
+
 export const HorizontalSection = () => {
-  const horContainerRef = useRef(null);
-  const panelsRef = useRef(null);
+  const horContainerRef = useRef<any>(null!);
+  const panelsRef = useRef<any>(null!);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      
-      function getScrollAmount() {
-        const panelsWidth = panelsRef.current?.offsetWidth;
-        return  -(panelsWidth - window.innerWidth);
-      }
-
-      gsap.to(panelsRef.current, {
-        x: getScrollAmount,
-        // duration: 0.5,
+      let panels = panelsRef.current?.children;
+      gsap.to(panels, {
+        xPercent: -100 * (panels.length - 1),
         ease: "none",
         scrollTrigger: {
-          id: "myUniqueTriggerId",
-          trigger: horContainerRef.current,
-          start: "top top",
+          trigger: panelsRef.current,
           pin: true,
-          anticipatePin: 1,
-          scrub: 0.1,
-          snap: 0,
-          invalidateOnRefresh: true,
+          scrub: 1,
+          snap: 1 / (panels.length - 1),
+          end: () => "+=" + panelsRef?.current?.offsetWidth,
+          // markers: true
         }
       });
-    }, panelsRef);
+
+   
+    }, horContainerRef);
     return () => { 
       ctx.revert(); 
     };

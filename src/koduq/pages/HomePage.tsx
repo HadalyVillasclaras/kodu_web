@@ -60,7 +60,7 @@ export const HomePage = () => {
       <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
       </Section>
-      {/* <HorizontalSection/> */}
+      <HorizontalSection/>
       {/* <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='small'>
         <AboutUs />
       </Section> */}
