@@ -1,11 +1,9 @@
-import React, { useRef, useLayoutEffect, useEffect } from 'react';
-import { AboutUs, Destinations, Features } from '.';
+import { useRef, useEffect } from 'react';
 import styles from './HorizontalSection.module.scss';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Section } from '../../../design-system/components/objects';
-import sectionImages from '../../core/data/SectionImages.json';
-import { Heading } from '../../../design-system/components/atoms';
+import sectionImages from '../../../core/data/SectionImages.json';
+import { Heading } from '../../../../design-system/components/atoms';
+import { CareAbout } from './CareAbout';
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 gsap.registerPlugin(ScrollTrigger);
 export const HorizontalSection = () => {
@@ -23,13 +21,14 @@ export const HorizontalSection = () => {
       gsap.to(panelsRef.current, {
         x: getScrollAmount,
         // duration: 0.5,
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
           id: "myUniqueTriggerId",
           trigger: horContainerRef.current,
           start: "top top",
           pin: true,
-          scrub: true,
+          anticipatePin: 1,
+          scrub: 0.1,
           snap: 0,
           invalidateOnRefresh: true,
         }
@@ -43,14 +42,14 @@ export const HorizontalSection = () => {
   return (
     <div ref={horContainerRef} className={`${styles['horizontal-container']}`}>
       <section ref={panelsRef} className={`${styles['horizontal-panels']}`}>
-        <section className={`${styles.panel} ${styles['panel-one']}`}>
-          <AboutUs/>
+        <section className={`${styles.panel} ${styles['panel-care']}`}>
+          <CareAbout/>
         </section>
-        <section className={`${styles['panel']} ${styles['panel-two']}`}>
+        <section className={`${styles.panel} ${styles['panel-text']}`}>
           <Heading font='fancy' as='h1' color='brown'>Class taciti sociosqu ad litora torquent per conubia nostra</Heading>
         </section>
-        <section className={`${styles['panel']} ${styles['panel-three']}`}>
-        <img src={BASE_ASSETS + sectionImages.aboutUs[1].src} alt={sectionImages.aboutUs[1].alt} />
+        <section className={`${styles.panel} ${styles['panel-img']}`}>
+          <img src={BASE_ASSETS + sectionImages.aboutUs[1].src} alt={sectionImages.aboutUs[1].alt} />
         </section>
       </section>
     </div>

@@ -1,0 +1,67 @@
+@use '../../../../design-system/settings/colors';
+@use '../../../../design-system/settings/spacing';
+@use '../../../../design-system/settings/breakpoints';
+@use '../../../../design-system/settings/border';
+@import "../../../../design-system/settings/breakpoints";
+
+.horizontal-container {
+  position: relative;
+}
+
+.horizontal-panels{
+  width:fit-content;
+	display:flex;
+	flex-wrap:nowrap;
+}
+
+.panel {
+  flex-shrink:0;
+  margin:0;	
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding:1rem;
+
+  @include desktop() {
+    padding:4rem;
+  }
+}
+
+.panel-care {
+  background-color: colors.$green;
+  color: colors.$cream;
+}
+
+.panel-text {
+  background-color: colors.$cream;
+  padding: 5rem;
+  justify-content: flex-end;
+
+  h1 {
+    font-size:6rem;
+    line-height: 6rem;
+
+    @include mobile() {
+      font-size: 7rem;
+      line-height: 7rem;
+    }
+
+    @include desktop() {
+      font-size: 12rem;
+      line-height: 10rem;
+    }
+  }
+}
+
+.panel-img {
+  background-color: colors.$brown;
+  img {
+    width: 90vw;
+    height: 90vh;
+    object-fit: cover;
+    border-radius: border.$radius--mid;
+  }
+}
