@@ -6,6 +6,10 @@
 
 footer {
   background-color: colors.$bg--brown;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .footer-sect {
@@ -13,43 +17,58 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 10rem;
   background-color: colors.$bg--green;
   color: colors.$text-secondary;
-  padding: spacing.$section__mb;
-  margin-top: 3rem;
+  padding: spacing.$pd__mb--big;
   border-radius: 0rem 0rem border.$radius--mid border.$radius--mid ;
+  justify-content: space-between;
+
+  //logo
+  & svg {
+    width: 70%;
+
+    @include tablet() {
+      width: 50vw;
+    }
+  }
 
   @include tablet() {
     padding: spacing.$pd__tb;
-    gap: 1rem;
+    gap: 3rem;
   }
 
   @include desktop() {
-    padding: spacing.$pd__dk--xs;
+    padding: spacing.$pd__dk--small;
   }
   
   @include selectionBrownBg;
 
   &__nav-list {
+    display: none;
     text-align: right;
     font-size: 1rem;
     font-family: "Eklektyk";
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-end;
     gap: 2rem;
   }
 
   &__footer {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include tablet() {
+      flex-wrap: nowrap;
+    }
   }
 
   &__contact {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     font-size: 2rem;
     line-height: 2rem;
   }

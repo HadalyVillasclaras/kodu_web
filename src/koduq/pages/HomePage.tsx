@@ -65,7 +65,7 @@ export const HomePage = () => {
       <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
       </Section>
-      <HorizontalSection/>
+      {/* <HorizontalSection/> */}
       {/* <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='small'>
         <AboutUs />
       </Section> */}
@@ -75,7 +75,7 @@ export const HomePage = () => {
       <Section id="bloom" ref={refs.bloom} bgColor='brown'>
         <BgImgContainer customStyle={{ backgroundColor: 'brown' }} bgImage={`${BASE_ASSETS}imgs/destinations/bloom/bloom-3.png`}></BgImgContainer>
       </Section>
-      <Section id="destinations" ref={refs.destinations} size='full'>
+      <Section id="destinations" customStyle={{ padding: '15vw 0' }} ref={refs.destinations} size='full'>
         <Destinations />
       </Section>
     </>

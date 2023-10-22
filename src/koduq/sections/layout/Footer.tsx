@@ -21,7 +21,6 @@ export const Footer = () => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const footerChildrenRefs = [ulRefs, policiesRef, fContactRef, footerLogoRef];
-
       footerChildrenRefs.forEach(childRef => {
         const childItems = Array.from(childRef.current.children);
         slidesUpOnScroll(childItems as HTMLElement[], footerRef.current);
@@ -41,32 +40,31 @@ export const Footer = () => {
 
   return (
     <footer ref={footerRef} id="footer">
-    <section className={styles['footer-sect']}>
-      <section ref={footerLogoRef}>
-        <Logo color='cream' size='15rem' />
-      </section>
-      <ul ref={ulRefs} className={styles['footer-sect__nav-list']}
-      >
-        {navItems.map((navItem, index) => (
-          <li key={index}
-          onClick={(event) => handleNavigation(event, navItem.link)}>
-            <Link color='cream' size='l' href={navItem.link}>{navItem.name}</Link>
-          </li>
-        ))}
-      </ul>
-      <section className={styles['footer-sect__footer']}>
-        <section ref={fContactRef} className={styles['footer-sect__contact']}>
-          <p>info@koduhost.com</p>
-          <p>+45 564 545 342</p>
+      <section className={styles['footer-sect']}>
+        <section ref={footerLogoRef}>
+          <Logo color='cream'/>
         </section>
-        <section ref={policiesRef} className={styles['footer-sect__policies']}>
-          <Link color='brown' size="xs" href='#!'>Terms & Conditions</Link>
-          <Link color='brown' size="xs" href='#!'>Cookies</Link>
-          <Link color='brown' size="xs" href='#!'>Privacy Policy</Link>
+        <ul ref={ulRefs} className={styles['footer-sect__nav-list']}>
+          {navItems.map((navItem, index) => (
+            <li key={index}
+              onClick={(event) => handleNavigation(event, navItem.link)}>
+              <Link color='cream' size='l' href={navItem.link}>{navItem.name}</Link>
+            </li>
+          ))}
+        </ul>
+        <section className={styles['footer-sect__footer']}>
+          <section ref={fContactRef} className={styles['footer-sect__contact']}>
+            <p>info@koduhost.com</p>
+            <p>+45 564 545 342</p>
+          </section>
+          <section ref={policiesRef} className={styles['footer-sect__policies']}>
+            <Link color='brown' size="xs" href='#!'>Terms & Conditions</Link>
+            <Link color='brown' size="xs" href='#!'>Cookies</Link>
+            <Link color='brown' size="xs" href='#!'>Privacy Policy</Link>
+          </section>
         </section>
       </section>
-    </section>
-    <Credits/>
+      <Credits />
     </footer>
   );
 };

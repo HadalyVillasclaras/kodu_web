@@ -7,13 +7,14 @@ import { Section } from '../../../design-system/components/objects';
 import sectionImages from '../../core/data/SectionImages.json';
 import { Heading } from '../../../design-system/components/atoms';
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-
+gsap.registerPlugin(ScrollTrigger);
 export const HorizontalSection = () => {
-  const containerRef = useRef(null);
+  const horContainerRef = useRef(null);
   const panelsRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
+      
       function getScrollAmount() {
         const panelsWidth = panelsRef.current?.offsetWidth;
         return  -(panelsWidth - window.innerWidth);
@@ -24,21 +25,23 @@ export const HorizontalSection = () => {
         // duration: 0.5,
         ease: 'none',
         scrollTrigger: {
-          trigger: containerRef.current,
+          id: "myUniqueTriggerId",
+          trigger: horContainerRef.current,
           start: "top top",
-          end:`+=${getScrollAmount() * -1}`,
           pin: true,
           scrub: true,
           snap: 0,
           invalidateOnRefresh: true,
         }
       });
-    }, containerRef);
-    return () => { ctx.revert(); };
+    }, panelsRef);
+    return () => { 
+      ctx.revert(); 
+    };
   }, []);
 
   return (
-    <div ref={containerRef} className={`${styles['horizontal-container']}`}>
+    <div ref={horContainerRef} className={`${styles['horizontal-container']}`}>
       <section ref={panelsRef} className={`${styles['horizontal-panels']}`}>
         <section className={`${styles.panel} ${styles['panel-one']}`}>
           <AboutUs/>

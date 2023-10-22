@@ -8,7 +8,7 @@
   position: absolute;
   top: 0rem;
   right: 0;
-  padding: spacing.$pd__mb--small;
+  padding: spacing.$pd__mb--big;
   z-index: 5;
   width: 100%;
   background-color: colors.$brown;
@@ -24,7 +24,7 @@
   min-height: 95vh;
 
   @include tablet() {
-    padding: spacing.$pd__dk--xs;
+    padding: spacing.$pd__dk--small;
     padding-bottom: 1rem;
     gap: 2rem;
     max-height: 92vh; 

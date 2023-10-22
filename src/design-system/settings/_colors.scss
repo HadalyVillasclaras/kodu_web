@@ -74,14 +74,20 @@ $button-tertiary: $brown;
 @mixin fill(){
   &--green {
     fill: $green;
+    transition: fill 0.2s ease-in-out; 
+
   }
 
   &--cream {
     fill: $cream;
+    transition: fill 0.2s ease-in-out; 
+
   }
 
   &--brown {
     fill: $brown;
+    transition: fill 0.2s ease-in-out; 
+
   }
 }
 

@@ -13,64 +13,66 @@ export const Header = () => {
   const [logoColor, setLogoColor] = useState<Colors>('brown');
   const logoMain = useRef<HTMLDivElement>(null!);
   const headerRef = useRef<HTMLDivElement>(null!);
-  const bottomLimitRef = useRef<HTMLDivElement>(null!);
-
   const location = useLocation();
   const deviceType = useDeviceType();
   const [marginB, setMarginB] = useState(0);
   
-  function enter() {
-    console.log('enter!');
-  }
-
   // const animate;
   const animateLogo = () => {
-    return gsap.from(logoMain.current, {
+    return gsap.to(logoMain.current, {
       scrollTrigger: {
         trigger: headerRef.current,
         start: 'top top',
-        end: '+=400px',
-        pinSpacing: false,
-        scrub: true,
+        end: deviceType === DeviceType.MOBILE ? '+=700px' : '+=500px',
+        scrub: 0.5,
         pin: true,
-        invalidateOnRefresh: true,
+        pinSpacing: false,
       },
-      width: deviceType !== DeviceType.DESKTOP ? '80vw' : '55vw',
-      y: deviceType === DeviceType.MOBILE ? '3vh' : '7vh', // header height
-      x: deviceType === DeviceType.MOBILE ? '3vh' : '7vh', // hero padding
-      ease: 'power2.out',
-      duration: 3
+      width: deviceType === DeviceType.MOBILE ? "40%" :  "30%",
+      y: "1rem",
+      x: "1rem",
+      duration: 3,
+      ease: "none"
     });
   };
-  console.log(logoColor);
 
   useLayoutEffect(() => {
-    // if (deviceType !== DeviceType.DESKTOP) {
-    //   setTimeout(() => {
-    //     setMarginB(logoMain.current.offsetHeight);
-    //   }, 200);
-    // } else {
-    //   setMarginB(50);
-    // }
+    const handleResize = () => {
+      if (deviceType !== DeviceType.DESKTOP) {
+        setTimeout(() => {
+          setMarginB(logoMain.current.offsetHeight);
+          console.log(logoMain.current.offsetHeight);
+        }, 200);
+      } else {
+        setMarginB(0);
+      }
+    };
+
+    handleResize();
+
     const ctx = gsap.context(() => {
       animateLogo();
     }, headerRef);
+
+    window.addEventListener("resize", handleResize);
     
-    return () => { ctx.revert(); };
+    return () => {
+      ctx.revert();
+      window.removeEventListener("resize", handleResize);
+    };
   }, [location, deviceType]);
+
 
   return (
     <>
       <DropdownFrieze hasLogo={false} />
       <header id="header" ref={headerRef} className={`${styles.header} `}>
-        <div className={styles['header__logo-dinamic-wp']} >
+        <div className={styles['header__logo-dinamic-wp']} style={{ height: `${marginB}px` }}>
           <span ref={logoMain} id='logoSpan' className={styles['header__logo--dinamic']} >
             <Logo color={logoColor} size='100%' />
           </span>
         </div>
       </header>
-      <div ref={bottomLimitRef} className={styles['bottom-limit']} style={{ marginBottom: `${marginB}px` }}></div>
-
       <Section id="hero" size='full'>
         <Hero setLogoColor={setLogoColor} />
       </Section>

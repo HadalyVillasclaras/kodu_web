@@ -17,25 +17,27 @@
     width: calc(100% - (spacing.$pd__mb--small * 2));
 
     @include tablet() {
+      width: calc(100% - (spacing.$pd__tb--small * 2));
+    }
+
+    @include desktop() {
       width: calc(100% - (spacing.$pd__dk--small * 2));
     }
   }
 }
 
 .hero__sect-text {
-  padding: 0 spacing.$pd__mb--small;
-  margin-bottom: 2rem;
+  padding: spacing.$pd__mb--small;
   // padding-top: 4rem;
   // margin-top: 5vh;
 
   @include tablet() {
-    padding: 0 spacing.$pd__dk--small;
+    padding: spacing.$pd__tb--small;
   }
 
    @include desktop() {
-    padding: 0 spacing.$pd__dk--small;
+    padding:spacing.$pd__dk--small;
     font-size: 1.5vw;
-    margin-top: 0;
   }
 
   &-content {

@@ -7,33 +7,39 @@
   position: relative;
   width: 100%;
   z-index: 1;
-  height: 3vh;
+  // height: 3vh;
 
   @include tablet() {
-    height: 5vh;
+    // height: 5vh;
   }
 
   &__logo-dinamic-wp {
     position: relative;
     width: 100%;
-
+    height: 30px;
     @include tablet() {
-      width: 200px;
+      width: 85%;
+    }
+
+    @include desktop() {
+      width: 55%;
     }
   }
 
   &__logo--dinamic {
     position: absolute;
-    top: 0;
-    // left: spacing.$pd__mb--small;
-    width: 200px;
     z-index: 2;
+    padding: spacing.$pd__mb--small spacing.$pd__mb--small 0 spacing.$pd__mb--small;
+    // transform: translate(spacing.$pd__mb--small, spacing.$pd__mb--small);
+    width: 100%;
+    @include tablet() {
+      transform: translate(spacing.$pd__tb--small, spacing.$pd__tb--small);
+    }
+    @include desktop() {
+      transform: translate(spacing.$pd__dk--small, spacing.$pd__dk--small);
+    }
   }
 
-  @include desktop() {
-    // top: spacing.$pd__dk--small;
-    // left: spacing.$pd__dk--small;
-  }
 }
 
 .bottom-limit {

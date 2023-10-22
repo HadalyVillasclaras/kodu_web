@@ -3,14 +3,19 @@
 @use "../../../design-system/settings/colors";
 @import "../../../design-system/settings/breakpoints";
 
+.destinations__wpr {
+  padding: 12rem 0;
+}
 .destinations {
   &__header {
     text-align: center;
-    padding: spacing.$pd__mb--big spacing.$pd__mb--small;
-
-    @include desktop() {
-      padding: spacing.$pd__dk--small ;
+    padding: 0 spacing.$pd__mb--small;
+    margin-bottom: spacing.$pd__mb--big;
+    @include tablet() {
+      padding: 0 spacing.$pd__dk--small ;
       text-align: left;
+      margin-bottom: spacing.$pd__dk--small;
+
     }
   }
 
