@@ -37,7 +37,8 @@
     }
 
     &--small {
-      padding: spacing.$pd__mb--small;
+      padding:  spacing.$section--mb;
+
 
       @include tablet() {
         padding: spacing.$pd__dk--small;
@@ -45,7 +46,7 @@
     }
 
     &--big {
-      padding: spacing.$section--mb;
+      padding:  spacing.$section--mb;
 
       @include tablet() {
         padding: spacing.$pd__tb;
@@ -57,8 +58,10 @@
     }
 
     &--full {
-      padding: spacing.$pd--full;
-      min-height: unset;
+      @include tablet() {
+        padding: spacing.$pd--full;
+        min-height: unset;
+      }
     }
   }
 

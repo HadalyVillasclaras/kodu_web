@@ -11,7 +11,7 @@ interface Props {
   formChoice: 'destination' | 'quarter'
   closeDropdown: () => void
 }
-const destinationBaseUrl = '/destination/';
+const destinationBaseUrl = '#/destination/';
 
 export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
   const [quarter, setQuarter] = useState<QuarterAvailability | null>(null);

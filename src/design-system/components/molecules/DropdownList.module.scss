@@ -50,13 +50,27 @@
     background: colors.$green;
     transform-origin: top;
     opacity: 0;
+    transition: opacity 0.2s ease-in-out, height 0.5s ease-in-out; 
+    overflow: hidden;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     visibility: hidden;
-    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out,  visibility 0.3s ease-in-out; 
   }
   
   &__list-open {
     opacity: 1;
-    visibility: visible;
+    transition: opacity 0.2s ease-in-out, height 0.5s ease-in-out; 
+    height: 12rem;
+    visibility:visible;
+  }
+
+  &__list-close {
+    visibility: hidden;
+    opacity: 0;
+    transition:   opacity 0.2s ease-in-out, height 0.5s ease-in-out; 
+    height: 0;
   }
   
   &__option {

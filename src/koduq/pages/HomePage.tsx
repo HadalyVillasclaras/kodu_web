@@ -31,6 +31,7 @@ export const HomePage = () => {
   const sections: SectionType[] = [
     { ref: refs.hero, iconColor: 'brown', bgColor: 'cream' },
     { ref: refs.aboutIntro, iconColor: 'cream', bgColor: 'green' },
+    { ref: refs.aboutUs, iconColor: 'cream', bgColor: 'green' },
     { ref: refs.accordion, iconColor: 'green', bgColor: 'brown' },
     { ref: refs.bloom, iconColor: 'brown', bgColor: 'brown' },
     { ref: refs.destinations, iconColor: 'brown', bgColor: 'cream' }
@@ -55,16 +56,14 @@ export const HomePage = () => {
   return (
     <>
       <Fader/>
-
       <Marquee text='Nourish Nature on Your Next Getaway. Eco Homes for Sustainable Stays.&nbsp;' />
       <Section id="aboutIntro" ref={refs.aboutIntro} bgColor='green' size='small'>
         <AboutIntro />
       </Section>
+      <div id="aboutUs" ref={refs.aboutUs}>
       <HorizontalSection/>
-      {/* <Section id="aboutUs" ref={refs.aboutUs} bgColor='green' size='small'>
-        <AboutUs />
-      </Section> */}
-      <Section id="accordion" ref={refs.accordion} bgColor='brown' size='big'>
+      </div>
+      <Section id="accordion"  ref={refs.accordion} bgColor='brown' size='big'>
         <Accordion />
       </Section>
       <Section id="bloom" ref={refs.bloom} bgColor='brown'>

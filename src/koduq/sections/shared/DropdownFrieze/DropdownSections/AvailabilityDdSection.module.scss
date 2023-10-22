@@ -20,11 +20,11 @@
   }
 
   ul {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: .8rem;
-    
+    height: unset;
     li {
       font-weight: 800;
     }

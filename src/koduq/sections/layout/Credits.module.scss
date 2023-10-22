@@ -49,18 +49,23 @@
       }
 
       p {
-        font-size: 2.9rem;
+        font-size: 3rem;
 
         @include tablet() {
           font-size: 3.5rem;
-
         }
       }
     }
 
     &--down {
       flex-direction: column;
-      text-align: right;
+      gap: 1rem;
+      @include tablet() {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        text-align: right;
+      }
     }
   }
 }

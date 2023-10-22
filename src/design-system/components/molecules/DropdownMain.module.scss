@@ -12,7 +12,6 @@
   z-index: 5;
   width: 100%;
   background-color: colors.$brown;
-  transform: translateY(-105%);
   border-radius: 0 0 border.$radius--xxl border.$radius--xxl;
   display: flex;
   flex-direction: column;
@@ -22,6 +21,8 @@
   overflow-y: auto;
   max-height: 95vh; 
   min-height: 95vh;
+  
+  transform: translateY(-105%);
 
   @include tablet() {
     padding: spacing.$pd__dk--small;

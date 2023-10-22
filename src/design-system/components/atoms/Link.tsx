@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react';
 import { type Colors, type Size } from '../../tokens';
 import styles from './Link.module.scss';
-import { HashLink } from 'react-router-hash-link';
+// import { HashLink } from 'react-router-hash-link';
 
 export interface LinkProps {
   color?: Colors
@@ -13,19 +13,11 @@ export interface LinkProps {
 
 export const Link = ({ color = 'green', size = 's', children, href, openInNewTab = false }: LinkProps) => {
   return (
-    <HashLink
+    <a
       target={openInNewTab ? '_blank' : '_self'}
       className={`${styles.link} ${styles[`link__color--${color}`]} ${styles[`link__size--${size}`]}`}
-      to={href}>
+      href={href}>
       {children}
-    </HashLink>
-    // <LinkR target={openInNewTab ? "_blank" : "_self"}  className={`${styles["link"]} ${styles[`link__color--${color}`]} ${styles[`link__size--${size}`]}`} to={href} >{children}</LinkR>
-    // <a
-    //   href={href}
-    //   target={openInNewTab ? "_blank" : "_self"}
-    //   className={`${styles["link"]} ${styles[`link__color--${color}`]} ${styles[`link__size--${size}`]}`}
-    // >
-    //   {children}
-    // </a>
+    </a>
   );
 };

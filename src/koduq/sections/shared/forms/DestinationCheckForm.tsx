@@ -68,8 +68,22 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
   return (
     <form className={`${styles['avblty-form']}`} aria-labelledby="form-title">
       <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
+      <div className={`${styles['avblty-form__wp']}`}>
       <fieldset >
-        <label id="dropdown-label">Please, select the year period that better fits with your needs</label>
+        <label id="dropdown-label">
+          {
+            isAvailable && !loading && isSettedFromAvailabilityForm
+            ?  <Feedback color={isAvailable ? 'brown' : 'green'}>
+            <>
+              <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
+              <p>Or select another quarter to check availability.</p>
+            </>
+          </Feedback>
+            : 'Please, select the year period that better fits with your needs'
+          }
+          
+          
+          </label>
         <DropdownList
           label={selectedQuarter ? selectedQuarter.label : 'Select a quarter'}
           onSelectChange={(selected) => {
@@ -87,6 +101,9 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
           ? <Button onClick={handleRequestClick} color='brown' text="Request for stay" />
           : <Button onClick={handleSubmit} text='Check' />
       }
+
+      </div>
+
       {
         hasError &&
         <p className={`${styles['avblty-form__error']}`}>Please, select a year quarter to check availability.</p>
@@ -106,15 +123,6 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
               </>
               : <p>Sorry, the selected quarter is not available. Check another quarter.</p>
           }
-        </Feedback>
-      }
-      {
-        isAvailable && !loading && isSettedFromAvailabilityForm &&
-        <Feedback color={isAvailable ? 'brown' : 'green'}>
-          <>
-            <p>This is the selected yearly quarter you picked in form.</p>
-            <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
-          </>
         </Feedback>
       }
     </form>

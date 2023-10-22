@@ -6,6 +6,7 @@
 .destinations__wpr {
   padding: 12rem 0;
 }
+
 .destinations {
   &__header {
     text-align: center;
@@ -21,6 +22,8 @@
 
   &__sect-swipe {
     padding: 0 spacing.$pd__mb--small;
+    margin-bottom: spacing.$pd__mb--big;
+
     width: 100%;
     height: 80vh;
   }

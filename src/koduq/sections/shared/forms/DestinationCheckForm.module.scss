@@ -11,7 +11,7 @@
 
   @include tablet() {
     padding: 1.8rem;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   fieldset {
@@ -24,4 +24,10 @@
     font-size: 3rem;
     line-height: 3rem;
   }
+}
+
+.avblty-form__wp{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }

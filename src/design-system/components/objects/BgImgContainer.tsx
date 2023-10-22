@@ -23,7 +23,7 @@ export const BgImgContainer = ({ bgImage, customStyle, children }: BgImgContaine
           trigger: containerRef.current,
           start: 'top center',
           end: 'bottom top',
-          scrub: true
+          scrub: 0.3,
         },
         borderRadius: 0,
         scale: 1.3,

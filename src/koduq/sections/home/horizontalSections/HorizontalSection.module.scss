@@ -6,7 +6,14 @@
 
 .horizontal-container {
   position: relative;
+  overflow-x: hidden;
+  
+  @include desktop() {
+    overflow-x: unset;
+  }
 }
+
+
 
 .horizontal-panels {
   width: fit-content;
@@ -23,7 +30,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: spacing.$pd__mb--small;
 
   @include desktop() {
     padding: spacing.$pd__dk--big;
@@ -37,7 +44,6 @@
 
 .panel-text {
   background-color: colors.$cream;
-  padding: spacing.$pd__mb--small;
   justify-content: flex-end;
   align-items: flex-start;
 
@@ -45,25 +51,22 @@
     padding: spacing.$pd__dk--big;
   }
 
+  h2 {
+    font-size: 14vw;
+    line-height: 14vw;
+  
+    @include tablet() {
+      font-size: 6rem;
+      line-height: 6rem;
+    }
+  
+    @include desktop() {
+      width: 55vw;
+    }
+  }
 }
 
 
-h1 {
-  font-size: 4rem;
-  line-height: 4rem;
-
-  @include tablet() {
-    font-size: 6rem;
-    line-height: 6rem;
-  }
-
-  @include desktop() {
-    font-size: 7rem;
-    line-height: 7rem;
-    width: 55vw;
-  }
-
-}
 
 .panel-img {
   background-color: colors.$brown;

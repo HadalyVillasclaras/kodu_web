@@ -9,18 +9,19 @@ export const slidesUpOnScroll = (
   delay?: number
   // scrub:boolean = false
 ) => {
-  gsap.from(element, {
-    scrollTrigger: {
-      // scrub: scrub,
-      trigger: triggerElement || element,
-      start: 'top 80%',
-      end: '90%',
-      toggleActions: 'play none none none'
-    },
-    y: 70,
-    stagger: 0.3,
-    duration: 1,
-    ease: 'power3.out',
-    delay
-  });
+  return (
+    gsap.from(element, {
+      scrollTrigger: {
+        trigger: triggerElement || element,
+        start: 'top 80%',
+        end: '90%',
+        toggleActions: 'play none none none',
+      },
+      y: 70,
+      stagger: 0.3,
+      duration: 1,
+      ease: 'power3.out',
+      delay
+    })
+  )
 };

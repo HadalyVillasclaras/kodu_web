@@ -26,15 +26,18 @@ export const DropdownMain = forwardRef<DropdownRef, Props>(({ title, color = 'br
   });
 
   useLayoutEffect(() => {
-    if (!dropdownTween.current) {
-      dropdownTween.current = gsap.to(dropdownRef.current, {
-        y: '0%',
-        ease: 'linear',
-        paused: true
-      });
-    }
-    return () => {
-      dropdownTween.current?.kill();
+    const ctx = gsap.context(() => {
+      if (!dropdownTween.current) {
+        dropdownTween.current = gsap.to(dropdownRef.current, {
+          y: '0%',
+          ease: "power3.out",
+          duration: 1.2,
+          paused: true
+        });
+      }
+     }, dropdownRef);
+    return () => { 
+      ctx.revert(); 
     };
   }, []);
 

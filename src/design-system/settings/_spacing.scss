@@ -6,7 +6,9 @@ $l: 4rem;
 
 $pd--full: 0;
 $pd__mb--small: 0.8rem;
-$pd__mb--big: 1.5rem;
+$pd__mb--big: 1.8rem;
+$pd__mb--xl: 3rem;
+
 
 $pd__tb: 4rem;
 $pd__tb--small: 2rem;
@@ -14,8 +16,9 @@ $pd__tb--small: 2rem;
 $pd__dk--xs: 1.5rem;
 $pd__dk--small: 3.4rem;
 $pd__dk--big: 8rem;
+$pd__dk--xl: 12rem;
 
-$section__mb: $pd__mb--big $pd__mb--small;
+$section__mb: $pd__mb--xl $pd__mb--small;
 
 @mixin btn-space {
   padding: 0.6rem 0.8rem 0.4rem 0.8rem;

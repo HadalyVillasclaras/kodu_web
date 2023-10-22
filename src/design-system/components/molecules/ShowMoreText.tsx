@@ -51,12 +51,15 @@ export const ShowMoreText = ({
           }
         </div>
       </div>
+      <span>
       <Button
         variant='underline'
         color={buttonColor}
         text={showMoreText ? buttonShowLessText : buttonShowMoreText}
         onClick={toggleShowMore}
       />
+
+      </span>
     </>
   );
 };

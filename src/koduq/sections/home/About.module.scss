@@ -5,14 +5,17 @@
 
 .about-intro {
   &__header {
-    margin-top: spacing.$pd__mb--big;
     text-align: center;
     display: flex;
     flex-direction: column;
     z-index: 1;
+    top: 7rem;
+    position: relative;
     width: 100%;
     @include tablet() {
       margin-top: spacing.$pd__dk--small;
+      top: unset;
+
     }
   }
 
@@ -22,11 +25,10 @@
     align-items: center;
     flex-wrap: wrap;
     position: relative;
-    top: -7rem;
-    gap: 2rem;
+    gap: 3rem;
   
     @include tablet() {
-      top: unset;
+      gap: 2rem;
     }
 
     &--left {
@@ -45,11 +47,12 @@
       position: relative;
       width: 100%;
       display: flex;
-      gap: 2rem;
+      gap: 4rem;
       align-items: flex-start;
       flex-direction: column-reverse;
   
       @include tablet() {
+        gap: 2rem;
         width: 35%;
         top: -4rem;
         flex-direction: column;

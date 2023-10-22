@@ -2,7 +2,7 @@ import { type Destination } from '../../core/destination/domain/Destination';
 import { MappedList, ShowMoreText } from '../../../design-system/components/molecules';
 import styles from './DestinationCheckSection.module.scss';
 import { Divider, Heading, IconButton } from '../../../design-system/components/atoms';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { type Quarter } from '../../core/common/quarters/domain/Quarter';
 import { getYearForSelectedQuarter } from '../../core/common/quarters/utils/getYearForSelectedQuarter';
 import { DestinationCheckForm } from '../shared/forms/DestinationCheckForm';
@@ -21,6 +21,8 @@ export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }:
   const [isRequestFormSubmitted, setIsRequestFormSubmitted] = useState(false);
   const deviceType = useDeviceType();
 
+  const requestFormRef = useRef<any>(null);
+
   function handleBack() {
     setIsRequested(false);
     if (isRequestFormSubmitted) {
@@ -29,14 +31,12 @@ export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }:
     setHasClickedBack(true);
   }
 
-  useEffect(() => {
-    if (isRequested && deviceType === DeviceType.MOBILE) {
-      window.scrollTo({
-        top: 500,
-        behavior: 'smooth'
-      });
-    }
+
+  useLayoutEffect(() => {
+    if (isRequested === true && requestFormRef.current && deviceType === DeviceType.MOBILE) {
+      requestFormRef.current.scrollIntoView();
     setHasClickedBack(false);
+    }
   }, [isRequested]);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }:
             />
           </section>
         </section>
-        <section className={`${styles['dest-request']} ${styles.dest__section}`} >
+        <section ref={requestFormRef} className={`${styles['dest-request']} ${styles.dest__section}`} >
           <header>
             <Heading as="h4" color="brown">Request form</Heading>
             <p><b>Selected dates: {selectedQuarter?.label} {selectedQuarter?.id && getYearForSelectedQuarter(selectedQuarter.id)}</b></p>

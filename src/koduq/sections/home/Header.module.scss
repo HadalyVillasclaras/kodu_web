@@ -16,7 +16,6 @@
   &__logo-dinamic-wp {
     position: relative;
     width: 100%;
-    height: 30px;
     @include tablet() {
       width: 85%;
     }
@@ -36,10 +35,21 @@
       transform: translate(spacing.$pd__tb--small, spacing.$pd__tb--small);
     }
     @include desktop() {
-      transform: translate(spacing.$pd__dk--small, spacing.$pd__dk--small);
+      transform: translate(calc(spacing.$pd__dk--small), spacing.$pd__dk--small);
     }
   }
 
+
+  &__margin {
+    height: 150px;
+
+    @include tablet() {
+      height: 0;
+    }
+    @include desktop() {
+      height: 0;
+    }
+  }
 }
 
 .bottom-limit {

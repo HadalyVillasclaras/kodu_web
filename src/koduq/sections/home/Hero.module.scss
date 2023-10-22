@@ -47,11 +47,10 @@
     width: 100%;
     flex-direction: column;
     gap: .5rem;
-    
      @include desktop() {
       border-left: 1px solid colors.$brown;
       flex-direction: column;
-      padding: 0rem 0rem 0rem 2.5vw;
+      padding: spacing.$pd__mb--small 0rem 0rem 2.5vw;
       width: 30vw;
     }
 

@@ -74,7 +74,7 @@ export const DropdownList = ({ label, onSelectChange, onHoverOption, color = 'gr
         <span><Icon icon='plus' color='green' size='s'/></span>
       </button>
       <ul
-        className={`${styles.dropdown__list} ${isOpen ? styles['dropdown__list-open'] : ''}`}
+        className={`${styles.dropdown__list} ${isOpen ? styles['dropdown__list-open'] : styles['dropdown__list-close']}`}
         role="listbox"
         id="dropdown-listbox"
       >
