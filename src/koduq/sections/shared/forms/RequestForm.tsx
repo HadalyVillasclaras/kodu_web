@@ -134,7 +134,7 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted, hasClic
         <span></span>
         <section className={styles['contact-btn-response']}>
           <Button type='submit' color='green' variant='default' text='Send request' />
-          {isLoading && <Loader color='brown' />}
+          <Loader isActive={isLoading} color='brown' />
           {
             isSubmitted && !isLoading && submittedData &&
             <Feedback color='brown'>

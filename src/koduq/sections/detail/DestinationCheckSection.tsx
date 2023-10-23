@@ -33,15 +33,15 @@ export const DestinationCheckSection = ({ destination, selectedQuarterFromUrl }:
 
 
   useLayoutEffect(() => {
-    if (isRequested === true && requestFormRef.current && deviceType === DeviceType.MOBILE) {
-      requestFormRef.current.scrollIntoView();
-    setHasClickedBack(false);
+    if (isRequested && requestFormRef.current && deviceType === DeviceType.MOBILE) {
+      requestFormRef.current.scrollIntoView({ behavior: "smooth"});;
+      setHasClickedBack(false);
     }
   }, [isRequested]);
 
   useEffect(() => {
     setIsRequested(false);
-    setHasClickedBack(false); 
+    setHasClickedBack(false);
   }, [selectedQuarterFromUrl, destination]);
 
 

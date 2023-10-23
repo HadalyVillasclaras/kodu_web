@@ -79,24 +79,24 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
                     <p>{destination.location}</p>
                   </div>
                   <div className={`${styles['dd-avblty__response__submitted']}`}>
+                    <Loader isActive={isLoading} color='cream' />
                     {
-                      isLoading
-                        ? <Loader color='cream' />
-                        : <div>
-                          <p>Available quarter periods: </p>
-                          <ul className={`${styles['dd-avblty__response-destination-ul']}`}>
-                            {
-                              destination?.availability?.map((q: Quarter, k: number) => {
-                                return (
-                                  <li key={k} onClick={closeDropdown}>
-                                    <Link openInNewTab={false} size='m' color="cream" href={`${destinationBaseUrl}${destination.id}/${q.id}`}>
-                                      {`+ ${q.id} | ${q.label}`}
-                                    </Link>
-                                  </li>);
-                              })
-                            }
-                          </ul>
-                        </div>
+                      !isLoading &&
+                      <div>
+                        <p>Available quarter periods: </p>
+                        <ul className={`${styles['dd-avblty__response-destination-ul']}`}>
+                          {
+                            destination?.availability?.map((q: Quarter, k: number) => {
+                              return (
+                                <li key={k} onClick={closeDropdown}>
+                                  <Link openInNewTab={false} size='m' color="cream" href={`${destinationBaseUrl}${destination.id}/${q.id}`}>
+                                    {`+ ${q.id} | ${q.label}`}
+                                  </Link>
+                                </li>);
+                            })
+                          }
+                        </ul>
+                      </div>
                     }
                   </div>
                 </>
@@ -113,24 +113,24 @@ export const AvailabilityDdSection = ({ formChoice, closeDropdown }: Props) => {
             }
             {quarter && isSubmited &&
               <div className={`${styles['dd-avblty__response__submitted']}`}>
+                <Loader isActive={isLoading} color='cream' />
                 {
-                  isLoading
-                    ? <Loader color='cream' />
-                    : <div>
-                      <p>Available destinations in selected quarter: </p>
-                      <ul>
-                        {
-                          quarter.availableDestinations.map((destination: Destination, k: number) => {
-                            return (
-                              <li key={k} onClick={closeDropdown}>
-                                <Link openInNewTab={false} size='m' color="cream" href={`${destinationBaseUrl}${destination.id}/${quarter.quarter.id}`}>
-                                  + {destination.name}
-                                </Link>
-                              </li>);
-                          })
-                        }
-                      </ul>
-                    </div>
+                  !isLoading &&
+                  <div>
+                    <p>Available destinations in selected quarter: </p>
+                    <ul>
+                      {
+                        quarter.availableDestinations.map((destination: Destination, k: number) => {
+                          return (
+                            <li key={k} onClick={closeDropdown}>
+                              <Link openInNewTab={false} size='m' color="cream" href={`${destinationBaseUrl}${destination.id}/${quarter.quarter.id}`}>
+                                + {destination.name}
+                              </Link>
+                            </li>);
+                        })
+                      }
+                    </ul>
+                  </div>
                 }
               </div>
             }

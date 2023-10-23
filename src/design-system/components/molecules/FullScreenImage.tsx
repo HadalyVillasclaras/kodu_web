@@ -11,7 +11,6 @@ interface FullScreenImageProps {
   onLeft: () => void
   onRight: () => void
   onClose: () => void
-
 }
 
 export const FullScreenImage = ({ images, currentIndex, isOpen, onClose, onLeft, onRight }: FullScreenImageProps) => {
@@ -49,6 +48,7 @@ export const FullScreenImage = ({ images, currentIndex, isOpen, onClose, onLeft,
       fsTween.current?.reverse();
     }
   }, [isOpen]);
+
 
   return (
     <section ref={fullScreenRef} className={styles.fullscreen}>

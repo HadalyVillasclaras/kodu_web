@@ -5,8 +5,22 @@
   text-align: left;
   color: colors.$brown;
   border: 3px dotted;
-  padding: 0.8rem;
   border-radius: 1rem;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  transform-origin: bottom center; 
+  transform: scaleY(0);
+  visibility: hidden;
+  transition: visibility 3s ease, height 3s ease, transform 0.1s ease, opacity 3s ease;
+
+  &--active {
+    padding: .8rem ;
+    height: auto;
+    opacity: 1;
+    transform: scaleY(1);
+    visibility: visible;
+  }
 
   &__color {
     @include color;

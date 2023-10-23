@@ -18,7 +18,7 @@ interface DestinationCheckFormProps {
 
 export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, selectedQuarterFromUrl, setIsRequested, selectedQuarter, setSelectedQuarter }: DestinationCheckFormProps) => {
   const [isAvailable, setIsAvailable] = useState<boolean | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean>(false);
   const { isQuarterAvailableOnDestination } = useAvailability();
   const [isSettedFromAvailabilityForm, setIsSettedFromAvailabilityForm] = useState(false);
@@ -32,12 +32,12 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
     }
 
     if (selectedQuarter) {
-      setLoading(true);
+      setIsLoading(true);
       const availability = isQuarterAvailableOnDestination(selectedQuarter.id, destinationId);
 
       setTimeout(() => {
         setIsAvailable(availability);
-        setLoading(false);
+        setIsLoading(false);
       }, 4000);
     }
   };
@@ -69,38 +69,38 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
     <form className={`${styles['avblty-form']}`} aria-labelledby="form-title">
       <Heading id='form-title' as="h4" color="brown">Check availability</Heading>
       <div className={`${styles['avblty-form__wp']}`}>
-      <fieldset >
-        <label id="dropdown-label">
-          {
-            isAvailable && !loading && isSettedFromAvailabilityForm
-            ?  <Feedback color={isAvailable ? 'brown' : 'green'}>
-            <>
-              <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
-              <p>Or select another quarter to check availability.</p>
-            </>
-          </Feedback>
-            : 'Please, select the year period that better fits with your needs'
-          }
-          
-          
+        <fieldset >
+          <label id="dropdown-label">
+            {
+              isAvailable && !isLoading && isSettedFromAvailabilityForm
+                ? <Feedback color={isAvailable ? 'brown' : 'green'}>
+                  <>
+                    <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
+                    <p>Or select another quarter to check availability.</p>
+                  </>
+                </Feedback>
+                : 'Please, select the year period that better fits with your needs'
+            }
+
+
           </label>
-        <DropdownList
-          label={selectedQuarter ? selectedQuarter.label : 'Select a quarter'}
-          onSelectChange={(selected) => {
-            setSelectedQuarter(selected);
-            setIsAvailable(null);
-            setHasError(false);
-            setIsSettedFromAvailabilityForm(false);
-          }}
-          color="green"
-          data={allQuarters as DropdownRenderData[]}
-        />
-      </fieldset>
-      {
-        isAvailable
-          ? <Button onClick={handleRequestClick} color='brown' text="Request for stay" />
-          : <Button onClick={handleSubmit} text='Check' />
-      }
+          <DropdownList
+            label={selectedQuarter ? selectedQuarter.label : 'Select a quarter'}
+            onSelectChange={(selected) => {
+              setSelectedQuarter(selected);
+              setIsAvailable(null);
+              setHasError(false);
+              setIsSettedFromAvailabilityForm(false);
+            }}
+            color="green"
+            data={allQuarters as DropdownRenderData[]}
+          />
+        </fieldset>
+        {
+          isAvailable
+            ? <Button onClick={handleRequestClick} color='brown' text="Request for stay" />
+            : <Button onClick={handleSubmit} text='Check' />
+        }
 
       </div>
 
@@ -109,11 +109,11 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
         <p className={`${styles['avblty-form__error']}`}>Please, select a year quarter to check availability.</p>
       }
       {
-        loading &&
-        <Loader />
+        // !loading &&
+        <Loader isActive={isLoading} />
       }
       {
-        isAvailable !== null && !loading && !isSettedFromAvailabilityForm &&
+        isAvailable !== null && !isLoading && !isSettedFromAvailabilityForm &&
         <Feedback color={isAvailable ? 'brown' : 'green'}>
           {
             isAvailable

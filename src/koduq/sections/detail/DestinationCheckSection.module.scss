@@ -8,7 +8,11 @@
   display: flex;
   flex-direction: row;
   height: 100%;
-  transition: transform 1s ease;
+  transition: none;
+
+  @include tablet() {
+    transition: transform 1s ease;
+    }
 }
 
 .dest__section {
