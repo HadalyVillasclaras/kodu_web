@@ -73,6 +73,7 @@ export const ContactForm = () => {
       setIsSubmitted(true);
     }, 2000);
   };
+
   return (
     <>
       <form className={styles['contact-form']} onSubmit={handleSubmit} noValidate>
@@ -97,8 +98,8 @@ export const ContactForm = () => {
         <Button type='submit' color='cream' variant='default' text='Submit' />
       </form>
       <Loader isActive={isLoading} color='cream' />
-      {isSubmitted && !isLoading && submittedData && (
-        <Feedback color='cream'>
+      { isSubmitted && !isLoading && submittedData && (
+        <Feedback isActive={isSubmitted && !isLoading && submittedData !== null} color='cream'>
           Thank you for getting in touch, <b>{submittedData.name}</b>! We will contact you soon.
         </Feedback>
       )}

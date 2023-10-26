@@ -137,7 +137,7 @@ export const RequestForm = ({ isRequestSubmitted, setIsRequestSubmitted, hasClic
           <Loader isActive={isLoading} color='brown' />
           {
             isSubmitted && !isLoading && submittedData &&
-            <Feedback color='brown'>
+            <Feedback isActive={isSubmitted && !isLoading && submittedData !== null} color='brown'>
               Thank you for getting in touch, <b>{submittedData.name}</b>! We will carefully review your request and contact you soon.
             </Feedback>
           }
