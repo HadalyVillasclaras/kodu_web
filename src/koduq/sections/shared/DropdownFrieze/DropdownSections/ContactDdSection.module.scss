@@ -35,11 +35,13 @@
 
     &.contact {
       font-size: 1.7rem;
+      gap: 1rem;
       @include desktop() {
         font-size: 2.5rem;
         line-height: 2rem;
         top: 6rem;
         position: relative;
+        gap: 2rem;
       }
     }
   }
