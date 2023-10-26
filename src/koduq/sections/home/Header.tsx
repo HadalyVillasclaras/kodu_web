@@ -16,7 +16,6 @@ export const Header = () => {
   const location = useLocation();
   const deviceType = useDeviceType();
   const [marginB, setMarginB] = useState<Number | null>(null);
-  
   // const animate;
   const animateLogo = () => {
     return gsap.to(logoMain.current, {
@@ -31,6 +30,7 @@ export const Header = () => {
       width: deviceType === DeviceType.MOBILE ? "40%" :  "30%",
       y: "1rem",
       x: "1rem",
+
       duration: 3,
       ease: "none"
     });

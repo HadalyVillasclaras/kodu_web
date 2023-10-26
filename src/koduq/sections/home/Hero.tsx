@@ -1,11 +1,12 @@
 import { Heading, Curtain } from '../../../design-system/components/atoms';
-import { useLayoutEffect, useRef } from 'react';
+import { useContext, useLayoutEffect, useRef } from 'react';
 import sectionImages from '../../core/data/SectionImages.json';
 import styles from './Hero.module.scss';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 import { slidesUpOnScroll } from '../../../design-system/animations/gsap';
 gsap.registerPlugin(ScrollTrigger);
+import { NavIconContext } from '../../contexts/NavIconContext';
 
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 export const Hero = ({setLogoColor}: any) => {
@@ -14,6 +15,9 @@ export const Hero = ({setLogoColor}: any) => {
   const curtainHero = useRef<HTMLDivElement>(null!);
   const imgContainerRef = useRef<HTMLDivElement>(null!);
   const tlRef = useRef<any>(null!);
+  const tlIconRef = useRef<any>(null!);
+
+  const { setIconColor } = useContext(NavIconContext);
 
   
   useLayoutEffect(() => {
@@ -31,18 +35,31 @@ export const Hero = ({setLogoColor}: any) => {
           end: '50 100',
           scrub: 1,
           toggleActions: 'play none none reverse',
-          onLeave: () => {setLogoColor('cream');}, 
-          onLeaveBack: () => {setLogoColor('brown');}, 
-          onEnterBack:  () => {setLogoColor('brown');}, 
+          onLeave: () => {setLogoColor('cream'); setIconColor('cream');}, 
+          onLeaveBack: () => {setLogoColor('brown'); setIconColor('green');}, 
+          onEnterBack:  () => {setLogoColor('brown'); setIconColor('cream');}, 
         },
       });
 
       tlRef.current
       .to(introImgRef.current, {
         width: '100%',
-        borderRadius: '0px'
+        borderRadius: '0px',
       });
       
+      tlIconRef.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: imgContainerRef.current,
+          start: '+=150 center',
+          end: '50 100',
+          toggleActions: 'play none none reverse',
+          onEnter: () => {setIconColor('cream');},
+          onLeave: () => {setIconColor('cream');}, 
+          onLeaveBack: () => {setIconColor('cream');}, 
+          onEnterBack:  () => {setIconColor('cream');}, 
+        },
+      });
+
     },  imgContainerRef);
 
     return () => { ctx.revert(); };
