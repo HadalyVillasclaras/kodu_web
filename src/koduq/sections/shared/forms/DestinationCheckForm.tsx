@@ -73,7 +73,7 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
           <label id="dropdown-label">
             {
               isAvailable && !isLoading && isSettedFromAvailabilityForm
-                ? <Feedback color={isAvailable ? 'brown' : 'green'}>
+                ? <Feedback isActive={isAvailable && !isLoading && isSettedFromAvailabilityForm} color={isAvailable ? 'brown' : 'green'}>
                   <>
                     <p>Please, click on the <b>request button</b> to continue with the reservation process.</p>
                     <p>Or select another quarter to check availability.</p>
@@ -81,8 +81,6 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
                 </Feedback>
                 : 'Please, select the year period that better fits with your needs'
             }
-
-
           </label>
           <DropdownList
             label={selectedQuarter ? selectedQuarter.label : 'Select a quarter'}
@@ -114,7 +112,7 @@ export const DestinationCheckForm = ({ destinationId, isRequestFormSubmitted, se
       }
       {
         isAvailable !== null && !isLoading && !isSettedFromAvailabilityForm &&
-        <Feedback color={isAvailable ? 'brown' : 'green'}>
+        <Feedback isActive={isAvailable !== null && !isLoading && !isSettedFromAvailabilityForm} color={isAvailable ? 'brown' : 'green'}>
           {
             isAvailable
               ? <>
