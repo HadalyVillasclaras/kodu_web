@@ -45,13 +45,13 @@ export const Footer = () => {
   
         <section className={styles['footer-sect__footer']}>
           <section ref={fContactRef} className={styles['footer-sect__contact']}>
-            <p>info@koduhost.com</p>
+            <p>info@koduq.com</p>
             <p>+45 564 545 342</p>
           </section>
           <section ref={policiesRef} className={styles['footer-sect__policies']}>
-            <Link color='brown' size="xs" href='#!'>Terms & Conditions</Link>
-            <Link color='brown' size="xs" href='#!'>Cookies</Link>
-            <Link color='brown' size="xs" href='#!'>Privacy Policy</Link>
+            <Link color='brown' size="xs" href=''>Terms & Conditions</Link>
+            <Link color='brown' size="xs" href=''>Cookies</Link>
+            <Link color='brown' size="xs" href=''>Privacy Policy</Link>
           </section>
         </section>
       </section>

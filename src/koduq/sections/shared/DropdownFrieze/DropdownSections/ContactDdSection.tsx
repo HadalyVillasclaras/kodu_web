@@ -6,7 +6,7 @@ export const ContactDdSection = () => {
   return (
     <section className={`${styles['dd-contact']}`}>
       <section className={`${styles['dd-contact__sect']}  ${styles.contact}`}>
-        <p>info@koduhost.com</p>
+        <p>info@koduq.com</p>
         <p>+45 564 545 342</p>
       </section>
       <section className={`${styles['dd-contact__sect']}`}>

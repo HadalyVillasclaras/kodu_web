@@ -6,7 +6,7 @@ export const Credits = () => {
     <section className={`${styles.credits}`}>
       <section className={`${styles.credits__sect} ${styles['credits__sect--up']}`}>
         <div>
-          <p>KODU is a fictional project made with React | Typescript | SCSS | NodeJS</p>
+          <p>KODUQ is a fictional project made with React | Typescript | SCSS | NodeJS</p>
         </div>
        
       </section>
