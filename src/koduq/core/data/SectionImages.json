@@ -1,16 +1,16 @@
 {
   "hero": {
-    "src": "imgs/destinations/paraty/paraty-1.png",
+    "src": "imgs/destinations/nu/h1.jpeg",
     "alt": ""
   },
   "aboutUs":[
     {
-      "src": "imgs/destinations/paraty/paraty-2.png",
+      "src": "imgs/destinations/nu/n11.jpeg",
       "alt": "Paraty lodge principal bedroom"
     },
     {
-      "src": "imgs/destinations/bloom/bloom-4.png",
-      "alt": "Bloomhouse living room"
+      "src": "imgs/destinations/sonoma/n12.webp",
+      "alt": ""
     }
 
   ]

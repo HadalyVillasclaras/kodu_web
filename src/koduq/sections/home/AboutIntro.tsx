@@ -4,7 +4,7 @@ import styles from './About.module.scss';
 import gsap from 'gsap';
 import { slidesUpOnScroll } from '../../../design-system/animations/gsap';
 
-const text = 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.';
+const text = 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet.';
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 export const AboutIntro = () => {
@@ -34,17 +34,17 @@ export const AboutIntro = () => {
       <section className={`${styles['about-intro__content']}`}>
         <div className={`${styles['about-intro__content--left']}`}>
           <Curtain elementRef={curtain1} triggerElement={curtain1}>
-            <img src={BASE_ASSETS + 'imgs/destinations/paraty/paraty-3.png'} alt="description" />
+            <img src={BASE_ASSETS + 'imgs/destinations/nu/4.jpg'} alt="description" />
           </Curtain>
         </div>
         <div className={`${styles['about-intro__content--right']}`}>
           <div>
             <Curtain elementRef={curtain2} triggerElement={curtain2}>
-              <img src={BASE_ASSETS + 'imgs/destinations/bloom/bloom-1.png'} alt="description" />
+              <img src={BASE_ASSETS + 'imgs/destinations/nu/cor1.jpg'} alt="description" />
             </Curtain>
           </div>
           <section ref={paragraphRef}>
-            <Heading as='h4' color='brown' font='fancy'>Sustainable destinations</Heading>
+            <Heading as='h4' color='cream' font='fancy'>Long-term retreats in sustainable homes</Heading>
             <p >{text}</p>
           </section>
         </div>

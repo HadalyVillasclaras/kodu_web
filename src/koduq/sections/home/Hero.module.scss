@@ -27,17 +27,16 @@
 }
 
 .hero__sect-text {
-  padding: spacing.$pd__mb--small;
-  // padding-top: 4rem;
-  // margin-top: 5vh;
-
+  padding: 0 spacing.$pd__mb--small;
+  margin-bottom: 2rem;
   @include tablet() {
     padding: spacing.$pd__tb--small;
+    margin-bottom: 0rem;
   }
 
    @include desktop() {
     padding:spacing.$pd__dk--small;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
   }
 
   &-content {
@@ -54,8 +53,15 @@
       width: 30vw;
     }
 
-    h4 {
+    h1 {
       font-weight: 600;
+      font-size: 3.2rem;
+      line-height: 3rem;
+
+      @include desktop() {
+        font-size: 3rem;
+
+      }
     }
   }
 }

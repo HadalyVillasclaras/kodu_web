@@ -75,7 +75,7 @@ export const Header = () => {
       </header>
       <div className={styles['header__margin']} style={{ height: `${marginB }px` }}></div>
       <Section id="hero" size='full'>
-        <Hero setLogoColor={setLogoColor} />
+        <Hero setLogoColor={setLogoColor} isMobile={deviceType === DeviceType.MOBILE} />
       </Section>
     </>
   );

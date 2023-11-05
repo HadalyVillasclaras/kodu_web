@@ -1,9 +1,9 @@
-$cream: #F5F0DE;
-$brown: #7E3418;
+$cream: var(--cream);
+$brown: var(--brown);
 // $brown: #171923;
 
-$brownLighter: #B56040;
-$green: #171b0e;
+$brown-light: #813d23;
+$green: var(--green);
 
 $brown--disabled: #BF9A8B;
 $green--disabled: #4e5a48;
@@ -41,6 +41,11 @@ $button-tertiary: $brown;
     background-color: $brown;
     @include selectionGreenBg;
   }
+
+  &--brown-light {
+    background-color: $brown-light;
+    @include selectionGreenBg;
+  }
 }
 
 @mixin color(){
@@ -54,6 +59,10 @@ $button-tertiary: $brown;
 
   &--brown {
     color: $brown;
+  }
+
+  &--brown-light {
+    color: $brown-light;
   }
 }
 
@@ -69,30 +78,33 @@ $button-tertiary: $brown;
   &--brown {
     border-color: $brown;
   }
+
+  &--brown-light {
+    border-color: $brown-light;
+  }
 }
 
 @mixin fill(){
   &--green {
     fill: $green;
     transition: fill 0.2s ease-in-out; 
-
   }
 
   &--cream {
     fill: $cream;
     transition: fill 0.2s ease-in-out; 
-
   }
 
   &--brown {
     fill: $brown;
     transition: fill 0.2s ease-in-out; 
+  }
 
+  &--brown-light {
+    fill: $brown-light;
+    transition: fill 0.2s ease-in-out; 
   }
 }
-
-
-
 
 @mixin selection($background-color, $text-color) {
   ::selection {

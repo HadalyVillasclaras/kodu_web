@@ -1,11 +1,11 @@
-$s: 1rem;
+$s: 1.1rem;
 $m: 1.2rem;
 $l: 1.5rem;
 
 $h1-mb: 4.5rem;
 $h2-mb: 4.2rem;
 $h3-mb: 3.5rem;
-$h4-mb: 2.1rem;
+$h4-mb: 2.4rem;
 
 $h1-dk: 7rem;
 $h2-dk: 5rem;
@@ -30,30 +30,30 @@ $link-l: 3rem;
 
 @font-face {
   font-weight: 200;
-  font-family: Trap;
+  font-family: Degular;
   src:
-    url("/src/koduq/public/fonts/Trap-Light.otf")
+    url("/src/koduq/public/fonts/DegularDemo-Light.otf")
 }
 
 @font-face {
   font-weight: 400;
-  font-family: Trap;
+  font-family: Degular;
   src:
-    url("/src/koduq/public/fonts/Trap-Regular.otf")
+    url("/src/koduq/public/fonts/DegularDemo-Regular.otf")
 }
 
 @font-face {
   font-weight: 600;
-  font-family: Trap;
+  font-family: Degular;
   src:
-    url("/src/koduq/public/fonts/Trap-Medium.otf")
+    url("/src/koduq/public/fonts/DegularDemo-Medium.otf")
 }
 
 @font-face {
   font-weight: 700;
-  font-family: Trap;
+  font-family: Degular;
   src:
-    url("/src/koduq/public/fonts/Trap-Bold.otf")
+    url("/src/koduq/public/fonts/DegularDemo-Bold.otf")
 }
 
 @font-face {

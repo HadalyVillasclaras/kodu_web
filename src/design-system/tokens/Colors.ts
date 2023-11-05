@@ -1,1 +1,1 @@
-export type Colors = 'cream' | 'green' | 'brown';
+export type Colors = 'cream' | 'green' | 'brown' | 'brown-light';

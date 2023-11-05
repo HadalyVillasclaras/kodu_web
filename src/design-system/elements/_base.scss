@@ -3,9 +3,10 @@
 @import "../settings/breakpoints";
 
 :root {
-  --cream: #F5F0DE;
-  --brown: #7E3418;
-  --brown-lighter: #B56040;
+  --cream: #f5ebde;
+  // f6e9da
+  --brown: #6c2c14;
+  --brown-light: #813d23;
   --brown-disabled: #BF9A8B;
   --green: #171b0e;
 
@@ -34,14 +35,18 @@ a {
 
 
 body {
-  font-size: fonts.$m;
+  font-size: fonts.$s;
   color: colors.$text-primary;
-  font-family: Trap, Muli;
+  font-family: Degular, sans-serif;
   font-weight: 400;
   background-color: var(--cream);
   height: 100vh;
   transition: background-color 1s ease;
 	overflow-x:hidden;
+
+  @include desktop{
+    font-size: fonts.$m;
+    }
 }
 
 main {

@@ -16,10 +16,10 @@
   &__header {
     font-family: "Eklektyk";
     font-size: 1.5rem;
+    @include btn-space-header;
     transition: all 0.7s;
     display: inline-block;
     width: auto;
-    @include btn-space-header;
 
     &--green {
       @extend .button__header;
@@ -59,14 +59,15 @@
       border: 1px solid colors.$brown;
       @include vertical-color(colors.$brown);
 
+
       &:hover {
-        color: colors.$brown;
-        background-size: 0% 0;
+        color: colors.$cream;
+        // background-size: 100% 0;
       }
 
       &:active {
-        background-color: colors.$brown;
-        color: colors.$cream;
+        background-color: colors.$green;
+        color: colors.$brown;
       }
     }
   }
@@ -123,8 +124,8 @@
       @include vertical-color(colors.$brown);
 
       &:hover {
-        color: colors.$cream;
-        // background-size: 100% 0;
+        color: colors.$brown;
+        background-size: 100% 0;
       }
 
       &:active {

@@ -25,7 +25,7 @@ export const CareAbout = () => {
   return (
     <section className={`${styles['care-about']}`}>
       <div ref={animatedDivRef} className={`${styles['care-about__elm']}`}>
-        <Heading as='h3' font='fancy'>This is what we care about</Heading>
+        <Heading as='h2' font='fancy'>This is what we care about</Heading>
         <ShowMoreText
           text={aboutUsText}
           limit={200}

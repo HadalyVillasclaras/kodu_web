@@ -30,12 +30,15 @@
     z-index: 2;
     padding: spacing.$pd__mb--small spacing.$pd__mb--small 0 spacing.$pd__mb--small;
     // transform: translate(spacing.$pd__mb--small, spacing.$pd__mb--small);
-    width: 100%;
+    width: 90%;
+
     @include tablet() {
       transform: translate(spacing.$pd__tb--small, spacing.$pd__tb--small);
     }
     @include desktop() {
       transform: translate(calc(spacing.$pd__dk--small), spacing.$pd__dk--small);
+      width: 100%;
+    
     }
   }
 

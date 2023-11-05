@@ -12,9 +12,9 @@
     "alt": "The Dunlap Hollow destination" },
   { 
     "id": 901, 
-    "destinationName": "The Bloomhouse", 
-    "img": "imgs/destinations/bloom/bloom-7.png", 
-    "alt": "The Bloomhouse in Austin with its unique organic and curved shape architecture" 
+    "destinationName": "Sonoma", 
+    "img": "imgs/destinations/sonoma/s5.jpeg", 
+    "alt": "" 
   },
   { 
     "id": 903, 
@@ -25,7 +25,7 @@
   { 
     "id": 902, 
     "destinationName": "Dunlap Hollow", 
-    "img": "imgs/destinations/dunlap/dunlap-7.png", 
+    "img": "imgs/destinations/nu/n3.png", 
     "alt": "The Dunlap Hollow destination" 
   }
 ] 

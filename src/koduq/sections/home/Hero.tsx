@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { NavIconContext } from '../../contexts/NavIconContext';
 
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
-export const Hero = ({setLogoColor}: any) => {
+export const Hero = ({setLogoColor, isMobile}: any) => {
   const introTextRef = useRef<HTMLDivElement>(null!);
   const introImgRef = useRef<HTMLImageElement>(null!);
   const curtainHero = useRef<HTMLDivElement>(null!);
@@ -50,7 +50,7 @@ export const Hero = ({setLogoColor}: any) => {
       tlIconRef.current = gsap.timeline({
         scrollTrigger: {
           trigger: imgContainerRef.current,
-          start: '+=150 center',
+          start: isMobile ? '+=10 center' : '+=150 center',
           end: '50 100',
           toggleActions: 'play none none reverse',
           onEnter: () => {setIconColor('cream');},
@@ -69,8 +69,8 @@ export const Hero = ({setLogoColor}: any) => {
     <>
       <section className={styles['hero__sect-text']}>
         <div ref={introTextRef} className={styles['hero__sect-text-content']}>
-          <Heading color='brown' as='h4'>Sustainable destinations</Heading>
-          <p>Lorem ipsum dolor sit amet. Nunc auctor, et risus lacus quis sem. Sed sodales lorem, at lobortis odio porta vel. Nunc auctor. Class aptent et risus lacus quis sem taciti sociosqu ad litora torquent per nostra.</p>
+          <Heading color='brown' as='h1'>Low-impact retreats</Heading>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eros justo, viverra non malesuada sit amet, ultricies at risus. Quisque quis nisl sit amet libero ullamcorper scelerisque. Proin finibus commodo ornare. Sed at mauris vel neque tincidunt condimentum.</p>
         </div>
       </section>
       <section ref={imgContainerRef} className={styles['hero__sect-img']}>

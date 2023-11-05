@@ -1,8 +1,8 @@
 [
   {
     "id": 901,
-    "name": "The Bloomhouse",
-    "location": "Austin, TX",
+    "name": "Sonoma",
+    "location": "Bay Area",
     "price": 89,
     "availability": ["Q1", "Q2", "Q4"],
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
@@ -14,12 +14,13 @@
        "No wiFi", "Vegan & organic food"]
     },
     "images": [
-      "imgs/destinations/bloom/bloom-7.png",
-      "imgs/destinations/bloom/bloom-1.png",
-      "imgs/destinations/bloom/bloom-2.png",
-      "imgs/destinations/bloom/bloom-3.png",
-      "imgs/destinations/bloom/bloom-4.png",
-      "imgs/destinations/bloom/bloom-5.png"
+      "imgs/destinations/sonoma/s5.jpeg",
+      "imgs/destinations/sonoma/s1.jpeg",
+      "imgs/destinations/sonoma/s2.jpeg",
+      "imgs/destinations/sonoma/s3.jpeg",
+      "imgs/destinations/sonoma/s4.jpeg",
+      "imgs/destinations/sonoma/s6.jpeg",
+      "imgs/destinations/sonoma/s7.jpeg"
     ]
   },
   {
