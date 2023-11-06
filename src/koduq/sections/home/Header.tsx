@@ -41,7 +41,6 @@ export const Header = () => {
       if (deviceType !== DeviceType.DESKTOP) {
         setTimeout(() => {
           setMarginB(logoMain.current.offsetHeight);
-          console.log(logoMain.current.offsetHeight);
         }, 100);
       } else {
         setMarginB(0);

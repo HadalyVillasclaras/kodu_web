@@ -2,7 +2,7 @@
   {
     "id": 901,
     "name": "Sonoma",
-    "location": "Bay Area",
+    "location": "Aldeia Rizoma",
     "price": 89,
     "availability": ["Q1", "Q2", "Q4"],
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
@@ -47,9 +47,9 @@
   },
   {
     "id": 903,
-    "name": "Ridge Cabin",
+    "name": "Erlrek Cabin",
     "price": 105,
-    "location": "Aldeia Rizoma, Brazil",
+    "location": "Aalborg",
     "availability": ["Q1", "Q2", "Q3"],
     "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
     "details": {

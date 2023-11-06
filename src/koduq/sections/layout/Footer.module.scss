@@ -5,7 +5,7 @@
 @import '../../../design-system/settings/colors';
 
 footer {
-  background-color: colors.$bg--brown;
+  background-color: colors.$green;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,8 +18,8 @@ footer {
   display: flex;
   height: 55%;
   flex-direction: column;
-  background-color: colors.$bg--green;
-  color: colors.$text-secondary;
+  background-color: colors.$bg--brown;
+  color: colors.$cream;
   padding: spacing.$pd__mb--big;
   border-radius: 0rem 0rem border.$radius--mid border.$radius--mid ;
   justify-content: space-between;
@@ -89,7 +89,7 @@ footer {
     display: none;
     flex-wrap: wrap;
     flex-direction: row;
-    color: colors.$text-tertiary;
+    color: colors.$cream;
     gap: 1rem;
     margin-top: 2rem;
     align-content: flex-end;

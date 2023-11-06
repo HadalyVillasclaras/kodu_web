@@ -12,7 +12,7 @@ export const Credits = () => {
       </section>
       <section className={`${styles.credits__sect} ${styles['credits__sect--down']}`}>
         <span>
-          <Link openInNewTab={true} size='s' color="green" href='https://github.com/HadalyVillasclaras/kodu_web'>GitHub</Link>
+          <Link openInNewTab={true} size='s' color="cream" href='https://github.com/HadalyVillasclaras/kodu_web'>GitHub</Link>
         </span>
         <p>Design & web development by Hadaly Villasclaras © 2023</p>
       </section>

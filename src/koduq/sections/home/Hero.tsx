@@ -55,7 +55,7 @@ export const Hero = ({setLogoColor, isMobile}: any) => {
           toggleActions: 'play none none reverse',
           onEnter: () => {setIconColor('cream');},
           onLeave: () => {setIconColor('cream');}, 
-          onLeaveBack: () => {setIconColor('cream');}, 
+          onLeaveBack: () => {setIconColor('green');}, 
           onEnterBack:  () => {setIconColor('cream');}, 
         },
       });

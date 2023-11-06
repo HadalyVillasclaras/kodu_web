@@ -9,13 +9,13 @@
       "alt": ""
     },
     {
-      "src": "imgs/destinations/nu/cor1.jpg",
+      "src": "imgs/destinations/ridge/r1.jpg",
       "alt": ""
     }
   ],
   "horizontal": [
     {
-      "src": "imgs/destinations/nu/n11.jpg",
+      "src": "imgs/destinations/ridge/r6.jpg",
       "alt": ""
     },
     {
@@ -24,7 +24,7 @@
     }
   ],
   "zoom": {
-    "src": "imgs/destinations/dunlap/dunlap-7.png",
+    "src": "imgs/destinations/dunlap/dunlap-8.png",
     "alt": ""
   }
 }
