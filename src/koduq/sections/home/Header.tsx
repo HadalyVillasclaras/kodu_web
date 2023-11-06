@@ -15,7 +15,7 @@ export const Header = () => {
   const headerRef = useRef<HTMLDivElement>(null!);
   const location = useLocation();
   const deviceType = useDeviceType();
-  const [marginB, setMarginB] = useState<Number | null>(null);
+  const [marginB, setMarginB] = useState<number | null>(null);
   // const animate;
   const animateLogo = () => {
     return gsap.to(logoMain.current, {
@@ -47,7 +47,6 @@ export const Header = () => {
         setMarginB(0);
       }
     };
-
     handleResize();
 
     const ctx = gsap.context(() => {
@@ -62,7 +61,6 @@ export const Header = () => {
     };
   }, [location, deviceType]);
 
-
   return (
     <>
       <DropdownFrieze hasLogo={false} />
@@ -73,7 +71,7 @@ export const Header = () => {
           </span>
         </div>
       </header>
-      <div className={styles['header__margin']} style={{ height: `${marginB }px` }}></div>
+      <div className={styles.header__margin} style={{ height: `${marginB }px` }}></div>
       <Section id="hero" size='full'>
         <Hero setLogoColor={setLogoColor} isMobile={deviceType === DeviceType.MOBILE} />
       </Section>

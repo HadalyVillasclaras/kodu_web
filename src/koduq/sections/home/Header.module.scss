@@ -45,7 +45,7 @@
 
   &__margin {
     height: 150px;
-
+    transition: height .5s ease;
     @include tablet() {
       height: 0;
     }

@@ -17,17 +17,17 @@ Koduq is a Front-end web application that simulates a platform that offers long-
 - Atomic Design
 - BEM
 - ITCSS
-- And a bit of DDD for bussiness logic
+- DDD for bussiness logic
 
 ---
-![An image of signup form](./src/koduq/public/imgs/GH.jpg)
+<!-- ![An image of signup form](./src/koduq/public/imgs/GH.jpg) -->
 
 
 ### Description & goals
 
-In this project, my focus has been on implementing  a **Design System** I initially conceptualized on Figma. The main goal was to be able to traslate this visual system into code, ensuring consistent theming, **component modularity** for ensuring **UI re-usability**, and scalability. 
+In this project, my focus has been on implementing  a **Design System** I initially conceptualized on Figma. The main goal was to be able to traslate this visual system into code, ensuring consistent theming, **component modularity** and scalability. 
 
-The styles were crafted with SCSS using a mixture of methodologies and architectures such as **BEM**, **Atomic Design** or **ITCSS**. I've not wanted to be strictly bound to them, but to use them to my own advantage and according to the needs of my system.
+The styles were crafted with SCSS inspired by methodologies and architectures such as **BEM**, **Atomic Design** or **ITCSS**. I didn't want to be strictly tied to them, but to use them to my own advantage and according to the needs of my system.
 
-Throughout the project, I've aimed to retain the integrity of the original design, optimizing for **performance**, **responsiveness**, and **user experience**. 
+Throughout the project, I've aimed to retain the integrity of the original design, optimizing for **performance**, **responsiveness**, and **user experience**. I also implemented several animations using the GSAP library.
 
