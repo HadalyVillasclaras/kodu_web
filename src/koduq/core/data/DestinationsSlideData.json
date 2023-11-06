@@ -1,9 +1,9 @@
 [
   { 
     "id": 903, 
-    "destinationName": "Paraty", 
-    "img": "imgs/destinations/paraty/paraty-3.png", 
-    "alt": "The Paraty destination" 
+    "destinationName": "Ridge Cabin", 
+    "img": "imgs/destinations/ridge/r3.jpg", 
+    "alt": "The Ridge Cabin" 
   },
   { 
     "id": 902, 
@@ -13,14 +13,14 @@
   { 
     "id": 901, 
     "destinationName": "Sonoma", 
-    "img": "imgs/destinations/sonoma/s5.jpeg", 
+    "img": "imgs/destinations/sonoma/s5.jpg", 
     "alt": "" 
   },
   { 
     "id": 903, 
-    "destinationName": "Paraty", 
-    "img": "imgs/destinations/paraty/paraty-1.png", 
-    "alt":"The Paraty destination" 
+    "destinationName": "Ridge Cabin", 
+    "img": "imgs/destinations/ridge/r1.jpg", 
+    "alt":"The Ridge Cabin" 
   },
   { 
     "id": 902, 

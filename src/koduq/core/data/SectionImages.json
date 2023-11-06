@@ -1,17 +1,30 @@
 {
   "hero": {
-    "src": "imgs/destinations/nu/h1.jpeg",
+    "src": "imgs/destinations/nu/h1.jpg",
     "alt": ""
   },
-  "aboutUs":[
+  "about":[
     {
-      "src": "imgs/destinations/nu/n11.jpeg",
-      "alt": "Paraty lodge principal bedroom"
+      "src": "imgs/destinations/nu/4.jpg",
+      "alt": ""
+    },
+    {
+      "src": "imgs/destinations/nu/cor1.jpg",
+      "alt": ""
+    }
+  ],
+  "horizontal": [
+    {
+      "src": "imgs/destinations/nu/n11.jpg",
+      "alt": ""
     },
     {
       "src": "imgs/destinations/sonoma/n12.webp",
       "alt": ""
     }
-
-  ]
+  ],
+  "zoom": {
+    "src": "imgs/destinations/dunlap/dunlap-7.png",
+    "alt": ""
+  }
 }

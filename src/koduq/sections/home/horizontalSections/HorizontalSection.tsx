@@ -6,7 +6,7 @@ import { Heading } from '../../../../design-system/components/atoms';
 import { CareAbout } from './CareAbout';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { NavIconContext } from '../../../contexts/NavIconContext';
-import { Colors } from '../../../../design-system/tokens';
+import { type Colors } from '../../../../design-system/tokens';
 
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 gsap.registerPlugin(ScrollTrigger);
@@ -24,7 +24,7 @@ export const HorizontalSection = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      let panels = panelsRef.current?.children;
+      const panels = panelsRef.current?.children;
       const iconColors = ['cream', 'brown', 'green'];
 
       gsap.to(panels, {
@@ -61,7 +61,7 @@ export const HorizontalSection = () => {
           <Heading font='fancy' as='h2' color='brown'>Tincidaant a faucibus exum, cras tincidunt exum non lacus </Heading>
         </section>
         <section id="horImg" ref={sectionRefs.horImg} className={`${styles.panel} ${styles['panel-img']}`}>
-          <img src={BASE_ASSETS + sectionImages.aboutUs[1].src} alt={sectionImages.aboutUs[1].alt} />
+          <img src={BASE_ASSETS + sectionImages.horizontal[1].src} alt={sectionImages.horizontal[1].alt} />
         </section>
       </section>
     </div>

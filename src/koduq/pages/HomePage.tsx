@@ -7,6 +7,7 @@ import { useContext, useEffect, useRef } from 'react';
 import { useOnviewObserver } from '../hooks';
 import { type Colors } from '../../design-system/tokens';
 import { HorizontalSection } from '../sections/home/horizontalSections/HorizontalSection';
+import sectionImages from '../core/data/SectionImages.json';
 
 interface SectionType {
   ref: React.RefObject<HTMLElement>
@@ -61,15 +62,13 @@ export const HomePage = () => {
         <AboutIntro />
       </Section>
       <div id="aboutUs" ref={refs.aboutUs}>
-      <HorizontalSection/>
+        <HorizontalSection/>
       </div>
       <Section id="accordion"  ref={refs.accordion} bgColor='brown' size='big'>
         <Accordion />
       </Section>
       <Section id="bloom" ref={refs.bloom} bgColor='brown'>
-        {/* <BgImgContainer customStyle={{ backgroundColor: 'brown' }} bgImage={`${BASE_ASSETS}imgs/destinations/dunlap/dunlap-7.png`}></BgImgContainer> */}
-        <BgImgContainer customStyle={{ backgroundColor: 'brown' }} bgImage={`${BASE_ASSETS}imgs/destinations/ridge/r13.jpeg`}></BgImgContainer>
-
+        <BgImgContainer customStyle={{ backgroundColor: 'brown' }} bgImage={BASE_ASSETS + sectionImages.zoom.src}></BgImgContainer>
       </Section>
       <Section id="destinations" customStyle={{ padding: '15vw 0' }} ref={refs.destinations} size='full'>
         <Destinations />

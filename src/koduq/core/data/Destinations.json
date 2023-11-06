@@ -14,13 +14,13 @@
        "No wiFi", "Vegan & organic food"]
     },
     "images": [
-      "imgs/destinations/sonoma/s5.jpeg",
-      "imgs/destinations/sonoma/s1.jpeg",
-      "imgs/destinations/sonoma/s2.jpeg",
-      "imgs/destinations/sonoma/s3.jpeg",
-      "imgs/destinations/sonoma/s4.jpeg",
-      "imgs/destinations/sonoma/s6.jpeg",
-      "imgs/destinations/sonoma/s7.jpeg"
+      "imgs/destinations/sonoma/s5.jpg",
+      "imgs/destinations/sonoma/s1.jpg",
+      "imgs/destinations/sonoma/s2.jpg",
+      "imgs/destinations/sonoma/s3.jpg",
+      "imgs/destinations/sonoma/s4.jpg",
+      "imgs/destinations/sonoma/s6.jpg",
+      "imgs/destinations/sonoma/s7.jpg"
     ]
   },
   {
@@ -47,7 +47,7 @@
   },
   {
     "id": 903,
-    "name": "Paraty",
+    "name": "Ridge Cabin",
     "price": 105,
     "location": "Aldeia Rizoma, Brazil",
     "availability": ["Q1", "Q2", "Q3"],
@@ -59,12 +59,12 @@
       "amenities": ["No wiFi", "Food farming", "Hot water", "Locally grown food", "Slow living", "Terrace"]
     },
     "images": [
-      "imgs/destinations/paraty/paraty-1.png",
-      "imgs/destinations/paraty/paraty-2.png",
-      "imgs/destinations/paraty/paraty-3.png",
-      "imgs/destinations/paraty/paraty-4.png",
-      "imgs/destinations/paraty/paraty-5.png",
-      "imgs/destinations/paraty/paraty-6.png"
+      "imgs/destinations/ridge/r1.jpg",
+      "imgs/destinations/ridge/r2.jpg",
+      "imgs/destinations/ridge/r3.jpg",
+      "imgs/destinations/ridge/r4.jpg",
+      "imgs/destinations/ridge/r5.jpg",
+      "imgs/destinations/ridge/r6.jpg"
     ]
   }
 ]

@@ -36,7 +36,7 @@ export const CareAbout = () => {
       </div>
       <div className={`${styles['care-about__elm']}`}>
         <Curtain elementRef={careAboutImg} triggerElement={careAboutImg}>
-          <img src={BASE_ASSETS + sectionImages.aboutUs[0].src} alt="description" />
+          <img src={BASE_ASSETS + sectionImages.horizontal[0].src} alt={sectionImages.horizontal[0].alt} />
         </Curtain>
       </div>
     </section>
