@@ -18,7 +18,7 @@ export const Footer = () => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
 
-      const footerChildrenRefs = [policiesRef, fContactRef, footerLogoRef];
+      const footerChildrenRefs = [footerLogoRef];
       
       footerChildrenRefs.forEach(childRef => {
         const childItems = Array.from(childRef.current.children);
