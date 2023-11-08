@@ -5,7 +5,7 @@ import sectionImages from '../../../core/data/SectionImages.json';
 import { Heading } from '../../../../design-system/components/atoms';
 import { CareAbout } from './CareAbout';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { NavIconContext } from '../../../contexts/NavIconContext';
+import { NavIconContext } from '../../../context/NavIconContext';
 import { type Colors } from '../../../../design-system/tokens';
 
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;

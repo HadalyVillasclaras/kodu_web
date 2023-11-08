@@ -1,8 +1,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
+/* Definition of animation. Each component has his context */
 export const slidesUpOnScroll = (
   element: string | string[] | HTMLElement | HTMLElement[],
   triggerElement?: string | HTMLElement,
@@ -23,5 +23,5 @@ export const slidesUpOnScroll = (
       ease: 'power3.out',
       delay
     })
-  )
+  );
 };

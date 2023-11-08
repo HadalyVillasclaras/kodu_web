@@ -1,6 +1,6 @@
 import { createHashRouter } from 'react-router-dom';
-import { KoduTemplate } from '../../template/KoduTemplate';
-import { ErrorTemplate } from '../../template/ErrorTemplate';
+import { KoduTemplate } from '../../templates/KoduTemplate';
+import { ErrorTemplate } from '../../templates/ErrorTemplate';
 import { DestinationDetailPage, HomePage, NotFoundPage } from '../../pages';
 
 /* replaced createBrowserRouter for createHashRouter in order to make it work in GitHub pages. */

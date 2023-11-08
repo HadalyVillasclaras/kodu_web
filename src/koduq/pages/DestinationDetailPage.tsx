@@ -1,13 +1,11 @@
 import { useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Section } from '../../design-system/components/objects';
-import { type Destination } from '../core/destination/domain/Destination';
-import { getDestinationById } from '../core/destination/application/getDestinationById';
 import { Fader } from '../../design-system/components/molecules';
-import { DestinationImages } from '../sections/detail/DestinationImages';
-import { DestinationHeader } from '../sections/detail/DestinationHeader';
+import { DestinationImages, DestinationHeader, DestinationCheckSection } from '../sections/detail';
 import { DestinationNotFound } from '../sections/shared/errors/DestinationNotFound';
-import { DestinationCheckSection } from '../sections/detail/DestinationCheckSection';
+import { getDestinationById } from '../core/destination/application/getDestinationById';
+import { type Destination } from '../core/destination/domain/Destination';
 import { getQuarterById } from '../core/common/quarters/services/getQuarterById';
 import { type Quarter } from '../core/common/quarters/domain/Quarter';
 
@@ -17,14 +15,14 @@ export const DestinationDetailPage = () => {
   const { id: destinationId, quarterId } = useParams();
   const { pathname } = useLocation();
 
-  function getCurrentDestination () {
+  function getCurrentDestination() {
     if (destinationId) {
       const destination = getDestinationById(destinationId);
       destination && setCurrentDestination(destination);
     }
   }
 
-  function getSelectedQuarter () {
+  function getSelectedQuarter() {
     const quarter = quarterId && getQuarterById(quarterId);
     quarter && setSelectedQuarter(quarter);
   }
@@ -39,20 +37,21 @@ export const DestinationDetailPage = () => {
   return (
     <>
       <Fader />
-      {currentDestination
-        ? <>
+      {currentDestination ? (
+        <>
           <Section size='small' customStyle={{ minHeight: 'unset', paddingBottom: '0', gap: '2rem' }}>
             <DestinationImages imgs={currentDestination.images} />
             <DestinationHeader destination={currentDestination} />
           </Section>
           <Section size='full'>
-            <DestinationCheckSection destination={currentDestination} selectedQuarterFromUrl={selectedQuarter}/>
+            <DestinationCheckSection destination={currentDestination} selectedQuarterFromUrl={selectedQuarter} />
           </Section>
         </>
-        : <Section size="big">
+      ) : (
+        <Section size='big'>
           <DestinationNotFound destinationId={destinationId} />
         </Section>
-      }
+      )}
     </>
   );
 };

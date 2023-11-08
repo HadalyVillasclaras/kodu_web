@@ -16,7 +16,9 @@ export const Link = ({ color = 'green', size = 's', children, href, openInNewTab
     <a
       target={openInNewTab ? '_blank' : '_self'}
       className={`${styles.link} ${styles[`link__color--${color}`]} ${styles[`link__size--${size}`]}`}
-      href={href}>
+      href={href} 
+      rel="noreferrer"
+    >
       {children}
     </a>
   );

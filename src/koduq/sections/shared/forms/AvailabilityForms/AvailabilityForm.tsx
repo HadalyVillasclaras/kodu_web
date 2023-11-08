@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { DropdownList } from '../../../../../design-system/components/molecules';
 import quartersData from '../../../../core/data/AvailabilityQuarters.json';
 import destinations from '../../../../core/data/Destinations.json';
-import { useAvailability } from '../../../../hooks/useAvailability';
 import { Button, Heading } from '../../../../../design-system/components/atoms';
 import { type Quarter } from '../../../../core/common/quarters/domain/Quarter';
 import styles from './AvailabilityForm.module.scss';
 import { type DropdownRenderData } from '../../../../../design-system/components/molecules/DropdownList';
 import { getDestinationById } from '../../../../core/destination/application/getDestinationById';
 import { type Destination } from '../../../../core/destination/domain/Destination';
+import { useAvailability } from '../../../../hooks';
 
 const destinationData = destinations.map(dest => ({
   id: dest.id.toString(),

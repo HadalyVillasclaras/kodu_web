@@ -1,8 +1,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
+/* Definition of animation. Each component has his context */
 export const expandWidthOnScroll = (
   element: string | HTMLElement | NodeListOf<HTMLElement> | HTMLElement[],
   triggerElement?: string | HTMLElement | NodeListOf<HTMLElement> | HTMLElement[],
