@@ -6,15 +6,15 @@ import { type Breakpoints, breakpointValues } from '../../design-system/tokens/B
 export const useBreakPointSetter = (action: (value: number) => void, values: Record<string, number>) => {
   useEffect(() => {
     const mediaQueries = Object.keys(breakpointValues).map((bp) => {
-      const mq = window.matchMedia(breakpointValues[bp as keyof Breakpoints]);
+      const mediaQuery = window.matchMedia(breakpointValues[bp as keyof Breakpoints]);
       const listener = (e: MediaQueryListEvent | MediaQueryList) => {
         if (e.matches && values[bp]) {
           action(values[bp]);
         }
       };
-      mq.addEventListener('change', listener);
-      listener(mq);
-      return { mq, listener };
+      mediaQuery.addEventListener('change', listener);
+      listener(mediaQuery);
+      return { mq: mediaQuery, listener };
     });
 
     return () => {

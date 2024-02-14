@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 import { slidesUpOnScroll } from '../../../design-system/animations/gsap';
 gsap.registerPlugin(ScrollTrigger);
-import { NavIconContext } from '../../contexts/NavIconContext';
+import { NavIconContext } from '../../context/NavIconContext';
 
 const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 export const Hero = ({setLogoColor, isMobile}: any) => {

@@ -1,8 +1,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
+/* Definition of animation. Each component has his context */
 export const verticalCurtainOnScroll = (
   element: string | string[] | HTMLElement | HTMLElement[],
   triggerElement?: string | HTMLElement,

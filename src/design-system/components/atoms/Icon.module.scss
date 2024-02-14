@@ -4,6 +4,8 @@
 @use '../../../design-system/settings/colors';
 @import '../../../design-system/settings/colors';
 
+// IconButton and Icon components
+
 @mixin circleBase() {
   width: 60px;
   height: 60px;
@@ -19,10 +21,6 @@
   height: var(--icon-size);
   transition: all 0.2s ease;
   stroke-width: 2;
-
-  // &:hover {
-  //   transform: translateY(-3px);  
-  // }
 
   &__size {
     &--xs {

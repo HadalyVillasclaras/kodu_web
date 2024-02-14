@@ -2,7 +2,7 @@ import { Section, BgImgContainer } from '../../design-system/components/objects'
 import { Destinations, AboutIntro } from '../sections/home';
 import { Marquee } from '../../design-system/components/atoms';
 import { Accordion, Fader } from '../../design-system/components/molecules';
-import { NavIconContext } from '../contexts/NavIconContext';
+import { NavIconContext } from '../context/NavIconContext';
 import { useContext, useEffect, useRef } from 'react';
 import { useOnviewObserver } from '../hooks';
 import { type Colors } from '../../design-system/tokens';
@@ -19,6 +19,7 @@ const BASE_ASSETS = import.meta.env.VITE_BASE_ASSETS;
 
 export const HomePage = () => {
   const { setHidden, setIconColor } = useContext(NavIconContext);
+  
   const refs = {
     hero: useRef(null),
     dunlap: useRef(null),

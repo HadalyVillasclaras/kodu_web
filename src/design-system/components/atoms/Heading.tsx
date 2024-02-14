@@ -13,9 +13,7 @@ type HeadingProps = {
 
 export const Heading = ({ children, as = 'h1', color = 'cream', font = 'simple', onClick, ...props }: HeadingProps) => {
   const Tag = as;
-
   let fontClass = `${styles[`heading--${as}`]}`;
-
   if (font === 'simple') {
     fontClass += ` ${styles[`heading--${as}-simple`]}`;
   }

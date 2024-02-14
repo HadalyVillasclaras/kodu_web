@@ -3,9 +3,9 @@ import { useLayoutEffect, useRef } from 'react';
 import styles from './Footer.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useHideNavIcon } from '../../hooks/useHideNavIcon';
 import { slidesUpOnScroll } from '../../../design-system/animations/gsap';
 import { Credits } from '.';
+import { useHideNavIcon } from '../../hooks';
 
 gsap.registerPlugin(ScrollTrigger);
 

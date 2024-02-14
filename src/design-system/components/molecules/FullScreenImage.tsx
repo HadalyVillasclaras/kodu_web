@@ -49,7 +49,6 @@ export const FullScreenImage = ({ images, currentIndex, isOpen, onClose, onLeft,
     }
   }, [isOpen]);
 
-
   return (
     <section ref={fullScreenRef} className={styles.fullscreen}>
       <span className={styles.fullscreen__btn}>
@@ -73,9 +72,6 @@ export const FullScreenImage = ({ images, currentIndex, isOpen, onClose, onLeft,
         </DinamicControlButtons>
       </div>
       <Pagination current={currentIndex + 1} total={images.length} color='cream'/>
-      {/* <div className={styles.fullscreen__pagination}>
-        {currentIndex + 1}/{images.length}
-      </div> */}
     </section>
   );
 };

@@ -4,7 +4,7 @@ import { Button } from '../atoms';
 import { type Colors } from '../../tokens';
 import { splitTextToShowMore } from '../../../koduq/core/utils/splitTextToShowMore';
 
-interface Props {
+interface ShowMoreTextProps {
   text: string
   limit: number
   buttonShowMoreText: string
@@ -18,7 +18,7 @@ export const ShowMoreText = ({
   buttonShowMoreText,
   buttonShowLessText,
   buttonColor
-}: Props) => {
+}: ShowMoreTextProps) => {
   const [showMoreText, setShowMoreText] = useState(false);
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLParagraphElement | null>(null);
@@ -52,12 +52,12 @@ export const ShowMoreText = ({
         </div>
       </div>
       <span>
-      <Button
-        variant='underline'
-        color={buttonColor}
-        text={showMoreText ? buttonShowLessText : buttonShowMoreText}
-        onClick={toggleShowMore}
-      />
+        <Button
+          variant='underline'
+          color={buttonColor}
+          text={showMoreText ? buttonShowLessText : buttonShowMoreText}
+          onClick={toggleShowMore}
+        />
 
       </span>
     </>

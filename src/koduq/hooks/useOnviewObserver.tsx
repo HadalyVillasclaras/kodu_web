@@ -1,7 +1,6 @@
 import { type RefObject, useEffect, useState } from 'react';
 
 /* Returns current section id on view */
-
 interface ObserverOptions {
   root?: Element | null
   rootMargin?: string

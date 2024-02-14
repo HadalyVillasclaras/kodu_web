@@ -7,7 +7,6 @@ export const useAvailability = () => {
   const checkAvailabilityByDestination = (destinationId: number): Quarter[] => {
     const destination = destinationData.find((dest) => dest.id === destinationId);
     const availableQuarterIds = destination?.availability || [];
-
     const availableQuarters = getQuartersByIds(availableQuarterIds);
 
     return availableQuarters;

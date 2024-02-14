@@ -1,5 +1,5 @@
 import { IconButton, Link, Logo } from '../../../design-system/components/atoms';
-import { NavIconContext } from '../../contexts/NavIconContext';
+import { NavIconContext } from '../../context/NavIconContext';
 import { useContext, useEffect, useState, useRef, useLayoutEffect } from 'react';
 import styles from './Navbar.module.scss';
 import navItems from '../../core/data/NavItems.json';

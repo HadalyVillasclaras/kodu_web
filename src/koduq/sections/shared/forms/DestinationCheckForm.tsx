@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useAvailability } from '../../../hooks/useAvailability';
 import allQuarters from '../../../core/data/AvailabilityQuarters.json';
 import { type DropdownRenderData, DropdownList } from '../../../../design-system/components/molecules/DropdownList';
 import { Button, Heading, Loader } from '../../../../design-system/components/atoms';
 import { type Quarter } from '../../../core/common/quarters/domain/Quarter';
 import { Feedback } from '../../../../design-system/components/molecules';
 import styles from './DestinationCheckForm.module.scss';
+import { useAvailability } from '../../../hooks';
 
 interface DestinationCheckFormProps {
   destinationId: string
