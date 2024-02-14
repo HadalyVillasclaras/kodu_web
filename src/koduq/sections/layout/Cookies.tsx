@@ -41,20 +41,19 @@ export const Cookies = () => {
         <span className={styles.cookies__close}>
           <IconButton
             icon='x'
-            color='brown'
+            color='cream'
             ariaLabel="Close"
             size="s"
             onClick={() => { setIsOpen(false); }}
           />
         </span>
         <p className={styles.cookies__text}>
-          We use cookies to improve the user experience
+          We don't use cookies! <br /> We keep your privacy safe.
         </p>
         <div className={styles.cookies__btns}>
           <Button color="brown" variant="default" text="I refuse" onClick={handleRefuse} />
           <Button color="brown" variant="default" text="It's ok" onClick={handleAccept} />
         </div>
-        <p>Read about our Cookies policy <u>here</u></p>
       </section>
       : <></>
   );
