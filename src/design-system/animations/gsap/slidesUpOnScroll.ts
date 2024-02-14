@@ -17,7 +17,7 @@ export const slidesUpOnScroll = (
         end: '90%',
         toggleActions: 'play none none none',
       },
-      y: 70,
+      y: 90,
       stagger: 0.3,
       duration: 1,
       ease: 'power3.out',

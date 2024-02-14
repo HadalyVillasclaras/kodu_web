@@ -13,7 +13,7 @@
     width: 100%;
 
     .opened {
-      color: colors.$green !important;
+      color: colors.$cream !important;
     }
 
     button {
@@ -23,6 +23,7 @@
       font-family: 'Eklektyk';
       color: colors.$cream;
       font-size: fonts.$h3-mb;
+      cursor: pointer;
 
       @include tablet() {
         font-size: fonts.$h1-mb;
@@ -30,15 +31,16 @@
 
       &:hover,
       &:active {
-        color: colors.$green !important;
+        color: colors.$cream !important;
+        opacity: 0.7;
 
         ~hr {
-          background-color: colors.$green !important;
+          background-color: colors.$cream !important;
         }
       }
 
       .opened {
-        color: colors.$green !important;
+        color: colors.$cream !important;
       }
 
       @include desktop() {
@@ -55,8 +57,9 @@
 
     p {
       padding: 1.3rem 0 1rem 0;
-      color: colors.$green;
-      font-weight: 700;
+      color: colors.$cream;
+      font-weight: 500;
+      font-size: 1.5rem;
 
       @include desktop() {
         width: 55vw;

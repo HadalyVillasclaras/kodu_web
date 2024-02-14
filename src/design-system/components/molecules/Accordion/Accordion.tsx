@@ -39,7 +39,7 @@ export const Accordion = () => {
             isOpen={openedItem === index}
             onTitleClick={() => { handleTitleClick(index); }}
           />
-          <Divider ref={el => { if (el) dividerRefs.current[index] = el; }} color={openedItem === index ? 'green' : 'cream'} customStyle={{ marginTop: '1rem' }} />
+          <Divider ref={el => { if (el) dividerRefs.current[index] = el; }} color={openedItem === index ? 'cream' : 'cream'} customStyle={{ marginTop: '1rem' }} />
         </div>
       ))}
     </section>
