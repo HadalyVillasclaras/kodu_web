@@ -69,7 +69,7 @@ export const Hero = ({setLogoColor, isMobile}: any) => {
     <>
       <section className={styles['hero__sect-text']}>
         <div ref={introTextRef} className={styles['hero__sect-text-content']}>
-          <Heading color='brown' as='h1'>Low-impact retreats</Heading>
+          <Heading color='brown' as='h1'>Low-impact and eco retreats</Heading>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eros justo, viverra non malesuada sit amet, ultricies at risus. Quisque quis nisl sit amet libero ullamcorper scelerisque. Proin finibus commodo ornare. Sed at mauris vel neque tincidunt condimentum.</p>
         </div>
       </section>

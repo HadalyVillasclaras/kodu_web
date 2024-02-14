@@ -1,6 +1,6 @@
 {
   "hero": {
-    "src": "imgs/destinations/nu/h1.jpg",
+    "src": "imgs/destinations/sonoma/n12.png",
     "alt": ""
   },
   "about":[
@@ -15,11 +15,11 @@
   ],
   "horizontal": [
     {
-      "src": "imgs/destinations/ridge/r6.jpg",
+      "src": "imgs/destinations/nu/chair.png",
       "alt": ""
     },
     {
-      "src": "imgs/destinations/sonoma/n12.webp",
+      "src": "imgs/destinations/sonoma/s3.jpg",
       "alt": ""
     }
   ],
