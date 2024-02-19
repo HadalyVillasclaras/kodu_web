@@ -9,13 +9,12 @@
     display: flex;
     flex-direction: column;
     z-index: 1;
-    top: 7rem;
+    top: 2rem;
     position: relative;
     width: 100%;
     @include tablet() {
       margin-top: spacing.$pd__dk--small;
       top: unset;
-
     }
   }
 

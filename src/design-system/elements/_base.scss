@@ -151,3 +151,9 @@ textarea:-webkit-autofill:active {
   background-color: colors.$green;
   color: colors.$brown; 
 }
+
+/* utils */
+
+.nowrap {
+  white-space: nowrap;
+}

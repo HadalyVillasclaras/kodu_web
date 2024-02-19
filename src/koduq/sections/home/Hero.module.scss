@@ -49,18 +49,21 @@
      @include desktop() {
       border-left: 1px solid colors.$brown;
       flex-direction: column;
-      padding: spacing.$pd__mb--small 0rem 0rem 2.5vw;
-      width: 30vw;
+      padding: spacing.$pd__mb--small 0rem 0rem 3.5vw;
+      width: 34vw;
     }
 
     h1 {
       font-weight: 600;
-      font-size: 3.2rem;
+      font-size: 3rem;
       line-height: 3rem;
 
-      @include desktop() {
-        font-size: 3.7rem;
+      @include tablet() {
+        font-size: 3.4rem;
+      }
 
+      @include desktop() {
+        font-size: 3.8vw;
       }
     }
   }

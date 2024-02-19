@@ -7,7 +7,7 @@ import gsap from 'gsap';
 import { expandWidthOnScroll, slidesUpOnScroll } from '../../../animations/gsap';
 
 export const Accordion = () => {
-  const [openedItem, setOpenedItem] = useState<number | null>(null);
+  const [openedItem, setOpenedItem] = useState<number | null>(0);
   const accordionRef = useRef<HTMLElement>(null!);
   const dividerRefs = useRef<Array<HTMLHRElement | null>>([]);
 

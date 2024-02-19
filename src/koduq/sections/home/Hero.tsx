@@ -35,7 +35,7 @@ export const Hero = ({setLogoColor, isMobile}: any) => {
           end: '50 100',
           scrub: 1,
           toggleActions: 'play none none reverse',
-          onLeave: () => {setLogoColor('green'); setIconColor('cream');}, 
+          onLeave: () => {setLogoColor('cream'); setIconColor('cream');}, 
           onLeaveBack: () => {setLogoColor('brown'); setIconColor('green');}, 
           onEnterBack:  () => {setLogoColor('brown'); setIconColor('cream');}, 
         },
@@ -69,7 +69,7 @@ export const Hero = ({setLogoColor, isMobile}: any) => {
     <>
       <section className={styles['hero__sect-text']}>
         <div ref={introTextRef} className={styles['hero__sect-text-content']}>
-          <Heading color='brown' font='fancy' as='h1'>Sustainable and <br />long-stay retreats</Heading>
+          <Heading color='brown' font='fancy' as='h1'>Sustainable and <span className='nowrap'>long-stay retreats</span></Heading>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eros justo, viverra non malesuada sit amet, ultricies at risus. Quisque quis nisl sit amet libero ullamcorper scelerisque. Sed at mauris vel neque tincidunt condimentum.</p>
         </div>
       </section>
