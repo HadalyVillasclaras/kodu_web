@@ -1,0 +1,101 @@
+@use "../../../../design-system/settings/colors";
+@import "../../../../design-system/settings/breakpoints";
+@import "../../../../design-system/settings/mixins/mixins";
+
+.contact-form {
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+
+  @include tablet() {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  gap: 1.5rem;
+
+  }
+
+  @include desktop() {
+    column-gap: 5rem;
+  }
+
+  ::placeholder {
+    color: colors.$opacity-green-dark;
+  }
+
+  input, textarea {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid colors.$green;
+    color: inherit;
+    padding: 0.2rem 0;
+  }
+
+  /* Hide the up and down arrows */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input, textarea,
+input:autofill,
+input:-webkit-autofill,
+input:-webkit-autofill-strong-password,
+input:-webkit-autofill-strong-password-viewable,
+input:-webkit-autofill-and-obscured {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--green);
+  color: var(--green);
+}
+
+}
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  gap: 0.3rem;
+}
+
+.input-error {
+  font-size: 0.8rem;
+  color: colors.$green;
+  height: 1rem;
+  transition: opacity 1s ease;
+
+  &--visible {
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+
+  &--hidden {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+}
+
+.contact-btn-response {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.request-form {
+
+  input:autofill,
+  input:-webkit-autofill,
+  input:-webkit-autofill-strong-password,
+  input:-webkit-autofill-strong-password-viewable,
+  input:-webkit-autofill-and-obscured {
+      background-color: transparent !important;
+      background-image: none !important;
+      color: colors.$brown !important;  
+      -webkit-text-fill-color: colors.$brown !important; 
+  }
+}

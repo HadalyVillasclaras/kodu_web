@@ -1,0 +1,97 @@
+@use '../../../design-system/settings/colors';
+@use '../../../design-system/settings/spacing';
+@import "../../../design-system/settings/breakpoints";
+@import "../../../design-system/settings/colors";
+
+.cookies {
+  position: fixed;
+  z-index: 7;
+  padding: spacing.$s;
+  background-color: colors.$green;
+  color: colors.$cream;
+  // border: 1px solid colors.$brown;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%); 
+  max-width: calc(100% - 1rem); 
+
+  @include selectionCreamBg;
+  
+  @include mobile() {
+    width: 300px;
+    left: unset;
+    transform: unset; 
+    right: spacing.$l;
+    // gap: 2.6rem;
+    padding:spacing.$m;
+  }
+
+  &__text {
+    font-family: "Eklektyk";
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    @include mobile() {
+      line-height: 3.2rem;
+      margin-bottom: 1rem;
+      font-size: 2.8rem;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    justify-content: flex-end;
+    white-space: nowrap;
+    bottom: 0.3rem;
+    flex-wrap: wrap;
+    right: spacing.$m;
+    bottom: calc(spacing.$s + 4px);
+    font-size: 1rem;
+
+    @include mobile() {
+      flex-wrap: nowrap;
+      // position: absolute;
+    }
+    + p {
+      font-size: 0.8rem;
+      color: colors.$brown;
+      text-align: right;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+}
+
+.slideUp {
+  animation: slideUp 2.5s ease-out forwards;
+}
+
+.slideDown {
+  animation: slideDown 2.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: -100%;  
+  }
+  100% {
+    bottom: 1rem; 
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    bottom: 1rem;
+  }
+  100% {
+    bottom: -100%;
+  }
+}

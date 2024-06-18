@@ -1,0 +1,70 @@
+[
+  {
+    "id": 901,
+    "name": "Sonoma",
+    "location": "Aldeia Rizoma",
+    "price": 89,
+    "availability": ["Q1", "Q2", "Q4"],
+    "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
+    "details": {
+      "persons": 4,
+      "beds": 3,
+      "bathrooms": 1,
+      "amenities": ["Food farming", "Hot water", "Permaculture classes", "Waste management", 
+       "No wiFi", "Vegan & organic food"]
+    },
+    "images": [
+      "imgs/destinations/sonoma/s5.jpg",
+      "imgs/destinations/sonoma/s1.jpg",
+      "imgs/destinations/sonoma/s2.jpg",
+      "imgs/destinations/sonoma/s3.jpg",
+      "imgs/destinations/sonoma/s4.jpg",
+      "imgs/destinations/sonoma/s6.jpg",
+      "imgs/destinations/sonoma/s7.jpg"
+    ]
+  },
+  {
+    "id": 902,
+    "name": "Dunlap Hollow",
+    "location": "Hocking Hills",
+    "price": 96,
+    "availability": ["Q2", "Q3", "Q4"],
+    "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
+    "details": {
+      "persons": 8,
+      "beds": 6,
+      "bathrooms": 3,
+      "amenities": ["No wiFi", "Food farming", "Hot water", "Locally grown food", "Slow living", "Terrace"]
+
+    },
+    "images": [
+      "imgs/destinations/dunlap/dunlap-1.png",
+      "imgs/destinations/dunlap/dunlap-7.png",
+      "imgs/destinations/dunlap/dunlap-3.png",
+      "imgs/destinations/dunlap/dunlap-4.png",
+      "imgs/destinations/dunlap/dunlap-5.png"
+    ]
+  },
+  {
+    "id": 903,
+    "name": "Erlrek Cabin",
+    "price": 105,
+    "location": "Aalborg",
+    "availability": ["Q1", "Q2", "Q3"],
+    "description": "Lorem ipsum dolor sit amet, consectetur. Adipiscing elit. Nunc auctor, ante in rhoncus pulvinar, arcu orci dapibus nisl, et dictum risus lacus quis sem. Sed ultrices sodales lorem, at lobortis odio porta vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque congue non augue eleifend iaculis. Mauris posuere ex justo, sit amet faucibus diam faucibus sollicitudin. Pellentesque efficitur tortor ac varius tincidunt.",
+    "details": {
+      "persons": 6,
+      "beds": 3,
+      "bathrooms": 2,
+      "amenities": ["No wiFi", "Food farming", "Hot water", "Locally grown food", "Slow living", "Terrace"]
+    },
+    "images": [
+      "imgs/destinations/ridge/r1.jpg",
+      "imgs/destinations/ridge/r2.jpg",
+      "imgs/destinations/ridge/r3.jpg",
+      "imgs/destinations/ridge/r4.jpg",
+      "imgs/destinations/ridge/r5.jpg",
+      "imgs/destinations/ridge/r6.jpg"
+    ]
+  }
+]

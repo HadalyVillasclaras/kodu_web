@@ -1,0 +1,18 @@
+[
+  {
+    "id": "Q1",
+    "label": "January - March"
+  },
+  {
+    "id": "Q2",
+    "label": "April - June"
+  },
+  {
+    "id": "Q3",
+    "label": "July - September"
+  },
+  {
+    "id": "Q4",
+    "label": "October - December"
+  }
+]

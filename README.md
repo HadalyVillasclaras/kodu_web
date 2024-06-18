@@ -1,7 +1,7 @@
-# KODUQ
+# KODUC
 ! [work in progress]
 
-Koduq is a Front-end web application that simulates a platform that offers long-term retreats in sustainable homes, ensuring guests have a zero environmental footprint during their stay.
+Koduc is a Front-end web application that simulates a platform that offers long-term retreats in sustainable homes, ensuring guests have a zero environmental footprint during their stay.
 
 ### Technologies & libs
 - TypeScript
@@ -20,8 +20,6 @@ Koduq is a Front-end web application that simulates a platform that offers long-
 - DDD for bussiness logic
 
 ---
-<!-- ![An image of signup form](./src/koduq/public/imgs/GH.jpg) -->
-
 
 ### Description & goals
 

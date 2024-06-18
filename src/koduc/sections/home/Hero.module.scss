@@ -1,0 +1,70 @@
+@use "../../../design-system/settings/border";
+@use "../../../design-system/settings/spacing";
+@use '../../../design-system/settings/colors';
+@import "../../../design-system/settings/mixins/mixins";
+@import "../../../design-system/settings/breakpoints";
+
+.hero__sect-img {
+  position: relative;
+  width: 100%;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    border-radius: border.$radius--mid;
+    height: 90vh;
+    position: relative;
+    width: calc(100% - (spacing.$pd__mb--small * 2));
+
+    @include tablet() {
+      width: calc(100% - (spacing.$pd__tb--small * 2));
+    }
+
+    @include desktop() {
+      width: calc(100% - (spacing.$pd__dk--small * 2));
+    }
+  }
+}
+
+.hero__sect-text {
+  padding: 0 spacing.$pd__mb--small;
+  margin-bottom: 2rem;
+  @include tablet() {
+    padding: spacing.$pd__tb--small;
+    margin-bottom: 0rem;
+  }
+
+   @include desktop() {
+    padding:spacing.$pd__dk--small;
+    font-size: 1.3vw;
+  }
+
+  &-content {
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+    gap: .5rem;
+     @include desktop() {
+      border-left: 1px solid colors.$brown;
+      flex-direction: column;
+      padding: 6px 0rem 0rem 3.5vw;
+      width: 34vw;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 3rem;
+      line-height: 3rem;
+
+      @include tablet() {
+        font-size: 3.4rem;
+      }
+
+      @include desktop() {
+        font-size: 3.8vw;
+      }
+    }
+  }
+}

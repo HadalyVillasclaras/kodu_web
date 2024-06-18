@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "src": "imgs/destinations/sonoma/n12.png",
+    "alt": ""
+  },
+  "about":[
+    {
+      "src": "imgs/destinations/nu/4.jpg",
+      "alt": ""
+    },
+    {
+      "src": "imgs/destinations/ridge/r1.jpg",
+      "alt": ""
+    }
+  ],
+  "horizontal": [
+    {
+      "src": "imgs/destinations/nu/chair.png",
+      "alt": ""
+    },
+    {
+      "src": "imgs/destinations/sonoma/s3.jpg",
+      "alt": ""
+    }
+  ],
+  "zoom": {
+    "src": "imgs/destinations/dunlap/dunlap-8.png",
+    "alt": ""
+  }
+}

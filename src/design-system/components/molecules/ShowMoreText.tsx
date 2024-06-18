@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import styles from './ShowMoreText.module.scss';
 import { Button } from '../atoms';
 import { type Colors } from '../../tokens';
-import { splitTextToShowMore } from '../../../koduq/core/utils/splitTextToShowMore';
+import { splitTextToShowMore } from '../../../koduc/core/utils/splitTextToShowMore';
 
 interface ShowMoreTextProps {
   text: string

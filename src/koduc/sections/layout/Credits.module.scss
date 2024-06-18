@@ -1,0 +1,71 @@
+@use '../../../design-system/settings/colors';
+@use '../../../design-system/settings/spacing';
+@use '../../../design-system/settings/border';
+@import '../../../design-system/settings/breakpoints';
+@import '../../../design-system/settings/colors';
+
+
+.credits {
+  height: 100%;
+  background-color: colors.$green;
+  color: colors.$cream;
+  padding: spacing.$pd__mb--big;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  gap: 1rem;
+  position: sticky;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 0;
+
+  @include mobile() {
+    padding: spacing.$pd__dk--xs spacing.$pd__dk--small;
+  gap: 2rem;
+
+  }
+
+  p {
+    font-family: "Eklektyk";
+    font-size: 1.7rem;
+  }
+
+  &__sect {
+    display: flex;
+
+    &--up {
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: space-between;
+
+
+      @include tablet() {
+        flex-direction: row;
+        div {
+          width: 70ch;
+        }
+      }
+
+      p {
+        font-size: 3rem;
+
+        @include tablet() {
+          font-size: 3.5rem;
+        }
+      }
+    }
+
+    &--down {
+      flex-direction: column;
+      gap: 1rem;
+      @include tablet() {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+  }
+}

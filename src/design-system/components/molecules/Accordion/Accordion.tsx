@@ -2,7 +2,7 @@ import { Divider } from '../../atoms/Divider';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { AccordionItem } from './AccordionItem';
 import styles from './Accordion.module.scss';
-import features from '../../../../koduq/core/data/FeaturesSect.json';
+import features from '../../../../koduc/core/data/FeaturesSect.json';
 import gsap from 'gsap';
 import { expandWidthOnScroll, slidesUpOnScroll } from '../../../animations/gsap';
 

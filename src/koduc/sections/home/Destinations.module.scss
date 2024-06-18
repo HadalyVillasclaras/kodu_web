@@ -1,0 +1,30 @@
+@use "../../../design-system/settings/spacing";
+@use "../../../design-system/settings/border";
+@use "../../../design-system/settings/colors";
+@import "../../../design-system/settings/breakpoints";
+
+.destinations__wpr {
+  padding: 12rem 0;
+}
+
+.destinations {
+  &__header {
+    text-align: center;
+    padding: 0 spacing.$pd__mb--small;
+    margin-bottom: spacing.$pd__mb--big;
+    @include tablet() {
+      padding: 0 spacing.$pd__dk--small ;
+      text-align: left;
+      margin-bottom: spacing.$pd__dk--small;
+
+    }
+  }
+
+  &__sect-swipe {
+    padding: 0 spacing.$pd__mb--small;
+    margin-bottom: spacing.$pd__mb--big;
+
+    width: 100%;
+    height: 80vh;
+  }
+}

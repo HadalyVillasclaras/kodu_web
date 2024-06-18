@@ -1,0 +1,51 @@
+@use "../../../../design-system/settings/spacing";
+@use "../../../../design-system/settings/border";
+@use "../../../../design-system/settings/colors";
+@import "../../../../design-system/settings/breakpoints";
+
+.care-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  @include tablet() {
+  min-height: 100vh;
+  }
+
+  @include desktop() {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__elm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    width: 100%;
+
+    @include desktop() {
+      flex-basis: 30vw;
+    }
+
+    &:nth-child(2) {
+      height: 60vh;
+      display: none;
+      @include desktop() {
+        height: 70%;
+        display: block;
+      }
+    }
+  
+    img {
+      border-radius: border.$radius--mid;
+      object-fit: cover;
+      object-position: bottom;
+    }
+  }
+}
